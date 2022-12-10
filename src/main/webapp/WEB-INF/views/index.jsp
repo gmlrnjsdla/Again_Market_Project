@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@ include file="include/leftBar.jsp" %>
+<center>
 	화이팅!
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</center>
+
 </body>
 </html>

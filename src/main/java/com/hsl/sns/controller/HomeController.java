@@ -10,5 +10,9 @@ public class HomeController {
 	public String sideBar() {
 		return "leftBar";
 	}
+	@RequestMapping(value = "login")
+	public String login() {
+		return "login";
+	}
 	
 }

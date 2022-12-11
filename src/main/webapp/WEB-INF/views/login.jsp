@@ -12,11 +12,11 @@
 </head>
 <body>
 <center>
-	<form>
 	<div class="login_outbox">
+	<form>
 	<div class="login_no1">
 			<img id="logo" src="${pageContext.request.contextPath}/resources/img/logo.png"
-			 width="350" height="230" align="center" border="0">
+			 width="350" height="180" align="center" border="0">
 	
 	    <div class="mb-2">
 	      <input type="text" id="#" class="btn_login_no1" placeholder="전화번호, 사용자 이름 또는 이메일">

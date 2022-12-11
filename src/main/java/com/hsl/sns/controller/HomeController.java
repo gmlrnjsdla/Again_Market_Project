@@ -11,4 +11,9 @@ public class HomeController {
 		return "leftBar";
 	}
 	
+	@RequestMapping(value = "index")
+	public String index() {
+		return "index";
+	}
+	
 }

@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+body{
+	margin:0px;
+	padding:0px;
+}
+
+.col{
+	width:35%;
+	margin-left:700px;
+	margin-top:170px;
+}
+
+.carousel-item{
+	width:800px;
+	height:400px;
+}
+
+.card_text{
+	font-size:17px;
+	font-weight: bold;
+}

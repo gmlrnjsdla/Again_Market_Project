@@ -1,6 +1,24 @@
 @charset "UTF-8";
 
-
+     .hr_sect {
+        display: flex;
+        flex-basis: 100%;
+        align-items: center;
+        color: rgba(0, 0, 0, 0.35);
+        font-size: 15px;
+        margin: 0px 25px 10px 25px;
+      }
+      .hr_sect::before,
+      .hr_sect::after {
+        content: "";
+        flex-grow: 1;
+        background: rgba(0, 0, 0, 0.35);
+        height: 1px;
+        font-size: 0px;
+        
+        line-height: 0px;
+        margin: 0px 16px;
+      }
 
 .btn-gradient {
   text-decoration: none;
@@ -40,6 +58,7 @@ div.login_no1 {
 .btn{
 	margin-left: auto;
 	margin-right: auto;
+	margin-top:15px;
 	text-decoration: none;
 	width:80%;
     color: white;
@@ -49,7 +68,7 @@ div.login_no1 {
   	border-radius: 4px;
 	background-color:#BBE4F6;
 	font-weight: bold;
-	font-size: 17px;
+	font-size: 15px;
 	font-family: sans-serif;
 }
 
@@ -59,7 +78,7 @@ div.login_no1 {
 	margin-right: auto;
 	text-decoration: none;
 	width:80%;
-  	padding: 10px 30px;
+  	padding: 10px;
   	display: inline-block;
   	position: relative;
   	border-radius: 4px;
@@ -103,14 +122,15 @@ input::placeholder {
 	border:2px solid #dddddd; 
 	border-radius:15px;
 	font-family: sans-serif;
-	font-size: 15px;
+	font-size: 18px;
+	color: #8c8c8c;
 	 
 }
 
 .wqb_write{
 	margin:10px 0 10px 0; 
 	color:#8c8c8c;
-	font-size: 19px;
+	font-size: 17px;
 	font-weight: bold;
 	font-family: sans-serif;
 }
@@ -136,3 +156,7 @@ a{
 	text-decoration: none;
 	
 }
+.btn:hover{
+	color:white;
+       background-color:skyblue;
+       }

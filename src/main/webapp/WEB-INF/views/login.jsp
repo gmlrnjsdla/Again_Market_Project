@@ -31,6 +31,9 @@
 		 <div class="d-grid gap-2">
   			<input class="btn" type="button" value="로그인"/>
 		</div>
+		<div class="d-grid gap-2">
+  			<input class="btn" type="button" value="회원가입"/>
+		</div>
 		<div>
 			<input class="btn_searchId" type="button" value="아이디 찾기"/>
 		</div>
@@ -40,9 +43,7 @@
 	</form>
 		
 	</div>
-	<div>
-		<input class="btn_member_jion" type="button" value="회원가입 하기"/>
-	</div>
+
 	<div class="wqb_write">
 		앱을 다운로드하세요.	
 	</div>

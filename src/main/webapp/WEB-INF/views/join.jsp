@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+<link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/login/join.css">
 
@@ -25,10 +27,10 @@
 		<div class="facebook">
   			<a href="https://ko-kr.facebook.com/"><img src="${pageContext.request.contextPath}/resources/img/facebook.png"
 		 	width="330" height="35" align="center" border="0"></a>
-		</div>
+		</div><br>
 		
-		<br>또는
-	    <div class="mb-2">
+		<div class="hr_sect">또는</div>
+	    <div class="mb-3">
 	      <input type="text" id="#" class="btn_login_no1" placeholder="휴대폰 번호 또는 이메일 주소">
 	    </div>
 	    <div class="mb-3">
@@ -51,7 +53,7 @@
 	</form>
 	</div>
 	<div class="btn_member_jion">
-		계정이 있으신가요?<a href="/login">로그인</a>
+		계정이 있으신가요?<a href="/login">&nbsp;&nbsp;로그인</a>
 	</div>
 	<div class="wqb_write">
 		앱을 다운로드하세요.	

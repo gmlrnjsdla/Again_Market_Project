@@ -23,6 +23,7 @@
     	z-index: 200;
     	padding-left:200px;
     	padding-top:100px;
+    	
     }
     
     .title{
@@ -30,7 +31,7 @@
 		font-style:italic;
 		font-size:30px;
 		font-weight:bold;
-		margin-left:25px;
+		margin-left:15px;
     }
     
     .dropend{
@@ -39,7 +40,7 @@
     
     .dropend ul{
     	width:300px;
-    	height: 450px;
+    	height: 600px;
     }
      
      .sidebar a:link {
@@ -52,8 +53,13 @@
 		text-decoration: none;
 		color: #000000;
 	}
-
-	.sidebar a:hover {
+	
+	.offcanvas-body li:hover{
+		text-decoration: underline;
+		color: #000000;
+	}
+	
+	.nav-item:hover{
 		text-decoration: underline;
 		color: #000000;
 	}
@@ -63,11 +69,24 @@
 		color: #000000;
 	}
 	
+	
 	.sidebar svg,img{
 		margin-bottom:10px;
 	}
 	
+	.offcanvas-body{
+		padding-right:60px;
+	}
+	
  	.nav-item{
  		width:252px;
+ 	}
+ 	
+ 	li{
+ 		list-style-type: none;
+ 	}
+ 
+ 	.offcanvas-title{
+ 		padding-left:40px;
  	}
  

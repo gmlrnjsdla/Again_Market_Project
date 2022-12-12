@@ -32,6 +32,10 @@
 		font-weight:bold;
 		margin-left:25px;
     }
+    
+    .dropend{
+    	margin-left:18px;
+    }
      
      .sidebar a:link {
 		text-decoration: none;

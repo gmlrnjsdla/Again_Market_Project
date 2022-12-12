@@ -6,22 +6,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
-	@RequestMapping(value = "leftBar")
+	@RequestMapping(value = "/leftBar")
 	public String sideBar() {
 		return "leftBar";
 	}
-	@RequestMapping(value = "login")
+	@RequestMapping(value = "/login")
 	public String login() {
 		return "login";
 	}
-	@RequestMapping(value = "join")
+	@RequestMapping(value = "/join")
 	public String join() {
 		return "join";
 	}
-	
-	@RequestMapping(value = "index")
+	@RequestMapping(value = "/index")
 	public String index() {
 		return "index";
 	}
+	
 	
 }

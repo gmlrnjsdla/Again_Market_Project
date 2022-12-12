@@ -10,7 +10,7 @@
 </head>
 <body>
 <%@ include file="include/leftBar.jsp" %>
-<div class="content">
+<div class="friend">
 
 
 <!--  상단 친구프로필 --> 
@@ -21,8 +21,10 @@
   </div>
 	
 </div>
+</div>
 
 <!--컨텐츠 사진 -->
+<div class="content">
 <div class="card" style="width: 500px;">
 <div class="card-body">
 <img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">게시자 ID<br>
@@ -51,6 +53,43 @@
 </div>
 
 </div>
+
+
+
+
+<!--컨텐츠 사진 -->
+<div class="content">
+<div class="card" style="width: 500px;">
+<div class="card-body">
+<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">게시자 ID<br>
+<hr>
+  <img src="${pageContext.request.contextPath }/resources/img/content.jpg" class="card-img-top" alt="...">
+  
+  
+  <div class="card-body">
+   content :오늘하루 참힘들었다.
+  <hr>
+  <p class="fs-6"></p>
+  <!--댓글표시 -->
+    
+    <p class="card-text">guestID : 참좋아요</p>
+    <p class="card-text">guestID : 참좋아요</p>
+    <p class="card-text">guestID : 참좋아요</p>
+    <p class="card-text">guestID : 참좋아요</p>
+    
+  </div>
+  <div class="hstack gap-3">
+	  <input class="form-control me-auto" type="text" placeholder="댓글 입력 ..." aria-label="">
+	  <button type="button" class="btn btn-light">edit</button>
+	  
+</div>
+</div>
+</div>
+
+</div>
+
+
+
 <%@ include file="include/footer.jsp" %>
 </body>
 </html>

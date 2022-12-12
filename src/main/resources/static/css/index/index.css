@@ -1,6 +1,11 @@
 @charset "UTF-8";
 
 .content{
-      	padding-top:100px;
-      	padding-left:750px;
+     padding-top:30px;
+     padding-left:750px;
+}
+
+.friend{
+	 padding-top:100px;
+     padding-left:750px;
 }

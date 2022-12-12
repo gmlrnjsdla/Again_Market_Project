@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +18,7 @@
 </head>
 <body>
 	<div class="sidebar">
-	<div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 300px; height:700px; border:1px solid #dddddd; border-radius:15px;">
+	<div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 270px; height:700px; border:1px solid #dddddd; border-radius:15px;">
 	
     <a href="index"><span class="title">SNS_Project</span></a>
     <hr>
@@ -34,34 +35,26 @@
       <!-- 검색 -->
       <li class="nav-item">
         <div class="dropend">
-      <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
-          <span style="font-size:20px; font-weight:bold;">&nbsp;검색</span>
-      </a>
-      <ul class="dropdown-menu text-small shadow">
-      <form class="p-2 mb-2 bg-light border-bottom">
-      <input type="search" class="form-control" autocomplete="false" placeholder="Type to filter...">
-    	</form>
-        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
-        <span class="d-inline-block bg-success rounded-circle p-1"></span>
-        Action
-      </a></li>
-      <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
-        <span class="d-inline-block bg-primary rounded-circle p-1"></span>
-        Another action
-      </a></li>
-      <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
-        <span class="d-inline-block bg-danger rounded-circle p-1"></span>
-        Something else here
-      </a></li>
-      <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
-        <span class="d-inline-block bg-info rounded-circle p-1"></span>
-        Separated link
-      </a></li>
-      </ul>
-    </div>
+	      	<a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+		        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+	            <span style="font-size:20px; font-weight:bold;">&nbsp;검색</span>
+      		</a>
+	      <ul class="dropdown-menu text-small shadow">
+	      <form class="p-2 mb-2 bg-light border-bottom">
+	      <input type="search" class="form-control" autocomplete="true" placeholder="Type to filter...">
+	      </form>
+	    		<c:forEach begin="1" end="5">
+		        <li>
+			        <a href="#" class="dropdown-item d-flex align-items-center gap-2 py-2" >
+			        <img src="https://github.com/mdo.png" alt="" width="23" height="23" class="rounded-circle me-2">
+			        <span>홍길동</span>
+			        </a>
+		        </li>
+		        </c:forEach>
+	      </ul>
+    	</div>
       </li>
-      
+      <!-- 검색 -->
       
       <br>
       <li class="nav-item">
@@ -71,11 +64,31 @@
         </a>
       </li>
       <br>
+      
+      
+      
       <li class="nav-item">
-        <a href="#" class="nav-link link-dark">
-          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16"><path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/></svg>
+        <div class="dropend">
+	      	<a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+		        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16"><path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/></svg>
           <span style="font-size:20px; font-weight:bold;">&nbsp;메시지</span>
-        </a>
+      		</a>
+	      <ul class="dropdown-menu text-small shadow">
+	      <form class="p-2 mb-2 bg-light border-bottom">
+	      <input type="search" class="form-control" autocomplete="true" placeholder="Type to filter...">
+	      </form>
+	    		<c:forEach begin="1" end="5">
+		        <li>
+		        <a href="#" class="dropdown-item d-flex align-items-center gap-2 py-2" >
+			        <img src="https://github.com/mdo.png" alt="" width="23" height="23" class="rounded-circle me-2">
+			        <span>홍길동</span>
+			        
+			        
+			        </a>
+		        </li>
+		        </c:forEach>
+	      </ul>
+    	</div>
       </li>
       <br>
       <li class="nav-item">

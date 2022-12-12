@@ -36,6 +36,11 @@
     .dropend{
     	margin-left:18px;
     }
+    
+    .dropend ul{
+    	width:300px;
+    	height: 450px;
+    }
      
      .sidebar a:link {
 		text-decoration: none;
@@ -52,4 +57,17 @@
 		text-decoration: underline;
 		color: #000000;
 	}
+	
+	.sidebar .dropend:hover {
+		text-decoration: underline;
+		color: #000000;
+	}
+	
+	.sidebar svg,img{
+		margin-bottom:10px;
+	}
+	
+ 	.nav-item{
+ 		width:252px;
+ 	}
  

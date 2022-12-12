@@ -10,6 +10,7 @@
 </head>
 <body>
 <%@ include file="include/leftBar.jsp" %>
+<%@ include file="include/rightBar.jsp" %>
 <div class="friend">
 
 

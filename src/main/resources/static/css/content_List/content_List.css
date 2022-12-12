@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+.content_List{
+     padding-top:100px;
+     padding-left:750px;
+}
+.content_font{
+    font-size: 14px;
+	color: #808040;
+	font-family: Arial;
+	text-align: center;
+}
+.profile01{
+    font-size: 25px;
+	color: #808040;
+	font-family: Arial;
+	text-align: left;
+}
+.profile02{
+    font-size: 18px;
+	color: #808040;
+	font-family: Arial;
+	text-align: left;
+	padding-bottom: 0px;
+}	
+.profile03{
+    font-size: 16px;
+	color: #21498b;
+	font-family: Arial;
+	text-align: left;
+	padding-top: 0px;
+	margin-top:0px; 
+	
+	
+}

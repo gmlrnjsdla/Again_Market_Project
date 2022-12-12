@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/sidebar/sidebar.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
@@ -15,17 +15,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div class="sidebar">
-	<aside>
-  
+	<div class="sidebar">
 	<div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 300px; height:700px; border:1px solid #dddddd; border-radius:15px;">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-      <span class="title">SNS_Project</span>
-    </a>
+	
+    <a href="index"><span class="title">SNS_Project</span></a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
+    	
       <li class="nav-item">
-        <a href="#" class="nav-link link-dark" aria-current="page"> <!-- nav-link active 파랑칠 -->
+        <a href="/" class="nav-link link-dark" aria-current="page"> <!-- nav-link active 파랑칠 -->
           <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16"><path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/></svg>
           <span style="font-size:20px; font-weight:bold;">&nbsp;홈</span>
         </a>
@@ -82,6 +80,8 @@
       <br>
     </ul>
     <hr>
+    
+    
     <div class="dropup">
       <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
         <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
@@ -98,8 +98,10 @@
         <li><a class="dropdown-item" href="#">로그아웃</a></li>
       </ul>
     </div>
+    
+    
   </div>
-  </aside>
+  
   </div>
 </body>
 </html>

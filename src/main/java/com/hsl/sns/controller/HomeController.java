@@ -10,6 +10,14 @@ public class HomeController {
 	public String sideBar() {
 		return "leftBar";
 	}
+	@RequestMapping(value = "login")
+	public String login() {
+		return "login";
+	}
+	@RequestMapping(value = "join")
+	public String join() {
+		return "join";
+	}
 	
 	@RequestMapping(value = "index")
 	public String index() {

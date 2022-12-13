@@ -6,3 +6,9 @@
 		
 }
 
+.col-form-label{
+	float:left;
+	text-align: right;
+	font-weight: bold;
+}
+

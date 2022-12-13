@@ -22,6 +22,10 @@ public class HomeController {
 	public String index() {
 		return "index";
 	}
+	@RequestMapping(value = "/chat")
+	public String chat() {
+		return "chat";
+	}
 	
 
 	@RequestMapping(value = "content_List")

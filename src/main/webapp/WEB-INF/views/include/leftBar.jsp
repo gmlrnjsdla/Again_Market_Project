@@ -13,7 +13,6 @@
 
 
 
-
 <title>Insert title here</title>
 </head>
 <body>
@@ -80,47 +79,15 @@
       
       
       
+      
       <!--##################################### 메시지 #####################################-->
      <li class="nav-item">
-     	<div class="dropend">
-	     <a href="#offcanvasExample" class="d-flex align-items-center link-dark text-decoration-none" data-bs-toggle="offcanvas" role="button" aria-controls="offcanvasExample">
-			  <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16"><path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/></svg>
-			  <span style="font-size:20px; font-weight:bold;">&nbsp;메시지</span>
-	 	 </a>
-	 	</div>
- 	 </li>
-
- 	<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-  		<div class="offcanvas-header">
-    		<h5 class="offcanvas-title" id="offcanvasExampleLabel">
-    		<svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16"><path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/></svg>
-    		메시지 보내기
-    		</h5>
-    		<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  		</div>
-  	<div class="offcanvas-body">
-  		<ul class="text-small flex-column">
-    	<form >
-      		<input type="search" class="form-control" autocomplete="true" placeholder="Type to filter...">
-    	</form>
-    	<br>
-  		<c:forEach begin="1" end="20">
-	        <li class = "user">
-	        	<a href="#" class="dropdown-item d-flex align-items-center gap-2 py-2" >
-		        <img src="https://github.com/mdo.png" alt="" width="23" height="23" class="rounded-circle me-2">
-		        <span>홍길동</span>
-		        <span>
-			        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-plus-fill" viewBox="0 0 16 16" >
-					  <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 1.59 2.498C8 14 8 13 8 12.5a4.5 4.5 0 0 1 5.026-4.47L15.964.686Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
-					  <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 0 0 1 0v-1h1a.5.5 0 0 0 0-1h-1v-1a.5.5 0 0 0-.5-.5Z"/>
-					</svg>
-				</span>
-		        </a>
-	        </li>
-    	</c:forEach>
-    	</ul>
-  	</div>
-	</div>
+        <a href="/chat" class="nav-link link-dark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16"><path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/></svg>
+		  <span style="font-size:20px; font-weight:bold;">&nbsp;메시지</span>
+        </a>
+     </li>
+      
       <!--##################################### 메시지 끝 #####################################-->
       
       

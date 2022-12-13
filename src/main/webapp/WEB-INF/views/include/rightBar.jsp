@@ -14,12 +14,12 @@
 <div class="card-body"> 
    	<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="70" height="70" alt="...">
    		<span style="font-size:16px; font-weight:bold;">MainID</span><br>
-		<hr>회원님을 위한 추천<br>
+		<hr><span style="font-size:16px; font-weight:bold; text-align: center;">회원님을 위한 추천</span><br><br>
 		
   	
   		<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="60" height="60" alt="...">
    		<span style="font-size:16px; font-weight:bold;">guestID</span>
-   		<a href="#"  type="submit">팔로우 </a>
+   		<a class="follow" href="#"  type="submit">팔로우 </a>
    		<br>
    		<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="60" height="60" alt="...">
    		<span style="font-size:16px; font-weight:bold;">guestID</span>

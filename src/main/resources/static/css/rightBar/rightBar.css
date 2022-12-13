@@ -1,7 +1,19 @@
 @charset "UTF-8";
 .recommend{
 	position:fixed;
+<<<<<<< HEAD
 	z-index: 200;
     padding-left:1400px;
    	padding-top:100px;
+=======
+      	padding-left:1400px;
+      	padding-top:100px;
+		
+}
+
+.follow{
+	text-align: right;
+      	
+		
+>>>>>>> refs/remotes/origin/hwang
 }

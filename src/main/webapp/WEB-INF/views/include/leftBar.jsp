@@ -16,6 +16,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<%
+		String sid = (String) session.getAttribute("sessionId");
+	%>
+
+
 	<div class="sidebar">
 	<div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 270px; height:700px; border:1px solid #dddddd; border-radius:15px;">
 	
@@ -70,7 +76,7 @@
       
       <br>
       <li class="nav-item">
-        <a href="/content_List" class="nav-link link-dark">
+        <a href="/content_List?mid=<%=sid %>" class="nav-link link-dark">
           <img src="https://github.com/mdo.png" alt="" width="23" height="23" class="rounded-circle me-2">
           <span style="font-size:20px; font-weight:bold;">프로필</span>
         </a>
@@ -141,7 +147,7 @@
         <li><a class="dropdown-item" href="#">신고</a></li>
         <li><a class="dropdown-item" href="#">내 활동</a></li>
         <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">로그아웃</a></li>
+        <li><a class="dropdown-item" href="/logout">로그아웃</a></li>
       </ul>
     </div>
     

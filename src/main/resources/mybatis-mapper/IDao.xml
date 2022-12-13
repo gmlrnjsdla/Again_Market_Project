@@ -7,9 +7,17 @@
 <mapper namespace="com.hsl.sns.dao.IDao">
 	
 	<insert id="joinMemberDao">
-		INSERT INTO member_sns(mid,mpw,mphone,mname,mnickname,memail) 
+		INSERT INTO member_sns(mid, mpw, mphone, mname, mnickname, memail) 
 		VALUES(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6})
 	</insert>
+	
+	<select id="memberInfoDao" resultType="com.hsl.sns.dto.MemberDto">
+		SELECT * FROM member_sns WHERE mid=#{param1}
+	</select>
+	
+	<select id="memberListDao" resultType="com.hsl.sns.dto.MemberDto">
+		SELECT * FROM member_sns WHERE mid NOT IN (#{param1})
+	</select>
 	
 </mapper>
 	

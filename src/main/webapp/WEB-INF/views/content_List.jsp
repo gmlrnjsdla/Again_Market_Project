@@ -19,7 +19,7 @@
   <table border="0" cellpadding= "0px" width="100%" height="30%">
   	<tr colspan="3">
   		<td width="40%" rowspan="4" align="center"><img class ="rounded-circle me-2" src="${pageContext.request.contextPath }/resources/img/content.jpg" alt="..." width="120" height="120" ></td>
-  		<td height="20%" colspan="3" ><div class = "profile01">Heekwon_dla
+  		<td height="20%" colspan="3" ><div class = "profile01"><%=sid %>
    		<a href="memberModify"> <button type="button" class="btn btn-outline-secondary" 
           style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
   		 프로필편집
@@ -32,7 +32,7 @@
   		<td class = "profile02">팔로우 100</td>
   	</tr>
   	<tr>
-  		<td class = "profile02" height="15%" colspan="3">임희권</td>
+  		<td class = "profile02" height="15%" colspan="3">${mname}</td>
   		
   	</tr>
   	<tr>

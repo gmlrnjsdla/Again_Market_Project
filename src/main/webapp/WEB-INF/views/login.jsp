@@ -7,13 +7,13 @@
 <title>Insert title here</title>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/login/login.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/memberJoin/login.css">
 
 </head>
 <body>
 <center>
 	<div class="login_outbox">
-	<form>
+	<form action="">
 	<div class="login_no1">
 			<img id="logo" src="${pageContext.request.contextPath}/resources/img/logo.png"
 			 width="350" height="180" align="center" border="0">
@@ -29,10 +29,10 @@
 	      
 	    </div>
 		 <div class="d-grid gap-2">
-  			<input class="btn" type="button" value="로그인"/>
+  			<input class="btn" type="submit" value="로그인">
 		</div>
 		<div class="d-grid gap-2">
-  			<input class="btn" type="button" value="회원가입"/>
+  			<input class="btn" type="button" value="회원가입" onclick="script:window.location='join'">
 		</div>
 		<div>
 			<input class="btn_searchId" type="button" value="아이디 찾기"/>

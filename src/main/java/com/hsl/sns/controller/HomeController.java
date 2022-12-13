@@ -27,4 +27,8 @@ public class HomeController {
 	public String joinOk() {
 		return "joinOk";
 	}
+	@RequestMapping(value = "memberModify")
+	public String memberModify() {
+		return "memberModify";
+	}
 }

@@ -51,9 +51,8 @@
    		<!-- 컨텐츠 리스트 -->
    		<hr>
    		<div class="row">
-  			
   			<div class="col-md-4"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="70" height="220" class="card-img-top" alt="...">
-  			<div class = "content_font">-오늘 하루 힘들었다-</div></a></div>
+  			<div class = "content_font">오늘은 안녕</div></a></div>
   			<div class="col-md-4"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="70" height="220" class="card-img-top" alt="...">
   			<div class = "content_font">오늘은 안녕</div></a></div>
   			<div class="col-md-4"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="70" height="220" class="card-img-top" alt="...">

@@ -1,10 +1,23 @@
 @charset "UTF-8";
 
 .content_write_form01{
+     float:left;
      padding-top:100px;
      padding-left:750px;
 }
 .content_write_form02{
+		
      padding-top:100px;
-     padding-left:1200px;
+     padding-left:1160px;
 }
+
+.image_align{
+      margin-top:300px;
+      margin-left:150px;
+
+   
+}
+
+
+
+

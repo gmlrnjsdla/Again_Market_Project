@@ -20,7 +20,7 @@
   	<tr colspan="3">
   		<td width="40%" rowspan="4" align="center"><img class ="rounded-circle me-2" src="${pageContext.request.contextPath }/resources/img/content.jpg" alt="..." width="120" height="120" ></td>
   		<td height="20%" colspan="3" ><div class = "profile01">Heekwon_dla
-   		<a href="#"> <button type="button" class="btn btn-outline-secondary" 
+   		<a href="memberModify"> <button type="button" class="btn btn-outline-secondary" 
           style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
   		 프로필편집
 		</button></a>

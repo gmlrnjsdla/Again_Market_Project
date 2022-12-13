@@ -17,7 +17,7 @@ div.login_outbox{
 	margin-top:50px;
 	margin-bottom:auto;
 	width: 465px; 
-	height:800px; 
+	height:750px; 
 	border:6px solid #f6f6f6; 
 	background-color:#f6f6f6;
 	border-radius:15px
@@ -44,10 +44,12 @@ div.login_no1 {
   	display: inline-block;
   	position: relative;
   	border-radius: 4px;
-	background-color:#BBE4F6;
+	background-color:skyblue;
 	font-weight: bold;
-	font-size: 17px;
+	font-size: 15px;
 	font-family: sans-serif;
+	margin-bottom: 10px;
+	
 }
 
 .btn_login_no1{
@@ -78,6 +80,7 @@ input::placeholder {
 	font-size: 12px;
 	font-weight: bold;
 	font-family: sans-serif;
+	color: #8c8c8c;
 }
 
 .btn_searchPw{
@@ -89,19 +92,10 @@ input::placeholder {
 	font-size: 12px;
 	font-weight: bold;
 	font-family: sans-serif;
+	color: #8c8c8c;
 }
 
-.btn_member_jion{
-	margin-top:10px;
-	background-color: white;
-	width: 450px; 
-	height:80px; 
-	border:2px solid #dddddd; 
-	border-radius:15px;
-	font-family: sans-serif;
-	font-size: 12px;
-	font-weight: bold;
-}
+
 
 .wqb_write{
 	margin:30px 0 30px 0; 
@@ -116,3 +110,7 @@ input::placeholder {
 	padding:15px;
 	padding-bottom: 15px;
 }
+.btn:hover{
+	color:white;
+       background-color:rgb(84, 184, 226);
+       }

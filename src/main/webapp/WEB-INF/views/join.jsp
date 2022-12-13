@@ -10,12 +10,13 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/member/join.css">
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/join.js"></script>
 
 </head>
 <body>
 <center>
 	<div class="login_outbox">
-	<form>
+	<form action="joinOk" method="post" name="join_frm">
 	<div class="login_no1">
 			<img id="logo" src="${pageContext.request.contextPath}/resources/img/logo.png"
 			 width="350" height="180" align="center" border="0">
@@ -30,17 +31,23 @@
 		</div><br>
 		
 		<div class="hr_sect">또는</div>
-	    <div class="mb-3">
-	      <input type="text" id="#" class="btn_login_no1" placeholder="휴대폰 번호 또는 이메일 주소">
-	    </div>
-	    <div class="mb-3">
-	      <input type="text" id="#" class="btn_login_no1" placeholder="성명">
+		<div class="mb-3">
+	      <input type="text" id="#" class="btn_login_no1" placeholder="아이디" name="mid">
 	    </div>
 		<div class="mb-3">
-	      <input type="text" id="#" class="btn_login_no1" placeholder="사용자 이름">
+	      <input type="text" id="#" class="btn_login_no1" placeholder="비밀번호" name="mpw">
 	    </div>
 	    <div class="mb-3">
-	      <input type="text" id="#" class="btn_login_no1" placeholder="비밀번호">
+	      <input type="text" id="#" class="btn_login_no1" placeholder="휴대폰" name="mphone">
+	    </div>
+	    <div class="mb-3">
+	      <input type="text" id="#" class="btn_login_no1" placeholder="성명" name="mname">
+	    </div>
+		<div class="mb-3">
+	      <input type="text" id="#" class="btn_login_no1" placeholder="닉네임" name="mnickname">
+	    </div>
+	    <div class="mb-3">
+	      <input type="text" id="#" class="btn_login_no1" placeholder="이메일" name="memail">
 	    </div>
 		<div class="wqb_write2">
 		저희 서비스를 이용하는 사람이 회원님의 연락처<br>
@@ -48,7 +55,7 @@
 		알아보기</span>
 		</div>
 		 <div class="d-grid gap-2">
-  			<input class="btn" type="button" value="가입"/>
+  			<input class="btn" type="button" value="가입" onclick="joinCheck()">
 		</div>
 	</form>
 	</div>

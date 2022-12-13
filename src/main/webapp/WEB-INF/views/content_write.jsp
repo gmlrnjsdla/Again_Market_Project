@@ -13,7 +13,7 @@
 
 
 <div class="content_write_form01">
-<div class="card" style="width: 400px; height:700px; border:1px solid #dddddd; border-radius:5px; background-color:#f1f1f1 ">
+<div class="card" style="width: 400px; height:700px; border:1px solid #dddddd; border-radius:5px; background-color:#FBFBFB ">
   <div class="card-body" > 
  	<!-- 컨텐츠 사진입력 -->
   	<img class="image_align" src="${pageContext.request.contextPath }/resources/img/add_image.png" alt="..." width="75" height="75" onclick=document.all.file.click();></td>

@@ -28,5 +28,9 @@ public class HomeController {
 	public String content_List() {
 		return "content_List";
 	}
+	@RequestMapping(value = "content_write")
+	public String content_write() {
+		return "content_write";
+	}
 	
 }

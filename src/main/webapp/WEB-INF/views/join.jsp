@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/member/join.css">
-<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/join.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/join/join.js"></script>
 
 </head>
 <body>

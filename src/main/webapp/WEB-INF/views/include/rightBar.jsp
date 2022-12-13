@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/recommend/recommend.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/rightBar/rightBar.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>

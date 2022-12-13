@@ -15,7 +15,7 @@
 
 
 <!--  상단 친구프로필 --> 
-<div class="card" style="width: 500px; height:150px; border:1px solid #dddddd; border-radius:5px;">
+<div class="card" style="width: 630px; height:150px; border:1px solid #dddddd; border-radius:5px;">
   <div class="card-body"> 
    	<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="70" height="70" alt="..."><br>
    		<span style="font-size:16px; font-weight:bold;">guestID</span>
@@ -26,7 +26,7 @@
 
 <!--컨텐츠 사진 -->
 <div class="content">
-<div class="card" style="width: 500px;">
+<div class="card" style="width: 630px;">
 <div class="card-body">
 <img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">게시자 ID<br>
 <hr>

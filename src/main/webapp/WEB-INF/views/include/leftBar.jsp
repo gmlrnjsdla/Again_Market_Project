@@ -1,42 +1,74 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/sidebar/sidebar.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
 
 
 
 <title>Insert title here</title>
 </head>
 <body>
-<div class="sidebar">
-	<aside>
-  
-	<div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 300px; height:700px; border:1px solid #dddddd; border-radius:15px;">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-      <span class="title">SNS_Project</span>
-    </a>
+	<div class="sidebar">
+	<div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 270px; height:700px; border:1px solid #dddddd; border-radius:15px;">
+	
+    <a href="index"><span class="title">SNS_Project</span></a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
+    	
       <li class="nav-item">
-        <a href="#" class="nav-link link-dark" aria-current="page"> <!-- nav-link active 파랑칠 -->
+        <a href="/" class="nav-link link-dark" aria-current="page"> <!-- nav-link active 파랑칠 -->
           <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16"><path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/></svg>
           <span style="font-size:20px; font-weight:bold;">&nbsp;홈</span>
         </a>
       </li>
       <br>
+      
+      <!--##################################### 검색 #####################################-->
       <li class="nav-item">
-        <a href="#" class="nav-link link-dark">
-          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
-          <span style="font-size:20px; font-weight:bold;">&nbsp;검색</span>
-        </a>
-      </li>
+     	<div class="dropend">
+	     <a href="#offcanvasExample1" class="d-flex align-items-center link-dark text-decoration-none" data-bs-toggle="offcanvas" role="button" aria-controls="offcanvasExample">
+			  <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+	            <span style="font-size:20px; font-weight:bold;">&nbsp;검색</span>
+	 	 </a>
+	 	</div>
+ 	 </li>
+
+ 	<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample1" aria-labelledby="offcanvasExampleLabel">
+  		<div class="offcanvas-header">
+    		<h5 class="offcanvas-title" id="offcanvasExampleLabel">
+    		<svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+    		계정 검색 
+    		</h5>
+    		<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  		</div>
+  	<div class="offcanvas-body">
+  		<ul class="text-small flex-column">
+    	<form >
+      		<input type="search" class="form-control" autocomplete="true" placeholder="Type to filter...">
+    	</form>
+    	<br>
+  		<c:forEach begin="1" end="5">
+	        <li>
+	        	<a href="#" class="dropdown-item d-flex align-items-center gap-2 py-2">
+		        <img src="https://github.com/mdo.png" alt="" width="23" height="23" class="rounded-circle me-2">
+		        <span>홍길동</span>
+		        </a>
+	        </li>
+    	</c:forEach>
+    	</ul>
+  	</div>
+	</div>
+      <!--##################################### 검색 끝 ##################################### -->
+      
       <br>
       <li class="nav-item">
         <a href="#" class="nav-link link-dark">
@@ -45,12 +77,54 @@
         </a>
       </li>
       <br>
-      <li class="nav-item">
-        <a href="#" class="nav-link link-dark">
-          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16"><path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/></svg>
-          <span style="font-size:20px; font-weight:bold;">&nbsp;메시지</span>
-        </a>
-      </li>
+      
+      
+      
+      <!--##################################### 메시지 #####################################-->
+     <li class="nav-item">
+     	<div class="dropend">
+	     <a href="#offcanvasExample" class="d-flex align-items-center link-dark text-decoration-none" data-bs-toggle="offcanvas" role="button" aria-controls="offcanvasExample">
+			  <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16"><path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/></svg>
+			  <span style="font-size:20px; font-weight:bold;">&nbsp;메시지</span>
+	 	 </a>
+	 	</div>
+ 	 </li>
+
+ 	<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  		<div class="offcanvas-header">
+    		<h5 class="offcanvas-title" id="offcanvasExampleLabel">
+    		<svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16"><path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/></svg>
+    		메시지 보내기
+    		</h5>
+    		<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  		</div>
+  	<div class="offcanvas-body">
+  		<ul class="text-small flex-column">
+    	<form >
+      		<input type="search" class="form-control" autocomplete="true" placeholder="Type to filter...">
+    	</form>
+    	<br>
+  		<c:forEach begin="1" end="20">
+	        <li class = "user">
+	        	<a href="#" class="dropdown-item d-flex align-items-center gap-2 py-2" >
+		        <img src="https://github.com/mdo.png" alt="" width="23" height="23" class="rounded-circle me-2">
+		        <span>홍길동</span>
+		        <span>
+			        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-plus-fill" viewBox="0 0 16 16" >
+					  <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 1.59 2.498C8 14 8 13 8 12.5a4.5 4.5 0 0 1 5.026-4.47L15.964.686Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+					  <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 0 0 1 0v-1h1a.5.5 0 0 0 0-1h-1v-1a.5.5 0 0 0-.5-.5Z"/>
+					</svg>
+				</span>
+		        </a>
+	        </li>
+    	</c:forEach>
+    	</ul>
+  	</div>
+	</div>
+      <!--##################################### 메시지 끝 #####################################-->
+      
+      
+      
       <br>
       <li class="nav-item">
         <a href="#" class="nav-link link-dark">
@@ -82,6 +156,14 @@
       <br>
     </ul>
     <hr>
+   
+   
+  	
+   
+   
+   
+   
+    
     <div class="dropup">
       <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
         <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
@@ -98,8 +180,10 @@
         <li><a class="dropdown-item" href="#">로그아웃</a></li>
       </ul>
     </div>
+    
+    
   </div>
-  </aside>
+  
   </div>
 </body>
 </html>

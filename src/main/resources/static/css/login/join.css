@@ -66,7 +66,7 @@ div.login_no1 {
   	display: inline-block;
   	position: relative;
   	border-radius: 4px;
-	background-color:#BBE4F6;
+	background-color:skyblue;
 	font-weight: bold;
 	font-size: 15px;
 	font-family: sans-serif;
@@ -158,5 +158,15 @@ a{
 }
 .btn:hover{
 	color:white;
-       background-color:skyblue;
+       background-color:rgb(84, 184, 226);
        }
+       
+.join_write{
+	font-size:17px;
+	margin-top:40%;
+	margin-bottom:45%;
+	color:#8c8c8c; 
+	font-weight: bold;
+	
+	
+}

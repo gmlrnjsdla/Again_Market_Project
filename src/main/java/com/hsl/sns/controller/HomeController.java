@@ -23,5 +23,8 @@ public class HomeController {
 	public String index() {
 		return "index";
 	}
-	
+	@RequestMapping(value = "joinOk")
+	public String joinOk() {
+		return "joinOk";
+	}
 }

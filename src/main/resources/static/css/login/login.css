@@ -44,11 +44,12 @@ div.login_no1 {
   	display: inline-block;
   	position: relative;
   	border-radius: 4px;
-	background-color:#BBE4F6;
+	background-color:skyblue;
 	font-weight: bold;
 	font-size: 15px;
 	font-family: sans-serif;
 	margin-bottom: 10px;
+	
 }
 
 .btn_login_no1{
@@ -109,3 +110,7 @@ input::placeholder {
 	padding:15px;
 	padding-bottom: 15px;
 }
+.btn:hover{
+	color:white;
+       background-color:rgb(84, 184, 226);
+       }

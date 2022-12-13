@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/index/index.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/memberJoin/memberModify.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/member/memberModify.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -101,6 +101,8 @@
 		</center>
 	</div>
 	</div>
-	</div>
+	
+	
+	<%@ include file="include/footer.jsp" %>
 </body>
 </html>

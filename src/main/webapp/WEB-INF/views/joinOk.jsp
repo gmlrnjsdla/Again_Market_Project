@@ -19,17 +19,14 @@
 				<img id="logo" src="${pageContext.request.contextPath}/resources/img/logo.png"
 				 width="350" height="180" align="center" border="0">
 			 	<div class="join_write">
-					회원가입을 성공하셨습니다.<br>
+					${mname}님 회원가입을 성공하셨습니다.<br>
 					<br>
-					감사합니다.
+					로그인을 해주세요.
 	
 				</div>
 			 <div class="d-grid gap-2">
-	  			<input class="btn" type="button" value="가입"/>
+	  			<input class="btn" type="button" value="로그인" onclick="script:window.location='login'">
 			</div>
-		</div>
-		<div class="btn_member_jion">
-			계정이 있으신가요?<a href="/login">&nbsp;&nbsp;로그인</a>
 		</div>
 		<div class="wqb_write">
 			앱을 다운로드하세요.	

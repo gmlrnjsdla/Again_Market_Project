@@ -17,8 +17,15 @@
     	margin:0px;
     	padding:0px;
     }
-    
-    
+
+    .sidebar{
+    	position:fixed;
+    	z-index: 300;
+    	padding-left:200px;
+    	padding-top:100px;
+    	
+    }
+
     
     .title{
     	font-family:cursive;

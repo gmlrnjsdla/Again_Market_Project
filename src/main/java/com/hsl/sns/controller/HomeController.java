@@ -22,6 +22,7 @@ public class HomeController {
 	public String index() {
 		return "index";
 	}
+
 	@RequestMapping(value = "/chat")
 	public String chat() {
 		return "chat";
@@ -38,4 +39,15 @@ public class HomeController {
 	}
 
 	
+
+
+	@RequestMapping(value = "joinOk")
+	public String joinOk() {
+		return "joinOk";
+	}
+	@RequestMapping(value = "memberModify")
+	public String memberModify() {
+		return "memberModify";
+	}
+
 }

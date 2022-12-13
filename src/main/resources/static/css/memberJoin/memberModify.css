@@ -1,0 +1,14 @@
+@charset "UTF-8";
+.recommend{
+	position:fixed;
+      	padding-left:750px;
+      	padding-top:100px;
+		
+}
+
+.col-form-label{
+	float:left;
+	text-align: right;
+	font-weight: bold;
+}
+

@@ -13,46 +13,31 @@
 
 
 <div class="content_write_form01">
-<div class="card" style="width: 400px; height:700px; border:1px solid #dddddd; border-radius:5px;">
-  <div class="card-body"> 
- 	<!-- 컨텐츠 헤더 -->
-  	<img class ="rounded-circle me-2" src="${pageContext.request.contextPath }/resources/img/content.jpg" alt="..." width="120" height="120" ></td>
-  		 <button type="button" class="btn btn-outline-secondary" 
-          style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-  		 프로필편집
-		</button>
-   		
-  
-  		
-   		<!-- 컨텐츠 리스트 -->
-   		<hr>
-   		
-  			
-  			
-		</div>
+<div class="card" style="width: 400px; height:700px; border:1px solid #dddddd; border-radius:5px; background-color:#f1f1f1 ">
+  <div class="card-body" > 
+ 	<!-- 컨텐츠 사진입력 -->
+  	<img class="image_align" src="${pageContext.request.contextPath }/resources/img/add_image.png" alt="..." width="75" height="75" onclick=document.all.file.click();></td>
+  	
+ 	<input type="file" name="file" id="file" style="display: none;"/>  
+	</div>
   </div>
 </div>	
 
-
+<!-- 컨텐츠 내용입력 -->
 
 <div class="content_write_form02">
 <div class="card" style="width: 350px; height:700px; border:1px solid #dddddd; border-radius:5px;">
   <div class="card-body"> 
- 	<!-- 컨텐츠 헤더 -->
-  	<img class ="rounded-circle me-2" src="${pageContext.request.contextPath }/resources/img/content.jpg" alt="..." width="120" height="120" ></td>
-  		 <button type="button" class="btn btn-outline-secondary" 
-          style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-  		 프로필편집
-		</button>
-   		
+
+	<div class="form-floating">
+  	<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height:600px" ></textarea>
+  	<label for="floatingTextarea">내용입력</label><br>
+  	<button type="button" class="btn btn-outline-secondary" style="float:right" onclick="#">입력</button>
+	</div>
+ 
   
-  		
-   		<!-- 컨텐츠 리스트 -->
-   		<hr>
-   		
-  			
-  			
-		</div>
+
+	</div>
   </div>
 </div>	
 

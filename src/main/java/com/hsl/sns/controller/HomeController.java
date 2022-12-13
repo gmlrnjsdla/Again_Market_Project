@@ -25,7 +25,10 @@ public class HomeController {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	
+	@RequestMapping(value = "/")
+	public String home() {
+		return "login";
+	}
 	@RequestMapping(value = "/leftBar")
 	public String sideBar() {
 		return "leftBar";
@@ -77,7 +80,7 @@ public class HomeController {
 		}
 		
 		
-		return "index";
+		return "redirect:index";
 	}
 	
 	@RequestMapping(value = "/logout")
@@ -93,7 +96,18 @@ public class HomeController {
 		return "join";
 	}
 	@RequestMapping(value = "/index")
-	public String index() {
+	public String index(Model model, HttpSession session) {
+		
+		String sid = (String)session.getAttribute("sessionId");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		MemberDto dto = dao.memberInfoDao(sid);
+		List<MemberDto> dtos = dao.memberListDao(sid);
+		
+		
+		model.addAttribute("memberList", dtos);
+		model.addAttribute("minfo", dto);
+		
 		return "index";
 	}
 

@@ -19,6 +19,7 @@
 
 	<%
 		String sid = (String) session.getAttribute("sessionId");
+		
 	%>
 
 
@@ -30,7 +31,7 @@
     <ul class="nav nav-pills flex-column mb-auto">
     	
       <li class="nav-item">
-        <a href="/" class="nav-link link-dark" aria-current="page"> <!-- nav-link active 파랑칠 -->
+        <a href="/index" class="nav-link link-dark" aria-current="page"> <!-- nav-link active 파랑칠 -->
           <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16"><path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/></svg>
           <span style="font-size:20px; font-weight:bold;">&nbsp;홈</span>
         </a>
@@ -61,11 +62,11 @@
       		<input type="search" class="form-control" autocomplete="true" placeholder="Type to filter...">
     	</form>
     	<br>
-  		<c:forEach begin="1" end="5">
+  		<c:forEach items="${memberList}" var="mList">
 	        <li>
 	        	<a href="#" class="dropdown-item d-flex align-items-center gap-2 py-2">
-		        <img src="https://github.com/mdo.png" alt="" width="23" height="23" class="rounded-circle me-2">
-		        <span>홍길동</span>
+		        <img src="${pageContext.request.contextPath}/resources/img/person.png" alt="" width="23" height="23" class="rounded-circle me-2">
+		        <span>${mList.mname}</span>
 		        </a>
 	        </li>
     	</c:forEach>
@@ -77,7 +78,7 @@
       <br>
       <li class="nav-item">
         <a href="/content_List?mid=<%=sid %>" class="nav-link link-dark">
-          <img src="https://github.com/mdo.png" alt="" width="23" height="23" class="rounded-circle me-2">
+          <img src="${pageContext.request.contextPath}/resources/img/person.png" alt="" width="23" height="23" class="rounded-circle me-2">
           <span style="font-size:20px; font-weight:bold;">프로필</span>
         </a>
       </li>

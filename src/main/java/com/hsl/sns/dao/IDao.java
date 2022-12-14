@@ -6,8 +6,8 @@ import com.hsl.sns.dto.MemberDto;
 
 public interface IDao {
 	
-	public void joinMemberDao(String mid, String mpw, String mphone, String name, String mnickname, String memail);
-	public MemberDto memberInfoDao(String mid);
-	public List<MemberDto> memberListDao(String mid);
+	public void joinMemberDao(String id, String pwd, String phone, String name, String nick, String mail);
+	public MemberDto memberInfoDao(String id);
+	public List<MemberDto> memberListDao(String id);
 	
 }

@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/member/join.css">
-<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/join.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/join/join.js"></script>
 
 </head>
 <body>
@@ -32,23 +32,30 @@
 		
 		<div class="hr_sect">또는</div>
 		<div class="mb-3">
-	      <input type="text" id="#" class="btn_login_no1" placeholder="아이디" name="mid">
+	      <input type="text" id="#" class="btn_login_no1" placeholder="아이디" name="id">
 	    </div>
 		<div class="mb-3">
-	      <input type="text" id="#" class="btn_login_no1" placeholder="비밀번호" name="mpw">
+	      <input type="text" id="#" class="btn_login_no1" placeholder="비밀번호" name="pwd">
 	    </div>
 	    <div class="mb-3">
-	      <input type="text" id="#" class="btn_login_no1" placeholder="휴대폰" name="mphone">
+	      <input type="text" id="#" class="btn_login_no1" placeholder="이름" name="name">
 	    </div>
 	    <div class="mb-3">
-	      <input type="text" id="#" class="btn_login_no1" placeholder="성명" name="mname">
+	      <input type="text" id="#" class="btn_login_no1" placeholder="생일 (ex:20221215)" name="birth">
+	    </div>
+	    <div class="mb-3">
+	      <input type="text" id="#" class="btn_login_no1" placeholder="이메일" name="mail">
+	    </div>
+	    <div class="mb-3">
+	      <input type="text" id="#" class="btn_login_no1" placeholder="휴대폰" name="phone">
+	    </div>
+	    <div class="mb-3">
+	      <input type="text" id="#" class="btn_login_no1" placeholder="닉네임" name="nick">
 	    </div>
 		<div class="mb-3">
-	      <input type="text" id="#" class="btn_login_no1" placeholder="닉네임" name="mnickname">
+	      <input type="text" id="#" class="btn_login_no1" placeholder="소개글" name="greet">
 	    </div>
-	    <div class="mb-3">
-	      <input type="text" id="#" class="btn_login_no1" placeholder="이메일" name="memail">
-	    </div>
+	    
 		<div class="wqb_write2">
 		저희 서비스를 이용하는 사람이 회원님의 연락처<br>
 		정보를 Instagram에 업로드했을 수도 있습니다.<span class="rr">더<br>

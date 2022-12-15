@@ -8,28 +8,29 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/member/login.css">
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/login/login.js"></script>
 
 </head>
 <body>
 <center>
 	<div class="login_outbox">
-	<form action="">
+	<form action="loginOk" name="login_frm" method="post">
 	<div class="login_no1">
 			<img id="logo" src="${pageContext.request.contextPath}/resources/img/logo.png"
 			 width="350" height="180" align="center" border="0">
 	
 	    <div class="mb-2">
-	      <input type="text" id="#" class="btn_login_no1" placeholder="전화번호, 사용자 이름 또는 이메일">
+	      <input type="text" id="#" class="btn_login_no1" placeholder="아이디" name="id">
 	    </div>
 	    <div class="mb-3">
-	      <input type="text" id="#" class="btn_login_no1" placeholder="비밀번호">
+	      <input type="text" id="#" class="btn_login_no1" placeholder="비밀번호" name="pwd">
 	    </div>
 	    
 	    <div class="mb-3">
 	      
 	    </div>
 		 <div class="d-grid gap-2">
-  			<input class="btn" type="submit" value="로그인">
+  			<input class="btn" type="button" value="로그인" onclick="loginCheck()">
 		</div>
 		<div class="d-grid gap-2">
   			<input class="btn" type="button" value="회원가입" onclick="script:window.location='join'">

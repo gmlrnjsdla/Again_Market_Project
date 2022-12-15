@@ -34,7 +34,7 @@
             </div>
           </div>
           <div class="inbox_chat">
-          <c:forEach begin="1" end="12">
+          <c:forEach items="${memberList}" var="mList">
           <a href="#">
             <div class="chat_list active_chat">
               <div class="chat_people">
@@ -42,8 +42,7 @@
                 <img src="https://github.com/mdo.png" alt="" width="40" height="40" class="rounded-circle me-2"> 
                 </div>
                 <div class="chat_ib">
-                  <h5>홍길동 <span class="chat_date">Dec 13</span></h5>
-                  <p>안녕하세용</p>
+                  <h5>${mList.mname} <span class="chat_date">${mList.mid}</span></h5>
                 </div>
               </div>
             </div>

@@ -34,6 +34,7 @@ public class ChatDao {
 			// 메세지 상대의 프로필사진을 mto에 set한다.
 //			mto.setProfile(profile);
 			// 메세지 상대 nick을 세팅한다. other_nick
+			System.out.println(mto.getSend_nick());
 			if (nick.equals(mto.getSend_nick())) {
 				mto.setOther_nick(mto.getRecv_nick());
 			} else {

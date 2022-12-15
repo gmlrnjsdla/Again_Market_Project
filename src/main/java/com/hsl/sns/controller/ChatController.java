@@ -1,10 +1,12 @@
 package com.hsl.sns.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,13 +15,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hsl.sns.dao.ChatDao;
+import com.hsl.sns.dao.IDao;
 import com.hsl.sns.dto.ChatDto;
+import com.hsl.sns.dto.MemberDto;
 
 @Controller
 public class ChatController {
 
 	@Autowired
 	private ChatDao messageDao;
+	
+	@Autowired
+	private SqlSession sqlSession;
  
 	// 메세지 목록
 	@RequestMapping(value = "/message_list.do")
@@ -46,24 +53,31 @@ public class ChatController {
 
 		String nick = (String) session.getAttribute("nick");
 
-		ChatDto to = new ChatDto();
-		to.setNick(nick);
-		System.out.println(to.getNick());
-		// 메세지 리스트
-		ArrayList<ChatDto> list = messageDao.messageList(to);
+//		ChatDto to = new ChatDto();
+//		to.setNick(nick);
+//		System.out.println(to.getNick());
+//		// 메세지 리스트
+//		ArrayList<ChatDto> list = messageDao.messageList(to);
+//
+//		for(int i =0; i<list.size(); i++) {
+//			ChatDto dto = list.get(i);
+//			System.out.println(dto.getNick());
+//		}
+//		model.addAttribute("list", list);
+//		request.setAttribute("list", list);
 
-		for(int i =0; i<list.size(); i++) {
-			ChatDto dto = list.get(i);
-			System.out.println(dto.getNick());
-		}
-		model.addAttribute("list", list);
-		request.setAttribute("list", list);
-
+		String sid = (String)session.getAttribute("sessionId");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		List<MemberDto> dtos = dao.memberListDao(sid);
+		model.addAttribute("list", dtos);
+		
+		
 		return "chat/chat_ajax_list";
 	}
 
 	@RequestMapping(value = "/message_content_list.do")
-	public String message_content_list(HttpServletRequest request, HttpSession session) {
+	public String message_content_list(Model model,HttpServletRequest request, HttpSession session) {
 
 		int room = Integer.parseInt(request.getParameter("room"));
 
@@ -75,6 +89,7 @@ public class ChatController {
 		ArrayList<ChatDto> clist = messageDao.roomContentList(to);
 
 		request.setAttribute("clist", clist);
+		model.addAttribute("clist", clist);
 
 		return "chat/chat_content_list";
 	}

@@ -81,7 +81,7 @@
 				
 				// 메세지 리스트중 하나를 클릭했을 때
 				$('.chat_list').on('click', function(){
-					//alert('room : '+ $(this).attr('room'));
+					alert('room : '+ $(this).attr('room'));
 					
 					let room = $(this).attr('room');
 					let other_nick = $(this).attr('other-nick');

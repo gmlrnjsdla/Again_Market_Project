@@ -6,7 +6,7 @@
 	
 
 	
-<mapper namespace="com.hsl.sns.dao.ChatDao" >
+<mapper namespace="com.hsl.sns.dao.Chat" >
 	
 	<select id="message_list" parameterType="com.hsl.sns.dto.ChatDto" resultType="com.hsl.sns.dto.ChatDto">
     select no, room, send_nick, recv_nick, send_time, read_time, content, read_chk
@@ -69,11 +69,11 @@
     <choose>
         <when test="room != 0">
             insert into message(no,room,send_nick,recv_nick,content,read_chk) 
-            values(message_seq.nextval, #{room}, #{nick}, 'GilSoon', #{content}, 0);
+            values(message_seq.nextval, #{room}, #{send_nick}, #{recv_nick}, #{content}, 0);
         </when>
         <otherwise>
             insert into message(no,room,send_nick,recv_nick,content,read_chk) 
-            values(message_seq.nextval, #{room}, 'heekwon', 'GilSoon', #{content}, 0);
+            values(message_seq.nextval, #{room}, #{send_nick}, #{recv_nick}, #{content}, 0);
         </otherwise>
     </choose>
 </insert>

@@ -23,8 +23,10 @@ public class ChatDao {
 		// 메세지 리스트에 나타낼 것들 가져오기 - 가장 최근 메세지, 보낸사람 profile 사진, 보낸사람 nick
 		ArrayList<ChatDto> list = (ArrayList) sqlSession.selectList("message_list", to);
 
+		
 		for (ChatDto mto : list) {
 			mto.setNick(nick);
+			System.out.println(mto.getSend_nick());
 			// 현재 사용자가 해당 room에서 안읽은 메세지의 갯수를 가져온다.
 			int unread = sqlSession.selectOne("count_unread", mto);
 			// 현재 사용자가 메세지를 주고받는 상대 profile을 가져온다.
@@ -32,7 +34,7 @@ public class ChatDao {
 			// 안읽은 메세지 갯수를 mto에 set한다.
 			mto.setUnread(unread);
 			// 메세지 상대의 프로필사진을 mto에 set한다.
-//			mto.setProfile(profile);
+//			mto.setProfile(profile); 
 			// 메세지 상대 nick을 세팅한다. other_nick
 			System.out.println(mto.getSend_nick());
 			if (nick.equals(mto.getSend_nick())) {

@@ -25,11 +25,9 @@ public class ChatController {
 	@Autowired
 	private ChatDao messageDao;
 	
-	@Autowired
-	private SqlSession sqlSession;
  
 	// 메세지 목록
-	@RequestMapping(value = "/message_list.do")
+	@RequestMapping(value = "/chatTest")
 	public String message_list(HttpServletRequest request, HttpSession session) {
 		// System.out.println("현대 사용자 nick : " + session.getAttribute("nick"));
 
@@ -55,14 +53,9 @@ public class ChatController {
 
 		ChatDto to = new ChatDto();
 		to.setNick(nick);
-		System.out.println(to.getNick());
 		// 메세지 리스트
 		ArrayList<ChatDto> list = messageDao.messageList(to);
 
-		for(int i =0; i<list.size(); i++) {
-			ChatDto dto = list.get(i);
-			System.out.println(dto.getNick());
-		}
 		model.addAttribute("list", list);
 		request.setAttribute("list", list);
 

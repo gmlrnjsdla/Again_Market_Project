@@ -48,6 +48,10 @@ public class HomeController {
 	public String content_write() {
 		return "content_write";
 	}
+	@RequestMapping(value = "content_view")
+	public String content_view() {
+		return "content_view";
+	}
 
 	
 

@@ -18,6 +18,17 @@
    
 }
 
+.att_zone {
+  width: 370px;
+  min-height: 650px;
+  padding: 0px;
+  
+}
 
+.att_zone:empty:before {
+  content: attr(data-placeholder);
+  color: #2d2d2d;
+  font-size: 9px;
+}
 
 

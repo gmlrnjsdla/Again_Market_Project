@@ -21,7 +21,7 @@
   		<td width="40%" rowspan="4" align="center"><img class ="rounded-circle me-2" src="${pageContext.request.contextPath }/resources/img/content.jpg" alt="..." width="120" height="120" ></td>
   		<td height="20%" colspan="3" ><div class = "profile01"><%=sid %>
    		<a href="memberModify"> <button type="button" class="btn btn-outline-secondary" 
-          style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+          style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" onclick="memberModify">
   		 프로필편집
 		</button></a>
    		</td>
@@ -43,19 +43,15 @@
    </table>
   	
   
-  <!--	
-   		<div class = "content_font">Heekwon_dla</div>
-   		<input class="btn btn-default" type="button" value="프로필편집">
-  
   		
    		<!-- 컨텐츠 리스트 -->
    		<hr>
    		<div class="row">
-  			<div class="col-md-4"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="70" height="220" class="card-img-top" alt="...">
+  			<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="70" height="220" class="card-img-top" alt="...">
   			<div class = "content_font">오늘은 안녕</div></a></div>
-  			<div class="col-md-4"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="70" height="220" class="card-img-top" alt="...">
+  			<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="70" height="220" class="card-img-top" alt="...">
   			<div class = "content_font">오늘은 안녕</div></a></div>
-  			<div class="col-md-4"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="70" height="220" class="card-img-top" alt="...">
+  			<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="70" height="220" class="card-img-top" alt="...">
   			<div class = "content_font">안녕하세요</div></a></div>
   			<div class="col-md-4"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="70" height="220" class="card-img-top" alt="...">
   			<div class = "content_font">안녕하세요</div></a></div>

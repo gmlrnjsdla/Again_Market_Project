@@ -7,7 +7,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -123,7 +122,20 @@ public class HomeController {
 		return "chat";
 	}
 	
-	@RequestMapping(value = "/joinOk", method = RequestMethod.POST)
+
+	@RequestMapping(value = "content_write")
+	public String content_write() {
+		return "content_write";
+	}
+	@RequestMapping(value = "content_view")
+	public String content_view() {
+		return "content_view";
+	}
+
+	
+
+
+	@RequestMapping(value = "joinOk")
 	public String joinOk(HttpServletRequest request, Model model) {
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
@@ -164,10 +176,6 @@ public class HomeController {
 		}
 		
 		return "content_List";
-	}
-	@RequestMapping(value = "/content_write")
-	public String content_write() {
-		return "content_write";
 	}
 	
 	

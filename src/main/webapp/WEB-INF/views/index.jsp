@@ -60,7 +60,7 @@
 
 <!--컨텐츠 사진 -->
 <div class="content">
-<div class="card" style="width: 500px;">
+<div class="card" style="width: 630px;">
 <div class="card-body">
 <img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">게시자 ID<br>
 <hr>
@@ -71,6 +71,7 @@
    content :오늘하루 참힘들었다.
   <hr>
   <p class="fs-6"></p>
+  
   <!--댓글표시 -->
     
     <p class="card-text">guestID : 참좋아요</p>

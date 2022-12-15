@@ -53,24 +53,24 @@ public class ChatController {
 
 		String nick = (String) session.getAttribute("nick");
 
-//		ChatDto to = new ChatDto();
-//		to.setNick(nick);
-//		System.out.println(to.getNick());
-//		// 메세지 리스트
-//		ArrayList<ChatDto> list = messageDao.messageList(to);
-//
-//		for(int i =0; i<list.size(); i++) {
-//			ChatDto dto = list.get(i);
-//			System.out.println(dto.getNick());
-//		}
-//		model.addAttribute("list", list);
-//		request.setAttribute("list", list);
+		ChatDto to = new ChatDto();
+		to.setNick(nick);
+		System.out.println(to.getNick());
+		// 메세지 리스트
+		ArrayList<ChatDto> list = messageDao.messageList(to);
 
-		String sid = (String)session.getAttribute("sessionId");
-		
-		IDao dao = sqlSession.getMapper(IDao.class);
-		List<MemberDto> dtos = dao.memberListDao(sid);
-		model.addAttribute("list", dtos);
+		for(int i =0; i<list.size(); i++) {
+			ChatDto dto = list.get(i);
+			System.out.println(dto.getNick());
+		}
+		model.addAttribute("list", list);
+		request.setAttribute("list", list);
+
+//		String sid = (String)session.getAttribute("sessionId");
+//		
+//		IDao dao = sqlSession.getMapper(IDao.class);
+//		List<MemberDto> dtos = dao.memberListDao(sid);
+//		model.addAttribute("list", dtos);
 		
 		
 		return "chat/chat_ajax_list";

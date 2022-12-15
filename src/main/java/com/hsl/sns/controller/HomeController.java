@@ -41,17 +41,19 @@ public class HomeController {
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
-		String mid = request.getParameter("mid");
-		String mpw = request.getParameter("mpw");
+		String id = request.getParameter("mid");
+		String pwd = request.getParameter("mpw");
 		
-		MemberDto dto = dao.memberInfoDao(mid);
+		MemberDto dto = dao.memberInfoDao(id);
 		
 		if(dto != null) {
-			String dbpw = dto.getMpw();
-			if(mpw.equals(dbpw)) {
+			String dbpw = dto.getPwd();
+			String nick = dto.getNick();
+			if(pwd.equals(dbpw)) {
 				HttpSession session = request.getSession();
-				session.setAttribute("sessionId", mid);
-				model.addAttribute("mname", dto.getMname());
+				session.setAttribute("sessionId", id);
+				session.setAttribute("nick", nick);
+				model.addAttribute("mname", dto.getName());
 			}else {
 				PrintWriter out;
 				try {
@@ -110,7 +112,7 @@ public class HomeController {
 		return "index";
 	}
 
-	@RequestMapping(value = "/chat")
+	@RequestMapping(value = "/chat1")
 	public String chat(Model model, HttpSession session) {
 		
 		String sid = (String)session.getAttribute("sessionId");
@@ -119,23 +121,10 @@ public class HomeController {
 		List<MemberDto> dtos = dao.memberListDao(sid);
 		model.addAttribute("memberList", dtos);
 		
-		return "chat";
+		return "chat/chat";
 	}
 	
-
-	@RequestMapping(value = "content_write")
-	public String content_write() {
-		return "content_write";
-	}
-	@RequestMapping(value = "content_view")
-	public String content_view() {
-		return "content_view";
-	}
-
-	
-
-
-	@RequestMapping(value = "joinOk")
+	@RequestMapping(value = "/joinOk", method = RequestMethod.POST)
 	public String joinOk(HttpServletRequest request, Model model) {
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
@@ -170,12 +159,16 @@ public class HomeController {
 		
 		if(sid != null) {
 			MemberDto dto = dao.memberInfoDao(sid);
-			String mname = dto.getMname();
+			String mname = dto.getName();
 			
 			model.addAttribute("mname", mname);
 		}
 		
 		return "content_List";
+	}
+	@RequestMapping(value = "/content_write")
+	public String content_write() {
+		return "content_write";
 	}
 	
 	

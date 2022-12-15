@@ -9,11 +9,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MemberDto {
 
-	private String mid;
-	private String mpw;
-	private String mname;
-	private String mnickname;
-	private String mphone;
-	private String memail;
+	private String id;
+	private String pwd;
+	private String name;
+	private String birth;
+	private String mail;
+	private String phone;
+	private String nick;
+	private String rdate;
+	private String profile;
+	private String greet;
 	
 }

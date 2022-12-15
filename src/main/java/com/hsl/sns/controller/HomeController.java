@@ -2,6 +2,7 @@ package com.hsl.sns.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -41,8 +42,8 @@ public class HomeController {
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
-		String id = request.getParameter("mid");
-		String pwd = request.getParameter("mpw");
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
 		
 		MemberDto dto = dao.memberInfoDao(id);
 		
@@ -53,7 +54,7 @@ public class HomeController {
 				HttpSession session = request.getSession();
 				session.setAttribute("sessionId", id);
 				session.setAttribute("nick", nick);
-				model.addAttribute("mname", dto.getName());
+				model.addAttribute("name", dto.getName());
 			}else {
 				PrintWriter out;
 				try {
@@ -129,15 +130,19 @@ public class HomeController {
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
-		String mid = request.getParameter("mid");
-		String mpw = request.getParameter("mpw");
-		String mphone = request.getParameter("mphone");
-		String mname = request.getParameter("mname");
-		String mnickname = request.getParameter("mnickname");
-		String memail = request.getParameter("memail");
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		String name = request.getParameter("name");
+		String birth = request.getParameter("birth");
+		String mail = request.getParameter("mail");
+		String phone = request.getParameter("phone");
+		String nick = request.getParameter("nick");
+//		String profile = request.getParameter("profile");
+		String greet = request.getParameter("greet");
 		
-		dao.joinMemberDao(mid, mpw, mphone, mname, mnickname, memail);
-		model.addAttribute("mname", mname);
+		dao.joinMemberDao(id, pwd, name, birth, mail, phone, nick, "person.png", greet);
+		
+		model.addAttribute("name", name);
 		
 		return "joinOk";
 	}
@@ -160,15 +165,37 @@ public class HomeController {
 		if(sid != null) {
 			MemberDto dto = dao.memberInfoDao(sid);
 			String mname = dto.getName();
+			List<MemberDto> dtos = dao.memberListDao(sid);
 			
+			model.addAttribute("memberList", dtos);
 			model.addAttribute("mname", mname);
 		}
 		
 		return "content_List";
 	}
+	
 	@RequestMapping(value = "/content_write")
-	public String content_write() {
+	public String content_write(HttpSession session, Model model) {
+		
+		String sid = (String)session.getAttribute("sessionId");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		List<MemberDto> dtos = dao.memberListDao(sid);
+		model.addAttribute("memberList", dtos);
+		
 		return "content_write";
+	}
+	
+	@RequestMapping(value = "/content_view")
+	public String content_view(HttpSession session, Model model) {
+		
+		String sid = (String)session.getAttribute("sessionId");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		List<MemberDto> dtos = dao.memberListDao(sid);
+		model.addAttribute("memberList", dtos);
+		
+		return "content_view";
 	}
 	
 	

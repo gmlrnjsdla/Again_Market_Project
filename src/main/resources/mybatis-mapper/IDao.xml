@@ -7,8 +7,8 @@
 <mapper namespace="com.hsl.sns.dao.IDao">
 	
 	<insert id="joinMemberDao">
-		INSERT INTO user_sns(id, pwd, name, birth, mail, phone, nick, rdate, profile, greet)  
-		VALUES(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},now(),#{param7},#{param8})
+		INSERT INTO user_sns(id, pwd, name, birth, mail, phone, nick, profile, greet)  
+		VALUES(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9})
 	</insert>
 	
 	<select id="memberInfoDao" resultType="com.hsl.sns.dto.MemberDto">

@@ -65,8 +65,8 @@
   		<c:forEach items="${memberList}" var="mList">
 	        <li>
 	        	<a href="#" class="dropdown-item d-flex align-items-center gap-2 py-2">
-		        <img src="${pageContext.request.contextPath}/resources/img/person.png" alt="" width="23" height="23" class="rounded-circle me-2">
-		        <span>${mList.mname}</span>
+		        <img src="${pageContext.request.contextPath}/resources/img/${mList.profile}" alt="" width="23" height="23" class="rounded-circle me-2">
+		        <span>${mList.name}</span>
 		        </a>
 	        </li>
     	</c:forEach>

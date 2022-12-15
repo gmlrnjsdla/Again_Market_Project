@@ -19,7 +19,7 @@
 				<img id="logo" src="${pageContext.request.contextPath}/resources/img/logo.png"
 				 width="350" height="180" align="center" border="0">
 			 	<div class="join_write">
-					${mname}님 회원가입을 성공하셨습니다.<br>
+					${name}님 회원가입을 성공하셨습니다.<br>
 					<br>
 					로그인을 해주세요.
 	

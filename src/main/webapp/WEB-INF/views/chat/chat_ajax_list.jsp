@@ -13,7 +13,7 @@
 					</a>
 				</div>
 				<div class="chat_ib">
-					<h5>${tmp.othernick }zzz<span class="chat_date">${tmp.sendtime }</span>
+					<h5>${tmp.othernick }<span class="chat_date">${tmp.sendtime }</span>
 					</h5>
 					<div class="row">
 						<div class="col-10">

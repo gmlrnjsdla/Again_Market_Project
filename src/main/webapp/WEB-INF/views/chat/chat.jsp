@@ -10,12 +10,13 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/sidebar/sidebar.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/chat/chat.css">
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/join/join.js"></script>
 
 
 <title>채팅</title>
 </head>
 <body>
-<%@ include file="include/leftBar.jsp" %>
+<%@ include file="../include/leftBar.jsp" %>
 	
 	<div class="container">
 <div class="messaging">
@@ -42,7 +43,7 @@
                 <img src="https://github.com/mdo.png" alt="" width="40" height="40" class="rounded-circle me-2"> 
                 </div>
                 <div class="chat_ib">
-                  <h5>${mList.mname} <span class="chat_date">${mList.mid}</span></h5>
+                  <h5>${mList.name} <span class="chat_date">${mList.id}</span></h5>
                 </div>
               </div>
             </div>

@@ -31,15 +31,15 @@ public class ChatController {
 	public String message_list(HttpServletRequest request, HttpSession session) {
 		// System.out.println("현대 사용자 nick : " + session.getAttribute("nick"));
 
-//		String nick = (String) session.getAttribute("nick");
-//
-//		ChatDto to = new ChatDto();
-//		to.setNick(nick);
-//
-//		// 메세지 리스트
-//		ArrayList<ChatDto> list = messageDao.messageList(to);
-//
-//		request.setAttribute("list", list);
+		String nick = (String) session.getAttribute("nick");
+
+		ChatDto to = new ChatDto();
+		to.setNick(nick);
+
+		// 메세지 리스트
+		ArrayList<ChatDto> list = messageDao.messageList(to);
+
+		request.setAttribute("list", list);
 
 		return "chat/chatTest";
 	}
@@ -82,7 +82,6 @@ public class ChatController {
 		ArrayList<ChatDto> clist = messageDao.roomContentList(to);
 
 		request.setAttribute("clist", clist);
-		model.addAttribute("clist", clist);
 
 		return "chat/chat_content_list";
 	}

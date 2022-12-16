@@ -4,16 +4,16 @@
 
 <c:forEach var="tmp" items="${list}">
 	<div class="chat_list_box${tmp.room } chat_list_box">
-		<div type="button" class="chat_list" room="${tmp.room }" other-nick="${tmp.other_nick }">
+		<div type="button" class="chat_list" room="${tmp.room }" other-nick="${tmp.othernick }">
 			<!-- active-chat -->
 			<div class="chat_people">
 				<div class="chat_img" >
-					<a href="other_profile.do?other_nick=${tmp.other_nick }">
+					<a href="other_profile.do?other_nick=${tmp.othernick }">
 						<img src="${pageContext.request.contextPath}/resources/img/person.png" alt="" width="23" height="23" class="rounded-circle me-2">
 					</a>
 				</div>
 				<div class="chat_ib">
-					<h5>${tmp.other_nick }zzz<span class="chat_date">${tmp.send_time }</span>
+					<h5>${tmp.othernick }zzz<span class="chat_date">${tmp.sendtime }</span>
 					</h5>
 					<div class="row">
 						<div class="col-10">

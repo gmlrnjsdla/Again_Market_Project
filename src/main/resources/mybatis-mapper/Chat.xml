@@ -6,12 +6,12 @@
 	
 
 	
-<mapper namespace="com.hsl.sns.dao.Chat" >
+<mapper namespace="com.hsl.sns.dao.ChatDao" >
 	
 	<select id="message_list" parameterType="com.hsl.sns.dto.ChatDto" resultType="com.hsl.sns.dto.ChatDto">
-    select no, room, send_nick, recv_nick, send_time, read_time, content, read_chk
+    select no, room, sendnick, recvnick, sendtime, readtime, content, readchk
     from message
-    where no in (select max(no) from message group by room) and (send_nick = #{nick} or recv_nick=#{nick})
+    where no in (select max(no) from message group by room) and (sendnick = #{nick} or recvnick=#{nick})
     order by no desc
 </select>
 
@@ -19,11 +19,11 @@
 <select id="get_other_profile" parameterType="com.hsl.sns.dto.ChatDto" resultType="String">
     select profile from user_sns
     <choose>
-        <when test="send_nick == nick">
-            where nick = #{recv_nick}
+        <when test="sendnick == nick">
+            where nick = #{recvnick}
         </when>
         <otherwise>
-            where nick = #{send_nick}
+            where nick = #{sendnick}
         </otherwise>
     </choose>
 </select>
@@ -31,20 +31,20 @@
 <!-- 안읽은 메세지 갯수 가져오기 -->
 <select id="count_unread" parameterType="com.hsl.sns.dto.ChatDto" resultType="Int">
     select count(no) from message 
-    where recv_nick=#{nick} and read_chk=0 and room=#{room}
+    where recvnick=#{nick} and readchk=0 and room=#{room}
 </select>
 
 <!-- 메세지 내용 가져오기 -->
 <select id="room_content_list" parameterType="com.hsl.sns.dto.ChatDto" resultType="com.hsl.sns.dto.ChatDto">
-    select m.no, m.room, m.send_nick, m.recv_nick, send_time, m.read_time, m.content, m.read_chk, u.profile
+    select m.no, m.room, m.sendnick, m.recvnick, sendtime, m.readtime, m.content, m.readchk, u.profile
     from message m left outer join user_sns u
-    on m.send_nick = u.nick
+    on m.sendnick = u.nick
     <choose>
         <when test="room != 0">
             where room=#{room}
         </when>
         <otherwise>
-            where (recv_nick = #{recv_nick} and send_nick = #{nick}) or (send_nick = #{recv_nick} and recv_nick = #{nick})
+            where (recvnick = #{recvnick} and sendnick = #{nick}) or (sendnick = #{recvnick} and recvnick = #{nick})
         </otherwise>
     </choose>
 
@@ -52,13 +52,13 @@
 
 <!-- 메세지 읽음 처리 -->
 <update id="message_read_chk" parameterType="com.hsl.sns.dto.ChatDto">
-    update message set read_chk=1
+    update message set readchk=1
     <choose>
         <when test="room != 0">
-            where room=#{room} and read_chk=0 and recv_nick=#{nick}
+            where room=#{room} and readchk=0 and recvnick=#{nick}
         </when>
         <otherwise>
-            where send_nick=#{recv_nick} and read_chk=0 and recv_nick=#{nick}
+            where sendnick=#{recvnick} and readchk=0 and recvnick=#{nick}
         </otherwise>
     </choose>
 
@@ -68,12 +68,12 @@
 <insert id="messageSendInlist" parameterType="com.hsl.sns.dto.ChatDto">
     <choose>
         <when test="room != 0">
-            insert into message(no,room,send_nick,recv_nick,content,read_chk) 
-            values(message_seq.nextval, #{room}, #{send_nick}, #{recv_nick}, #{content}, 0);
+            insert into message(no,room,sendnick,recvnick,content,readchk) 
+            values(message_seq.nextval, #{room}, #{sendnick}, #{recvnick}, #{content}, 0);
         </when>
         <otherwise>
-            insert into message(no,room,send_nick,recv_nick,content,read_chk) 
-            values(message_seq.nextval, #{room}, #{send_nick}, #{recv_nick}, #{content}, 0);
+            insert into message(no,room,sendnick,recvnick,content,readchk) 
+            values(message_seq.nextval, #{room}, #{sendnick}, #{recvnick}, #{content}, 0);
         </otherwise>
     </choose>
 </insert>
@@ -86,13 +86,13 @@
 <!-- 메세지 이력이 있는지 검색 -->
 <select id="exist_chat" parameterType="com.hsl.sns.dto.ChatDto" resultType="Int">
     select count(no) from message 
-    where (recv_nick = #{recv_nick} and send_nick=#{send_nick}) or (send_nick = #{recv_nick} and recv_nick=#{send_nick})
+    where (recvnick = #{recvnick} and sendnick=#{sendnick}) or (sendnick = #{recvnick} and recvnick=#{sendnick})
 </select>
 
 <!-- 기존 메세지 내역의 room 번호를 가져옴 -->
 <select id="select_room"  parameterType="com.hsl.sns.dto.ChatDto" resultType="String">
     select room from message
-    where (recv_nick = #{recv_nick} and send_nick=#{send_nick}) or (send_nick = #{recv_nick} and recv_nick=#{send_nick})
+    where (recvnick = #{recvnick} and sendnick=#{sendnick}) or (sendnick = #{recvnick} and recvnick=#{sendnick})
     limit 0,1
 </select>
 	

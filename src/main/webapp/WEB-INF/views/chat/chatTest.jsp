@@ -84,7 +84,7 @@
 					alert('room : '+ $(this).attr('room'));
 					
 					let room = $(this).attr('room');
-					let other_nick = $(this).attr('other-nick');
+					let othernick = $(this).attr('other-nick');
 					
 					// 선택한 메세지빼고 나머지는 active 효과 해제하기
 					$('.chat_list_box').not('.chat_list_box.chat_list_box'+room).removeClass('active_chat');
@@ -110,7 +110,7 @@
 					$('.msg_send_btn').on('click',function(){
 						
 						// 메세지 전송 함수 호출
-						SendMessage(room, other_nick);
+						SendMessage(room, othernick);
 						
 						// 전송버튼을 누르면 메세지 리스트가 리로드 되면서 현재 열린 메세지의 선택됨 표시가 사라진다.
 						// 이걸 해결하기 위해 메세지 전송버튼을 누르고 메세지 리스트가 리로드되면 메세지 리스트의 첫번째 메세지(현재 열린 메세지)가 선택됨 표시 되도록 한다.
@@ -144,7 +144,7 @@
 					//alert('room : '+ $(this).attr('room'));
 					
 					let room = $(this).attr('room');
-					let other_nick = $(this).attr('other-nick');
+					let othernick = $(this).attr('other-nick');
 					
 					// 선택한 메세지빼고 나머지는 active 효과 해제하기
 					$('.chat_list_box').not('.chat_list_box.chat_list_box'+room).removeClass('active_chat');
@@ -170,7 +170,7 @@
 					$('.msg_send_btn').on('click',function(){
 						
 						// 메세지 전송 함수 호출
-						SendMessage(room, other_nick);
+						SendMessage(room, othernick);
 						
 						// 전송버튼을 누르면 메세지 리스트가 리로드 되면서 현재 열린 메세지의 선택됨 표시가 사라진다.
 						// 이걸 해결하기 위해 메세지 전송버튼을 누르고 메세지 리스트가 리로드되면 메세지 리스트의 첫번째 메세지(현재 열린 메세지)가 선택됨 표시 되도록 한다.
@@ -198,7 +198,7 @@
 			url:"message_content_list.do",
 			method:"GET",
 			data:{
-				room : room,
+				room : room
 			},
 			success:function(data){
 				console.log("메세지 내용 가져오기 성공");
@@ -221,7 +221,7 @@
 	
 	
 	// 메세지를 전송하는 함수
-	const SendMessage = function(room, other_nick){
+	const SendMessage = function(room, othernick){
 		
 		let content = $('.write_msg').val();
 		//alert("content: " + content);
@@ -236,7 +236,7 @@
 				method:"GET",
 				data:{
 					room : room,
-					other_nick: other_nick,
+					othernick: othernick,
 					content: content
 				},
 				success:function(data){

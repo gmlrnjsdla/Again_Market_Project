@@ -16,9 +16,9 @@ public class ChatDto {
 	private String sendtime;
 	private String readtime;
 	private String content;
-	private String read_chk;
+	private String readchk;
 	// 현재 사용자의 메세지 상대 nick을 담는다.
-	private String other_nick;
+	private String othernick;
 	
 	// 현재 사용자의 메세지 상대 profile을 담는다.
 	private String profile;

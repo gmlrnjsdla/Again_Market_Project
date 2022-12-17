@@ -41,7 +41,6 @@ public class ChatDao {
 			} else {
 				mto.setOthernick(mto.getSendnick());
 			}
-			System.out.println(mto.getOthernick());
 		}
 
 		return list;
@@ -51,12 +50,8 @@ public class ChatDao {
 	// room 별 메세지 내용을 가져온다.
 	public ArrayList<ChatDto> roomContentList(ChatDto to) {
 		
-		System.out.println("room : " + to.getRoom());
-		System.out.println("recv_nick : " + to.getRecvnick());
-		System.out.println("nick : " + to.getNick());
 		// 메세지 내역을 가져온다
 		ArrayList<ChatDto> clist = (ArrayList) sqlSession.selectList("room_content_list", to);
-
 		// 해당 방의 메세지들 중 받는 사람이 현재사용자의 nick인 메세지를 모두 읽음 처리한다
 		sqlSession.update("message_read_chk", to);
 

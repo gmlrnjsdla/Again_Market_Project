@@ -11,7 +11,7 @@
 		<!-- 받은 메세지 -->
 		<div class="incoming_msg">
 			<div class="incoming_msg_img">
-				<a href="other_profile.do?other_nick=${tmp.sendnick }">
+				<a href="other_profile.do?othernick=${tmp.sendnick }">
 					<img src="${pageContext.request.contextPath}/resources/img/person.png" alt="" width="23" height="23" class="rounded-circle me-2">
 				</a>
 			</div>

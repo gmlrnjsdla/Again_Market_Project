@@ -11,8 +11,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/chat/chat.css">
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet"/>
 
-<title>Insert title here</title>
+
+<title>### MESSAGE ###</title>
 </head>
 <body>
 <%@ include file="../include/leftBar.jsp" %>
@@ -81,7 +83,7 @@
 				
 				// 메세지 리스트중 하나를 클릭했을 때
 				$('.chat_list').on('click', function(){
-					alert('room : '+ $(this).attr('room'));
+					//alert('room : '+ $(this).attr('room'));
 					
 					let room = $(this).attr('room');
 					let othernick = $(this).attr('other-nick');
@@ -130,7 +132,7 @@
 	// 메세지 리스트를 다시 가져온다.
 	const MessageList = function(){
 		$.ajax({
-			url:"chat_ajax_list.do",
+			url:"message_ajax_list.do",
 			method:"get",
 			data:{
 			},

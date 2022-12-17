@@ -113,17 +113,7 @@ public class HomeController {
 		return "index";
 	}
 
-	@RequestMapping(value = "/chat1")
-	public String chat(Model model, HttpSession session) {
-		
-		String sid = (String)session.getAttribute("sessionId");
-		
-		IDao dao = sqlSession.getMapper(IDao.class);
-		List<MemberDto> dtos = dao.memberListDao(sid);
-		model.addAttribute("memberList", dtos);
-		
-		return "chat/chat";
-	}
+	
 	
 	@RequestMapping(value = "/joinOk", method = RequestMethod.POST)
 	public String joinOk(HttpServletRequest request, Model model) {

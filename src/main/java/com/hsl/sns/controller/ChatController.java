@@ -25,10 +25,13 @@ public class ChatController {
 	@Autowired
 	private ChatDao messageDao;
 	
+	@Autowired
+	private SqlSession sqlSession;
+	
  
 	// 메세지 목록
-	@RequestMapping(value = "/chatTest")
-	public String message_list(HttpServletRequest request, HttpSession session) {
+	@RequestMapping(value = "/message")
+	public String message_list(HttpServletRequest request, HttpSession session, Model model) {
 		// System.out.println("현대 사용자 nick : " + session.getAttribute("nick"));
 
 		String nick = (String) session.getAttribute("nick");
@@ -40,8 +43,14 @@ public class ChatController {
 		ArrayList<ChatDto> list = messageDao.messageList(to);
 
 		request.setAttribute("list", list);
+		
+		String sid = (String)session.getAttribute("sessionId");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		List<MemberDto> dtos = dao.memberListDao(sid);
+		model.addAttribute("memberList", dtos);
 
-		return "chat/chatTest";
+		return "chat/message";
 	}
 
 	// 메세지 목록
@@ -59,12 +68,6 @@ public class ChatController {
 		model.addAttribute("list", list);
 		request.setAttribute("list", list);
 
-//		String sid = (String)session.getAttribute("sessionId");
-//		
-//		IDao dao = sqlSession.getMapper(IDao.class);
-//		List<MemberDto> dtos = dao.memberListDao(sid);
-//		model.addAttribute("list", dtos);
-		
 		
 		return "chat/chat_ajax_list";
 	}
@@ -89,13 +92,13 @@ public class ChatController {
 	// 메세지 리스트에서 메세지 보내기
 	@ResponseBody
 	@RequestMapping(value = "/message_send_inlist.do")
-	public int message_send_inlist(@RequestParam int room, @RequestParam String other_nick,
+	public int message_send_inlist(@RequestParam int room, @RequestParam String othernick,
 			@RequestParam String content, HttpSession session) {
 
 		ChatDto to = new ChatDto();
 		to.setRoom(room);
 		to.setSendnick((String) session.getAttribute("nick"));
-		to.setRecvnick(other_nick);
+		to.setRecvnick(othernick);
 		to.setContent(content);
 
 		int flag = messageDao.messageSendInlist(to);

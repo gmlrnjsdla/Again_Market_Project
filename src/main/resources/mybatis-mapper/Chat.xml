@@ -6,7 +6,7 @@
 	
 
 	
-<mapper namespace="com.hsl.sns.dao.ChatDao" >
+<mapper namespace="com.hsl.sns.dao.Chat" >
 	
 	<select id="message_list" parameterType="com.hsl.sns.dto.ChatDto" resultType="com.hsl.sns.dto.ChatDto">
     select no, room, sendnick, recvnick, sendtime, readtime, content, readchk
@@ -36,15 +36,15 @@
 
 <!-- 메세지 내용 가져오기 -->
 <select id="room_content_list" parameterType="com.hsl.sns.dto.ChatDto" resultType="com.hsl.sns.dto.ChatDto">
-    select m.no, m.room, m.sendnick, m.recvnick, sendtime, m.readtime, m.content, m.readchk, u.profile
+    select m.no, m.room, m.sendnick, m.recvnick, m.sendtime, m.readtime, m.content, m.readchk, u.profile
     from message m left outer join user_sns u
     on m.sendnick = u.nick
     <choose>
         <when test="room != 0">
-            where room=#{room}
+            where room=#{room} ORDER BY no ASC
         </when>
         <otherwise>
-            where (recvnick = #{recvnick} and sendnick = #{nick}) or (sendnick = #{recvnick} and recvnick = #{nick})
+            where (recvnick = #{recvnick} and sendnick = #{nick}) or (sendnick = #{recvnick} and recvnick = #{nick}) ORDER BY no ASC
         </otherwise>
     </choose>
 
@@ -68,12 +68,10 @@
 <insert id="messageSendInlist" parameterType="com.hsl.sns.dto.ChatDto">
     <choose>
         <when test="room != 0">
-            insert into message(no,room,sendnick,recvnick,content,readchk) 
-            values(message_seq.nextval, #{room}, #{sendnick}, #{recvnick}, #{content}, 0);
+            INSERT INTO MESSAGE VALUES(MESSAGE_SEQ.NEXTVAL, #{room}, #{sendnick}, #{recvnick}, sysdate, sysdate, #{content}, 0)
         </when>
         <otherwise>
-            insert into message(no,room,sendnick,recvnick,content,readchk) 
-            values(message_seq.nextval, #{room}, #{sendnick}, #{recvnick}, #{content}, 0);
+            INSERT INTO MESSAGE VALUES(MESSAGE_SEQ.NEXTVAL, #{room}, #{sendnick}, #{recvnick}, sysdate, sysdate, #{content}, 0)
         </otherwise>
     </choose>
 </insert>

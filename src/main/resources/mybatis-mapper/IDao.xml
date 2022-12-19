@@ -19,6 +19,17 @@
 		SELECT * FROM user_sns WHERE id NOT IN (#{param1})
 	</select>
 	
+	
+	
+	
+	
+	
+	
+	<!-- 인덱스관련 -->
+	<select id="postDto" resultType="com.hsl.sns.dto.MemberDto">
+		SELECT * FROM post WHERE id=#{param1},#{param2}
+	</select>
+	
 </mapper>
 	
 	

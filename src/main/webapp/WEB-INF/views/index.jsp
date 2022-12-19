@@ -20,7 +20,7 @@
 
 <!--  상단 친구프로필 --> 
 
-<div class="card top" style="width: 630px; height:150px; border:1px solid #dddddd; border-radius:5px;">
+<div class="card" style="width: 630px; height:150px; border:1px solid #dddddd; border-radius:5px;">
 
 	<c:forEach items="${memberList}" var="mList">
 	  <div class="card-body z"> 

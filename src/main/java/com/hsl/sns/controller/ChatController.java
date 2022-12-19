@@ -95,6 +95,7 @@ public class ChatController {
 	public int message_send_inlist(@RequestParam int room, @RequestParam String othernick,
 			@RequestParam String content, HttpSession session) {
 
+		
 		ChatDto to = new ChatDto();
 		to.setRoom(room);
 		to.setSendnick((String) session.getAttribute("nick"));
@@ -104,6 +105,34 @@ public class ChatController {
 		int flag = messageDao.messageSendInlist(to);
 
 		return flag;
+	}
+	
+	// 검색 -> 프로필 -> 메시지 보내기 에서 보낸 메시지
+	@RequestMapping(value = "/message_send")
+	public String message_send(HttpServletRequest request, HttpSession session) {
+		
+		int room = Integer.parseInt(request.getParameter("room"));
+		String othernick = request.getParameter("othernick");
+		String content = request.getParameter("content");
+		
+		ChatDto to = new ChatDto();
+		to.setRoom(room);
+		to.setSendnick((String) session.getAttribute("nick"));
+		to.setRecvnick(othernick);
+		to.setContent(content);
+
+		messageDao.messageSendInlist(to);
+
+		return "redirect:index";
+	}
+	
+	@RequestMapping(value = "/send")
+	public String send(HttpServletRequest request, Model model) {
+		
+		String recvnick = request.getParameter("nick");
+		model.addAttribute("rnick", recvnick);
+		
+		return "chat/send";
 	}
 
 }

@@ -89,9 +89,10 @@
 
 <!-- 기존 메세지 내역의 room 번호를 가져옴 -->
 <select id="select_room"  parameterType="com.hsl.sns.dto.ChatDto" resultType="String">
+	SELECT room FROM (
     select room from message
-    where (recvnick = #{recvnick} and sendnick=#{sendnick}) or (sendnick = #{recvnick} and recvnick=#{sendnick})
-    limit 0,1
+    where (recvnick = #{recvnick} and sendnick=#{sendnick}) or (sendnick = #{recvnick} and recvnick=#{sendnick}))
+    WHERE ROWNUM=1
 </select>
 	
 </mapper>

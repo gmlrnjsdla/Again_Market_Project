@@ -5,11 +5,14 @@
 <head>
 <meta charset="UTF-8">
 
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/chat/chat.css">
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet"/>
+
+
 
 
 <title>### MESSAGE ###</title>
@@ -66,6 +69,7 @@
 			FirstMessageList();
 		});
 		
+		
 	
 	// 가장 처음 메세지 리스트를 가져온다.
 	const FirstMessageList = function(){
@@ -103,12 +107,23 @@
 					send_msg += "	</div>";
 					send_msg += "</div>";
 			          
+					
 					// 메세지 입력, 전송 칸을 보인다.
 					$('.send_message').html(send_msg);
 					
 					// 메세지 전송버튼을 눌렀을 때
-					$('.msg_send_btn').on('click',function(){
+					$('.write_msg form-control').on('click',function(){
+						// 메세지 전송 함수 호출
+						alert('!!!')
 						
+						// 전송버튼을 누르면 메세지 리스트가 리로드 되면서 현재 열린 메세지의 선택됨 표시가 사라진다.
+						// 이걸 해결하기 위해 메세지 전송버튼을 누르고 메세지 리스트가 리로드되면 메세지 리스트의 첫번째 메세지(현재 열린 메세지)가 선택됨 표시 되도록 한다.
+						//$('.chat_list_box:first').addClass('active_chat');
+					});
+					
+					
+					// 메세지 전송버튼을 눌렀을 때
+					$('.msg_send_btn').on('click',function(){
 						// 메세지 전송 함수 호출
 						SendMessage(room, othernick);
 						
@@ -116,6 +131,8 @@
 						// 이걸 해결하기 위해 메세지 전송버튼을 누르고 메세지 리스트가 리로드되면 메세지 리스트의 첫번째 메세지(현재 열린 메세지)가 선택됨 표시 되도록 한다.
 						//$('.chat_list_box:first').addClass('active_chat');
 					});
+					
+					
 					
 					
 					// 메세지 내용을 불러오는 함수 호출
@@ -158,17 +175,29 @@
 					send_msg += "			<input type='text' class='write_msg form-control' placeholder='메세지를 입력...' />";
 					send_msg += "		</div>";
 					send_msg += "		<div class='col-1'>";
-					send_msg += "			<button class='msg_send_btn' type='button'><i class='fa fa-paper-plane-o' aria-hidden='true'></i></button>";
+					send_msg += "			<button class='msg_send_btn' type='button' ><i class='fa fa-paper-plane-o' aria-hidden='true'></i></button>";
 					send_msg += "		</div>";
 					send_msg += "	</div>";
 					send_msg += "</div>";
+					
 			          
+					
+					
 					// 메세지 입력, 전송 칸을 보인다.
 					$('.send_message').html(send_msg);
 					
+					$('input').on('keyup',function(e){
+						// 메세지 전송 함수 호출
+						if(e.keycode == 13){
+							SendMessage(room, othernick);
+						}
+						// 전송버튼을 누르면 메세지 리스트가 리로드 되면서 현재 열린 메세지의 선택됨 표시가 사라진다.
+						// 이걸 해결하기 위해 메세지 전송버튼을 누르고 메세지 리스트가 리로드되면 메세지 리스트의 첫번째 메세지(현재 열린 메세지)가 선택됨 표시 되도록 한다.
+						//$('.chat_list_box:first').addClass('active_chat');
+					});
+					
 					// 메세지 전송버튼을 눌렀을 때
 					$('.msg_send_btn').on('click',function(){
-						
 						// 메세지 전송 함수 호출
 						SendMessage(room, othernick);
 						
@@ -176,6 +205,7 @@
 						// 이걸 해결하기 위해 메세지 전송버튼을 누르고 메세지 리스트가 리로드되면 메세지 리스트의 첫번째 메세지(현재 열린 메세지)가 선택됨 표시 되도록 한다.
 						//$('.chat_list_box:first').addClass('active_chat');
 					});
+					
 					
 					// 메세지 내용을 불러오는 함수 호출
 					MessageContentList(room);
@@ -268,6 +298,6 @@
 	</script>
 	
 	
-	
+	<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

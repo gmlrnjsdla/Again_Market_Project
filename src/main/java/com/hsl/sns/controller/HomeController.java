@@ -25,6 +25,7 @@ public class HomeController {
 	@Autowired
 	private SqlSession sqlSession;
 	
+	
 	@RequestMapping(value = "/")
 	public String home() {
 		return "login";
@@ -173,8 +174,10 @@ public class HomeController {
 		List<MemberDto> dtos = dao.memberListDao(sid);
 		model.addAttribute("memberList", dtos);
 		
+		
 		return "content_write";
 	}
+	
 	
 	@RequestMapping(value = "/content_view")
 	public String content_view(HttpSession session, Model model) {

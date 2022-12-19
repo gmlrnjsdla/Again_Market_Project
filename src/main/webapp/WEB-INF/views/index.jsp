@@ -71,6 +71,7 @@
    content :오늘하루 참힘들었다.
   <hr>
   <p class="fs-6"></p>
+  
   <!--댓글표시 -->
     
     <p class="card-text">guestID : 참좋아요</p>

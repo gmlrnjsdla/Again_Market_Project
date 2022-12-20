@@ -19,7 +19,25 @@
 <div  class="card" style="width: 400px; height:700px; border:1px solid #dddddd; border-radius:5px; background-color:#FBFBFB ">
   	
   	<div class="card-body">
-  	<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">게시자 ID<br>
+  	<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">게시자 ID
+	
+	
+	<!-- 컨텐츠 수정 삭제 드롭다운-->
+
+
+<span class="setting" >
+  <img class="setting" src="${pageContext.request.contextPath }/resources/img/Settings.svg"  type="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+  
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">수정</a></li>
+    <li><a class="dropdown-item" href="#">삭제</a></li>
+  </ul>
+</span>
+
+
+	
+	
 	<hr>
 	</div>
  	<div class="overflow-auto" >
@@ -61,7 +79,10 @@
   	
   	</label>
   	
-  	<button type="button" class="btn btn-outline-secondary" style="float:right" onclick="#">입력</button>
+  	<div class="input-group mb-3">
+ 		 <input type="text" class="form-control" placeholder="댓글을 입력해 주세요" aria-label="댓글을 입력해 주세요" aria-describedby="button-addon2">
+  		 <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="#">댓글입력</button>
+	</div>
 	</div>
  
   

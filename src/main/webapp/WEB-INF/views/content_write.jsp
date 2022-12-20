@@ -11,7 +11,6 @@
 <body>
 <%@ include file="include/leftBar.jsp" %>
 
-
 <div class="content_write_form01">
 <div class="card" style="width: 400px; height:700px; border:1px solid #dddddd; border-radius:5px; background-color:#FBFBFB ">
   <div class="card-body" > 
@@ -19,7 +18,7 @@
 
 
   <div id='image_preview'>
-    <input type='file' id='btnAtt' multiple='multiple' />
+    <input type='file' id='btnAtt' multiple='multiple' >
     <div id='att_zone'
       data-placeholder='파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'></div>
   </div>
@@ -111,9 +110,11 @@
 <div class="content_write_form02">
 <div class="card" style="width: 350px; height:700px; border:1px solid #dddddd; border-radius:5px;">
   <div class="card-body"> 
-
 	<div class="form-floating">
-  	<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height:600px" ></textarea>
+	<textarea class="card" placeholder="제목입력" id="floatingTextarea" style="width: 310px;height:50px;" ></textarea>
+	<br>
+	<div class="form-floating">
+  	<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height:500px" ></textarea>
   	<label for="floatingTextarea">내용입력</label><br>
   	<button type="button" class="btn btn-outline-secondary" style="float:right" onclick="#">입력</button>
 	</div>

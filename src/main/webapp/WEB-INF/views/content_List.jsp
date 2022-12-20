@@ -14,7 +14,7 @@
 <div class="content_List">
 
 <div class="card" style="width: 600px; height:700px; border:1px solid #dddddd; border-radius:5px;">
-  <div class="card-body"> 
+  
  	<!-- 컨텐츠 헤더 -->
   <table border="0" cellpadding= "0px" width="100%" height="30%">
   	<tr colspan="3">
@@ -41,29 +41,34 @@
   
   	
    </table>
-  	
+  	<hr>
   
+  	<div class="overflow-auto" >
   		
    		<!-- 컨텐츠 리스트 -->
-   		<hr>
-   		<div class="row">
-  			<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="70" height="220" class="card-img-top" alt="...">
-  			<div class = "content_font">오늘은 안녕</div></a></div>
-  			<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="70" height="220" class="card-img-top" alt="...">
-  			<div class = "content_font">오늘은 안녕</div></a></div>
-  			<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="70" height="220" class="card-img-top" alt="...">
-  			<div class = "content_font">안녕하세요</div></a></div>
-  			<div class="col-md-4"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="70" height="220" class="card-img-top" alt="...">
-  			<div class = "content_font">안녕하세요</div></a></div>
-  			<div class="col-md-4"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="70" height="220" class="card-img-top" alt="...">
-  			<div class = "content_font">안녕하세요</div></a></div>
-  			<div class="col-md-4"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="70" height="220" class="card-img-top" alt="...">
-  			<div class = "content_font">안녕하세요</div></a></div>
+   		
+   		
+   			<div class="row">
+				<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="60" height="150" class="card-img-top" alt="...">
+				<div class = "content_font">오늘은 안녕</div></a></div>
+				<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="60" height="150" class="card-img-top" alt="...">
+				<div class = "content_font">오늘은 안녕</div></a></div>
+				<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="60" height="150" class="card-img-top" alt="...">
+				<div class = "content_font">오늘은 안녕</div></a></div>
+				<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="60" height="150" class="card-img-top" alt="...">
+				<div class = "content_font">오늘은 안녕</div></a></div>
+				<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="60" height="150" class="card-img-top" alt="...">
+				<div class = "content_font">오늘은 안녕</div></a></div>
+				<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="60" height="150" class="card-img-top" alt="...">
+				<div class = "content_font">오늘은 안녕</div></a></div>
+				<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="60" height="150" class="card-img-top" alt="...">
+				<div class = "content_font">오늘은 안녕</div></a></div>
   			
   			
-		</div>
+			</div>
   </div>
 	
+</div>
 </div>
 </div>
 <%@ include file="include/footer.jsp" %>

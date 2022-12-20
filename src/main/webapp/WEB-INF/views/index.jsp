@@ -5,21 +5,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<%@ include file="include/leftBar.jsp" %>
+<%@ include file="include/rightBar.jsp" %>
 
 
-
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/index/index.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/index/index.css?after">
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="include/leftBar.jsp" %>
-<%@ include file="include/rightBar.jsp" %>
-<div class="friend">
+
+<div class="friend" style="width: 630px;">
 
 
 <!--  상단 친구프로필 --> 
-<!-- 친구목록 가로정렬이 안됨
 <div class="card" style="width: 630px; height:150px; border:1px solid #dddddd; border-radius:5px;">
 
 	<c:forEach items="${memberList}" var="mList">
@@ -30,14 +29,14 @@
 	</c:forEach>	
 	
 </div>
- -->
+ 
 </div>
-<c:forEach begin="1" end="3">
+<c:forEach begin="1" end="2">
 <!--게시자 정보 -->
 
-<div class="content">
+<div class="content" style="width: 630px;">
 <div class="card" style="width: 630px;">
-<div class="card-body">
+<div class="card-body" style="width: 630px;">
 <img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">게시자 ID<br>
 <hr>
   <img src="${pageContext.request.contextPath }/resources/img/content.jpg" class="card-img-top" alt="...">
@@ -64,11 +63,6 @@
 </div>
 </div>
 </c:forEach>
-
-
-
-
-
 
 <%@ include file="include/footer.jsp" %>
 </body>

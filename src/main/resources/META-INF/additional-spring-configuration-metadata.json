@@ -1,0 +1,52 @@
+{"properties": [
+  {
+    "name": "servlet",
+    "type": "java.lang.String",
+    "description": "A description for 'servlet'"
+  },
+  {
+    "name": "location",
+    "type": "java.lang.String",
+    "description": "A description for 'location'"
+  },
+  {
+    "name": "maxFileSize",
+    "type": "java.lang.String",
+    "description": "A description for 'maxFileSize'"
+  },
+  {
+    "name": "maxRequestSize",
+    "type": "java.lang.String",
+    "description": "A description for 'maxRequestSize'"
+  },
+  {
+    "name": "maxRequestSize",
+    "type": "java.lang.String",
+    "description": "A description for 'maxRequestSize'"
+  },
+  {
+    "name": "maxRequestSize",
+    "type": "java.lang.String",
+    "description": "A description for 'maxRequestSize'"
+  },
+  {
+    "name": "maxRequestSize",
+    "type": "java.lang.String",
+    "description": "A description for 'maxRequestSize'"
+  },
+  {
+    "name": "maxRequestSize",
+    "type": "java.lang.String",
+    "description": "A description for 'maxRequestSize'"
+  },
+  {
+    "name": "maxRequestSize",
+    "type": "java.lang.String",
+    "description": "A description for 'maxRequestSize'"
+  },
+  {
+    "name": "multipart",
+    "type": "java.lang.String",
+    "description": "A description for 'multipart'"
+  }
+]}

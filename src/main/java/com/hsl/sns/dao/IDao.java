@@ -22,10 +22,9 @@ public interface IDao {
 	
 	
 	//index 관련
-	public List<PostDto> postDtos(String id, String content); 
-	public List<PostingUrlDto> postingUrlDtos(int postidx, String imgurl); //int, String
-	
-	
+	public void contentWriteContDao(String content, String id); //post write content insert
+	public void contentWritePicDao(int postidx, String fileOriName, String fileName, String fileExtension, String fileUrl); //post write imgurl insert
+	public List<PostDto> postInfoDao(String id); 
 	
 	
 	

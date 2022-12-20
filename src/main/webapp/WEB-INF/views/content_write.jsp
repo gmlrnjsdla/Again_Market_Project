@@ -16,9 +16,9 @@
   <div class="card-body" > 
  	<!-- 컨텐츠 사진입력 -->
 
-
+<form action="writeOk" method="post" enctype="multipart/form-data">
   <div id='image_preview'>
-    <input type='file' id='btnAtt' multiple='multiple' >
+    <input type='file' id='btnAtt' multiple='multiple' name="files"/>
     <div id='att_zone'
       data-placeholder='파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'></div>
   </div>
@@ -114,16 +114,17 @@
 	<textarea class="card" placeholder="제목입력" id="floatingTextarea" style="width: 310px;height:50px;" ></textarea>
 	<br>
 	<div class="form-floating">
-  	<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height:500px" ></textarea>
+  	<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height:500px" name="content"></textarea>
   	<label for="floatingTextarea">내용입력</label><br>
-  	<button type="button" class="btn btn-outline-secondary" style="float:right" onclick="#">입력</button>
+  	<button type="submit" class="btn btn-outline-secondary" style="float:right" >입력</button>
 	</div>
  
   
-
+</form>
 	</div>
   </div>
 </div>	
+</div>
 
 <%@ include file="include/footer.jsp" %>
 

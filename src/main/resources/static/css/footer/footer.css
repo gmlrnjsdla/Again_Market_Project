@@ -27,3 +27,8 @@ td.footerbox02 {
 	font-family: Arial;
 	text-align: center;
 }
+
+table{
+	position:fixed;
+	z-index: 100; 
+}

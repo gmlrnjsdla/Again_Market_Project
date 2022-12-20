@@ -4,9 +4,9 @@
 	max-width:1170px; 
 }
 .messaging{
-	width:1000px;
+	width:900px;
 	
-	margin-left:250px;
+	margin-left:600px;
 	margin-top:100px;
 }
 img{ max-width:100%;}
@@ -14,7 +14,7 @@ img{ max-width:100%;}
   background: #f8f8f8 none repeat scroll 0 0;
   float: left;
   overflow: hidden;
-  width: 40%; border-right:1px solid #c4c4c4;
+  width: 45%; border-right:1px solid #c4c4c4;
 }
 .inbox_msg {
 	
@@ -81,7 +81,7 @@ img{ max-width:100%;}
   display: inline-block;
   padding: 0 0 0 10px;
   vertical-align: top;
-  width: 92%;
+  max-width: 300px;
  }
  .received_withd_msg p {
   background: #ebebeb none repeat scroll 0 0;
@@ -102,7 +102,7 @@ img{ max-width:100%;}
 .mesgs {
   float: left;
   padding: 30px 15px 0 25px;
-  width: 60%;
+  width: 55%;
 }
 
  .sent_msg p {
@@ -130,7 +130,7 @@ img{ max-width:100%;}
 
 .type_msg {border-top: 1px solid #c4c4c4;position: relative;}
 .msg_send_btn {
-  background: #05728f none repeat scroll 0 0;
+  background: #000000 none repeat scroll 0 0;
   border: medium none;
   border-radius: 50%;
   color: #fff;

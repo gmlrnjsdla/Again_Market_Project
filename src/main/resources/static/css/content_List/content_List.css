@@ -31,6 +31,9 @@
 	text-align: left;
 	padding-top: 0px;
 	margin-top:0px; 
-	
-	
 }
+
+.card-body{
+	float:left;
+}
+

@@ -63,12 +63,18 @@
     	</form>
     	<br>
   		<c:forEach items="${memberList}" var="mList">
-	        <li>
-	        	<a href="#" class="dropdown-item d-flex align-items-center gap-2 py-2">
-		        <img src="${pageContext.request.contextPath}/resources/img/${mList.profile}" alt="" width="23" height="23" class="rounded-circle me-2">
-		        <span>${mList.name}</span>
-		        </a>
-	        </li>
+	       
+	        <div class="dropdouwn">
+		      <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+     		    <img src="${pageContext.request.contextPath}/resources/img/${mList.profile}" alt="" width="23" height="23" class="rounded-circle me-2">
+		        <span style="font-size:20px; font-weight:bold;">${mList.name}</span>
+		      </a>
+		      <ul class="dropdown-menu text-small shadow">
+		        <li><a class="dropdown-item" href="content_List?id=${mList.id}">프로필 가기</a></li>
+		        <li><a class="dropdown-item" href="send?nick=${mList.nick }">메시지 보내기</a></li>
+		        
+		      </ul>
+		    </div>
     	</c:forEach>
     	</ul>
   	</div>
@@ -89,9 +95,14 @@
       
       <!--##################################### 메시지 #####################################-->
      <li class="nav-item">
-        <a href="/chat" class="nav-link link-dark">
+        <a href="/message" class="nav-link link-dark">
           <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16"><path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/></svg>
 		  <span style="font-size:20px; font-weight:bold;">&nbsp;메시지</span>
+		  <c:if test="${count > 0 }">
+			<span class="col-2 ">
+				<span class="badge bg-danger">${count }</span>
+			</span>
+		  </c:if>
         </a>
      </li>
       
@@ -130,9 +141,6 @@
       <br>
     </ul>
     <hr>
-   
-   
-  	
    
     
     <div class="dropup">

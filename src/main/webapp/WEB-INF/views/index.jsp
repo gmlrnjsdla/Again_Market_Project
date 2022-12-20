@@ -79,7 +79,7 @@
  <!--댓글입력 -->
   	<div class="input-group mb-3">
  		 <input type="text" class="form-control" placeholder="댓글을 입력해 주세요" aria-label="댓글을 입력해 주세요" aria-describedby="button-addon2">
-  		 <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="#">댓글입력</button>
+  		 <button class="btn btn-outline-secondary" type="submit" id="button-addon2">댓글입력</button>
 	</div>
 </div>
 </div>

@@ -94,7 +94,7 @@
  
  	.sidebar{
     	position:fixed;
-    	z-index: 300;
+    	z-index: 2;
     	top:0;
     	padding-left:200px;
     	padding-top:100px;

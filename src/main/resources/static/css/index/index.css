@@ -5,7 +5,7 @@
 	 position:relative;
      padding-top:30px;
      padding-left:620px;
-     z-index:-1;
+     z-index:1;
 }
 
 .friend{

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .recommend{
 	position:fixed;
-    	z-index: 2;
+    	z-index: 1;
     padding-left:1400px;
    	padding-top:100px;
 		

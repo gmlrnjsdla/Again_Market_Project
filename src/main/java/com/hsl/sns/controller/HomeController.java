@@ -2,9 +2,6 @@ package com.hsl.sns.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,8 +15,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -27,7 +22,6 @@ import com.hsl.sns.dao.Chat;
 import com.hsl.sns.dao.IDao;
 import com.hsl.sns.dto.MemberDto;
 import com.hsl.sns.dto.PostDto;
-import com.hsl.sns.dto.PostingUrlDto;
 
 
 @Controller
@@ -66,52 +60,7 @@ public class HomeController {
 		return "join";
 	}
 	
-	@RequestMapping(value = "/memberModify")
-	public String memberModify(Model model, HttpSession session) {
-		
-		sidebar(session,model);
-		String sid = (String) session.getAttribute("sessionId");
-		
-		IDao dao = sqlSession.getMapper(IDao.class);
-		
-		MemberDto memberDto = dao.memberInfoDao(sid);
-		
-		model.addAttribute("memberDto", memberDto);
-		
-		
-		return "memberModify";
-	}
-	@RequestMapping(value = "/memberModifyOk")
-	public String memberModifyOk(HttpServletRequest request,Model model, HttpSession session) {
-		
-		sidebar(session,model);
-		IDao dao = sqlSession.getMapper(IDao.class);
-		
-		String id =  request.getParameter("id");
-		String name =  request.getParameter("name");
-		String mail =  request.getParameter("mail");
-		String nick =  request.getParameter("nick");
-		String phone =  request.getParameter("phone");
-		String greet =  request.getParameter("greet");
-		
-		dao.memberModifyDao(id, name, mail, nick, phone, greet);
-		
-		return "redirect:content_List";
-	}
-
-	@RequestMapping(value = "/memberDelete")
-	public String memberDelete(HttpServletRequest request,Model model, HttpSession session) {
-		sidebar(session,model);
-		String sid = (String) session.getAttribute("sessionId");
-
-		IDao dao = sqlSession.getMapper(IDao.class);
-		
-		dao.memberDeleteDao(sid);
-		
-		session.invalidate();
-		
-		return "redirect:login";
-	}
+	
 	
 	
 	@RequestMapping(value = "/index")

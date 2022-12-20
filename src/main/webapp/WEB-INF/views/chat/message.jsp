@@ -70,6 +70,8 @@
 		});
 		
 		
+		
+		
 	
 	// 가장 처음 메세지 리스트를 가져온다.
 	const FirstMessageList = function(){
@@ -111,16 +113,14 @@
 					// 메세지 입력, 전송 칸을 보인다.
 					$('.send_message').html(send_msg);
 					
-					// 메세지 전송버튼을 눌렀을 때
-					$('.write_msg form-control').on('click',function(){
-						// 메세지 전송 함수 호출
-						alert('!!!')
-						
-						// 전송버튼을 누르면 메세지 리스트가 리로드 되면서 현재 열린 메세지의 선택됨 표시가 사라진다.
-						// 이걸 해결하기 위해 메세지 전송버튼을 누르고 메세지 리스트가 리로드되면 메세지 리스트의 첫번째 메세지(현재 열린 메세지)가 선택됨 표시 되도록 한다.
-						//$('.chat_list_box:first').addClass('active_chat');
-					});
 					
+					$('input').on('keydown', function(e) {
+						  var code = e.keyCode || e.which;
+						  if (code == 13) { 
+							  SendMessage(room, othernick);
+						  }
+
+						});
 					
 					// 메세지 전송버튼을 눌렀을 때
 					$('.msg_send_btn').on('click',function(){
@@ -186,15 +186,13 @@
 					// 메세지 입력, 전송 칸을 보인다.
 					$('.send_message').html(send_msg);
 					
-					$('input').on('keyup',function(e){
-						// 메세지 전송 함수 호출
-						if(e.keycode == 13){
-							SendMessage(room, othernick);
-						}
-						// 전송버튼을 누르면 메세지 리스트가 리로드 되면서 현재 열린 메세지의 선택됨 표시가 사라진다.
-						// 이걸 해결하기 위해 메세지 전송버튼을 누르고 메세지 리스트가 리로드되면 메세지 리스트의 첫번째 메세지(현재 열린 메세지)가 선택됨 표시 되도록 한다.
-						//$('.chat_list_box:first').addClass('active_chat');
-					});
+					$('input').on('keydown', function(e) {
+						  var code = e.keyCode || e.which;
+						  if (code == 13) { 
+							  SendMessage(room, othernick);
+						  }
+
+						});
 					
 					// 메세지 전송버튼을 눌렀을 때
 					$('.msg_send_btn').on('click',function(){

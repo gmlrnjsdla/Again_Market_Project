@@ -33,6 +33,7 @@
     <li><a class="dropdown-item" href="#">수정</a></li>
     <li><a class="dropdown-item" href="#">삭제</a></li>
   </ul>
+  
 </span>
 
 

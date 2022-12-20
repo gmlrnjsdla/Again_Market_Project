@@ -11,24 +11,31 @@
 </head>
 <body>
 <%@ include file="include/leftBar.jsp" %>
+	
+	
 	<div class="recommend">
 	<div class="card" style="width: 700px; height:820px; border:1px solid #dddddd; border-radius:5px;">
 
 		<div class="card-body" style="margin-left: 5%;"> 
 			<div style="display:inline-block;vertical-align:top;">
+				
+				
+			<form action="memberModifyOk">
+			<input type="hidden" name="id" value="${memberDto.id }" >
 				<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">
 			</div>
 			<div style="display:inline-block; ">
-				&nbsp;&nbsp;&nbsp;본인아이디 ID<br>&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;${memberDto.id }<br>&nbsp;&nbsp;
 			<a href="profil">프로필 사진변경</a>
 			</div>
 	  		<br>
 	  	</div>
 	  	<!-- 이름 -->
+	  
 		<div class="row mb-3">
   			<label for="colFormLabel" class="col-sm-2 col-form-label">이름</label>
  		<div class="col-sm-10">
-    		<input type="text" class="form-control" id="colFormLabel" placeholder="ex)홍길동" style="width:480px;">
+    		<input type="text" class="form-control" id="colFormLabel" name="name" value="${memberDto.name }" style="width:480px;">
   		</div>
 		</div>
 	  	<div class="col-auto">
@@ -41,9 +48,9 @@
 	  	
 	  	<!-- 사용자 -->
 		<div class="row mb-3">
-  			<label for="colFormLabel" class="col-sm-2 col-form-label">사용자 이름</label>
+  			<label for="colFormLabel" class="col-sm-2 col-form-label">닉네임</label>
  		<div class="col-sm-10">
-    		<input type="text" class="form-control" id="colFormLabel" placeholder="GilDong85" style="width:480px;">
+    		<input type="text" class="form-control" id="colFormLabel" name="nick" value="${memberDto.nick }" style="width:480px;">
   		</div>
 		</div>
 	  	<div class="col-auto">
@@ -57,7 +64,7 @@
 		<div class="row mb-3">
   			<label for="colFormLabel" class="col-sm-2 col-form-label">소개</label>
  		<div class="col-sm-10">
-    		<textarea class="form-control" aria-label="With textarea" style="width:480px;"></textarea> 
+    		<textarea class="form-control" aria-label="With textarea" style="width:480px;" name="greet" >${memberDto.greet }</textarea> 
   		</div>
 		</div>
 	  	<!--  소개 끝 -->
@@ -73,7 +80,7 @@
 		<div class="row mb-3">
   			<label for="colFormLabel" class="col-sm-2 col-form-label">이메일</label>
  		<div class="col-sm-10">
-    		<input type="text" class="form-control" id="colFormLabel" placeholder="hong@naver.com" style="width:480px;">
+    		<input type="text" class="form-control" id="colFormLabel" name="mail" value="${memberDto.mail }" style="width:480px;">
   		</div>
 		</div>
 	  	<!--  이메일끝 -->
@@ -82,26 +89,20 @@
 		<div class="row mb-3">
   			<label for="colFormLabel" class="col-sm-2 col-form-label">전화번호</label>
  		<div class="col-sm-10">
-    		<input type="text" class="form-control" id="colFormLabel" placeholder="010-7777-7777" style="width:480px;">
+    		<input type="text" class="form-control" id="colFormLabel" name="phone" value="${memberDto.phone }" style="width:480px;">
   		</div>
 		</div>
 	  	<!--  전화번호끝 -->
   		
-  		<!-- 성별 -->
-		<div class="row mb-3">
-  			<label for="colFormLabel" class="col-sm-2 col-form-label">성별</label>
- 		<div class="col-sm-10">
-    		<input type="text" class="form-control" id="colFormLabel" placeholder="ex) 남(자) or 여(자)" style="width:480px;">
-  		</div>
-		</div>
-	  	<!--  성별끝 -->
+  		
 	  	<center>
-		<input type="submit" class="btn btn-primary" disabled style="width:100px;margin-bottom: 20px;" value="수정"></button>
-		<button type="reset" class="btn btn-secondary" disabled style="margin-bottom: 20px;"> 취소</button>
+		<input type="submit" class="btn btn-primary"  style="width:100px;margin-bottom: 20px;" value="수정"></button>
+		<button type="button" class="btn btn-secondary"  style="margin-bottom: 20px;" onclick="script:window.location='content_List?mid=${memberDto.id }'"> 취소</button>
 		</center>
+		
 	</div>
 	</div>
-	
+	</form>	
 	
 	<%@ include file="include/footer.jsp" %>
 </body>

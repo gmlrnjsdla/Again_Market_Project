@@ -23,7 +23,7 @@
 	      <input type="text" id="#" class="btn_login_no1" placeholder="아이디" name="id">
 	    </div>
 	    <div class="mb-3">
-	      <input type="text" id="#" class="btn_login_no1" placeholder="비밀번호" name="pwd">
+	      <input type="password" id="#" class="btn_login_no1" placeholder="비밀번호" name="pwd">
 	    </div>
 	    
 	    <div class="mb-3">

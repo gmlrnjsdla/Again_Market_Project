@@ -49,11 +49,12 @@
 	<img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="365" height="250"  alt="..." >
  	</div >
  	<hr>
-
+	<div>
 	가을이 깊어가면서 온산의 나뭇잎들이 울긋불긋 물들어가고 있다. 2010년 전국 단풍 홍보대사를 뽑는 날, 단풍잎들은 서로 자기가 더 예쁘다며 
 	자신을 홍보대사로 추천하는데···. 단풍잎 : 가을을 대표하는 절세미인 하면 푸른 잎을 붉게 물들인 나 단풍잎이지! 아름다운 여자의 얼굴을 묘사할 
 	때 쓰이는 ‘녹빈홍안(綠鬢紅顔)’이라는 사자성어 들어봤지?윤이 나는 검은 머리와 고운 얼굴이라는 뜻인데, 오죽하면 고운 얼굴을 붉을 ‘홍’자로 표현했을까~ 
 	은행잎 : 흥, 노랗게 물들인 내 잎들을 보고도 그
+	</div>
 	</div>
 	
 	</div>
@@ -65,26 +66,80 @@
 <div class="card" style="width: 350px; height:700px; border:1px solid #dddddd; border-radius:5px;">
   <div class="card-body"> 
 	<div>댓글목록</div>
-	<div class="form-floating">
-  	<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height:600px" ></textarea>
-  	<label for="floatingTextarea">
-  		ShinDongHun:여자가 참이쁘네요 <br>
-  		&nbsp;&nbsp;&nbsp;<댓글>이쁘긴요 제여자친구 인데요<br>
-  		ShinDongHun:여자가 참이쁘네요 <br>
-  		&nbsp;&nbsp;&nbsp;<댓글>이쁘긴요 제여자친구 인데요<br>
-  		ShinDongHun:여자가 참이쁘네요 <br>
-  		&nbsp;&nbsp;&nbsp;<댓글>이쁘긴요 제여자친구 인데요<br>
-  		ShinDongHun:여자가 참이쁘네요 <br>
-  		&nbsp;&nbsp;&nbsp;<댓글>이쁘긴요 제여자친구 인데요<br>
-  
-  	
-  	</label>
-  	
+	<div class="overflow-auto" >
+	<div class="card" style="width: 315px; height:600px; border:1px solid #dddddd; border-radius:5px;">
+
+	<div class="cntent_font01" >ShinDongHun:
+	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
+	<div class="cntent_font03" >Hwang:
+	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
+	<div class="cntent_font01" >ShinDongHun:
+	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
+	<div class="cntent_font03" >Hwang:
+	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
+	<div class="cntent_font01" >ShinDongHun:
+	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
+	<div class="cntent_font03" >Hwang:
+	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
+	<div class="cntent_font01" >ShinDongHun:
+	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
+	<div class="cntent_font03" >Hwang:
+	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
+	<div class="cntent_font01" >ShinDongHun:
+	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
+	<div class="cntent_font03" >Hwang:
+	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
+	<div class="cntent_font01" >ShinDongHun:
+	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
+	<div class="cntent_font03" >Hwang:
+	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
+	<div class="cntent_font01" >ShinDongHun:
+	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
+	<div class="cntent_font03" >Hwang:
+	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
+	<div class="cntent_font01" >ShinDongHun:
+	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
+	<div class="cntent_font03" >Hwang:
+	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
+	<div class="cntent_font01" >ShinDongHun:
+	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
+	<div class="cntent_font03" >Hwang:
+	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
+	<div class="cntent_font01" >ShinDongHun:
+	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
+	<div class="cntent_font03" >Hwang:
+	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
+	<div class="cntent_font01" >ShinDongHun:
+	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
+	<div class="cntent_font03" >Hwang:
+	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
+	<div class="cntent_font01" >ShinDongHun:
+	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
+	<div class="cntent_font03" >Hwang:
+	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
+	<div class="cntent_font01" >ShinDongHun:
+	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
+	<div class="cntent_font03" >Hwang:
+	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
+	<div class="cntent_font01" >ShinDongHun:
+	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
+	<div class="cntent_font03" >Hwang:
+	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
+	<div class="cntent_font01" >ShinDongHun:
+	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
+	<div class="cntent_font03" >Hwang:
+	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
+	
+	
+	</div>
+	</div>
+	
+
   	<div class="input-group mb-3">
  		 <input type="text" class="form-control" placeholder="댓글을 입력해 주세요" aria-label="댓글을 입력해 주세요" aria-describedby="button-addon2">
-  		 <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="#">댓글입력</button>
+  		 <button class="btn btn-outline-secondary" type="submit" id="button-addon2">댓글입력</button>
 	</div>
-	</div>
+	
  
   
 

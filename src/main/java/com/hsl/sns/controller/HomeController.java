@@ -70,10 +70,50 @@ public class HomeController {
 	public String memberModify(Model model, HttpSession session) {
 		
 		sidebar(session,model);
+		String sid = (String) session.getAttribute("sessionId");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		MemberDto memberDto = dao.memberInfoDao(sid);
+		
+		model.addAttribute("memberDto", memberDto);
+		
 		
 		return "memberModify";
 	}
+	@RequestMapping(value = "/memberModifyOk")
+	public String memberModifyOk(HttpServletRequest request,Model model, HttpSession session) {
+		
+		sidebar(session,model);
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		String id =  request.getParameter("id");
+		String name =  request.getParameter("name");
+		String mail =  request.getParameter("mail");
+		String nick =  request.getParameter("nick");
+		String phone =  request.getParameter("phone");
+		String greet =  request.getParameter("greet");
+		
+		dao.memberModifyDao(id, name, mail, nick, phone, greet);
+		
+		return "redirect:content_List";
+	}
 
+	@RequestMapping(value = "/memberDelete")
+	public String memberDelete(HttpServletRequest request,Model model, HttpSession session) {
+		sidebar(session,model);
+		String sid = (String) session.getAttribute("sessionId");
+
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		dao.memberDeleteDao(sid);
+		
+		session.invalidate();
+		
+		return "redirect:login";
+	}
+	
+	
 	@RequestMapping(value = "/index")
 	public String index(Model model, HttpSession session) {
 		
@@ -88,6 +128,8 @@ public class HomeController {
 	public String content_List(HttpServletRequest request, HttpSession session, Model model) {
 		
 		sidebar(session,model);
+		String nick = (String) session.getAttribute("nick");
+		model.addAttribute("nick", nick);
 		
 		return "content_List";
 	}

@@ -11,9 +11,8 @@ public interface IDao {
 	public void joinMemberDao(String id, String pwd, String name, String birth, String mail, String phone, String nick, String profile, String greet);
 	public MemberDto memberInfoDao(String id);
 	public List<MemberDto> memberListDao(String id);
-	
-	
-	
+	public void memberModifyDao(String id, String name, String mail, String nick, String phone, String greet);
+	public void memberDeleteDao(String id);
 	
 	
 	

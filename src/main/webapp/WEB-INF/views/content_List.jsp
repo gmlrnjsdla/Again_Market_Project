@@ -32,7 +32,7 @@
   		<td class = "profile02">팔로우 100</td>
   	</tr>
   	<tr>
-  		<td class = "profile02" height="15%" colspan="3">${mname}</td>
+  		<td class = "profile02" height="15%" colspan="3">${nick}</td>
   		
   	</tr>
   	<tr>

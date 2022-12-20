@@ -66,8 +66,14 @@ public class ChatDao {
 			int exist_chat = sqlSession.selectOne("exist_chat", to);
 			// 프로필에서 보낸것중 메세지 내역이없어서 첫메세지가 될경우를 구분하기 위함
 			if(exist_chat == 0) {	// 메세지 내역이 없어서 0이면 message 테이블의 room 최댓값을 구해서 to에 set 한다.
-				int max_room = sqlSession.selectOne("max_room", to);
-				to.setRoom(max_room+1);
+				
+				String maxroom = (String)sqlSession.selectOne("max_room", to);
+				if(maxroom == null) {
+					to.setRoom(1);
+				}else {
+					int max_room = sqlSession.selectOne("max_room", to);
+					to.setRoom(max_room+1);
+				}
 			}else {		// 메세지 내역이 있다면 해당 room 번호를 가져온다.
 				int room = Integer.parseInt(sqlSession.selectOne("select_room", to) );
 				to.setRoom(room);

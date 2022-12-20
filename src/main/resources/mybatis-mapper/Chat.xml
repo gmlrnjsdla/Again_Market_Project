@@ -7,12 +7,17 @@
 
 	
 <mapper namespace="com.hsl.sns.dao.Chat" >
+
+<select id="messageExist" resultType="int">
+	SELECT count(*) FROM message WHERE recvnick=#{param1} and readchk=0
+</select>
 	
-	<select id="message_list" parameterType="com.hsl.sns.dto.ChatDto" resultType="com.hsl.sns.dto.ChatDto">
-    select no, room, sendnick, recvnick, sendtime, readtime, content, readchk
-    from message
-    where no in (select max(no) from message group by room) and (sendnick = #{nick} or recvnick=#{nick})
-    order by no desc
+	
+<select id="message_list" parameterType="com.hsl.sns.dto.ChatDto" resultType="com.hsl.sns.dto.ChatDto">
+   select no, room, sendnick, recvnick, sendtime, readtime, content, readchk
+   from message
+   where no in (select max(no) from message group by room) and (sendnick = #{nick} or recvnick=#{nick})
+   order by no desc
 </select>
 
 <!-- 메세지 list에서 상대방 profile 가져오기 -->

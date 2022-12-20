@@ -80,21 +80,7 @@ public class MemberController {
 		return "login";
 	}
 	
-	@RequestMapping(value = "/index")
-	public String index(Model model, HttpSession session) {
-		
-		String sid = (String)session.getAttribute("sessionId");
-		
-		IDao dao = sqlSession.getMapper(IDao.class);
-		MemberDto dto = dao.memberInfoDao(sid);
-		List<MemberDto> dtos = dao.memberListDao(sid);
-		
-		
-		model.addAttribute("memberList", dtos);
-		model.addAttribute("minfo", dto);
-		
-		return "index";
-	}
+	
 
 	
 	

@@ -54,25 +54,18 @@
    		<!-- 컨텐츠 리스트 -->
    		
    		
- 	<div class="row" style="margin:5px;">
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="60" height="150" class="card-img-top" alt="...">
-		<div class = "content_font">오늘은 안녕</div></a></div>
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="60" height="150" class="card-img-top" alt="...">
-		<div class = "content_font">오늘은 안녕</div></a></div>
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="60" height="150" class="card-img-top" alt="...">
-		<div class = "content_font">오늘은 안녕</div></a></div>
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="60" height="150" class="card-img-top" alt="...">
-		<div class = "content_font">오늘은 안녕</div></a></div>
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="60" height="150" class="card-img-top" alt="...">
-		<div class = "content_font">오늘은 안녕</div></a></div>
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="60" height="150" class="card-img-top" alt="...">
-		<div class = "content_font">오늘은 안녕</div></a></div>
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="60" height="150" class="card-img-top" alt="...">
-		<div class = "content_font">오늘은 안녕</div></a></div>
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="60" height="150" class="card-img-top" alt="...">
-		<div class = "content_font">오늘은 안녕</div></a></div>
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="60" height="150" class="card-img-top" alt="...">
-		<div class = "content_font">오늘은 안녕</div></a></div>
+ 	<div class="row" style="margin:5px; --bs-gap: .25rem 1rem;">
+		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+		</a></div>
+		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+		</a></div>
+		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+		</a></div>
+		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+		</a></div>
+		
+		
+		
 			
 			
 	</div>

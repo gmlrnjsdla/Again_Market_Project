@@ -46,16 +46,30 @@
 
   
    <!--제목표시 -->
-   content(subject) :오늘하루 참힘들었다.
+   content:<br>
+   오늘하루 참힘들었다.
+   
   <hr>
+  
   <p class="fs-6"></p>
- 
+ 	<div style="overflow:auto; width:600px; height:100px;">
   <!--댓글표시 -->  
     <p class="card-text">guestID : 참좋아요</p>
     <p class="card-text">guestID : 참좋아요</p>
     <p class="card-text">guestID : 참좋아요</p>
     <p class="card-text">guestID : 참좋아요</p>
-    
+    <p class="card-text">guestID : 참좋아요</p>
+    <p class="card-text">guestID : 참좋아요</p>
+    <p class="card-text">guestID : 참좋아요</p>
+    <p class="card-text">guestID : 참좋아요</p>
+    <p class="card-text">guestID : 참좋아요</p>
+    <p class="card-text">guestID : 참좋아요</p>
+    <p class="card-text">guestID : 참좋아요</p>
+    <p class="card-text">guestID : 참좋아요</p>
+    <p class="card-text">guestID : 참좋아요</p>
+   	
+    </div>
+    <br>
  <!--댓글입력 -->
   	<div class="input-group mb-3">
  		 <input type="text" class="form-control" placeholder="댓글을 입력해 주세요" aria-label="댓글을 입력해 주세요" aria-describedby="button-addon2">

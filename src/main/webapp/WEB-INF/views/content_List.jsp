@@ -43,9 +43,9 @@
 		   		</td>
 		  	</tr>
 		  	<tr height="10%">
-		  		<td class = "profile02">게시물 4</td>
-		  		<td class = "profile02">팔로워74</td>
-		  		<td class = "profile02">팔로우 100</td>
+		  		<td class = "profile02">게시물 ${post}</td>
+		  		<td class = "profile02">팔로워 ${follower}</td>
+		  		<td class = "profile02">팔로우 ${follow}</td>
 		  	</tr>
 		  	<tr>
 		  		<td class = "profile02" height="15%" colspan="3">${minfo.nick}</td>

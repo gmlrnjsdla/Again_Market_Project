@@ -24,10 +24,13 @@ public interface IDao {
 	public void contentWriteContDao(String content, String id); //post write content insert
 	public void contentWritePicDao(int postidx, String fileOriName, String fileName, String fileExtension, String fileUrl); //post write imgurl insert
 	public List<PostDto> postInfoDao(String id); 
-	
+	public int postCountDao(String id);
 	
 	
 	//follow
-	public void followDao(String id, String followid);
+	public void followDao(String followeeid, String followid);
+	public int followCheckDao(String followeeid, String followid);
+	public int followCountDao(String followid);
+	public int followerCountDao(String followeeid);
 	
 }

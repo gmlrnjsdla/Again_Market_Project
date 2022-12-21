@@ -16,8 +16,13 @@
 		INSERT INTO posturl (postingimgurlidx, postidx, fileOriName, fileName,  fileExtension, fileUrl) 
 			VALUES (postingurl_seq.nextval,#{param1},#{param2},#{param3},#{param4},#{param5})
 	</insert>
+	
 	<select id="postInfoDao" resultType="com.hsl.sns.dto.PostDto">
 		select * from post where id=#{param1} order by postidx desc
+	</select>
+	
+	<select id="postCountDao" resultType="int">
+		SELECT count(*) FROM post WHERE id=#{param1}
 	</select>
 
 </mapper>

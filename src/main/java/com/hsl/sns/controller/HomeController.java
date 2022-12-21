@@ -8,22 +8,15 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.hsl.sns.dao.Chat;
 import com.hsl.sns.dao.IDao;
 import com.hsl.sns.dto.MemberDto;
-import com.hsl.sns.dto.PostDto;
-import com.hsl.sns.dto.PostingUrlDto;
 
 
 @Controller
@@ -75,12 +68,15 @@ public class HomeController {
 	public String follow(HttpServletRequest request) {
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
-		String id = request.getParameter("id");
+		String followeeid = request.getParameter("followeeid");
 		String followid = request.getParameter("followerid");
-		System.out.println(followid);
 		
-		dao.followDao(id, followid);
-		
+		int count = dao.followCheckDao(followeeid, followid);
+		if(count != 0) {
+			return "redirect:/index";
+		}else {
+			dao.followDao(followeeid, followid);
+		}
 		return "redirect:/index";
 	}
 	

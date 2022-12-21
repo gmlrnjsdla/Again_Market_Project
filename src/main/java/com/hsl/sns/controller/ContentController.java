@@ -55,6 +55,17 @@ public class ContentController {
 		model.addAttribute("minfo", dto);
 		model.addAttribute("id", dto.getId()); 
 		
+		//팔로우 수
+		int follow = dao.followCountDao(id);
+		model.addAttribute("follow", follow);
+		
+		//팔로워 수
+		int follower = dao.followerCountDao(id);
+		model.addAttribute("follower", follower);
+		
+		//게시글 수
+		int post = dao.postCountDao(id);
+		model.addAttribute("post", post);
 		
 		return "content_List";
 	}

@@ -10,6 +10,8 @@
 </head>
 <body>
 <%@ include file="include/leftBar.jsp" %>
+
+
 <div class="content_List">
 
 <div class="card" style="width: 650px; height:700px; border:1px solid #dddddd; border-radius:15px;">
@@ -21,7 +23,7 @@
 		  			<img class ="rounded-circle me-2" src="${pageContext.request.contextPath }/resources/img/content.jpg" alt="..." width="120" height="120" >
 		  		</td>
 		  		<td height="20%" colspan="3">
-		  			<div class = "profile01"><%=sid %>
+		  			<div id = "profile01"><%=sid %>
 			   		<a href="memberModify"> 
 				   		<button type="button" class="btn btn-outline-secondary" 
 				          style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" onclick="memberModify">

@@ -110,9 +110,7 @@
 <div class="content_write_form02">
 <div class="card" style="width: 350px; height:700px; border:1px solid #dddddd; border-radius:5px;">
   <div class="card-body"> 
-	<div class="form-floating">
-	<textarea class="card" placeholder="제목입력" id="floatingTextarea" style="width: 310px;height:50px;" ></textarea>
-	<br>
+	
 	<div class="form-floating">
   	<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height:500px" name="content"></textarea>
   	<label for="floatingTextarea">내용입력</label><br>
@@ -124,7 +122,6 @@
 	</div>
   </div>
 </div>	
-</div>
 
 <%@ include file="include/footer.jsp" %>
 

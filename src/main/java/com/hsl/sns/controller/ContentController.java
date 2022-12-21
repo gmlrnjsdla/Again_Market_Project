@@ -49,8 +49,12 @@ public class ContentController {
 	public String content_List(HttpServletRequest request, HttpSession session, Model model) {
 		
 		sidebar(session,model);
-		String nick = (String) session.getAttribute("nick");
-		model.addAttribute("nick", nick);
+		IDao dao = sqlSession.getMapper(IDao.class);
+		String id = request.getParameter("id");
+		MemberDto dto = dao.memberInfoDao(id);
+		model.addAttribute("minfo", dto);
+		model.addAttribute("id", dto.getId()); 
+		
 		
 		return "content_List";
 	}

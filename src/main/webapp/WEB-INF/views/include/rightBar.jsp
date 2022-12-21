@@ -23,7 +23,7 @@
   	<c:forEach items="${memberList}" var="mList">
   		<img src="${pageContext.request.contextPath }/resources/img/${mList.profile }" width="30" height="30" alt="...">
    		<span style="font-size:16px; font-weight:bold;">${mList.nick}</span>
-   		<a class="follow" href="#"  type="submit">팔로우 </a>
+   		<a class="follow" href="follow?id=${mList.id}&followerid=<%=ssid %>">팔로우 </a>
    		<br>
    		
    		</c:forEach>

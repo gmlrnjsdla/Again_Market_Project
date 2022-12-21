@@ -26,11 +26,6 @@
 		DELETE FROM user_sns WHERE id=#{param1}
 	</delete>
 	
-	
-	
-	
-	
-
 </mapper>
 	
 	

@@ -62,9 +62,6 @@ public class HomeController {
 		return "join";
 	}
 	
-	
-	
-	
 	@RequestMapping(value = "/index")
 	public String index(Model model, HttpSession session) {
 		
@@ -74,11 +71,21 @@ public class HomeController {
 		return "index";
 	}
 	
+	@RequestMapping(value = "follow")
+	public String follow(HttpServletRequest request) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		String id = request.getParameter("id");
+		String followid = request.getParameter("followerid");
+		System.out.println(followid);
+		
+		dao.followDao(id, followid);
+		
+		return "redirect:/index";
+	}
 	
 	
 	
 	
-	
-	//=============================== Content End ===============================//
 	
 }

@@ -23,13 +23,22 @@
 		  			<img class ="rounded-circle me-2" src="${pageContext.request.contextPath }/resources/img/content.jpg" alt="..." width="120" height="120" >
 		  		</td>
 		  		<td height="20%" colspan="3">
-		  			<div id = "profile01"><%=sid %>
-			   		<a href="memberModify"> 
-				   		<button type="button" class="btn btn-outline-secondary" 
-				          style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" onclick="memberModify">
-				  		 프로필편집
-						</button>
-					</a>
+		  			<div id = "profile01">${minfo.id}
+			   		
+			   		<%
+			   			String id = (String)request.getAttribute("id");
+			   		
+			   			if(id.equals(sid)){
+	   				%>
+			   				<a href="memberModify"> 
+						   		<button type="button" class="btn btn-outline-secondary" 
+						          style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" onclick="memberModify">
+						  		 프로필편집
+								</button>
+							</a>
+	   				<%
+			   			}
+			   		%>
 					</div>
 		   		</td>
 		  	</tr>
@@ -39,10 +48,10 @@
 		  		<td class = "profile02">팔로우 100</td>
 		  	</tr>
 		  	<tr>
-		  		<td class = "profile02" height="15%" colspan="3">${nick}</td>
+		  		<td class = "profile02" height="15%" colspan="3">${minfo.nick}</td>
 		  	</tr>
 		  	<tr>
-		  		<td class = "profile03" height="15%" colspan="3">github.com/gmlrnjsdla</td>
+		  		<td class = "profile03" height="15%" colspan="3">${minfo.greet}</td>
 		  	</tr>
 	   </table>
   

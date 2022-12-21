@@ -84,7 +84,7 @@
       
       <br>
       <li class="nav-item">
-        <a href="/content_List?mid=<%=sid %>" class="nav-link link-dark">
+        <a href="/content_List?id=<%=sid %>" class="nav-link link-dark">
           <img src="${pageContext.request.contextPath}/resources/img/person.png" alt="" width="23" height="23" class="rounded-circle me-2">
           <span style="font-size:20px; font-weight:bold;">프로필</span>
         </a>

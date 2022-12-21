@@ -27,4 +27,7 @@ public interface IDao {
 	
 	
 	
+	//follow
+	public void followDao(String id, String followid);
+	
 }

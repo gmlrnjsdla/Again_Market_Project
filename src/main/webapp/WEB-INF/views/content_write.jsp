@@ -17,10 +17,10 @@
  	<!-- 컨텐츠 사진입력 -->
 
 <form action="writeOk" method="post" enctype="multipart/form-data">
-  <div id='image_preview'>
-    <input type='file' id='btnAtt' multiple='multiple' name="files"/>
-    <div id='att_zone'
-      data-placeholder='파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'></div>
+  <div id="image_preview">
+    <input type="file" id="btnAtt" multiple="multiple" name="files"/>
+    <div id="att_zone"
+      data-placeholder="파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요"></div>
   </div>
 
   <script>
@@ -118,11 +118,11 @@
 	</div>
  
   
-</form>
+
 	</div>
   </div>
 </div>	
-
+</form>
 <%@ include file="include/footer.jsp" %>
 
 </body>

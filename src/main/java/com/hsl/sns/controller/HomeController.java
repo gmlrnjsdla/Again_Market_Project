@@ -2,6 +2,7 @@ package com.hsl.sns.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +23,7 @@ import com.hsl.sns.dao.Chat;
 import com.hsl.sns.dao.IDao;
 import com.hsl.sns.dto.MemberDto;
 import com.hsl.sns.dto.PostDto;
+import com.hsl.sns.dto.PostingUrlDto;
 
 
 @Controller
@@ -101,7 +103,7 @@ public class HomeController {
 	
 	@PostMapping(value = "/writeOk")
 	public String writeOk(HttpSession session, Model model, HttpServletRequest request,
-			 @RequestPart MultipartFile files) throws IllegalStateException, IOException {
+			 @RequestPart MultipartFile[] files) throws IllegalStateException, IOException {
 		
 		sidebar(session,model);
 		
@@ -109,41 +111,37 @@ public class HomeController {
 		IDao dao = sqlSession.getMapper(IDao.class);
 		// write
 		
-			
 		//글첨부
 		String content = request.getParameter("content");
-		
-		//그림파일첨부
-		String fileOriName = files.getOriginalFilename(); 
-		String fileExtension =FilenameUtils.getExtension(fileOriName).toLowerCase();
-																		 
-		File destinationFile; 
-		String destinationFileName; 
-		String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
-		
-		
-		
-		do {
-		destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "."+ fileExtension;
-		
-		destinationFile = new File(fileUrl+destinationFileName);
-		} while(destinationFile.exists());
-		
-		
-		destinationFile.getParentFile().mkdir();
-		files.transferTo(destinationFile); // 
-			
-		
 		dao.contentWriteContDao(content, sid);
 		
 		List<PostDto> postList = dao.postInfoDao(sid);
 		
 		PostDto dto = postList.get(0);
 		int postidx = dto.getPostidx();
-		
-		dao.contentWritePicDao(postidx, fileOriName, destinationFileName, fileExtension, fileUrl);
+		System.out.println(files.length);
+
+		for (int i = 0; i < files.length; i++) {
+			//그림파일첨부
+			String fileOriName = files[i].getOriginalFilename(); 
+			String fileExtension =FilenameUtils.getExtension(fileOriName).toLowerCase();
+																			 
+			File destinationFile; 
+			String destinationFileName; 
+			String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
 			
-	
+			do {
+			destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "."+ fileExtension;
+			
+			destinationFile = new File(fileUrl+destinationFileName);
+			} while(destinationFile.exists());
+			
+			destinationFile.getParentFile().mkdir();
+			files[i].transferTo(destinationFile); // 
+			
+			dao.contentWritePicDao(postidx, fileOriName, destinationFileName, fileExtension, fileUrl);
+			
+		}
 		
 			
 		return "index";

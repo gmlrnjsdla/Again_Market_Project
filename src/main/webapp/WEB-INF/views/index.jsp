@@ -14,15 +14,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<!-- 
 <div class="friend" style="width: 630px;">
+-->
 
-
-<!--  상단 친구프로필 --> 
+<!--  상단 친구프로필 -->
+<!--  
 <div class="card" style="width: 630px; height:150px; border:1px solid #dddddd; border-radius:5px;">
 
 	<c:forEach items="${memberList}" var="mList">
-	  <span class="card-body"> 
+	  <span class="card-body" style="width:105px; display: inline-block;"> 
 	   		<img src="${pageContext.request.contextPath }/resources/img/${mList.profile}" width="35" height="35" alt="..."><br>
 	   		<span style="font-size:16px; font-weight:bold;">${mList.nick }</span>
 	  </span>
@@ -31,6 +32,7 @@
 </div>
  
 </div>
+ -->
 <c:forEach begin="1" end="2">
 <!--게시자 정보 -->
 

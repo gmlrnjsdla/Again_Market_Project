@@ -12,15 +12,15 @@
 <body>
 <%@ include file="include/leftBar.jsp" %>
 	
-	
-	<div class="recommend">
+<form action="memberModifyOk">	
+	<div class="recommend" style="margin-bottom:100px;">
 	<div class="card" style="width: 700px; height:820px; border:1px solid #dddddd; border-radius:5px;">
 
 		<div class="card-body" style="margin-left: 5%;"> 
 			<div style="display:inline-block;vertical-align:top;">
 				
 				
-			<form action="memberModifyOk">
+			
 			<input type="hidden" name="id" value="${memberDto.id }" >
 				<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">
 			</div>
@@ -102,7 +102,7 @@
 		
 	</div>
 	</div>
-	</form>	
+	</form>
 	
 	<%@ include file="include/footer.jsp" %>
 </body>

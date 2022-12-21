@@ -35,7 +35,7 @@
 	      <input type="text" id="#" class="btn_login_no1" placeholder="아이디" name="id">
 	    </div>
 		<div class="mb-3">
-	      <input type="text" id="#" class="btn_login_no1" placeholder="비밀번호" name="pwd">
+	      <input type="password" id="#" class="btn_login_no1" placeholder="비밀번호" name="pwd">
 	    </div>
 	    <div class="mb-3">
 	      <input type="text" id="#" class="btn_login_no1" placeholder="이름" name="name">
@@ -44,7 +44,7 @@
 	      <input type="text" id="#" class="btn_login_no1" placeholder="생일 (ex:20221215)" name="birth">
 	    </div>
 	    <div class="mb-3">
-	      <input type="text" id="#" class="btn_login_no1" placeholder="이메일" name="mail">
+	      <input type="email" id="#" class="btn_login_no1" placeholder="이메일" name="mail">
 	    </div>
 	    <div class="mb-3">
 	      <input type="text" id="#" class="btn_login_no1" placeholder="휴대폰" name="phone">

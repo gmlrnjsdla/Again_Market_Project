@@ -49,12 +49,16 @@
   </div>
   	<hr style="margin:20px;">
   
-  	<div class="overflow-auto" >
+  	<div class="overflow-auto" style="height:500px">
   		
    		<!-- 컨텐츠 리스트 -->
    		
    		
- 	<div class="row" style="margin-left:5px;">
+ 	<div class="row" style="margin:5px;">
+		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="60" height="150" class="card-img-top" alt="...">
+		<div class = "content_font">오늘은 안녕</div></a></div>
+		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="60" height="150" class="card-img-top" alt="...">
+		<div class = "content_font">오늘은 안녕</div></a></div>
 		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="60" height="150" class="card-img-top" alt="...">
 		<div class = "content_font">오늘은 안녕</div></a></div>
 		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="60" height="150" class="card-img-top" alt="...">

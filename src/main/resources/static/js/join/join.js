@@ -19,8 +19,18 @@
 		return;
 	}
 	
-	if(document.join_frm.nick.value.length == 0) {
-		alert("닉네임은 필수 입력사항입니다. 다시 확인해주세요!");
+	
+	if(document.join_frm.name.value.length == 0) {
+		alert("이름은 필수 입력사항입니다. 다시 확인해주세요!");
+		return;
+	}
+	if(document.join_frm.birth.value.length == 0) {
+		alert("생년월일은 필수 입력사항입니다. 다시 확인해주세요!");
+		return;
+	}
+	
+	if(document.join_frm.mail.value.length == 0) {
+		alert("이메일은 필수 입력사항입니다. 다시 확인해주세요!");
 		return;
 	}
 	
@@ -29,15 +39,13 @@
 		return;
 	}
 	
-	if(document.join_frm.name.value.length == 0) {
-		alert("이름은 필수 입력사항입니다. 다시 확인해주세요!");
+	if(document.join_frm.nick.value.length == 0) {
+		alert("닉네임은 필수 입력사항입니다. 다시 확인해주세요!");
 		return;
 	}
 	
-	if(document.join_frm.mail.value.length == 0) {
-		alert("이메일은 필수 입력사항입니다. 다시 확인해주세요!");
-		return;
-	}
+	
+	
 	
 	document.join_frm.submit();
 	

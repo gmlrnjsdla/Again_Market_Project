@@ -11,9 +11,7 @@
 
 <center>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-		<tr class="footerline01">
-			&nbsp;
-		</tr>
+		
 		<tr class="footerline02">
 			<td class="footerbox01">Copyright ⓒ 000. All Rights Reserved</td>
 		</tr>

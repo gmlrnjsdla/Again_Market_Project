@@ -112,8 +112,11 @@
   <div class="card-body"> 
 	
 	<div class="form-floating">
-  	<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height:500px" name="content"></textarea>
-  	<label for="floatingTextarea">내용입력</label><br>
+	<div class="overflow-auto" >
+  	<textarea class="form-control" placeholder="내용입력" id="floatingTextarea" style="height:600px" name="content"></textarea>
+  	
+  	</div>
+  	<br>
   	<button type="submit" class="btn btn-outline-secondary" style="float:right" >입력</button>
 	</div>
  

@@ -66,69 +66,42 @@
 <div class="card" style="width: 350px; height:700px; border:1px solid #dddddd; border-radius:5px;">
   <div class="card-body"> 
 	<div>댓글목록</div>
-	<div class="overflow-auto" >
-	<div class="card" style="width: 315px; height:600px; border:1px solid #dddddd; border-radius:5px;">
 
-	<div class="cntent_font01" >ShinDongHun:
-	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
-	<div class="cntent_font03" >Hwang:
-	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
-	<div class="cntent_font01" >ShinDongHun:
-	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
-	<div class="cntent_font03" >Hwang:
-	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
-	<div class="cntent_font01" >ShinDongHun:
-	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
-	<div class="cntent_font03" >Hwang:
-	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
-	<div class="cntent_font01" >ShinDongHun:
-	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
-	<div class="cntent_font03" >Hwang:
-	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
-	<div class="cntent_font01" >ShinDongHun:
-	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
-	<div class="cntent_font03" >Hwang:
-	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
-	<div class="cntent_font01" >ShinDongHun:
-	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
-	<div class="cntent_font03" >Hwang:
-	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
-	<div class="cntent_font01" >ShinDongHun:
-	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
-	<div class="cntent_font03" >Hwang:
-	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
-	<div class="cntent_font01" >ShinDongHun:
-	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
-	<div class="cntent_font03" >Hwang:
-	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
-	<div class="cntent_font01" >ShinDongHun:
-	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
-	<div class="cntent_font03" >Hwang:
-	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
-	<div class="cntent_font01" >ShinDongHun:
-	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
-	<div class="cntent_font03" >Hwang:
-	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
-	<div class="cntent_font01" >ShinDongHun:
-	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
-	<div class="cntent_font03" >Hwang:
-	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
-	<div class="cntent_font01" >ShinDongHun:
-	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
-	<div class="cntent_font03" >Hwang:
-	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
-	<div class="cntent_font01" >ShinDongHun:
-	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
-	<div class="cntent_font03" >Hwang:
-	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
-	<div class="cntent_font01" >ShinDongHun:
-	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
-	<div class="cntent_font03" >Hwang:
-	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
-	<div class="cntent_font01" >ShinDongHun:
-	<span class="cntent_font02" >여자가 참이쁘네요</span></div>
-	<div class="cntent_font03" >Hwang:
-	<span class="cntent_font04">이쁘긴요 제여자친구 인데요</span></div>
+	<div class="card" style="width: 320px; height:600px; border:1px solid #dddddd; border-radius:5px; padding:10px;">
+	<div class="overflow-auto" >
+	<div class="content_font01" >ShinDongHun:
+	<span class="content_font02" >여자가 참이쁘네요</span></div>
+	<div class="content_font01" >Hwang:
+	<span class="content_font02">이쁘긴요 제여자친구 인데요</span></div>
+	<div class="content_font01" >ShinDongHun:
+	<span class="content_font02" >여자가 참이쁘네요</span></div>
+	<div class="content_font01" >Hwang:
+	<span class="content_font02">이쁘긴요 제여자친구 인데요</span></div>
+	<div class="content_font01" >ShinDongHun:
+	<span class="content_font02" >여자가 참이쁘네요</span></div>
+	<div class="content_font01" >Hwang:
+	<span class="content_font02">이쁘긴요 제여자친구 인데요</span></div>
+	<div class="content_font01" >ShinDongHun:
+	<span class="content_font02" >여자가 참이쁘네요</span></div>
+	<div class="content_font01" >Hwang:
+	<span class="content_font02">이쁘긴요 제여자친구 인데요</span></div>
+	<div class="content_font01" >ShinDongHun:
+	<span class="content_font02" >여자가 참이쁘네요</span></div>
+	<div class="content_font01" >Hwang:
+	<span class="content_font02">이쁘긴요 제여자친구 인데요</span></div>
+	<div class="content_font01" >ShinDongHun:
+	<span class="content_font02" >여자가 참이쁘네요</span></div>
+	<div class="content_font01" >Hwang:
+	<span class="content_font02">이쁘긴요 제여자친구 인데요</span></div>
+	<div class="content_font01" >ShinDongHun:
+	<span class="content_font02" >여자가 참이쁘네요</span></div>
+	<div class="content_font01" >Hwang:
+	<span class="content_font02">이쁘긴요 제여자친구 인데요</span></div>
+	<div class="content_font01" >ShinDongHun:
+	<span class="content_font02" >여자가 참이쁘네요</span></div>
+	<div class="content_font01" >Hwang:
+	<span class="content_font02">이쁘긴요 제여자친구 인데요</span></div>
+	
 	
 	
 	</div>

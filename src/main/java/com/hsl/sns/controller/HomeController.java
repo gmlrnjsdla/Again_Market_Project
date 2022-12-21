@@ -1,8 +1,5 @@
 package com.hsl.sns.controller;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -59,8 +56,7 @@ public class HomeController {
 	public String index(Model model, HttpSession session) {
 		
 		sidebar(session,model);
-		
-		
+
 		return "index";
 	}
 	

@@ -42,8 +42,6 @@
 <img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">게시자 ID<br>
 <hr>
 
-
-
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -71,11 +69,6 @@
   </button>
 </div>
 
-
-
-
-
-  
    <!--제목표시 -->
    content:<br>
    오늘하루 참힘들었다.

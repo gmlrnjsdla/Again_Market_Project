@@ -33,20 +33,28 @@
  
 </div>
  -->
-<c:forEach begin="1" end="2">
+<c:forEach items="${postList }" var="pList">
 <!--게시자 정보 -->
 
 <div class="content" style="width: 630px;">
 <div class="card" style="width: 630px;">
 <div class="card-body" style="width: 630px;">
-<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">게시자 ID<br>
+<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">${pList.nick}<br>
 <hr>
-  <img src="${pageContext.request.contextPath }/resources/img/content.jpg" class="card-img-top" alt="...">
-
-
   
+ 	 <c:forEach items="${postUrlList }" var="pUrlList">
+  		<c:if test="${pList.postidx == pUrlList.postidx}">
+  			<img src="${pageContext.request.contextPath }/resources/uploadfiles/${pUrlList.fileName}" class="card-img-top" alt="...">
+		</c:if>
+
+  	</c:forEach>
    <!--제목표시 -->
-   content(subject) :오늘하루 참힘들었다.
+   
+	${pList.title}
+	${pList.type}
+	${pList.price}
+	${pList.tradeplace}
+	${pList.content}
   <hr>
   <p class="fs-6"></p>
  

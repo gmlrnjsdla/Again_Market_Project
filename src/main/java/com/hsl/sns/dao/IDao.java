@@ -1,5 +1,6 @@
 package com.hsl.sns.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.hsl.sns.dto.MemberDto;
@@ -15,16 +16,15 @@ public interface IDao {
 	public void memberDeleteDao(String id);
 	
 	
-	
-	
-	
-	
-	
-	//index 관련
-	public void contentWriteContDao(String content, String id); //post write content insert
+	//contentWrite 관련
+	public void contentWriteContDao(String title, String type, int price, String tradeplace, String content, String id); //post write content insert
 	public void contentWritePicDao(int postidx, String fileOriName, String fileName, String fileExtension, String fileUrl); //post write imgurl insert
 	public List<PostDto> postInfoDao(String id); 
 	
+	//index 관련
+	
+	public List<PostDto> postListDao();
+	public List<PostingUrlDto> postUrlListDao();
 	
 	
 }

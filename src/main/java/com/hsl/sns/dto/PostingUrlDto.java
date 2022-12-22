@@ -1,5 +1,7 @@
 package com.hsl.sns.dto;
 
+
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +19,8 @@ public class PostingUrlDto {
 	private String fileUrl;
 	private String createdate; //만든날짜
 	private String updatedate; //수정시간
+	
+	private PostDto postDto;
 	
 	
 	

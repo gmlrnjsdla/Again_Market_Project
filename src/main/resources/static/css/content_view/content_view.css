@@ -8,7 +8,9 @@
 
 .setting{
 	width: 25px;	
-    margin-left: 100px;
+    
+    float: right;
+    padding-top:8px;
 }
 
 .dropdown-item{

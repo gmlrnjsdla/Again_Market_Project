@@ -5,6 +5,32 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="com.hsl.sns.dao.IDao">
+	<resultMap type="com.hsl.sns.dto.PostDto" id="PostDto2">
+		<result property="postidx" column="postidx"/>
+		<result property="id" column="id"/>
+		<result property="type" column="type"/>
+		<result property="price" column="price"/>
+		<result property="tradeplace" column="tradeplace"/>
+		<result property="content" column="content"/>
+		<result property="createdate" column="createdate"/>
+		<result property="nick" column="nick"/>
+	</resultMap>
+	
+	<resultMap type="com.hsl.sns.dto.PostingUrlDto" id="PostingUrlDto2">
+		<result property="postingimgurlidx" column="postingimgurlidx"/>
+		<result property="postidx" column="postidx"/>
+		<result property="fileOriName" column="fileOriName"/>
+		<result property="fileName" column="fileName"/>
+		<result property="fileExtension" column="fileExtension"/>
+		<result property="fileUrl" column="fileUrl"/>
+		<result property="createdate" column="createdate"/>
+		<result property="updatedate" column="updatedate"/>
+		<result property="createTime" column="createTime"/>	
+
+		<collection property="postDto" resultMap="PostDto2"></collection>
+	</resultMap>
+
+
 	
 	<!-- contnetWrite -->
 	<insert id="contentWriteContDao">
@@ -20,7 +46,7 @@
 	</insert>
 	
 	<select id="postInfoDao" resultType="com.hsl.sns.dto.PostDto">
-		select * from post where id=#{param1} order by postidx desc
+		SELECT * FROM post WHERE id=#{param1} ORDER BY postidx DESC
 	</select>
 	
 	<select id="postCountDao" resultType="int">
@@ -29,10 +55,15 @@
 
 	<!-- index -->
 	<select id="postListDao" resultType="com.hsl.sns.dto.PostDto">
-		select p.*,u.nick from post p join user_sns u on p.id = u.id
+		SELECT p.*,u.nick FROM post p JOIN user_sns u ON p.id = u.id
 	</select>
 	<select id="postUrlListDao" resultType="com.hsl.sns.dto.PostingUrlDto">
-		select * from posturl
+		SELECT * FROM posturl
+	</select>
+	<select id="postViewDao" parameterType="com.hsl.sns.dto.PostingUrlDto" resultMap="PostingUrlDto2">
+		SELECT r.*, p.*,u.nick FROM posturl r, post p, user_sns u
+		WHERE r.postidx = p.postidx
+		AND  p.id= u.id ORDER BY p.postidx
 	</select>
 	
 	

@@ -43,7 +43,7 @@
 <div class="card-body" style="width: 630px;">
 <img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">${pList.nick}<br>
 <hr>
-<<<<<<< HEAD
+
 
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
   <div class="carousel-indicators">

@@ -15,5 +15,7 @@ public class PostDto {
 	private String createdate; //만든시간
 	private String updatedate; //수정시간
 	
+	private PostingUrlDto postingUrlDto;
+	
 	
 }

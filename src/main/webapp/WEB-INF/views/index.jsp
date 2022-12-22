@@ -36,13 +36,12 @@
 </div>
  -->
 <c:forEach begin="1" end="2">
-<!--게시자 정보 -->
+
 
 <div class="content" style="width: 630px;">
 <div class="card" style="width: 630px;">
 <div class="card-body" style="width: 630px;">
-<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">게시자 ID<br>
-<hr>
+
 
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
   <div class="carousel-indicators">
@@ -52,10 +51,10 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="${pageContext.request.contextPath }/resources/img/content.jpg" class="card-img-top" alt="...">
+      <img src="${pageContext.request.contextPath }/resources/img/content.jpg" class="card-img-top" alt="..." >
     </div>
     <div class="carousel-item active">
-      <img src="${pageContext.request.contextPath }/resources/img/content.jpg" class="card-img-top" alt="...">
+      <img src="${pageContext.request.contextPath }/resources/img/content.jpg" class="card-img-top" alt="..." width="50px">
     </div>
     <div class="carousel-item active">
       <img src="${pageContext.request.contextPath }/resources/img/content.jpg" class="card-img-top" alt="...">
@@ -70,39 +69,57 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+<!--게시자 정보 -->
+	<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">게시자 ID
 
-   <!--제목표시 -->
-   content:<br>
-   오늘하루 참힘들었다.
-   <a href="send?nick=${mList.nick }" class="nav-link link-dark">
+
+<!--메세지 보내기 -->   
+
+   <a href="send?nick=${mList.nick }" >
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16"><path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/></svg>
 	</a>
-  <hr>
-  
-  <p class="fs-6"></p>
- 	<div style="overflow:auto; width:600px; height:100px;">
-  <!--댓글표시 -->  
-    <p class="card-text">guestID : 참좋아요</p>
-    <p class="card-text">guestID : 참좋아요</p>
-    <p class="card-text">guestID : 참좋아요</p>
-    <p class="card-text">guestID : 참좋아요</p>
-    <p class="card-text">guestID : 참좋아요</p>
-    <p class="card-text">guestID : 참좋아요</p>
-    <p class="card-text">guestID : 참좋아요</p>
-    <p class="card-text">guestID : 참좋아요</p>
-    <p class="card-text">guestID : 참좋아요</p>
-    <p class="card-text">guestID : 참좋아요</p>
-    <p class="card-text">guestID : 참좋아요</p>
-    <p class="card-text">guestID : 참좋아요</p>
-    <p class="card-text">guestID : 참좋아요</p>
-   	
-    </div>
-    <br>
- <!--댓글입력 -->
-  	<div class="input-group mb-3">
- 		 <input type="text" class="form-control" placeholder="댓글을 입력해 주세요" aria-label="댓글을 입력해 주세요" aria-describedby="button-addon2">
-  		 <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="#">댓글입력</button>
+	 
+
+<!--좋아요 버튼 -->   
+   <span class="like_button">
+   찜하기<a href="#">
+   <button type="button" class="btn  position-relative">
+    <img src="${pageContext.request.contextPath }/resources/img/hearts.png" width="20" height="20" alt="...">
+     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">99+
+   </span>
+   </button>
+   </a>
+   </span>
+   <hr>
+   
+	</div> 
+
+   <!--내용표시 -->
+   <div class="subject_font">
+   나무 선반 (원목선반)
+   </div>
+   <div class="content_font_index01">
+   가구/인테리어 ∙ 4일 전<br>
+   3,000원
 	</div>
+	<div class="content_font_index02">
+   거래장소: 인천광역시 남동구 구월1동
+  </div>
+  <hr>
+  <div class="content_font_index">
+  천을 덮어두고 사용했기에 깨끗합니다
+  가벼워요
+  이사 예정이라 내일까지만 판매합니다
+  </div>
+
+<!--구매신청 버튼 --> 
+	<a href="#" >
+  <button type="button" class="btn btn-outline-danger"
+        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 630px; ">
+  구매신청
+</button>
+	</a>
+  
 </div>
 </div>
 </div>

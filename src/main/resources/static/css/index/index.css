@@ -6,5 +6,51 @@
      padding-top:100px;
      padding-left:620px;
      z-index:1;
+
 }
 
+.subject_font{
+	font-size: 20px;
+	color: #424240;
+	font-family: Arial;
+	text-align: left;
+	padding-left : 20px;
+	padding-bottom : 20px;
+	font-weight: bold;
+}
+
+.content_font_index{
+	font-size: 18px;
+	color: #424240;
+	font-family: Arial;
+	text-align: left;
+	padding-left : 20px;
+	padding-right : 20px;
+	padding-bottom : 20px;
+}
+
+.content_font_index01{
+	font-size: 16px;
+	color: #646460;
+	font-family: Arial;
+	text-align: left;
+	padding-left : 20px;
+	padding-right : 20px;
+}
+
+.content_font_index02{
+	font-size: 16px;
+	color: #646460;
+	font-family: Arial;
+	text-align: left;
+	padding-left : 20px;
+	padding-right : 20px;
+	padding-bottom : 20px;
+	
+}
+
+.like_button{
+	float: right;
+	padding-top : 10px;
+	padding-right : 30px;
+}

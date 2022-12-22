@@ -17,7 +17,7 @@
 <div class="card" style="width: 650px; height:700px; border:1px solid #dddddd; border-radius:15px;">
   <div class="card-body" style="height:250px; ">
  	<!-- 컨텐츠 헤더 -->
- 		<table border="0" cellpadding= "0" cellspacing="0" width="600" height="210" style="margin-bottom:645px;">
+ 		<table border="0" cellpadding= "0" cellspacing="0" width="600" height="210" style="margin-bottom:645px; position:relative;">
 		  	<tr colspan="3">
 		  		<td width="40%" rowspan="4" align="center">
 		  			<img class ="rounded-circle me-2" src="${pageContext.request.contextPath }/resources/img/content.jpg" alt="..." width="120" height="120" >

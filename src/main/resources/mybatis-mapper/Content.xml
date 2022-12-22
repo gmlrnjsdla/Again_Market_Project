@@ -6,14 +6,16 @@
 	
 <mapper namespace="com.hsl.sns.dao.IDao">
 	
-	<!-- 인덱스관련 -->
+	<!-- contnetWrite -->
 	<insert id="contentWriteContDao">
-		INSERT INTO post (postidx, content, id) 
-			VALUES (post_seq.nextval, #{param1}, #{param2})
+		INSERT INTO post (postidx, title, type, price, tradeplace,content, id) 
+			VALUES (post_seq.nextval, #{param1}, #{param2},#{param3},#{param4},#{param5},#{param6})
+			
+			 
 	</insert>	
 		
 	<insert id="contentWritePicDao">	
-		INSERT INTO posturl (postingimgurlidx, postidx, fileOriName, fileName,  fileExtension, fileUrl) 
+		INSERT INTO posturl (postingimgurlidx, postidx, fileOriName, fileName, fileExtension, fileUrl) 
 			VALUES (postingurl_seq.nextval,#{param1},#{param2},#{param3},#{param4},#{param5})
 	</insert>
 	
@@ -25,6 +27,15 @@
 		SELECT count(*) FROM post WHERE id=#{param1}
 	</select>
 
-</mapper>
+	<!-- index -->
+	<select id="postListDao" resultType="com.hsl.sns.dto.PostDto">
+		select p.*,u.nick from post p join user_sns u on p.id = u.id
+	</select>
+	<select id="postUrlListDao" resultType="com.hsl.sns.dto.PostingUrlDto">
+		select * from posturl
+	</select>
 	
+	
+	
+</mapper>
 	

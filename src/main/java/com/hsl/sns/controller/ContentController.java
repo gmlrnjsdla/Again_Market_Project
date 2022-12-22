@@ -96,16 +96,22 @@ public class ContentController {
 		IDao dao = sqlSession.getMapper(IDao.class);
 		// write
 		
-		//글첨부
+		//제품등록
+		String title = request.getParameter("title");
+		String type = request.getParameter("type");
+		int price = Integer.parseInt(request.getParameter("price"));
+		String tradeplace = request.getParameter("tradeplace");
 		String content = request.getParameter("content");
-		dao.contentWriteContDao(content, sid);
+		dao.contentWriteContDao(title, type, price, tradeplace, content, sid);
+	
 		
+		//다중파일업로드
 		List<PostDto> postList = dao.postInfoDao(sid);
-		
+		if(postList.size()!=0) {
 		PostDto dto = postList.get(0);
 		int postidx = dto.getPostidx();
 		System.out.println(files.length);
-
+		
 		for (int i = 0; i < files.length; i++) {
 			//그림파일첨부
 			String fileOriName = files[i].getOriginalFilename(); 
@@ -127,7 +133,7 @@ public class ContentController {
 			dao.contentWritePicDao(postidx, fileOriName, destinationFileName, fileExtension, fileUrl);
 			
 		}
-		
+		}
 			
 		return "index";
 	}

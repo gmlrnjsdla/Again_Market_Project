@@ -19,5 +19,6 @@ public class PostingUrlDto {
 	private String updatedate; //수정시간
 	
 	
+	
 }
 

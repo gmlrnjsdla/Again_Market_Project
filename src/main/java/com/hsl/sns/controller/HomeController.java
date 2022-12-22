@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.hsl.sns.dao.Chat;
 import com.hsl.sns.dao.IDao;
 import com.hsl.sns.dto.MemberDto;
+import com.hsl.sns.dto.PostDto;
+import com.hsl.sns.dto.PostingUrlDto;
+
+
 
 
 @Controller
@@ -53,10 +57,20 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/index")
-	public String index(Model model, HttpSession session) {
+	public String index(Model model, HttpSession session, HttpServletRequest request) {
 		
 		sidebar(session,model);
-
+		
+		String sid = (String)session.getAttribute("sessionId");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		List<PostDto> postList = dao.postListDao();
+		List<PostingUrlDto> postUrlList = dao.postUrlListDao();		
+	
+		model.addAttribute("postList", postList);
+		model.addAttribute("postUrlList", postUrlList);
+		
 		return "index";
 	}
 	

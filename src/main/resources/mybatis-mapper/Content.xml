@@ -58,7 +58,9 @@
 		SELECT p.*,u.nick FROM post p JOIN user_sns u ON p.id = u.id
 	</select>
 	<select id="postUrlListDao" resultType="com.hsl.sns.dto.PostingUrlDto">
-		SELECT * FROM posturl
+		SELECT r.*, p.*FROM posturl r, post p
+		WHERE r.postidx = p.postidx
+		
 	</select>
 	<select id="postViewDao" parameterType="com.hsl.sns.dto.PostingUrlDto" resultMap="PostingUrlDto2">
 		SELECT r.*, p.*,u.nick FROM posturl r, post p, user_sns u

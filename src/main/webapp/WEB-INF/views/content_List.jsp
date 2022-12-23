@@ -23,7 +23,7 @@
 		  			<img class ="rounded-circle me-2" src="${pageContext.request.contextPath }/resources/img/content.jpg" alt="..." width="120" height="120" >
 		  		</td>
 		  		<td height="20%" colspan="3">
-		  			<div id = "profile01">${minfo.id}
+		  			<div id = "profile01">${minfo.nick}
 			   		
 			   		<%
 			   			String id = (String)request.getAttribute("id");
@@ -47,9 +47,7 @@
 		  		<td class = "profile02">팔로워 ${follower}</td>
 		  		<td class = "profile02">팔로우 ${follow}</td>
 		  	</tr>
-		  	<tr>
-		  		<td class = "profile02" height="15%" colspan="3">${minfo.nick}</td>
-		  	</tr>
+		  
 		  	<tr>
 		  		<td class = "profile03" height="15%" colspan="3">${minfo.greet}</td>
 		  	</tr>

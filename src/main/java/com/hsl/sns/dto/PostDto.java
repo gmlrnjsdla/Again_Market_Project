@@ -19,7 +19,7 @@ public class PostDto {
 	private String createdate; //만든시간
 	private String nick;
 	
-	private PostingUrlDto postingUrlDto;
+	
 	
 	
 }

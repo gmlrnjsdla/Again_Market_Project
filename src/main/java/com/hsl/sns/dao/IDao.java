@@ -27,6 +27,9 @@ public interface IDao {
 	public List<PostDto> postListDao();
 	public List<PostingUrlDto> postUrlListDao();
 	
+	public List<PostingUrlDto> postViewDao();
+	
+	
 	//follow
 	public void followDao(String followeeid, String followid);
 	public int followCheckDao(String followeeid, String followid);

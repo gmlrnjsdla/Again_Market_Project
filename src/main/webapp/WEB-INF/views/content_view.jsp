@@ -19,7 +19,7 @@
 <div  class="card" style="width: 400px; height:700px; border:1px solid #dddddd; border-radius:5px; background-color:#FBFBFB ">
   	
   	<div class="card-body">
-  	<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">게시자 ID
+  	<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">${postView.postDto.nick}
 	
 	
 	<!-- 컨텐츠 수정 삭제 드롭다운-->

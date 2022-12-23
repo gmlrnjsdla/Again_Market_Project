@@ -22,6 +22,7 @@ import com.hsl.sns.dao.Chat;
 import com.hsl.sns.dao.IDao;
 import com.hsl.sns.dto.MemberDto;
 import com.hsl.sns.dto.PostDto;
+import com.hsl.sns.dto.PostingUrlDto;
 
 @Controller
 public class ContentController {
@@ -135,14 +136,26 @@ public class ContentController {
 		}
 		}
 			
-		return "index";
+		return "content_view";
 	}
 	
 	
 	@RequestMapping(value = "/content_view")
-	public String content_view(HttpSession session, Model model) {
+	public String content_view(HttpSession session, Model model, HttpServletRequest request) {
 		
 		sidebar(session,model);
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		//게시자,프로필사진, 컨텐츠 사진, contentlist
+		
+		String sid = (String) request.getAttribute("sessionId");
+		
+		List<PostingUrlDto> listDto = dao.postViewDao();
+		PostingUrlDto postViewDto = listDto.get(0); 
+		model.addAttribute("postView", postViewDto);
+		System.out.print(postViewDto);
+		
 		
 		return "content_view";
 	}

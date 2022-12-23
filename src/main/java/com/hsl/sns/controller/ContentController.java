@@ -53,6 +53,7 @@ public class ContentController {
 		IDao dao = sqlSession.getMapper(IDao.class);
 		String id = request.getParameter("id");
 		MemberDto dto = dao.memberInfoDao(id);
+		
 		model.addAttribute("minfo", dto);
 		model.addAttribute("id", dto.getId()); 
 		
@@ -159,6 +160,15 @@ public class ContentController {
 		
 		return "content_view";
 	}
+	
+	@RequestMapping(value = "/buying_List")
+	public String buying_List(HttpServletRequest request, HttpSession session, Model model) {
+		
+		
+		
+		return "buying_List";
+	}
+	
 	
 	
 }

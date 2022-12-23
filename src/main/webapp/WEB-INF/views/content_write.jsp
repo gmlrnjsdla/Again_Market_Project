@@ -110,16 +110,31 @@
 <div class="content_write_form02">
 <div class="card" style="width: 350px; height:700px; border:1px solid #dddddd; border-radius:5px;">
   <div class="card-body"> 
-	
-	<div class="form-floating">
-	<div class="overflow-auto" >
-  	<textarea class="form-control" placeholder="내용입력" id="floatingTextarea" style="height:600px" name="content"></textarea>
-  	
-  	</div>
+	<form action="writeOk"  name="write_frm">	
+		<div class="mb-3">
+	      <input type="text" id="#" class="form-control" placeholder="제목" name="title">
+	    </div>
+	    
+	    <div class="mb-3">
+	      <input type="text" id="#" class="form-control" placeholder="물품종류 (ex:냉장고)" name="type">
+	    </div>
+		
+		<div class="mb-3">
+	      <input type="text" id="#" class="form-control" placeholder="가격" name="price">
+	    </div>
+	    
+	    <div class="mb-3">
+	      <input type="text" id="#" class="form-control" placeholder="거래장소 (ex:인천시 구월동)" name="tradeplace">
+	    </div>
+	    
+	    <div class="mb-3">
+	      <input type="text" id="#" class="form-control" placeholder="내용" name="content" style="height: 300px; align-content: top; " >
+	    </div>
+
   	<br>
-  	<button type="submit" class="btn btn-outline-secondary" style="float:right" >입력</button>
+  	<button type="submit" class="btn btn-outline-secondary" style="float:right; width: 310px; " >입력</button>
 	</div>
- 
+ 	</a>
   
 
 	</div>

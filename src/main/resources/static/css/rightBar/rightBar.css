@@ -9,3 +9,30 @@
 .follow{
 	text-align: right;
 }
+
+
+a:visited { color: #636363; }
+a:hover { color: #0000ff; }
+
+.list_index{
+	padding: 3px;
+	font-weight: bold;
+	font-size: 12px;
+}
+.list_index01{
+	margin : 10px;
+	
+}		
+.list_index02{
+	padding-left: 10px;
+	padding-top: 5px;
+	font-family: Arial;
+	font-weight: bold;
+	
+}
+hr.garo { 
+	border: solid rgb(128, 128, 128); border-width: 5px 0 0;
+	width:40%;
+	margin-top: 5px;
+}
+

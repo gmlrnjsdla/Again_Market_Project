@@ -50,7 +50,7 @@
 		  		<td class = "profile02">찜 ${follower}</td>
 		  		
 		  	</tr>
-		  	
+
 		  	<tr>
 		  		<td class = "profile03" height="15%" colspan="3">${minfo.greet}</td>
 		  	</tr>

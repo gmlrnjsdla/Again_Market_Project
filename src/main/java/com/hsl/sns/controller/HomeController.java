@@ -67,9 +67,10 @@ public class HomeController {
 		
 		List<PostDto> postList = dao.postListDao();
 		List<PostingUrlDto> postUrlList = dao.postUrlListDao();		
-	
+		System.out.println(postUrlList);
 		model.addAttribute("postList", postList);
 		model.addAttribute("postUrlList", postUrlList);
+		System.out.println(postList);
 		
 		return "index";
 	}

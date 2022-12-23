@@ -25,7 +25,7 @@
 
 
 	<div class="sidebar">
-	<div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 270px; height:700px; border:1px solid #dddddd; border-radius:15px;">
+	<div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 270px; height:820px; border:1px solid #dddddd; border-radius:15px;">
 	
     <a href="index"><span class="title">SNS_Project</span></a>
     <hr>

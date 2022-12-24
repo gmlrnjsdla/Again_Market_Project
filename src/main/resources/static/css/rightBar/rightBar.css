@@ -35,4 +35,8 @@ hr.garo {
 	width:40%;
 	margin-top: 5px;
 }
-
+hr.garo1 { 
+	border: solid rgb(128, 128, 128); border-width: 5px 0 0;
+	width:20%;
+	margin-top: 5px;
+}

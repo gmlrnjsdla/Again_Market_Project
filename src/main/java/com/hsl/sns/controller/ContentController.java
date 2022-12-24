@@ -169,6 +169,10 @@ public class ContentController {
 		return "buying_List";
 	}
 	
-	
+	@RequestMapping(value = "/tradeView")
+	public String tradeViw() {
+		
+		return "tradeView";
+	}
 	
 }

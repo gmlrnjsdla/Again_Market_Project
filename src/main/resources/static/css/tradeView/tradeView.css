@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+.list_index02{
+	font-size: 20px;
+	color: #272725;
+	font-family: Arial;
+	text-align: left;
+	padding-left : 10px;
+	font-weight: bold;
+}
+
+.input-group-text{
+	font-size: 14px;
+	color: #5c5c58;
+	font-family: Arial;
+	text-align: left;
+	padding-left : 10px;
+	font-weight: bold;
+	
+}
+
+.form-control{
+	font-size: 12px;
+	color: #7b7b77;
+	font-family: Arial;
+	text-align: left;
+	padding-left : 10px;
+	font-weight: bold;
+	
+}
+
+.trade_font01{
+	font-size: 12px;
+	color: #7d7dff;
+	font-family: Arial;
+	text-align: left;
+	padding-left : 10px;
+	font-weight: bold;
+	
+	
+}
+
+.trade_font02{
+	font-size: 12px;
+	color: #ff666a;
+	font-family: Arial;
+	text-align: left;
+	padding-left : 10px;
+	font-weight: bold;
+	
+	
+}

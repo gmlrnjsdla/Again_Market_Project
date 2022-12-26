@@ -46,8 +46,8 @@ public class ContentController {
 	}
 	
 	
-	@RequestMapping(value = "/content_List")
-	public String content_List(HttpServletRequest request, HttpSession session, Model model) {
+	@RequestMapping(value = "/sell_List")
+	public String sell_List(HttpServletRequest request, HttpSession session, Model model) {
 		
 		sidebar(session,model);
 		IDao dao = sqlSession.getMapper(IDao.class);
@@ -69,9 +69,56 @@ public class ContentController {
 		int post = dao.postCountDao(id);
 		model.addAttribute("post", post);
 		
-		return "content_List";
+		return "sell_List";
 	}
 	
+	
+	@RequestMapping(value = "/buy_List")
+	public String buy_List(HttpServletRequest request, HttpSession session, Model model) {
+		
+		sidebar(session,model);
+		IDao dao = sqlSession.getMapper(IDao.class);
+		String id = request.getParameter("id");
+		MemberDto dto = dao.memberInfoDao(id);
+		
+		model.addAttribute("minfo", dto);
+		model.addAttribute("id", dto.getId()); 
+		
+		
+		//팔로워 수
+		int follower = dao.followerCountDao(id);
+		model.addAttribute("follower", follower);
+		
+		//게시글 수
+		int post = dao.postCountDao(id);
+		model.addAttribute("post", post);
+		
+		return "buy_List";
+	}
+	
+	
+	@RequestMapping(value = "/choice_List")
+	public String choice_List(HttpServletRequest request, HttpSession session, Model model) {
+		
+		sidebar(session,model);
+		IDao dao = sqlSession.getMapper(IDao.class);
+		String id = request.getParameter("id");
+		MemberDto dto = dao.memberInfoDao(id);
+		
+		model.addAttribute("minfo", dto);
+		model.addAttribute("id", dto.getId()); 
+		
+		
+		//팔로워 수
+		int follower = dao.followerCountDao(id);
+		model.addAttribute("follower", follower);
+		
+		//게시글 수
+		int post = dao.postCountDao(id);
+		model.addAttribute("post", post);
+		
+		return "choice_List";
+	}
 	
 	
 	@RequestMapping(value = "content_write")
@@ -137,7 +184,7 @@ public class ContentController {
 		}
 		}
 			
-		return "content_view";
+		return "index";
 	}
 	
 	
@@ -160,12 +207,11 @@ public class ContentController {
 		return "content_view";
 	}
 	
-	@RequestMapping(value = "/buying_List")
-	public String buying_List(HttpServletRequest request, HttpSession session, Model model) {
-		sidebar(session,model);
+	@RequestMapping(value = "buy_tradeView")
+	public String buy_tradeView(HttpSession session, Model model) {
 		
 		
-		return "buying_List";
+		return "buy_tradeView";
 	}
 	
 	@RequestMapping(value = "/tradeView")
@@ -185,5 +231,14 @@ public class ContentController {
 		
 		return "tradeView";
 	}
+	
+	@RequestMapping(value = "sell_tradeView")
+	public String sell_tradeView(HttpSession session, Model model) {
+		
+		sidebar(session,model);	
+		
+		return "sell_tradeView";
+	}
+	
 	
 }

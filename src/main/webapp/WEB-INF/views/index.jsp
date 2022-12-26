@@ -12,11 +12,9 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/index/index.css?after">
 
-
 <title>Insert title here</title>
 </head>
 <body>
-
 
 
 
@@ -24,49 +22,29 @@
 
 <div class="content" style="width: 630px;">
 <div class="card" style="width: 630px;">
-<div class="card-body" style="width: 630px;">
+<div class="card-body" style="width: 630px; ">
 
 
 <!-- 이미지	-->
 
 
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true" style="height:300px; width:300px;" >
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    
-    <c:forEach items="${postUrlList }" var="pUrlList">
-		<c:if test="${pList.postidx == pUrlList.postidx}">
-    
-    
-    <div class="carousel-item active">
-     
-      <img src="${pageContext.request.contextPath }/resources/uploadfiles/${pUrlList.fileName}" alt="..." style="height:300px; width:300px;" >
+<div id="carouselExampleDark" class="carousel carousel-dark slide"  data-bs-ride="true" style="height:400px; width:600px;overflow: auto;" >
   
-    
-    </div>
-	
-      
-       </c:if>
-		
+  <center>
+  <div  >
+    <c:forEach items="${postUrlList }" var="pUrlList" varStatus="status">
+		<c:if test="${pList.postidx == pUrlList.postidx}">
+		    <div >
+			<img src="/resources/uploadfiles/${pUrlList.fileName}" style="width:500px;" >
+		    </div>
+       	</c:if>
 	</c:forEach>
-    
-    
-    
-    
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+  </center>
+  
 </div>
+
+
 
 
 <!--이미지 끝	-->	
@@ -101,7 +79,7 @@
    </div>
    <div class="content_font_index01">
    ${pList.type} ∙ 4일 전<br>
-   ${pList.price}
+   ${pList.price} 원
 
   
   

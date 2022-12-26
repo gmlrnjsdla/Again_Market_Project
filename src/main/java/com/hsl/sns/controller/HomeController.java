@@ -66,11 +66,9 @@ public class HomeController {
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
 		List<PostDto> postList = dao.postListDao();
-		List<PostingUrlDto> postUrlList = dao.postUrlListDao();		
-		System.out.println(postUrlList);
+		List<PostingUrlDto> postUrlList = dao.postUrlListDao();	
 		model.addAttribute("postList", postList);
 		model.addAttribute("postUrlList", postUrlList);
-		System.out.println(postList);
 		
 		return "index";
 	}
@@ -92,7 +90,12 @@ public class HomeController {
 	}
 	
 	
-	
+	@RequestMapping(value = "/test")
+	public String test(HttpServletRequest request) {
+		
+		
+		return "test";
+	}
 	
 	
 }

@@ -55,7 +55,7 @@
 
 	<!-- index -->
 	<select id="postListDao" resultType="com.hsl.sns.dto.PostDto">
-		SELECT p.*,u.nick FROM post p JOIN user_sns u ON p.id = u.id
+		SELECT p.*,u.nick FROM post p JOIN user_sns u ON p.id = u.id ORDER BY p.postidx DESC
 	</select>
 	<select id="postUrlListDao" resultType="com.hsl.sns.dto.PostingUrlDto">
 		SELECT r.*, p.*FROM posturl r, post p

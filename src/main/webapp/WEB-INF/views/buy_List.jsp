@@ -42,19 +42,25 @@
 					</div>
 		   		</td>
 		  	</tr>
-		  	<tr height="10%">
-		  		<td class = "profile02">판매중 ${post}</td>
-		  		<td class = "profile02">찜 ${follower}</td>
-		  		<td class = "profile02">구매중 ${follow}</td>
-		  	</tr>
-		  	
 		  	<tr>
 		  		<td class = "profile03" height="15%" colspan="3">${minfo.greet}</td>
 		  	</tr>
+		  	
+		  	<tr height="10%">
+		  		<td class = "profile02"><a href="/sell_List?id=<%=sid %>">판매중 ${post}</a></td>
+		  		
+		  		<td class = "profile02"><a href="/buy_List?id=<%=sid %>"><button type="button" class="btn btn-secondary">구매중 ${follow}</button></a></td>
+		  		
+		  		<td class = "profile02"><a href="/choice_List?id=<%=sid %>">찜 ${follower}</a></td>
+		  		
+		  	</tr>
+
+		  	
 	   </table>
   </div>
   	<hr style="margin:20px;">
-  
+  	
+  	
   	<div class="overflow-auto" style="height:500px">
   		
    	<!-- 판매중 리스트 -->	
@@ -64,18 +70,21 @@
  		
  	
 		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a>냉장고 판매합니다(Subject)</div>
+		</a><div>판매자 닉네임</div>냉장고 판매합니다(Subject)</div>
 		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a>냉장고 판매합니다(Subject)</div>
+		</a><div>판매자 닉네임</div>냉장고 판매합니다(Subject)</div>
 		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a>냉장고 판매합니다(Subject)</div>
+		</a><div>판매자 닉네임</div>냉장고 판매합니다(Subject)</div>
 		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a>냉장고 판매합니다(Subject)</div>
-		
-		
-		
-			
-			
+		</a><div>판매자 닉네임</div>냉장고 판매합니다(Subject)</div>
+		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+		</a><div>판매자 닉네임</div>냉장고 판매합니다(Subject)</div>	
+		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+		</a><div>판매자 닉네임</div>냉장고 판매합니다(Subject)</div>	
+		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+		</a><div>판매자 닉네임</div>냉장고 판매합니다(Subject)</div>	
+		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+		</a><div>판매자 닉네임</div>냉장고 판매합니다(Subject)</div>
 	</div>
   </div>
 	</div>

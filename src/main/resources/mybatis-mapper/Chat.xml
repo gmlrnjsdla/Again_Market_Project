@@ -86,6 +86,10 @@
     SELECT max(room) FROM message
 </select>
 
+<select id="max_room1"  parameterType="com.hsl.sns.dto.ChatDto" resultType="String">
+    SELECT room FROM message WHERE ROWNUM=1
+</select>
+
 <!-- 메세지 이력이 있는지 검색 -->
 <select id="exist_chat" parameterType="com.hsl.sns.dto.ChatDto" resultType="Int">
     SELECT count(no) FROM message 

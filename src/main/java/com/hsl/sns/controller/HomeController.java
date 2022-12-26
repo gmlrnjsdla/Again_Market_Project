@@ -69,6 +69,7 @@ public class HomeController {
 		List<PostingUrlDto> postUrlList = dao.postUrlListDao();	
 		model.addAttribute("postList", postList);
 		model.addAttribute("postUrlList", postUrlList);
+		model.addAttribute("sid", sid);
 		
 		return "index";
 	}
@@ -77,14 +78,14 @@ public class HomeController {
 	public String follow(HttpServletRequest request) {
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
-		String followeeid = request.getParameter("followeeid");
-		String followid = request.getParameter("followerid");
+		String followid = request.getParameter("followid");
+		int followcontent = Integer.parseInt(request.getParameter("followcontent")); 
 		
-		int count = dao.followCheckDao(followeeid, followid);
+		int count = dao.followCheckDao(followid,followcontent);
 		if(count != 0) {
 			return "redirect:/index";
 		}else {
-			dao.followDao(followeeid, followid);
+			dao.followDao(followcontent, followid);
 		}
 		return "redirect:/index";
 	}

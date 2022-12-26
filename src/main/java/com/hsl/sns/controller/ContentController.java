@@ -57,10 +57,10 @@ public class ContentController {
 		model.addAttribute("minfo", dto);
 		model.addAttribute("id", dto.getId()); 
 		
-		//팔로우 수
-		int follow = dao.followCountDao(id);
-		model.addAttribute("follow", follow);
-		
+//		//팔로우 수
+//		int follow = dao.followCountDao(id);
+//		model.addAttribute("follow", follow);
+//		
 		//팔로워 수
 		int follower = dao.followerCountDao(id);
 		model.addAttribute("follower", follower);
@@ -112,7 +112,6 @@ public class ContentController {
 		if(postList.size()!=0) {
 		PostDto dto = postList.get(0);
 		int postidx = dto.getPostidx();
-		System.out.println(files.length);
 		
 		for (int i = 0; i < files.length; i++) {
 			//그림파일첨부
@@ -121,7 +120,8 @@ public class ContentController {
 																			 
 			File destinationFile; 
 			String destinationFileName; 
-			String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
+//			String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
+			String fileUrl = "C:/Users/user.JY-20200602UADW/git/SNS_Project/src/main/resources/static/uploadfiles/";
 			
 			do {
 			destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "."+ fileExtension;
@@ -150,7 +150,6 @@ public class ContentController {
 		
 		//게시자,프로필사진, 컨텐츠 사진, contentlist
 		
-		String sid = (String) request.getAttribute("sessionId");
 		
 		List<PostingUrlDto> listDto = dao.postViewDao();
 		PostingUrlDto postViewDto = listDto.get(0); 
@@ -172,11 +171,17 @@ public class ContentController {
 	@RequestMapping(value = "/tradeView")
 	public String tradeViw(HttpServletRequest request, HttpSession session, Model model) {
 		sidebar(session,model);
+		
 		String postidx = request.getParameter("postidx");
+		String sid = (String) session.getAttribute("sessionId");
+		
 		IDao dao = sqlSession.getMapper(IDao.class);
 		MemberDto dto = dao.postInfomationDao(postidx);
-		System.out.println(dto.getPostDto().getTitle());
 		model.addAttribute("pinfo", dto);
+		System.out.println(sid);
+		MemberDto mdto = dao.memberInfoDao(sid);
+		System.out.println(mdto.getNick());
+		model.addAttribute("minfo", mdto);
 		
 		return "tradeView";
 	}

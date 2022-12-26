@@ -8,6 +8,7 @@
 	<resultMap type="com.hsl.sns.dto.PostDto" id="PostDto">
 		<result property="postidx" column="postidx"/>
 		<result property="id" column="id"/>
+		<result property="title" column="title"/>
 		<result property="type" column="type"/>
 		<result property="price" column="price"/>
 		<result property="tradeplace" column="tradeplace"/>

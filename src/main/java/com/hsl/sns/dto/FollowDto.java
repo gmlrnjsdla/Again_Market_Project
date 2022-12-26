@@ -10,9 +10,8 @@ import lombok.NoArgsConstructor;
 public class FollowDto {
 
 	private int followidx; //팔로우시퀀스
-	private String followeridx; //팔로워 아이디
-	private String followeeidx; //팔로잉 아이디
-	private String createdate; //만든시간
-	private String updatedate; //수정시간
+	private String followcontent; // 찜한 게시물 번호
+	private String followid; //팔로잉 아이디
+	
 	
 }

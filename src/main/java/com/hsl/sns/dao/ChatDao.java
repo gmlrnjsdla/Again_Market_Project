@@ -67,7 +67,7 @@ public class ChatDao {
 			// 프로필에서 보낸것중 메세지 내역이없어서 첫메세지가 될경우를 구분하기 위함
 			if(exist_chat == 0) {	// 메세지 내역이 없어서 0이면 message 테이블의 room 최댓값을 구해서 to에 set 한다.
 				
-				String maxroom = (String)sqlSession.selectOne("max_room", to);
+				String maxroom = sqlSession.selectOne("max_room1", to);
 				if(maxroom == null) {
 					to.setRoom(1);
 				}else {

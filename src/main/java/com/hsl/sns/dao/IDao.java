@@ -31,9 +31,9 @@ public interface IDao {
 	
 	
 	//follow
-	public void followDao(String followeeid, String followid);
-	public int followCheckDao(String followeeid, String followid);
-	public int followCountDao(String followid);
-	public int followerCountDao(String followeeid);
+	public void followDao(int followcontent, String followid);
+	public int followCheckDao(String followid,int followcontent);
+	public int followCountDao(int followcontent);
+	public int followerCountDao(String followid);
 	
 }

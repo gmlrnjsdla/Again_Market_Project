@@ -7,19 +7,19 @@
 <mapper namespace="com.hsl.sns.dao.IDao">
 
 	<insert id="followDao">
-		INSERT INTO follow(followidx, followeeid , followerid) VALUES(follow_seq.nextval,#{param1},#{param2} )
+		INSERT INTO follow(followidx,followcontent,followid ) VALUES(follow_seq.nextval,${param1},#{param2} )
 	</insert>
 	
 	<select id="followCheckDao" resultType="int">
-		SELECT count(*) FROM follow WHERE followeeid=#{param1} AND followerid=#{param2}
+		SELECT count(*) FROM follow WHERE followid=#{param1} AND followcontent=${param2}
 	</select>
 	
 	<select id="followCountDao" resultType="int">
-		SELECT count(*) FROM follow WHERE followerid=#{param1}
+		SELECT count(*) FROM follow WHERE followcontent=${param1}
 	</select>
 	
 	<select id="followerCountDao" resultType="int">
-		SELECT count(*) FROM follow WHERE followeeid=#{param1}
+		SELECT count(*) FROM follow WHERE followid=#{param1}
 	</select>
 	
 </mapper>

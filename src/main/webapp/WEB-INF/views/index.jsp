@@ -61,7 +61,7 @@
 
 <!--좋아요 버튼 -->   
    <span class="like_button">
-   찜하기<a href="#">
+   찜하기<a href="follow?followid=<%=sid%>&followcontent=${pList.postidx}">
    <button type="button" class="btn  position-relative">
     <img src="${pageContext.request.contextPath }/resources/img/hearts.png" width="20" height="20" alt="...">
      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">99+
@@ -98,12 +98,25 @@
 <br>
 <br>
 <!--구매신청 버튼 --> 
-	<a href="tradeView?postidx=${pList.postidx }" >
-  <button type="button" class="btn btn-outline-danger"
-        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 630px; ">
-  구매신청
-</button>
-	</a>
+<c:choose>
+	<c:when test="${pList.id ne sid }">
+		<a href="tradeView?postidx=${pList.postidx }" >
+	  		<button type="button" class="btn btn-outline-danger"
+	        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 630px; ">
+	  			구매신청
+			</button>
+		</a>
+	</c:when>
+	<c:otherwise>
+		<a href="tradeView?postidx=${pList.postidx }" >
+	  		<button type="button" class="btn btn-outline-danger"
+	        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 630px; ">
+	  			판매확정
+			</button>
+		</a>
+	</c:otherwise>
+</c:choose>
+  
   
 </div>
 </div>

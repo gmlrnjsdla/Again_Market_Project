@@ -5,7 +5,7 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="com.hsl.sns.dao.IDao">
-	<resultMap type="com.hsl.sns.dto.PostDto" id="PostDto2">
+	<resultMap type="com.hsl.sns.dto.PostDto" id="PostDto">
 		<result property="postidx" column="postidx"/>
 		<result property="id" column="id"/>
 		<result property="type" column="type"/>
@@ -27,7 +27,22 @@
 		<result property="updatedate" column="updatedate"/>
 		<result property="createTime" column="createTime"/>	
 
-		<collection property="postDto" resultMap="PostDto2"></collection>
+		<collection property="postDto" resultMap="PostDto"></collection>
+	</resultMap>
+	
+	<resultMap type="com.hsl.sns.dto.MemberDto" id="MemberDto">
+		<result property="id" column="id"/>
+		<result property="pwd" column="pwd"/>
+		<result property="name" column="name"/>
+		<result property="birth" column="birth"/>
+		<result property="mail" column="mail"/>
+		<result property="phone" column="phone"/>
+		<result property="nick" column="nick"/>
+		<result property="rdate" column="rdate"/>
+		<result property="profile" column="profile"/>
+		<result property="greet" column="greet"/>	
+
+		<collection property="postDto" resultMap="PostDto"></collection>
 	</resultMap>
 
 
@@ -68,6 +83,10 @@
 		AND  p.id= u.id ORDER BY p.postidx
 	</select>
 	
+	<!-- tradeView 정보 불러오기 -->
+	<select id="postInfomationDao" parameterType="com.hsl.sns.dto.MemberDto" resultMap="MemberDto">
+		SELECT u.* ,p.title, p.type, p.price, p.tradeplace FROM user_sns u LEFT JOIN post p ON u.id = p.id WHERE postidx=#{param1}
+	</select>
 	
 	
 </mapper>

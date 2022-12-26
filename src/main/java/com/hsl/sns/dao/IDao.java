@@ -26,8 +26,8 @@ public interface IDao {
 	
 	public List<PostDto> postListDao();
 	public List<PostingUrlDto> postUrlListDao();
-	
 	public List<PostingUrlDto> postViewDao();
+	public MemberDto postInfomationDao(String postidx);
 	
 	
 	//follow

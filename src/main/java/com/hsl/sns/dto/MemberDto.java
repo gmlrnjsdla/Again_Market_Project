@@ -20,4 +20,6 @@ public class MemberDto {
 	private String profile;
 	private String greet;
 	
+	private PostDto postDto;
+	
 }

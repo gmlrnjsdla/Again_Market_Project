@@ -98,7 +98,7 @@
 <br>
 <br>
 <!--구매신청 버튼 --> 
-	<a href="#" >
+	<a href="tradeView?postidx=${pList.postidx }" >
   <button type="button" class="btn btn-outline-danger"
         style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 630px; ">
   구매신청

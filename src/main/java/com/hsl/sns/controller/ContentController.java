@@ -163,14 +163,20 @@ public class ContentController {
 	
 	@RequestMapping(value = "/buying_List")
 	public String buying_List(HttpServletRequest request, HttpSession session, Model model) {
-		
+		sidebar(session,model);
 		
 		
 		return "buying_List";
 	}
 	
 	@RequestMapping(value = "/tradeView")
-	public String tradeViw() {
+	public String tradeViw(HttpServletRequest request, HttpSession session, Model model) {
+		sidebar(session,model);
+		String postidx = request.getParameter("postidx");
+		IDao dao = sqlSession.getMapper(IDao.class);
+		MemberDto dto = dao.postInfomationDao(postidx);
+		System.out.println(dto.getPostDto().getTitle());
+		model.addAttribute("pinfo", dto);
 		
 		return "tradeView";
 	}

@@ -17,7 +17,11 @@ public class PostDto {
 	private String tradeplace; //희망거래장소 
 	private String content; //내용
 	private String createdate; //만든시간
+	
+	
 	private String nick;
+	
+	
 	
 	
 	

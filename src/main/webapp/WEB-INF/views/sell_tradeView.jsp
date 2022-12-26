@@ -12,6 +12,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/index/index.css?after">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/rightBar/rightBar.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/tradeView/tradeView.css">
 
 <title>Insert title here</title>
 </head>
@@ -42,9 +43,19 @@
       </div>
      
      <!-- 구매자 거래확정 확인 -->
-     <img class ="rounded-circle me-2" src="${pageContext.request.contextPath }/resources/img/ok.png" alt="..." width="120" height="120" >
+     <div class="input-group-text">판매자 확인</div>
+       <label class="form-control" for="autoSizingInputGroup">	
+     <span class="trade_font01">
+     <img class ="rounded-circle me-2" src="${pageContext.request.contextPath }/resources/img/ok.png" alt="..." width="30" height="30" > 구매자 확인 완료
+     </span>
+     <span class="trade_font02">
+     <img class ="rounded-circle me-2" src="${pageContext.request.contextPath }/resources/img/waiting.png" alt="..." width="30" height="30" > 구매자 확인 미완료
+     </span>
+     </label>	
+     <br>
+     <!-- 구매자 거래확정 확인 끝 -->
      
-    
+     
    <span class="list_index02">거래정보</span>
 <hr class="garo1">
 <span class="col-auto">

@@ -13,7 +13,7 @@
 </head>
 <body>
 <%@ include file="include/leftBar.jsp" %>
-
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/index/index.css?after">
 
 <div class="content_write_form01">
 <div  class="card" style="width: 400px; height:700px; border:1px solid #dddddd; border-radius:5px; background-color:#FBFBFB ">
@@ -49,17 +49,66 @@
 	<img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="365" height="250"  alt="..." >
  	</div >
  	<hr>
-	<div>
-	가을이 깊어가면서 온산의 나뭇잎들이 울긋불긋 물들어가고 있다. 2010년 전국 단풍 홍보대사를 뽑는 날, 단풍잎들은 서로 자기가 더 예쁘다며 
-	자신을 홍보대사로 추천하는데···. 단풍잎 : 가을을 대표하는 절세미인 하면 푸른 잎을 붉게 물들인 나 단풍잎이지! 아름다운 여자의 얼굴을 묘사할 
-	때 쓰이는 ‘녹빈홍안(綠鬢紅顔)’이라는 사자성어 들어봤지?윤이 나는 검은 머리와 고운 얼굴이라는 뜻인데, 오죽하면 고운 얼굴을 붉을 ‘홍’자로 표현했을까~ 
-	은행잎 : 흥, 노랗게 물들인 내 잎들을 보고도 그
-	</div>
-	</div>
-	
-	</div>
-  </div>
 
+
+<!--좋아요 버튼 -->   
+  <div class="subject_font01">
+   <span class="like_button01">
+   찜하기<a href="#">
+   <button type="button" class="btn  position-relative">
+    <img src="${pageContext.request.contextPath }/resources/img/hearts.png" width="20" height="20" alt="...">
+     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">99+
+   </span>
+   </button>
+   </a>
+   </span>
+   
+   
+	 
+
+   <!--내용표시 -->
+   
+   컴퓨터 판매 합니다
+   </div>
+   <div class="content_font_index01">
+   컴퓨터 ∙ 4일 전<br>
+   750000
+
+  
+  
+  
+
+	</div>
+	<div class="content_font_index02">
+   거래장소: 인천시 구월동
+  </div>
+  <hr>
+  <div class="content_font_index">
+  	6개월 사용하였습니다.
+  </div>
+  
+
+<br>
+<br>
+<!--구매신청 버튼 --> 
+	<a href="buy_tradeView" >
+  <button type="button" class="btn btn-outline-danger"
+        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 380px; ">
+  구매확인
+</button>
+	</a>
+	<a href="sell_tradeView" >
+  <button type="button" class="btn btn-outline-danger"
+        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 380px; ">
+  판매확인
+</button>
+	</a>
+<!--구매신청 버튼 끝 -->   
+</div>
+</div>
+</div>
+  </div>
+</div>
 <!-- 컨텐츠 댓글출력 -->
 
 <div class="content_write_form02">

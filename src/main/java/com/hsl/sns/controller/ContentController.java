@@ -167,8 +167,8 @@ public class ContentController {
 																			 
 			File destinationFile; 
 			String destinationFileName; 
-//			String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
-			String fileUrl = "C:/Users/user.JY-20200602UADW/git/SNS_Project/src/main/resources/static/uploadfiles/";
+			String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
+//			String fileUrl = "C:/Users/user.JY-20200602UADW/git/SNS_Project/src/main/resources/static/uploadfiles/";
 			
 			do {
 			destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "."+ fileExtension;
@@ -209,7 +209,7 @@ public class ContentController {
 	
 	@RequestMapping(value = "buy_tradeView")
 	public String buy_tradeView(HttpSession session, Model model) {
-		
+		sidebar(session,model);
 		
 		return "buy_tradeView";
 	}

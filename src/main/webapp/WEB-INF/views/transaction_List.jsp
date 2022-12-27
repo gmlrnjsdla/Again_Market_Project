@@ -54,25 +54,23 @@
 				  <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" onclick="script:window.location='sell_List?id=<%=id%>'">
 				  <label class="btn btn-outline-secondary" for="btnradio1" style="font-size: 12px;">판매중(${post})</label>
 				
-				  <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked onclick="script:window.location='buy_List?id=<%=id%>'">
+				  <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="script:window.location='buy_List?id=<%=id%>'">
 				  <label class="btn btn-outline-secondary" for="btnradio2" style="font-size: 12px;">구매중 (${follow})</label>
 				
 				  <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" onclick="script:window.location='choice_List?id=<%=id%>'">
 				  <label class="btn btn-outline-secondary" for="btnradio3" style="font-size: 12px;">찜 (${follower})</label>
 				  
-				  <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" onclick="script:window.location='transaction_List?id=<%=id%>'">
+				  <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" checked onclick="script:window.location='transaction_List?id=<%=id%>'">
 				  <label class="btn btn-outline-secondary" for="btnradio4" style="font-size: 12px;">거래완료()</label>
 				</div>
 
 		  		</td>
 		  	</tr>
 
-		  	
 	   </table>
   </div>
   	<hr style="margin:20px;">
-  	
-  	
+  
   	<div class="overflow-auto" style="height:500px">
   		
    	<!-- 판매중 리스트 -->	
@@ -81,22 +79,20 @@
  	<div class="row" style="margin:5px; --bs-gap: .25rem 1rem;">
  		
  	
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>판매자 닉네임</div>냉장고 판매합니다(Subject)</div>
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>판매자 닉네임</div>냉장고 판매합니다(Subject)</div>
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>판매자 닉네임</div>냉장고 판매합니다(Subject)</div>
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>판매자 닉네임</div>냉장고 판매합니다(Subject)</div>
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>판매자 닉네임</div>냉장고 판매합니다(Subject)</div>	
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>판매자 닉네임</div>냉장고 판매합니다(Subject)</div>	
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>판매자 닉네임</div>냉장고 판매합니다(Subject)</div>	
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>판매자 닉네임</div>냉장고 판매합니다(Subject)</div>
+		<div class="col-md-4"><a href="index"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+		</a><div>판매자 닉네임</div>컴퓨터 판매합니다</div>
+		<div class="col-md-4"><a href="index"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+		</a><div>판매자 닉네임</div>컴퓨터 판매합니다</div>
+		<div class="col-md-4"><a href="index"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+		</a><div>판매자 닉네임</div>컴퓨터 판매합니다</div>
+		<div class="col-md-4"><a href="index"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+		</a><div>판매자 닉네임</div>컴퓨터 판매합니다</div>
+		<div class="col-md-4"><a href="index"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+		</a><div>판매자 닉네임</div>컴퓨터 판매합니다</div>
+		<div class="col-md-4"><a href="index"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+		</a><div>판매자 닉네임</div>컴퓨터 판매합니다</div>
+		
+		
 	</div>
   </div>
 	</div>

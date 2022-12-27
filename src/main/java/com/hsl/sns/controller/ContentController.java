@@ -134,6 +134,30 @@ public class ContentController {
 	}
 	
 	
+	@RequestMapping(value = "/transaction_List")
+	public String transaction_List(HttpServletRequest request, HttpSession session, Model model) {
+		
+		sidebar(session,model);
+		IDao dao = sqlSession.getMapper(IDao.class);
+		String id = request.getParameter("id");
+		MemberDto dto = dao.memberInfoDao(id);
+		
+		model.addAttribute("minfo", dto);
+		model.addAttribute("id", dto.getId()); 
+		
+		
+		//팔로워 수
+		int follower = dao.followerCountDao(id);
+		model.addAttribute("follower", follower);
+		
+		//게시글 수
+		int post = dao.postCountDao(id);
+		model.addAttribute("post", post);
+		
+		return "transaction_List";
+	}
+	
+	
 	@RequestMapping(value = "content_write")
 	public String content_write(HttpSession session, Model model) {
 		

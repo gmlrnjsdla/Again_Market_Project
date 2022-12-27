@@ -15,6 +15,8 @@
 <%@ include file="include/leftBar.jsp" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/index/index.css?after">
 
+	
+
 <div class="content_write_form01">
 <div  class="card" style="width: 400px; height:700px; border:1px solid #dddddd; border-radius:5px; background-color:#FBFBFB ">
   	
@@ -116,52 +118,47 @@
   <div class="card-body"> 
 	<div>댓글목록</div>
 
-	<div class="card" style="width: 320px; height:600px; border:1px solid #dddddd; border-radius:5px; padding:10px;">
-	<div class="overflow-auto" >
-	<div class="content_font01" >ShinDongHun:
-	<span class="content_font02" >여자가 참이쁘네요</span></div>
-	<div class="content_font01" >Hwang:
-	<span class="content_font02">이쁘긴요 제여자친구 인데요</span></div>
-	<div class="content_font01" >ShinDongHun:
-	<span class="content_font02" >여자가 참이쁘네요</span></div>
-	<div class="content_font01" >Hwang:
-	<span class="content_font02">이쁘긴요 제여자친구 인데요</span></div>
-	<div class="content_font01" >ShinDongHun:
-	<span class="content_font02" >여자가 참이쁘네요</span></div>
-	<div class="content_font01" >Hwang:
-	<span class="content_font02">이쁘긴요 제여자친구 인데요</span></div>
-	<div class="content_font01" >ShinDongHun:
-	<span class="content_font02" >여자가 참이쁘네요</span></div>
-	<div class="content_font01" >Hwang:
-	<span class="content_font02">이쁘긴요 제여자친구 인데요</span></div>
-	<div class="content_font01" >ShinDongHun:
-	<span class="content_font02" >여자가 참이쁘네요</span></div>
-	<div class="content_font01" >Hwang:
-	<span class="content_font02">이쁘긴요 제여자친구 인데요</span></div>
-	<div class="content_font01" >ShinDongHun:
-	<span class="content_font02" >여자가 참이쁘네요</span></div>
-	<div class="content_font01" >Hwang:
-	<span class="content_font02">이쁘긴요 제여자친구 인데요</span></div>
-	<div class="content_font01" >ShinDongHun:
-	<span class="content_font02" >여자가 참이쁘네요</span></div>
-	<div class="content_font01" >Hwang:
-	<span class="content_font02">이쁘긴요 제여자친구 인데요</span></div>
-	<div class="content_font01" >ShinDongHun:
-	<span class="content_font02" >여자가 참이쁘네요</span></div>
-	<div class="content_font01" >Hwang:
-	<span class="content_font02">이쁘긴요 제여자친구 인데요</span></div>
+		<div class="card" style="width: 320px; height:600px; border:1px solid #dddddd; border-radius:5px; padding:10px;">
+		
+		<div class="overflow-auto" >
+		
+		
+			   		<%
+			   			String id = (String)request.getAttribute("id");
+	   				%>
+		
+		
+		
+			<c:forEach items="${commentList }" var="commentList" varStatus="status">
+				
+				
+				<c:set var="name" value="<%= id %>" />
+					<c:if test="${name ne commentList.id}">
+			    		<div class="content_font01" style="font-size: 18px; font-weight:bold; color:green;"> ${commentList.id }
+					</c:if>
+			    	<div class="content_font01" style="font-size: 18px; font-weight:bold; color:bule;"> ${commentList.id }
+				
+		         	
+		    	 
+					
+		        
+		   
+				
+			<div class="content_font01" style="font-size: 18px; font-weight:bold; "> ${commentList.id }
+				<span class="content_font02" style="font-size: 15px; font-weight:bold;">${commentList.content }</span>
+			</div>
+			</c:forEach>	
+		</div>
+			
+		</div>
 	
-	
-	
-	</div>
-	</div>
-	
-
-  	<div class="input-group mb-3">
- 		 <input type="text" class="form-control" placeholder="댓글을 입력해 주세요" aria-label="댓글을 입력해 주세요" aria-describedby="button-addon2">
-  		 <button class="btn btn-outline-secondary" type="submit" id="button-addon2">댓글입력</button>
-	</div>
-	
+	<form action="commentOk">
+		<input type="hidden" name="postidx" value="${postView.postidx}">
+  			<div class="input-group mb-3">
+ 		 		<input type="text" name="content" class="form-control" placeholder="댓글을 입력해 주세요" aria-label="댓글을 입력해 주세요" aria-describedby="button-addon2">
+  		 		<button class="btn btn-outline-secondary" type="submit" id="button-addon2">댓글입력</button>
+		</div>
+	</form>
  
   
 

@@ -2,9 +2,12 @@ package com.hsl.sns.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FilenameUtils;
@@ -18,15 +21,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JacksonInject.Value;
 import com.hsl.sns.dao.Chat;
 import com.hsl.sns.dao.IDao;
+import com.hsl.sns.dto.CommentDto;
 import com.hsl.sns.dto.MemberDto;
 import com.hsl.sns.dto.PostDto;
 import com.hsl.sns.dto.PostingUrlDto;
 
+
+
 @Controller
 public class ContentController {
 
+	private static final String String = null;
 	@Autowired
 	private SqlSession sqlSession;
 	
@@ -192,17 +200,20 @@ public class ContentController {
 	public String content_view(HttpSession session, Model model, HttpServletRequest request) {
 		
 		sidebar(session,model);
-		
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
 		//게시자,프로필사진, 컨텐츠 사진, contentlist
 		
-		
 		List<PostingUrlDto> listDto = dao.postViewDao();
-		PostingUrlDto postViewDto = listDto.get(0); 
-		model.addAttribute("postView", postViewDto);
-		System.out.print(postViewDto);
+		PostingUrlDto postViewDto = listDto.get(0);
+		int postidx = postViewDto.getPostidx();
 		
+		List<CommentDto> commentDtos = dao.commentListDao(String.valueOf(postidx));
+		
+		model.addAttribute("postView", postViewDto);
+		model.addAttribute("commentList", commentDtos);
+		
+		System.out.println(commentDtos);
 		
 		return "content_view";
 	}
@@ -224,9 +235,9 @@ public class ContentController {
 		IDao dao = sqlSession.getMapper(IDao.class);
 		MemberDto dto = dao.postInfomationDao(postidx);
 		model.addAttribute("pinfo", dto);
-		System.out.println(sid);
+		
 		MemberDto mdto = dao.memberInfoDao(sid);
-		System.out.println(mdto.getNick());
+		
 		model.addAttribute("minfo", mdto);
 		
 		return "tradeView";
@@ -238,6 +249,50 @@ public class ContentController {
 		sidebar(session,model);	
 		
 		return "sell_tradeView";
+	}
+	
+	@RequestMapping(value = "completed")
+	public String completed() {
+		
+		return "completed";
+	}
+	
+	@RequestMapping(value = "commentOk")
+	public String commentOk(HttpServletRequest request,HttpSession session,Model model, HttpServletResponse response) {
+		sidebar(session,model);
+		
+		String postidx = request.getParameter("postidx");
+		String content = request.getParameter("content");
+		String sid = (String) session.getAttribute("sessionId");
+		
+		if(sid == null) {
+			PrintWriter out;
+			try {
+				response.setContentType("text/html;charset=utf-8");
+				out = response.getWriter();
+				out.println("<script>alert('로그인을 하셔야 댓글쓰기가 가능합니다!');history.go(-1);</script>");
+				out.flush();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			} else {
+				
+				IDao dao = sqlSession.getMapper(IDao.class);
+				
+				dao.commentDao(sid, postidx, content);
+				
+				PostDto postDto = dao.commentViewDao(postidx);
+				
+				List<CommentDto> commentDtos = dao.commentListDao(postidx);
+				
+				model.addAttribute("post", postDto);
+				model.addAttribute("commentList", commentDtos);
+				
+			
+			}
+		
+		return "redirect:content_view";
 	}
 	
 	

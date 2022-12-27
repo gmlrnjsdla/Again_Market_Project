@@ -89,6 +89,17 @@
 		SELECT u.* ,p.title, p.type, p.price, p.tradeplace FROM user_sns u LEFT JOIN post p ON u.id = p.id WHERE postidx=#{param1}
 	</select>
 	
+	<!-- 댓글관련 -->
+	<insert id="commentDao">
+		INSERT INTO commentTBL(commentidx, id, postidx, content) 
+			VALUES (commentTBL_seq.nextval, #{param1}, #{param2},#{param3})
+	</insert>
+	<select id="commentViewDao" resultType="com.hsl.sns.dto.PostDto">
+		SELECT * FROM post WHERE postidx=#{param1}
+	</select>
+	<select id="commentListDao" resultType="com.hsl.sns.dto.CommentDto">
+		SELECT * FROM commentTBL WHERE postidx=#{param1}
+	</select>
 	
 </mapper>
 	

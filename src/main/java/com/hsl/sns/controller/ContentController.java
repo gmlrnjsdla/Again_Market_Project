@@ -232,14 +232,7 @@ public class ContentController {
 	}
 	
 	@RequestMapping(value = "buy_tradeView")
-	public String buy_tradeView(HttpSession session, Model model) {
-		sidebar(session,model);
-		
-		return "buy_tradeView";
-	}
-	
-	@RequestMapping(value = "/tradeView")
-	public String tradeViw(HttpServletRequest request, HttpSession session, Model model) {
+	public String buy_tradeView(HttpServletRequest request, HttpSession session, Model model) {
 		sidebar(session,model);
 		
 		String postidx = request.getParameter("postidx");
@@ -253,13 +246,25 @@ public class ContentController {
 		System.out.println(mdto.getNick());
 		model.addAttribute("minfo", mdto);
 		
-		return "tradeView";
+		
+		return "buy_tradeView";
 	}
 	
+	
 	@RequestMapping(value = "sell_tradeView")
-	public String sell_tradeView(HttpSession session, Model model) {
+	public String sell_tradeView(HttpServletRequest request, HttpSession session, Model model) {
+		sidebar(session,model);
 		
-		sidebar(session,model);	
+		String postidx = request.getParameter("postidx");
+		String sid = (String) session.getAttribute("sessionId");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		MemberDto dto = dao.postInfomationDao(postidx);
+		model.addAttribute("pinfo", dto);
+		System.out.println(sid);
+		MemberDto mdto = dao.memberInfoDao(sid);
+		System.out.println(mdto.getNick());
+		model.addAttribute("minfo", mdto);
 		
 		return "sell_tradeView";
 	}

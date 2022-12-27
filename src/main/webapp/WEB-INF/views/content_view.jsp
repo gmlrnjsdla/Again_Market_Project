@@ -18,7 +18,7 @@
 <div class="content_write_form01">
 <div  class="card" style="width: 400px; height:800px; border:1px solid #dddddd; border-radius:5px; background-color:#FBFBFB ">
   	
-  	<div class="card-body"style="height: 0px;">
+  	<div class="card-body" style="height: 100px;">
   	<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">${postView.postDto.nick}
 	
 	
@@ -88,18 +88,25 @@
   
 
 <!--구매신청 버튼 --> 
-	<a href="buy_tradeView" >
-  <button type="button" class="btn btn-outline-danger"
-        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 380px; ">
-  구매확인
-</button>
+<c:choose>
+	<c:when test="${pList.id ne sid }">
+	<a href="buy_tradeView?postidx=${pList.postidx }" >
+	    <button type="button" class="btn btn-outline-danger"
+	        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 380px; ">
+  		구매확인
+		</button>
 	</a>
-	<a href="sell_tradeView" >
-  <button type="button" class="btn btn-outline-danger"
-        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 380px; ">
-  판매확인
-</button>
+	</c:when>
+	
+	<c:otherwise>
+	<a href="sell_tradeView?postidx=${pList.postidx }" >
+	  <button type="button" class="btn btn-outline-danger"
+	        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 380px; ">
+	  판매확인
+	  </button>
 	</a>
+</c:otherwise>	
+</c:choose>	
 <!--구매신청 버튼 끝 -->   
 </div>
 </div>

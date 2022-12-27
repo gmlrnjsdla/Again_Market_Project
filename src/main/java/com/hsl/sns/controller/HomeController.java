@@ -1,5 +1,6 @@
 package com.hsl.sns.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -40,6 +41,14 @@ public class HomeController {
 		model.addAttribute("memberList", dtos);
 		model.addAttribute("minfo", dto);
 		//==============사이드바 정보가져오기==============
+		
+		//====================== right bar ======================//
+		
+		List<FollowDto> followList = dao.likeContentListDao(sid);
+		model.addAttribute("fList", followList); //찜목록
+		
+		List<PostDto> mypostList = dao.myPostListDao(sid);
+		model.addAttribute("pList", mypostList); //판매목록
 	}
 	
 	
@@ -70,14 +79,20 @@ public class HomeController {
 		model.addAttribute("postList", postList);
 		model.addAttribute("postUrlList", postUrlList);
 		model.addAttribute("sid", sid);
+		//====================== 게시글 리스트 끝 ======================//
 		
-		//====================== right bar ======================//
+		//====================== 게시글 찜하기 수 ======================//
+		List<Integer> counts = new ArrayList<>(); 
+		for(int i=0; i<postList.size(); i++) {
+			PostDto dto = postList.get(i);
+			int postidx = dto.getPostidx();
+			int count = dao.followCountDao(postidx);
+			counts.add(count);
+		}
 		
-		List<FollowDto> followList = dao.likeContentListDao(sid);
-		model.addAttribute("fList", followList); //찜목록
-		
-		List<PostDto> mypostList = dao.myPostListDao(sid);
-		model.addAttribute("pList", mypostList); //판매목록
+		model.addAttribute("countList", counts);
+		System.out.println(counts.get(0));
+		//====================== 게시글 찜하기 수 끝 ======================//
 		
 		
 		return "index";

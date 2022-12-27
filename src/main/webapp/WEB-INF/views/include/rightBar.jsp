@@ -117,7 +117,7 @@
 				<div class="list_index01">
 				  <c:forEach items="${pList }" var="pList">
 					  <div class="list_index">
-				   	  <a href="#" style="text-decoration: none;">${pList.title}</a>
+				   	  <a href="#" style="text-decoration: none; color:black;">${pList.title}</a>
 				      </div>
 			      </c:forEach>
 			      

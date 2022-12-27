@@ -44,6 +44,14 @@ public class ContentController {
 		model.addAttribute("memberList", dtos);
 		model.addAttribute("minfo", dto);
 		//==============사이드바 정보가져오기==============
+		
+		//====================== right bar ======================//
+		
+		List<FollowDto> followList = dao.likeContentListDao(sid);
+		model.addAttribute("fList", followList); //찜목록
+		
+		List<PostDto> mypostList = dao.myPostListDao(sid);
+		model.addAttribute("pList", mypostList); //판매목록
 	}
 	
 	
@@ -231,14 +239,20 @@ public class ContentController {
 		sidebar(session,model);
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
+		int postidx = Integer.parseInt(request.getParameter("postidx")); 
 		
-		//게시자,프로필사진, 컨텐츠 사진, contentlist
+		//게시글 정보
+		PostDto dto = dao.postDao(postidx);
+		model.addAttribute("post", dto);
+		String id = dto.getId();
+		model.addAttribute("id", id); 	// sessionId와 비교를 위해
 		
+		//이미지 가져오기
+		List<PostingUrlDto> postUrlList = dao.postUrlListDao();	
+		model.addAttribute("postUrlList", postUrlList);
 		
-		List<PostingUrlDto> listDto = dao.postViewDao();
-		PostingUrlDto postViewDto = listDto.get(0); 
-		model.addAttribute("postView", postViewDto);
-		System.out.print(postViewDto);
+		int count = dao.followCountDao(postidx);
+		model.addAttribute("count", count);
 		
 		
 		return "content_view";
@@ -261,9 +275,7 @@ public class ContentController {
 		IDao dao = sqlSession.getMapper(IDao.class);
 		MemberDto dto = dao.postInfomationDao(postidx);
 		model.addAttribute("pinfo", dto);
-		System.out.println(sid);
 		MemberDto mdto = dao.memberInfoDao(sid);
-		System.out.println(mdto.getNick());
 		model.addAttribute("minfo", mdto);
 		
 		return "tradeView";

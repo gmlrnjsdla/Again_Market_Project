@@ -114,5 +114,9 @@
 		SELECT p.postidx,max(u.filename) as filename FROM posturl u INNER JOIN post p ON p.postidx = u.postidx GROUP BY p.postidx
 	</select>
 	
+	<select id="postDao" resultType="com.hsl.sns.dto.PostDto">
+		SELECT p.*, u.nick FROM post p join user_sns u ON p.id = u.id WHERE postidx=${param1}
+	</select>
+	
 </mapper>
 	

@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hsl.sns.dao.Chat;
 import com.hsl.sns.dao.ChatDao;
 import com.hsl.sns.dao.IDao;
 import com.hsl.sns.dto.ChatDto;
+import com.hsl.sns.dto.FollowDto;
 import com.hsl.sns.dto.MemberDto;
+import com.hsl.sns.dto.PostDto;
 
 @Controller
 public class ChatController {
@@ -28,12 +31,35 @@ public class ChatController {
 	@Autowired
 	private SqlSession sqlSession;
 	
+	private void sidebar(HttpSession session, Model model) {
+		//==============사이드바 정보가져오기==============
+		String sid = (String)session.getAttribute("sessionId");
+		String snick = (String)session.getAttribute("nick");
+		IDao dao = sqlSession.getMapper(IDao.class);
+		MemberDto dto = dao.memberInfoDao(sid);
+		List<MemberDto> dtos = dao.memberListDao(sid);
+		Chat cdao = sqlSession.getMapper(Chat.class);
+		int count = cdao.messageExist(snick);
+		model.addAttribute("count", count);
+		model.addAttribute("memberList", dtos);
+		model.addAttribute("minfo", dto);
+		//==============사이드바 정보가져오기==============
+		
+		//====================== right bar ======================//
+		
+		List<FollowDto> followList = dao.likeContentListDao(sid);
+		model.addAttribute("fList", followList); //찜목록
+		
+		List<PostDto> mypostList = dao.myPostListDao(sid);
+		model.addAttribute("pList", mypostList); //판매목록
+	}
+	
  
 	// 메세지 목록
 	@RequestMapping(value = "/message")
 	public String message_list(HttpServletRequest request, HttpSession session, Model model) {
 		// System.out.println("현대 사용자 nick : " + session.getAttribute("nick"));
-
+		sidebar(session,model);
 		String nick = (String) session.getAttribute("nick");
 
 		ChatDto to = new ChatDto();
@@ -127,8 +153,9 @@ public class ChatController {
 	}
 	
 	@RequestMapping(value = "/send")
-	public String send(HttpServletRequest request, Model model) {
+	public String send(HttpServletRequest request, Model model,HttpSession session) {
 		
+		sidebar(session,model);
 		String recvnick = request.getParameter("nick");
 		model.addAttribute("rnick", recvnick);
 		

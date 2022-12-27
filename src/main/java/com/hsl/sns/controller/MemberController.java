@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hsl.sns.dao.Chat;
 import com.hsl.sns.dao.IDao;
+import com.hsl.sns.dto.FollowDto;
 import com.hsl.sns.dto.MemberDto;
+import com.hsl.sns.dto.PostDto;
 
 @Controller
 public class MemberController {
@@ -38,6 +40,14 @@ public class MemberController {
 		model.addAttribute("memberList", dtos);
 		model.addAttribute("minfo", dto);
 		//==============사이드바 정보가져오기==============
+		
+		//====================== right bar ======================//
+		
+		List<FollowDto> followList = dao.likeContentListDao(sid);
+		model.addAttribute("fList", followList); //찜목록
+		
+		List<PostDto> mypostList = dao.myPostListDao(sid);
+		model.addAttribute("pList", mypostList); //판매목록
 	}
 	
 	@RequestMapping(value = "/loginOk", method = RequestMethod.POST)

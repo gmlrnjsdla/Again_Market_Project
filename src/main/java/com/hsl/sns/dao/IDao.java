@@ -32,15 +32,18 @@ public interface IDao {
 	
 	
 	//찜
-	public void followDao(int followcontent, String followid);
-	public int followCheckDao(String followid,int followcontent);
-	public int followCountDao(int followcontent);
-	public int followerCountDao(String followid);
-    public List<FollowDto> likeContentListDao(String id);
+	public void followDao(int followcontent, String followid); 		// 찜하기 버튼 클릭시
+	public int followCheckDao(String followid,int followcontent);	// 찜하기 여러번 방지
+	public int followCountDao(int followcontent);					// 해당 게시글의 찜하기 수
+	public int followerCountDao(String followid);					// 해당 아이디의 찜한 게시글 수
+    public List<FollowDto> likeContentListDao(String id);			// 해당 아이디의 찜한 게시글 목록
     
     //프로필 게시물 목록
-    public List<PostDto> myPostListDao(String id);
-    public List<PostingUrlDto> myPostUrlListDao();
+    public List<PostDto> myPostListDao(String id);	// 내 판매중인 게시물
+    public List<PostingUrlDto> myPostUrlListDao();	// 게시글당 사진 한장만 가져오기
+    
+    //content_view
+    public PostDto postDao(int postidx);		// 해당 게시글의 모든 정보
     
 	
 }

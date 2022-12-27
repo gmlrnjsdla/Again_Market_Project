@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,20 +20,29 @@
 <div  class="card" style="width: 400px; height:700px; border:1px solid #dddddd; border-radius:5px; background-color:#FBFBFB ">
   	
   	<div class="card-body">
-  	<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">${postView.postDto.nick}
+  	<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">${post.nick}
 	
 	
 	<!-- 컨텐츠 수정 삭제 드롭다운-->
 
 
 <span class="setting" >
-  <img class="setting" src="${pageContext.request.contextPath }/resources/img/Settings.svg"  type="button" data-bs-toggle="dropdown" aria-expanded="false">
-
   
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">수정</a></li>
-    <li><a class="dropdown-item" href="#">삭제</a></li>
-  </ul>
+
+  <%
+  	String id = (String)request.getAttribute("id");
+  	
+  	if(id.equals(sid)){
+  %>
+  		<img class="setting" src="${pageContext.request.contextPath }/resources/img/Settings.svg"  type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  		<ul class="dropdown-menu">
+		    <li><a class="dropdown-item" href="#">수정</a></li>
+		    <li><a class="dropdown-item" href="#">삭제</a></li>
+	  	</ul>
+  <%
+  	}
+  %>
+  
   
 </span>
 
@@ -45,8 +55,13 @@
    
  	<!-- 컨텐츠 사진출력 -->
  	<div class="content_img" >
-	<img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="365" height="250"  alt="..." >
-	<img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="365" height="250"  alt="..." >
+ 	
+ 	<c:forEach items="${postUrlList}" var="pList">
+ 		<c:if test="${pList.postidx == post.postidx }">
+			<img src="/resources/uploadfiles/${pList.fileName}" width="365" height="250"  alt="..." >
+		</c:if>
+	</c:forEach>
+	
  	</div >
  	<hr>
 
@@ -57,7 +72,8 @@
    찜하기<a href="#">
    <button type="button" class="btn  position-relative">
     <img src="${pageContext.request.contextPath }/resources/img/hearts.png" width="20" height="20" alt="...">
-     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">99+
+     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+     ${count }
    </span>
    </button>
    </a>
@@ -68,11 +84,12 @@
 
    <!--내용표시 -->
    
-   컴퓨터 판매 합니다
+   ${post.title}
    </div>
    <div class="content_font_index01">
-   컴퓨터 ∙ 4일 전<br>
-   750000
+  	${post.type} <br>
+  	${post.createdate}<br>
+    ${post.price}원
 
   
   
@@ -80,29 +97,41 @@
 
 	</div>
 	<div class="content_font_index02">
-   거래장소: 인천시 구월동
+   거래장소: ${post.tradeplace }
   </div>
   <hr>
   <div class="content_font_index">
-  	6개월 사용하였습니다.
+  	${post.content}
   </div>
   
 
 <br>
 <br>
 <!--구매신청 버튼 --> 
-	<a href="buy_tradeView" >
-  <button type="button" class="btn btn-outline-danger"
-        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 380px; ">
-  구매확인
-</button>
-	</a>
-	<a href="sell_tradeView" >
-  <button type="button" class="btn btn-outline-danger"
-        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 380px; ">
-  판매확인
-</button>
-	</a>
+
+<%
+  	if(id.equals(sid)){
+%>
+		<a href="sell_tradeView" >
+		  	<button type="button" class="btn btn-outline-danger"
+		        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 380px; ">
+		  		판매확인
+			</button>
+		</a>
+<%  		
+  	}else{
+%>
+		<a href="buy_tradeView" >
+		  	<button type="button" class="btn btn-outline-danger"
+		        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 380px; ">
+			  	구매확인
+			</button>
+		</a>
+<%
+  	}
+%>
+	
+	
 <!--구매신청 버튼 끝 -->   
 </div>
 </div>

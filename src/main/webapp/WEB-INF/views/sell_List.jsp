@@ -67,18 +67,15 @@
  	<div class="row" style="margin:5px; --bs-gap: .25rem 1rem;">
  		
  		
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>${minfo.nick}</div> 냉장고 판매합니다</div>
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>${minfo.nick}</div> 냉장고 판매합니다</div>
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>${minfo.nick}</div> 냉장고 판매합니다</div>
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>${minfo.nick}</div> 냉장고 판매합니다</div>
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>${minfo.nick}</div> 냉장고 판매합니다</div>
-		<div class="col-md-4"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>${minfo.nick}</div> 냉장고 판매합니다</div>
+		<c:forEach items="${pList }" var="pList">
+			<div class="col-md-4">
+				<a href="index" style="text-decoration: none; color:black;">
+					<img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+				<div style="font-size: 12px;">${pList.id}</div>
+				<div style="font-weight: bold; font-size: 15px; text-align: center;">${pList.title }</div>
+				</a>
+			</div>
+		</c:forEach>
 		
 		
 			

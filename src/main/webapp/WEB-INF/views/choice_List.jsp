@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,19 +67,16 @@
    		
  	<div class="row" style="margin:5px; --bs-gap: .25rem 1rem;">
  		
- 	
-		<div class="col-md-4"><a href="index"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>판매자 닉네임</div>컴퓨터 판매합니다</div>
-		<div class="col-md-4"><a href="index"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>판매자 닉네임</div>컴퓨터 판매합니다</div>
-		<div class="col-md-4"><a href="index"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>판매자 닉네임</div>컴퓨터 판매합니다</div>
-		<div class="col-md-4"><a href="index"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>판매자 닉네임</div>컴퓨터 판매합니다</div>
-		<div class="col-md-4"><a href="index"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>판매자 닉네임</div>컴퓨터 판매합니다</div>
-		<div class="col-md-4"><a href="index"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>판매자 닉네임</div>컴퓨터 판매합니다</div>
+ 		<c:forEach items="${fList }" var="fList">
+			<div class="col-md-4">
+				<a href="index" style="text-decoration: none; color:black;">
+					<img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+				<div style="font-size: 12px;">${fList.postDto.id}</div>
+				<div style="font-weight: bold; font-size: 15px; text-align: center;">${fList.postDto.title }</div>
+				</a>
+			</div>
+		</c:forEach>
+		
 		
 		
 	</div>

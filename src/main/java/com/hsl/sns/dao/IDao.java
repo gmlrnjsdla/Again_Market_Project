@@ -3,6 +3,7 @@ package com.hsl.sns.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.hsl.sns.dto.FollowDto;
 import com.hsl.sns.dto.MemberDto;
 import com.hsl.sns.dto.PostDto;
 import com.hsl.sns.dto.PostingUrlDto;
@@ -30,10 +31,15 @@ public interface IDao {
 	public MemberDto postInfomationDao(String postidx);
 	
 	
-	//follow
+	//찜
 	public void followDao(int followcontent, String followid);
 	public int followCheckDao(String followid,int followcontent);
 	public int followCountDao(int followcontent);
 	public int followerCountDao(String followid);
+    public List<FollowDto> likeContentListDao(String id);
+    
+    //프로필 게시물 목록
+    public List<PostDto> myPostListDao(String id);
+    
 	
 }

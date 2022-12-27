@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 
 <!DOCTYPE html>
 <html>
@@ -61,23 +62,14 @@
 	<span class="list_index02"><i class="bi bi-chat-right-heart"></i>찜한목록</span>
 	<hr class="garo"> 
 		<div class="card" style="width: 100%; height:15%; overflow: auto;">
-		    
-				<div class="list_index01">
+			<div class="list_index01">
+			  <c:forEach items="${fList }" var="fList">
 				  <div class="list_index">
-				  
-			   	  <a href="#" style="text-decoration: none;">티비팝니다</a>
+			   	  <a href="#" style="text-decoration: none;">${fList.postDto.title}</a>
 			      </div>
-			      <div class="list_index">
-			   	  <a href="#" style="text-decoration: none;">티비팝니다</a>
-			      </div><div class="list_index">
-			   	  <a href="#" style="text-decoration: none;">티비팝니다</a>
-			      </div><div class="list_index">
-			   	  <a href="#" style="text-decoration: none;">티비팝니다</a>
-			      </div><div class="list_index">
-			   	  <a href="#" style="text-decoration: none;">티비팝니다</a>
-			      </div>
-			  	</div>
-		    	</div>
+		      </c:forEach>
+		  	</div>
+    	</div>
 <!--  내가찜한목록 끝 -->
 <br>
 
@@ -123,18 +115,12 @@
 		<div class="card" style="width: 100%; height:15%; overflow: auto;">
 		    
 				<div class="list_index01">
-				  <div class="list_index">
-			   	  <a href="#" style="text-decoration: none;">티비팝니다</a>
-			      </div>
-			      <div class="list_index">
-			   	  <a href="#" style="text-decoration: none;">티비팝니다</a>
-			      </div><div class="list_index">
-			   	  <a href="#" style="text-decoration: none;">티비팝니다</a>
-			      </div><div class="list_index">
-			   	  <a href="#" style="text-decoration: none;">티비팝니다</a>
-			      </div><div class="list_index">
-			   	  <a href="#" style="text-decoration: none;">티비팝니다</a>
-			      </div>
+				  <c:forEach items="${pList }" var="pList">
+					  <div class="list_index">
+				   	  <a href="#" style="text-decoration: none;">${pList.title}</a>
+				      </div>
+			      </c:forEach>
+			      
 			  	</div>
 		    	</div>
 <!--  판매목록 끝 -->				

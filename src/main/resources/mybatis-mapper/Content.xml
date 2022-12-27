@@ -45,6 +45,14 @@
 
 		<collection property="postDto" resultMap="PostDto"></collection>
 	</resultMap>
+	
+	<resultMap type="com.hsl.sns.dto.FollowDto" id="FollowDto">
+		<result property="followidx" column="followidx"/>
+		<result property="followcontent" column="followcontent"/>
+		<result property="followid" column="followid"/>
+
+		<collection property="postDto" resultMap="PostDto"></collection>
+	</resultMap>
 
 
 	
@@ -65,6 +73,7 @@
 		SELECT * FROM post WHERE id=#{param1} ORDER BY postidx DESC
 	</select>
 	
+	<!-- 판매중 게시글 수 -->
 	<select id="postCountDao" resultType="int">
 		SELECT count(*) FROM post WHERE id=#{param1}
 	</select>
@@ -89,6 +98,15 @@
 		SELECT u.* ,p.title, p.type, p.price, p.tradeplace FROM user_sns u LEFT JOIN post p ON u.id = p.id WHERE postidx=#{param1}
 	</select>
 	
+	<!-- 찜한 게시물 목록  -->
+	<select id="likeContentListDao" parameterType="com.hsl.sns.dto.FollowDto" resultMap="FollowDto">
+		SELECT * FROM follow f LEFT JOIN post p ON f.followcontent = p.postidx WHERE followid=#{param1}
+	</select>
+	
+	<!-- 판매중인 게시물 목록 -->
+	<select id="myPostListDao" resultType="com.hsl.sns.dto.PostDto">
+		SELECT * FROM post WHERE id=#{param1}
+	</select>
 	
 </mapper>
 	

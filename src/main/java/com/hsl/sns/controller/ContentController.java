@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.hsl.sns.dao.Chat;
 import com.hsl.sns.dao.IDao;
+import com.hsl.sns.dto.FollowDto;
 import com.hsl.sns.dto.MemberDto;
 import com.hsl.sns.dto.PostDto;
 import com.hsl.sns.dto.PostingUrlDto;
@@ -57,10 +58,7 @@ public class ContentController {
 		model.addAttribute("minfo", dto);
 		model.addAttribute("id", dto.getId()); 
 		
-//		//팔로우 수
-//		int follow = dao.followCountDao(id);
-//		model.addAttribute("follow", follow);
-//		
+	
 		//팔로워 수
 		int follower = dao.followerCountDao(id);
 		model.addAttribute("follower", follower);
@@ -68,6 +66,9 @@ public class ContentController {
 		//게시글 수
 		int post = dao.postCountDao(id);
 		model.addAttribute("post", post);
+		
+		List<PostDto> postList = dao.myPostListDao(id);
+		model.addAttribute("pList", postList); 
 		
 		return "sell_List";
 	}
@@ -109,13 +110,19 @@ public class ContentController {
 		model.addAttribute("id", dto.getId()); 
 		
 		
-		//팔로워 수
+		//=============================== 찜 ===============================
 		int follower = dao.followerCountDao(id);
-		model.addAttribute("follower", follower);
+		model.addAttribute("follower", follower); //찜한 개수
 		
-		//게시글 수
+		List<FollowDto> followList = dao.likeContentListDao(id);
+		model.addAttribute("fList", followList);
+		
+		//=============================== 판매중 ===============================
 		int post = dao.postCountDao(id);
-		model.addAttribute("post", post);
+		model.addAttribute("post", post); //판매중인 개수
+		
+		
+		
 		
 		return "choice_List";
 	}

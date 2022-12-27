@@ -13,5 +13,5 @@ public class FollowDto {
 	private String followcontent; // 찜한 게시물 번호
 	private String followid; //팔로잉 아이디
 	
-	
+	private PostDto postDto;
 }

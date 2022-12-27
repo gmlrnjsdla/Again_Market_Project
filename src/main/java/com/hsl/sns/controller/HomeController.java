@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hsl.sns.dao.Chat;
 import com.hsl.sns.dao.IDao;
+import com.hsl.sns.dto.FollowDto;
 import com.hsl.sns.dto.MemberDto;
 import com.hsl.sns.dto.PostDto;
 import com.hsl.sns.dto.PostingUrlDto;
@@ -61,15 +62,23 @@ public class HomeController {
 		
 		sidebar(session,model);
 		
+		//====================== 게시글 리스트 ======================//
 		String sid = (String)session.getAttribute("sessionId");
-		
 		IDao dao = sqlSession.getMapper(IDao.class);
-		
 		List<PostDto> postList = dao.postListDao();
 		List<PostingUrlDto> postUrlList = dao.postUrlListDao();	
 		model.addAttribute("postList", postList);
 		model.addAttribute("postUrlList", postUrlList);
 		model.addAttribute("sid", sid);
+		
+		//====================== right bar ======================//
+		
+		List<FollowDto> followList = dao.likeContentListDao(sid);
+		model.addAttribute("fList", followList); //찜목록
+		
+		List<PostDto> mypostList = dao.myPostListDao(sid);
+		model.addAttribute("pList", mypostList); //판매목록
+		
 		
 		return "index";
 	}

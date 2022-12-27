@@ -71,7 +71,7 @@
 		        <span style="font-size:20px; font-weight:bold;">${mList.name}</span>
 		      </a>
 		      <ul class="dropdown-menu text-small shadow">
-		        <li><a class="dropdown-item" href="content_List?id=${mList.id}">프로필 가기</a></li>
+		        <li><a class="dropdown-item" href="sell_List?id=${mList.id}">프로필 가기</a></li>
 		        <li><a class="dropdown-item" href="send?nick=${mList.nick }">메시지 보내기</a></li>
 		        
 		      </ul>

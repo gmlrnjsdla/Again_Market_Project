@@ -21,7 +21,7 @@
  		<table border="0" cellpadding= "0" cellspacing="0" width="600" height="110" style="margin-bottom:0px; position:relative;">
 		  	<tr colspan="3">
 		  		<td width="40%" rowspan="4" align="center">
-		  			<img class ="rounded-circle me-2" src="${pageContext.request.contextPath }/resources/img/content.jpg" alt="..." width="120" height="120" >
+		  			<img class ="rounded-circle me-2" src="${pageContext.request.contextPath }/resources/img/${minfo.profile}" alt="..." width="120" height="120" >
 		  		</td>
 		  		<td height="20%" colspan="3">
 		  			<div id = "profile01">${minfo.nick}

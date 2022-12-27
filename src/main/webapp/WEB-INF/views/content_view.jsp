@@ -145,36 +145,31 @@
   <div class="card-body"> 
 	<div>댓글목록</div>
 
-		<div class="card" style="width: 320px; height:600px; border:1px solid #dddddd; border-radius:5px; padding:10px;">
+		<div class="card" style="width: 320px; height:700px; border:1px solid #dddddd; border-radius:5px; padding:10px;">
 		
 		<div class="overflow-auto" >
 		
 		
 		
-		
+			<table>
 			<c:forEach items="${commentList }" var="commentList" varStatus="status">
 				
 				
 				<c:set var="name" value="<%= id %>" />
 					<c:if test="${name ne commentList.id}">
 			    		<div class="content_font01" style="font-size: 18px; font-weight:bold; color:green;"> ${commentList.id }
+						<span class="content_font02" style="font-size: 15px; font-weight:bold;">${commentList.content }</span>
 					</c:if>
-			    	<div class="content_font01" style="font-size: 18px; font-weight:bold; color:bule;"> ${commentList.id }
-				
-		         	
-		    	 
-					
-		        
-		   
-				
-			<div class="content_font01" style="font-size: 18px; font-weight:bold; "> ${commentList.id }
-				<span class="content_font02" style="font-size: 15px; font-weight:bold;">${commentList.content }</span>
-			</div>
-			</c:forEach>	
+			    		<div class="content_font01" style="font-size: 18px; font-weight:bold; color:bule;"> ${commentList.id }
+						<span class="content_font02" style="font-size: 15px; font-weight:bold;">${commentList.content }</span>
+						</div>
+						
+			</c:forEach>
+			</table>	
 		</div>
 			
 		</div>
-	
+		
 	<form action="commentOk">
 		<input type="hidden" name="postidx" value="${postView.postidx}">
   			<div class="input-group mb-3">

@@ -261,13 +261,11 @@ public class ContentController {
 		int count = dao.followCountDao(postidx);
 		model.addAttribute("count", count);
 		
-//		List<PostingUrlDto> listDto = dao.postViewDao();
-//		PostingUrlDto postViewDto = listDto.get(0);
-//		int postidx = postViewDto.getPostidx();
+
 		
-//		List<CommentDto> commentDtos = dao.commentListDao(String.valueOf(postidx));
+		List<CommentDto> commentDtos = dao.commentListDao(postidx);
 //		
-//		model.addAttribute("commentList", commentDtos);
+		model.addAttribute("commentList", commentDtos);
 //		
 //		System.out.println(commentDtos);
 		
@@ -316,7 +314,7 @@ public class ContentController {
 	public String commentOk(HttpServletRequest request,HttpSession session,Model model, HttpServletResponse response) {
 		sidebar(session,model);
 		
-		String postidx = request.getParameter("postidx");
+		int postidx = Integer.parseInt(request.getParameter("postidx"));
 		String content = request.getParameter("content");
 		String sid = (String) session.getAttribute("sessionId");
 		

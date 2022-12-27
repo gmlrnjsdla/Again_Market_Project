@@ -51,8 +51,8 @@ public interface IDao {
     
 	
 	//댓글관련
-	public void commentDao(String id, String postidx, String content);//댓글입력
-	public List<CommentDto> commentListDao(String postidx);//댓글전체리스트
-	public PostDto commentViewDao(String postidx);//해당댓글
+	public void commentDao(String id, int postidx, String content);//댓글입력
+	public List<CommentDto> commentListDao(int postidx);//댓글전체리스트
+	public PostDto commentViewDao(int postidx);//해당댓글
 	
 }

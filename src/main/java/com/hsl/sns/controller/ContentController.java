@@ -259,7 +259,7 @@ public class ContentController {
 		model.addAttribute("postUrlList", postUrlList);
 		
 		int count = dao.followCountDao(postidx);
-		model.addAttribute("count", count);
+		model.addAttribute("likeCount", count);
 		
 		List<CommentDto> commentDtos = dao.commentListDao(postidx);
 		model.addAttribute("commentList", commentDtos);

@@ -75,7 +75,7 @@
    <button type="button" class="btn  position-relative">
     <img src="${pageContext.request.contextPath }/resources/img/hearts.png" width="20" height="20" alt="...">
      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-     ${count }
+     ${likeCount }
    </span>
    </button>
    </a>

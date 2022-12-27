@@ -2,7 +2,7 @@
 
 .content_List{
 	
-     padding-top:100px;
+     padding-top:50px;
      padding-left:750px;
     
 }
@@ -34,6 +34,24 @@ div#profile01{
 	margin-top:0px; 
 }
 
+.content_List_font01{
+	
+	font-size: 14px;
+	color: #646460;
+	font-family: Arial;
+	text-align: left;
+	padding-bottom: 0px;
+	font-weight: bold;
+}
 
+.content_List_font02{
+	
+	font-size: 14px;
+	color: #3a387a;
+	font-family: Arial;
+	text-align: left;
+	padding-bottom: 0px;
+	font-weight: bold;
+}
 
 

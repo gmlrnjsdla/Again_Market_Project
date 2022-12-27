@@ -15,8 +15,8 @@
 
 <div class="content_List">
 
-<div class="card" style="width: 650px; height:700px; border:1px solid #dddddd; border-radius:15px;">
-  <div class="card-body" style="height:100px; ">
+<div class="card" style="width: 650px; height:750px; border:1px solid #dddddd; border-radius:15px;">
+  <div class="card-body" style="height:150px; ">
  	<!-- 컨텐츠 헤더 -->
  		<table border="0" cellpadding= "0" cellspacing="0" width="600" height="110" style="margin-bottom:0px; position:relative;">
 		  	<tr colspan="3">
@@ -70,9 +70,9 @@
 
 	   </table>
   </div>
-  	<hr style="margin:20px;">
+  	<hr style="margin:30px;">
   
-  	<div class="overflow-auto" style="height:500px">
+  	<div class="overflow-auto" style="height:600px">
   		
    	<!-- 판매중 리스트 -->	
    		
@@ -93,6 +93,7 @@
 			</div>
 		</c:forEach>
 		
+
 		
 		
 	</div>

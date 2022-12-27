@@ -18,13 +18,7 @@
     	padding:0px;
     }
 
-    .sidebar{
-    	position:fixed;
-    	z-index: 1;
-    	padding-left:200px;
-    	padding-top:100px;
-    	
-    }
+ 
 
     
     .title{
@@ -97,6 +91,6 @@
     	z-index: 2;
     	top:0;
     	padding-left:200px;
-    	padding-top:100px;
+    	padding-top:50px;
     	
     }

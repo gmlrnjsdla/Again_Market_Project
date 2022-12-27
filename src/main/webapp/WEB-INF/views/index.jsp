@@ -77,6 +77,13 @@
    <!--내용표시 -->
    <div class="subject_font">
    ${pList.title}
+   
+   <!--판매중/판매완료 표시 -->
+   	<button type="button" class="btn btn-primary" disabled 
+   		style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">판매중</button>
+	<button type="button" class="btn btn-secondary" disabled
+		style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">판매완료</button>
+   <!--판매중/판매완료 표시 끝 -->
    </div>
    <div class="content_font_index01">
    ${pList.type} ∙ 4일 전<br>
@@ -94,7 +101,7 @@
   <div class="content_font_index">
   	${pList.content}
   </div>
-  <hr>
+
 
 <br>
 <br>

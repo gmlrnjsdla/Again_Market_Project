@@ -14,8 +14,8 @@
 
 <div class="content_List">
 
-<div class="card" style="width: 650px; height:700px; border:1px solid #dddddd; border-radius:15px;">
-  <div class="card-body" style="height:100px; ">
+<div class="card" style="width: 650px; height:750px; border:1px solid #dddddd; border-radius:15px;">
+  <div class="card-body" style="height:150px; ">
  	<!-- 컨텐츠 헤더 -->
  		<table border="0" cellpadding= "0" cellspacing="0" width="600" height="110" style="margin-bottom:0px; position:relative;">
 		  	<tr colspan="3">
@@ -69,9 +69,9 @@
 
 	   </table>
   </div>
-  	<hr style="margin:20px;">
+  	<hr style="margin:30px;">
   
-  	<div class="overflow-auto" style="height:500px">
+  	<div class="overflow-auto" style="height:600px">
   		
    	<!-- 판매중 리스트 -->	
    		
@@ -79,18 +79,21 @@
  	<div class="row" style="margin:5px; --bs-gap: .25rem 1rem;">
  		
  	
-		<div class="col-md-4"><a href="index"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>판매자 닉네임</div>컴퓨터 판매합니다</div>
-		<div class="col-md-4"><a href="index"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>판매자 닉네임</div>컴퓨터 판매합니다</div>
-		<div class="col-md-4"><a href="index"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>판매자 닉네임</div>컴퓨터 판매합니다</div>
-		<div class="col-md-4"><a href="index"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>판매자 닉네임</div>컴퓨터 판매합니다</div>
-		<div class="col-md-4"><a href="index"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>판매자 닉네임</div>컴퓨터 판매합니다</div>
-		<div class="col-md-4"><a href="index"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div>판매자 닉네임</div>컴퓨터 판매합니다</div>
+		<div class="col-md-4" style="padding-bottom:  20px;"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+		</a><div class="content_List_font01">세탁기 판매합니다</div><div class="content_List_font02">판매자: 닉네임</div></div>
+		<div class="col-md-4" style="padding-bottom:  20px;"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+		</a><div class="content_List_font01">세탁기 판매합니다</div><div class="content_List_font02">판매자: 닉네임</div></div>
+		<div class="col-md-4" style="padding-bottom:  20px;"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+		</a><div class="content_List_font01">세탁기 판매합니다</div><div class="content_List_font02">판매자: 닉네임</div></div>
+		<div class="col-md-4" style="padding-bottom:  20px;"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+		</a><div class="content_List_font01">세탁기 판매합니다</div><div class="content_List_font02">판매자: 닉네임</div></div>
+		<div class="col-md-4" style="padding-bottom:  20px;"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+		</a><div class="content_List_font01">세탁기 판매합니다</div><div class="content_List_font02">판매자: 닉네임</div></div>
+		<div class="col-md-4" style="padding-bottom:  20px;"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+		</a><div class="content_List_font01">세탁기 판매합니다</div><div class="content_List_font02">판매자: 닉네임</div></div>
+		<div class="col-md-4" style="padding-bottom:  20px;"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
+		</a><div class="content_List_font01">세탁기 판매합니다</div><div class="content_List_font02">판매자: 닉네임</div></div>
+		
 		
 		
 	</div>

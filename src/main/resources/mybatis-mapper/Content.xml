@@ -114,8 +114,15 @@
 		SELECT p.postidx,max(u.filename) as filename FROM posturl u INNER JOIN post p ON p.postidx = u.postidx GROUP BY p.postidx
 	</select>
 	
+	<!-- content_view 정보 띄우기 -->
 	<select id="postDao" resultType="com.hsl.sns.dto.PostDto">
 		SELECT p.*, u.nick FROM post p join user_sns u ON p.id = u.id WHERE postidx=${param1}
+	</select>
+	
+	<!-- 검색 -->
+	<select id="postSearchDao" resultType="com.hsl.sns.dto.PostDto">
+		SELECT * FROM post WHERE tradeplace LIKE '%' || #{param1} || '%' 
+		OR type LIKE '%' || #{param2} || '%' ORDER BY postidx DESC
 	</select>
 	
 </mapper>

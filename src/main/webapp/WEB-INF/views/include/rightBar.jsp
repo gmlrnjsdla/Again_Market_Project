@@ -33,17 +33,19 @@
 <!-- 본인 닉네임끝 -->		
 		
 <!--  구매관련 정보조회 시작 -->
+<form action="search">
 		<div class="input-group mb-3">
 		  <span class="input-group-text" id="basic-addon1" style="font-size: 15px; height: 20px;">지역</span>
-		  <input type="text" class="form-control" placeholder="ex)구월동" aria-label="Username" aria-describedby="basic-addon1" style="height: 20px; font-size: 15px;">
+		  <input type="text" name="tradeplace" class="form-control" placeholder="ex)구월동" aria-label="Username" aria-describedby="basic-addon1" style="height: 20px; font-size: 15px;">
 		</div>
 		<div class="input-group mb-3">
 		  <span class="input-group-text" id="basic-addon1" style="font-size: 15px; height: 20px;">제품</span>
-		  <input type="text" class="form-control" placeholder="ex)구월동" aria-label="Username" aria-describedby="basic-addon1" style="height: 20px; font-size: 15px;">
+		  <input type="text" name="type" class="form-control" placeholder="ex)구월동" aria-label="Username" aria-describedby="basic-addon1" style="height: 20px; font-size: 15px;">
 		</div>
 		
-		<div><button type="button" class="btn btn-outline-primary"
-        style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .55rem; --bs-btn-font-size: .75rem; width: 100%; font-size: 15px; height: 25px;">입력</button></div>
+		<div><button type="submit" class="btn btn-outline-primary"
+        style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .55rem; --bs-btn-font-size: .75rem; width: 100%; font-size: 15px; height: 25px;">검색</button></div>
+</form>        
 <!--  구매관련 정보조회 끝 -->
 	
 		

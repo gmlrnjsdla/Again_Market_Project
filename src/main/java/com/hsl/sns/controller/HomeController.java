@@ -114,7 +114,19 @@ public class HomeController {
 		return "redirect:/index";
 	}
 	
-	
+	@RequestMapping(value = "search")
+	public String search(Model model, HttpSession session, HttpServletRequest request) {
+		sidebar(session,model);
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		String tradeplace = request.getParameter("tradeplace");
+		String type = request.getParameter("type");
+		
+		List<PostDto> postList = dao.postSearchDao(tradeplace, type);
+		model.addAttribute("postList", postList);
+		
+		return "index";
+	}
 	
 	
 	

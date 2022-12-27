@@ -64,7 +64,7 @@
 				  <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" onclick="script:window.location='transaction_List?id=<%=id%>'">
 				  <label class="btn btn-outline-secondary" for="btnradio4" style="font-size: 12px;">거래완료()</label>
 				</div>
-
+ 
 		  		</td>
 		  	</tr>
 

@@ -100,7 +100,7 @@
   <div class="content_font_index">
   	${pList.content}
   </div>
-  <hr>
+
 
 <br>
 <br>

@@ -16,9 +16,9 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/index/index.css?after">
 
 <div class="content_write_form01">
-<div  class="card" style="width: 400px; height:700px; border:1px solid #dddddd; border-radius:5px; background-color:#FBFBFB ">
+<div  class="card" style="width: 400px; height:800px; border:1px solid #dddddd; border-radius:5px; background-color:#FBFBFB ">
   	
-  	<div class="card-body">
+  	<div class="card-body"style="height: 0px;">
   	<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">${postView.postDto.nick}
 	
 	
@@ -37,8 +37,6 @@
 </span>
 
 
-	
-	
 	<hr>
 	</div>
  	<div class="overflow-auto" >
@@ -48,9 +46,10 @@
 	<img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="365" height="250"  alt="..." >
 	<img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="365" height="250"  alt="..." >
  	</div >
- 	<hr>
 
-
+</div>
+<hr>
+<div class="overflow-auto" >
 <!--좋아요 버튼 -->   
   <div class="subject_font01">
    <span class="like_button01">
@@ -88,8 +87,6 @@
   </div>
   
 
-<br>
-<br>
 <!--구매신청 버튼 --> 
 	<a href="buy_tradeView" >
   <button type="button" class="btn btn-outline-danger"
@@ -112,11 +109,11 @@
 <!-- 컨텐츠 댓글출력 -->
 
 <div class="content_write_form02">
-<div class="card" style="width: 350px; height:700px; border:1px solid #dddddd; border-radius:5px;">
+<div class="card" style="width: 350px; height:800px; border:1px solid #dddddd; border-radius:5px;">
   <div class="card-body"> 
 	<div>댓글목록</div>
 
-	<div class="card" style="width: 320px; height:600px; border:1px solid #dddddd; border-radius:5px; padding:10px;">
+	<div class="card" style="width: 320px; height:700px; border:1px solid #dddddd; border-radius:5px; padding:10px;">
 	<div class="overflow-auto" >
 	<div class="content_font01" >ShinDongHun:
 	<span class="content_font02" >여자가 참이쁘네요</span></div>

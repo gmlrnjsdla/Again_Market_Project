@@ -12,7 +12,7 @@
 <%@ include file="include/leftBar.jsp" %>
 
 <div class="content_write_form01">
-<div class="card" style="width: 400px; height:700px; border:1px solid #dddddd; border-radius:5px; background-color:#FBFBFB ">
+<div class="card" style="width: 400px; height:750px; border:1px solid #dddddd; border-radius:5px; background-color:#FBFBFB ">
   <div class="card-body" > 
  	<!-- 컨텐츠 사진입력 -->
 
@@ -108,7 +108,7 @@
 <!-- 컨텐츠 내용입력 -->
 
 <div class="content_write_form02">
-<div class="card" style="width: 350px; height:700px; border:1px solid #dddddd; border-radius:5px;">
+<div class="card" style="width: 350px; height:750px; border:1px solid #dddddd; border-radius:5px;">
   <div class="card-body"> 
 	<form action="writeOk"  name="write_frm">	
 		<div class="mb-3">
@@ -128,10 +128,10 @@
 	    </div>
 	    
 	    <div class="mb-3">
-	      <input type="text" id="#" class="form-control" placeholder="내용" name="content" style="height: 300px; align-content: top; " >
+	      <input type="text" id="#" class="form-control" placeholder="내용" name="content" style="height: 440px; align-content: top; " >
 	    </div>
 
-  	<br>
+  	
   	<button type="submit" class="btn btn-outline-secondary" style="float:right; width: 310px; " >입력</button>
 	</div>
  	</a>

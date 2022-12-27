@@ -3,7 +3,7 @@
 
 .content{
 	 position:relative;
-     padding-top:80px;
+     padding-top:30px;
      padding-left:620px;
      z-index:1;
 
@@ -20,7 +20,7 @@
 }
 
 .content_font_index{
-	font-size: 18px;
+	font-size: 16px;
 	color: #424240;
 	font-family: Arial;
 	text-align: left;

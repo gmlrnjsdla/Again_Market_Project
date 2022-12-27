@@ -21,7 +21,7 @@
 <div class="content_write_form01">
 <div  class="card" style="width: 400px; height:800px; border:1px solid #dddddd; border-radius:5px; background-color:#FBFBFB ">
   	
-  	<div class="card-body" style="height: 0px;">
+  	<div class="card-body" style="height: 100px;">
   	<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">${post.nick}
 
 	

@@ -29,17 +29,17 @@
    
     <span class="input-group">
       <div class="input-group-text">아이디</div>
-       	<label class="form-control" for="autoSizingInputGroup">아이디1</label>
+       	<label class="form-control" for="autoSizingInputGroup">${pinfo.id}</label>
       <div class="input-group-text">닉네임</div>
-       	<label class="form-control" for="autoSizingInputGroup">닉네임1</label>
+       	<label class="form-control" for="autoSizingInputGroup">${pinfo.nick}</label>
     </span>
     <span class="input-group">
       <div class="input-group-text">전화번호</div>
-       <label class="form-control" for="autoSizingInputGroup">전화번호1</label>
+       <label class="form-control" for="autoSizingInputGroup">${pinfo.phone}</label>
     </span>
       <div class="input-group">
       <div class="input-group-text">이메일</div>
-       <label class="form-control" for="autoSizingInputGroup">이메일</label>
+       <label class="form-control" for="autoSizingInputGroup">${pinfo.mail}</label>
       </div>
      
      <!-- 구매자 거래확정 확인 -->
@@ -62,17 +62,17 @@
    
     <span class="input-group">
       <div class="input-group-text">제목</div>
-       <label class="form-control" for="autoSizingInputGroup">제목1</label>
+       <label class="form-control" for="autoSizingInputGroup">${pinfo.postDto.title}</label>
     <div class="input-group-text">종류</div>
-       <label class="form-control" for="autoSizingInputGroup">종류1</label>
+       <label class="form-control" for="autoSizingInputGroup">${pinfo.postDto.type}</label>
     </span>
      <span class="input-group">
       <div class="input-group-text">가격</div>
-       <label class="form-control" for="autoSizingInputGroup">가격1</label>
+       <label class="form-control" for="autoSizingInputGroup">${pinfo.postDto.price}</label>
     </span>
      <div class="input-group">
       <div class="input-group-text">거래장소</div>
-       <label class="form-control" for="autoSizingInputGroup">거래장소1</label>
+       <label class="form-control" for="autoSizingInputGroup">${pinfo.postDto.tradeplace}</label>
     </div>
    <br><br>
    
@@ -85,17 +85,17 @@
    
     <span class="input-group">
       <div class="input-group-text">아이디</div>
-       <label class="form-control" for="autoSizingInputGroup">아이디1</label>
+       <label class="form-control" for="autoSizingInputGroup">${minfo.id}</label>
     <div class="input-group-text">닉네임</div>
-       <label class="form-control" for="autoSizingInputGroup">닉네임1</label>
+       <label class="form-control" for="autoSizingInputGroup">${minfo.nick}</label>
     </span>
      <span class="input-group">
       <div class="input-group-text">전화번호</div>
-       <label class="form-control" for="autoSizingInputGroup">전화번호1</label>
+       <label class="form-control" for="autoSizingInputGroup">${minfo.phone}</label>
     </span>
      <div class="input-group">
       <div class="input-group-text">이메일</div>
-       <label class="form-control" for="autoSizingInputGroup">이메일</label>
+       <label class="form-control" for="autoSizingInputGroup">${minfo.mail}</label>
     </div>
     <br><br>
 <br><br>

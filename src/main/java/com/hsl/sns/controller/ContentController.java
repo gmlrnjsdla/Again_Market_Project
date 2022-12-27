@@ -261,14 +261,15 @@ public class ContentController {
 		int count = dao.followCountDao(postidx);
 		model.addAttribute("count", count);
 		
+		String postidx1 = request.getParameter("postidx");
 //		List<PostingUrlDto> listDto = dao.postViewDao();
 //		PostingUrlDto postViewDto = listDto.get(0);
 //		int postidx = postViewDto.getPostidx();
 		
-//		List<CommentDto> commentDtos = dao.commentListDao(String.valueOf(postidx));
-//		
-//		model.addAttribute("commentList", commentDtos);
-//		
+		List<CommentDto> commentDtos = dao.commentListDao(postidx1);
+		
+		model.addAttribute("commentList", commentDtos);
+		
 //		System.out.println(commentDtos);
 		
 		return "content_view";

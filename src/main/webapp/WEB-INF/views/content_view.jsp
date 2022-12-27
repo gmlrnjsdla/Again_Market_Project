@@ -145,7 +145,7 @@
   <div class="card-body"> 
 	<div>댓글목록</div>
 
-		<div class="card" style="width: 320px; height:600px; border:1px solid #dddddd; border-radius:5px; padding:10px;">
+		<div class="card" style="width: 320px; height:700px; border:1px solid #dddddd; border-radius:5px; padding:10px;">
 		
 		<div class="overflow-auto" >
 		

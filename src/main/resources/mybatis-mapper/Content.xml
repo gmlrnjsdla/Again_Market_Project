@@ -15,6 +15,7 @@
 		<result property="content" column="content"/>
 		<result property="createdate" column="createdate"/>
 		<result property="nick" column="nick"/>
+		
 	</resultMap>
 	
 	<resultMap type="com.hsl.sns.dto.PostingUrlDto" id="PostingUrlDto2">
@@ -106,6 +107,11 @@
 	<!-- 판매중인 게시물 목록 -->
 	<select id="myPostListDao" resultType="com.hsl.sns.dto.PostDto">
 		SELECT * FROM post WHERE id=#{param1}
+	</select>
+	
+	<!-- 찜,구매,판매 썸네일 이미지 하나만 가져오기 -->
+	<select id="myPostUrlListDao" parameterType="com.hsl.sns.dto.PostingUrlDto" resultMap="PostingUrlDto2">
+		SELECT p.postidx,max(u.filename) as filename FROM posturl u INNER JOIN post p ON p.postidx = u.postidx GROUP BY p.postidx
 	</select>
 	
 </mapper>

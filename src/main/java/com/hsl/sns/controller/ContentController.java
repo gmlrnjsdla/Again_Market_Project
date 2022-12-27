@@ -67,8 +67,12 @@ public class ContentController {
 		int post = dao.postCountDao(id);
 		model.addAttribute("post", post);
 		
-		List<PostDto> postList = dao.myPostListDao(id);
+		List<PostDto> postList = dao.myPostListDao(id); // 해당 프로필의 판매중인 게시글 정보 가져오기
 		model.addAttribute("pList", postList); 
+		
+		List<PostingUrlDto> postUrlList= dao.myPostUrlListDao(); // 해당 프로필의 게시물 사진 하나만 가져오기
+		model.addAttribute("uList", postUrlList);
+		
 		
 		return "sell_List";
 	}
@@ -114,7 +118,7 @@ public class ContentController {
 		int follower = dao.followerCountDao(id);
 		model.addAttribute("follower", follower); //찜한 개수
 		
-		List<FollowDto> followList = dao.likeContentListDao(id);
+		List<FollowDto> followList = dao.likeContentListDao(id); //찜한 게시물 목록
 		model.addAttribute("fList", followList);
 		
 		//=============================== 판매중 ===============================
@@ -122,6 +126,8 @@ public class ContentController {
 		model.addAttribute("post", post); //판매중인 개수
 		
 		
+		List<PostingUrlDto> postUrlList= dao.myPostUrlListDao(); // 해당 프로필의 게시물 사진 하나만 가져오기
+		model.addAttribute("uList", postUrlList);
 		
 		
 		return "choice_List";

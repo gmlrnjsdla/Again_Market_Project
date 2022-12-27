@@ -40,6 +40,7 @@ public interface IDao {
     
     //프로필 게시물 목록
     public List<PostDto> myPostListDao(String id);
+    public List<PostingUrlDto> myPostUrlListDao();
     
 	
 }

@@ -27,7 +27,8 @@
 	<div class="sidebar">
 	<div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 270px; height:750px; border:1px solid #dddddd; border-radius:15px;">
 	
-    <a href="index"><span class="title">SNS_Project</span></a>
+    <a href="index"><span class="title"><img src="${pageContext.request.contextPath}/resources/img/logo.png" 
+    	width="200" height="100" align="center" style="margin:10px 0 5px 0;"></span></a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
     	

@@ -49,20 +49,20 @@
 		  	<tr height="10%" rowspan="3">
 		  		<td>
 		  		
-		  		<div class="btn-group" role="group" >
-				  
-				  <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" onclick="script:window.location='sell_List?id=<%=id%>'">
-				  <label class="btn btn-outline-secondary" for="btnradio1" style="font-size: 12px;">판매중(${post})</label>
-				
-				  <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="script:window.location='buy_List?id=<%=id%>'">
-				  <label class="btn btn-outline-secondary" for="btnradio2" style="font-size: 12px;">구매중 (${follow})</label>
-				
-				  <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" onclick="script:window.location='choice_List?id=<%=id%>'">
-				  <label class="btn btn-outline-secondary" for="btnradio3" style="font-size: 12px;">찜 (${follower})</label>
-				  
-				  <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" checked onclick="script:window.location='transaction_List?id=<%=id%>'">
-				  <label class="btn btn-outline-secondary" for="btnradio4" style="font-size: 12px;">거래완료()</label>
-				</div>
+			  		<div class="btn-group" role="group" >
+					  
+					  <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" onclick="script:window.location='sell_List?id=<%=id%>'">
+					  <label class="btn btn-outline-secondary" for="btnradio1" style="font-size: 12px;">판매중(${post})</label>
+					
+					  <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="script:window.location='buy_List?id=<%=id%>'">
+					  <label class="btn btn-outline-secondary" for="btnradio2" style="font-size: 12px;">구매중 (${follow})</label>
+					
+					  <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" onclick="script:window.location='choice_List?id=<%=id%>'">
+					  <label class="btn btn-outline-secondary" for="btnradio3" style="font-size: 12px;">찜 (${follower})</label>
+					  
+					  <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" checked onclick="script:window.location='transaction_List?id=<%=id%>'">
+					  <label class="btn btn-outline-secondary" for="btnradio4" style="font-size: 12px;">거래완료()</label>
+					</div>
 
 		  		</td>
 		  	</tr>
@@ -96,8 +96,8 @@
 		
 		
 		
-	</div>
-  </div>
+			</div>
+  		</div>
 	</div>
 </div>
 <%@ include file="include/footer.jsp" %>

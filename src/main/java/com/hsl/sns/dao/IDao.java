@@ -31,7 +31,7 @@ public interface IDao {
 	public List<PostDto> postListDao(); //index postList
 	public List<PostingUrlDto> postUrlListDao(); //index 사진List
 	public List<PostingUrlDto> postViewDao(); //contentView
-	public MemberDto postInfomationDao(String postidx);
+	public MemberDto postInfomationDao(int postidx);
 	public List<PostDto> postSearchDao(String tradeplace, String type);
 	
 	

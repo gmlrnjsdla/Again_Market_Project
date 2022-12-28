@@ -15,6 +15,9 @@
 		<result property="content" column="content"/>
 		<result property="createdate" column="createdate"/>
 		<result property="nick" column="nick"/>
+		<result property="buyuser" column="buyuser"/>
+		<result property="buyflag" column="buyflag"/>
+		<result property="sellflag" column="sellflag"/>
 		
 	</resultMap>
 	

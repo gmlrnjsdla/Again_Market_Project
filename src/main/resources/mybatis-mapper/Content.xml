@@ -122,6 +122,10 @@
 		SELECT p.*, u.nick FROM post p join user_sns u ON p.id = u.id WHERE postidx=${param1}
 	</select>
 	
+	<select id="dateDao" resultType="com.hsl.sns.dto.PostDto">
+		SELECT postidx, TRUNC(sysdate)-TO_DATE(TO_CHAR(createdate,'YY-MM-DD'),'YY-MM-DD') as createdate FROM post
+	</select>
+	
 	<!-- 검색 -->
 	<select id="postSearchDao" resultType="com.hsl.sns.dto.PostDto">
 		SELECT p.*,u.nick FROM post p JOIN user_sns u ON p.id = u.id WHERE tradeplace LIKE '%' || #{param1} || '%' 
@@ -133,12 +137,16 @@
 		INSERT INTO commentTBL(commentidx, id, postidx, content) 
 			VALUES (commentTBL_seq.nextval, #{param1}, #{param2},#{param3})
 	</insert>
+	
 	<select id="commentViewDao" resultType="com.hsl.sns.dto.PostDto">
 		SELECT * FROM post WHERE postidx=#{param1}
 	</select>
+	
 	<select id="commentListDao" resultType="com.hsl.sns.dto.CommentDto">
 		SELECT * FROM commentTBL WHERE postidx=#{param1}
 	</select>
+	
+	
 	
 </mapper>
 	

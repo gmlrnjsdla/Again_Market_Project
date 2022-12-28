@@ -62,4 +62,10 @@
 	
 	}
 	
+a:link { color: #636363; }
+a:visited { color: #636363; }
+a:hover { color: #000000; text-decoration: underline; }
+a{
+	text-decoration: none;
+}
 	

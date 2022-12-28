@@ -67,7 +67,7 @@
 			<div class="list_index01">
 			  <c:forEach items="${fList }" var="fList">
 				  <div class="list_index">
-			   	  <a href="#" style="text-decoration: none;">${fList.postDto.title}</a>
+			   	  <a href="content_view?postidx=${fList.postDto.postidx}" style="text-decoration: none;">${fList.postDto.title}</a>
 			      </div>
 		      </c:forEach>
 		  	</div>
@@ -118,7 +118,7 @@
 				<div class="list_index01">
 				  <c:forEach items="${pList }" var="pList">
 					  <div class="list_index">
-				   	  <a href="#" style="text-decoration: none; color:black;">${pList.title}</a>
+				   	  <a href="content_view?postidx=${pList.postidx}" style="text-decoration: none; ">${pList.title}</a>
 				      </div>
 			      </c:forEach>
 			      

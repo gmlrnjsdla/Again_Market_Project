@@ -7,12 +7,14 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/index/index.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/member/memberModify.css">
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/member_modify/modify.js"></script>
+
 <title>Insert title here</title>
 </head>
 <body>
 <%@ include file="include/leftBar.jsp" %>
 	
-<form action="memberModifyOk">	
+<form action="memberModifyOk" name="modify_frm">	
 	<div class="recommend" style="margin-bottom:100px;">
 	<div class="card" style="width: 700px; height:820px; border:1px solid #dddddd; border-radius:5px;">
 
@@ -96,8 +98,8 @@
   		
   		
 	  	<center>
-		<input type="submit" class="btn btn-primary"  style="width:100px;margin-bottom: 20px;" value="수정"></button>
-		<button type="button" class="btn btn-secondary"  style="margin-bottom: 20px;" onclick="script:window.location='content_List?mid=${memberDto.id }'"> 취소</button>
+		<input type="button" class="btn btn-primary"  style="width:100px;margin-bottom: 20px;" value="수정" onclick="modifyCheck()"></button>
+		<button type="button" class="btn btn-secondary"  style="margin-bottom: 20px;" onclick="script:window.location='sell_List?id=${memberDto.id }'"> 취소</button>
 		</center>
 		
 	</div>

@@ -33,6 +33,7 @@ public interface IDao {
 	public List<PostingUrlDto> postViewDao(); //contentView
 	public MemberDto postInfomationDao(int postidx);
 	public List<PostDto> postSearchDao(String tradeplace, String type);
+	public List<PostDto> dateDao();
 	
 	
 	//찜

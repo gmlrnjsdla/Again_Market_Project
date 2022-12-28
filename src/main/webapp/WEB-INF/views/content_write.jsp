@@ -4,25 +4,27 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/content_write/content_write.css">
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/content_write/write.js"></script>
+
 <title>Insert title here</title>
 </head>
 <body>
 <%@ include file="include/leftBar.jsp" %>
 
+<form action="writeOk" method="post" enctype="multipart/form-data" name="write_frm">
 <div class="content_write_form01">
 <div class="card" style="width: 400px; height:750px; border:1px solid #dddddd; border-radius:5px; background-color:#FBFBFB ">
   <div class="card-body" > 
  	<!-- 컨텐츠 사진입력 -->
 
-<form action="writeOk" method="post" enctype="multipart/form-data">
   <div id="image_preview">
     <input type="file" id="btnAtt" multiple="multiple" name="files"/>
     <div id="att_zone"
       data-placeholder="파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요"></div>
   </div>
-
   <script>
 ( /* att_zone : 이미지들이 들어갈 위치 id, btn : file tag id */
   imageView = function imageView(att_zone, btn){
@@ -110,7 +112,6 @@
 <div class="content_write_form02">
 <div class="card" style="width: 350px; height:750px; border:1px solid #dddddd; border-radius:5px;">
   <div class="card-body"> 
-	<form action="writeOk"  name="write_frm">	
 		<div class="mb-3">
 	      <input type="text" id="#" class="form-control" placeholder="제목" name="title">
 	    </div>
@@ -124,22 +125,20 @@
 	    </div>
 	    
 	    <div class="mb-3">
-	      <input type="text" id="#" class="form-control" placeholder="거래장소 (ex:인천시 구월동)" name="tradeplace">
+	      <input type="text" id="#" class="form-control" placeholder="거래희망장소 (ex:인천시 구월동)" name="tradeplace">
 	    </div>
 	    
 	    <div class="mb-3">
 	      <input type="text" id="#" class="form-control" placeholder="내용" name="content" style="height: 440px; align-content: top; " >
 	    </div>
 
+	  	<input class="btn btn-outline-secondary" type="button" value="입력" onclick="writeCheck()" style="float:right; width: 310px; ">
   	
-  	<button type="submit" class="btn btn-outline-secondary" style="float:right; width: 310px; " >입력</button>
 	</div>
- 	</a>
-  
+  	
 
 	</div>
   </div>
-</div>	
 </form>
 <%@ include file="include/footer.jsp" %>
 

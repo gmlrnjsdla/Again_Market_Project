@@ -65,6 +65,7 @@ public class MemberController {
 			String nick = dto.getNick();
 			if(pwd.equals(dbpw)) {
 				HttpSession session = request.getSession();
+				session.setMaxInactiveInterval(10000);
 				session.setAttribute("sessionId", id);
 				session.setAttribute("nick", nick);
 				model.addAttribute("name", dto.getName());
@@ -162,7 +163,7 @@ public class MemberController {
 		
 		dao.memberModifyDao(id, name, mail, nick, phone, greet);
 		
-		return "redirect:content_List";
+		return String.format("redirect:/sell_List?id=%s", id);
 	}
 
 	@RequestMapping(value = "/memberDelete")

@@ -89,7 +89,7 @@
    		거래장소: ${post.tradeplace }
   	</div>
  <hr>
-  	<div class="content_font_index">
+  	<div class="content_font_index" style="height:100px;">
   		${post.content}
   	</div>
   
@@ -157,7 +157,7 @@
 		</div>
 		</div>
 	<form action="commentOk">
-		<input type="hidden" name="postidx" value="${postView.postidx}">
+		<input type="hidden" name="postidx" value="${post.postidx}">
   			<div class="input-group mb-3">
  		 		<input type="text" name="content" class="form-control" placeholder="댓글을 입력해 주세요" aria-label="댓글을 입력해 주세요" aria-describedby="button-addon2">
   		 		<button class="btn btn-outline-secondary" type="submit" id="button-addon2">댓글입력</button>

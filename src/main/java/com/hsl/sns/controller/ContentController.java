@@ -210,34 +210,34 @@ public class ContentController {
 		//다중파일업로드
 		List<PostDto> postList = dao.postInfoDao(sid);
 		if(postList.size()!=0) {
-		PostDto dto = postList.get(0);
-		int postidx = dto.getPostidx();
+			PostDto dto = postList.get(0);
+			int postidx = dto.getPostidx();
 		
-		for (int i = 0; i < files.length; i++) {
-			//그림파일첨부
-			String fileOriName = files[i].getOriginalFilename(); 
-			String fileExtension =FilenameUtils.getExtension(fileOriName).toLowerCase();
-																			 
-			File destinationFile; 
-			String destinationFileName; 
-			String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
-//			String fileUrl = "C:/Users/user.JY-20200602UADW/git/SNS_Project/src/main/resources/static/uploadfiles/";
-			
-			do {
-			destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "."+ fileExtension;
-			
-			destinationFile = new File(fileUrl+destinationFileName);
-			} while(destinationFile.exists());
-			
-			destinationFile.getParentFile().mkdir();
-			files[i].transferTo(destinationFile); // 
-			
-			dao.contentWritePicDao(postidx, fileOriName, destinationFileName, fileExtension, fileUrl);
-			
+			for (int i = 0; i < files.length; i++) {
+				//그림파일첨부
+				String fileOriName = files[i].getOriginalFilename(); 
+				String fileExtension =FilenameUtils.getExtension(fileOriName).toLowerCase();
+																				 
+				File destinationFile; 
+				String destinationFileName; 
+				String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
+	//			String fileUrl = "C:/Users/user.JY-20200602UADW/git/SNS_Project/src/main/resources/static/uploadfiles/";
+				
+				do {
+				destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "."+ fileExtension;
+				
+				destinationFile = new File(fileUrl+destinationFileName);
+				} while(destinationFile.exists());
+				
+				destinationFile.getParentFile().mkdir();
+				files[i].transferTo(destinationFile); // 
+				
+				dao.contentWritePicDao(postidx, fileOriName, destinationFileName, fileExtension, fileUrl);
+				
+			}
 		}
-		}
 			
-		return "index";
+		return "redirect:index";
 	}
 	
 	
@@ -345,7 +345,7 @@ public class ContentController {
 			
 			}
 		
-		return "redirect:content_view";
+		return String.format("redirect:/content_view?postidx=%s", postidx);
 	}
 	
 	

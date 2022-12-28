@@ -10,7 +10,7 @@
 	text-align: right;
 }
 
-
+a:link { color: #636363; }
 a:visited { color: #636363; }
 a:hover { color: #0000ff; }
 

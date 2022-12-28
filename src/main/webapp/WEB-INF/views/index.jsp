@@ -108,7 +108,7 @@
 <!--구매신청 버튼 --> 
 <c:choose>
 	<c:when test="${pList.id ne sid }">
-		<a href="tradeView?postidx=${pList.postidx }" >
+		<a href="buy_tradeView?postidx=${pList.postidx }" >
 	  		<button type="button" class="btn btn-outline-danger"
 	        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 630px; ">
 	  			구매신청
@@ -116,7 +116,7 @@
 		</a>
 	</c:when>
 	<c:otherwise>
-		<a href="tradeView?postidx=${pList.postidx }" >
+		<a href="sell_tradeView?postidx=${pList.postidx }" >
 	  		<button type="button" class="btn btn-outline-danger"
 	        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 630px; ">
 	  			판매확정

@@ -99,7 +99,7 @@
 <%
   	if(id.equals(sid)){
 %>
-		<a href="sell_tradeView" >
+		<a href="sell_tradeView?postidx=${post.postidx}">
 		  	<button type="button" class="btn btn-outline-danger"
 		        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 380px; ">
 		  		판매확인
@@ -108,7 +108,7 @@
 <%  		
   	}else{
 %>
-		<a href="buy_tradeView" >
+		<a href="buy_tradeView?postidx=${post.postidx}" >
 		  	<button type="button" class="btn btn-outline-danger"
 		        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 380px; ">
 			  	구매확인

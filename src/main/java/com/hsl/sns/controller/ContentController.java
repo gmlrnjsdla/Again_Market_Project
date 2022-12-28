@@ -271,7 +271,7 @@ public class ContentController {
 	public String buy_tradeView(HttpServletRequest request, HttpSession session, Model model) {
 		sidebar(session,model);
 		
-		String postidx = request.getParameter("postidx");
+		int postidx = Integer.parseInt(request.getParameter("postidx"));
 		String sid = (String) session.getAttribute("sessionId");
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
@@ -290,7 +290,7 @@ public class ContentController {
 	public String sell_tradeView(HttpServletRequest request, HttpSession session, Model model) {
 		sidebar(session,model);
 		
-		String postidx = request.getParameter("postidx");
+		int postidx = Integer.parseInt(request.getParameter("postidx"));
 		String sid = (String) session.getAttribute("sessionId");
 		
 		IDao dao = sqlSession.getMapper(IDao.class);

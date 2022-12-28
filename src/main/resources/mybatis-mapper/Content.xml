@@ -99,7 +99,7 @@
 	
 	<!-- tradeView 정보 불러오기 -->
 	<select id="postInfomationDao" parameterType="com.hsl.sns.dto.MemberDto" resultMap="MemberDto">
-		SELECT u.* ,p.title, p.type, p.price, p.tradeplace FROM user_sns u LEFT JOIN post p ON u.id = p.id WHERE postidx=#{param1}
+		SELECT u.* ,p.* FROM user_sns u LEFT JOIN post p ON u.id = p.id WHERE postidx=#{param1}
 	</select>
 	
 	<!-- 찜한 게시물 목록  -->
@@ -148,5 +148,34 @@
 	
 	
 	
+
+	<update id="buycompleteDao"> <!-- 구매완료 -->
+		UPDATE post SET buyuser=#{param2}, buyflag=buyflag+1 WHERE postidx=#{param1} 
+	</update>
+	
+	<select id="selltradeDao" parameterType="com.hsl.sns.dto.MemberDto" resultMap="MemberDto"> <!-- sell trade내 구매자 정보 -->
+		SELECT u.* ,p.buyuser FROM user_sns u LEFT JOIN post p ON u.id = p.buyuser WHERE postidx=#{param1}
+	</select>
+	
+	<update id="sellcompleteDao"> <!-- 판매완료 -->
+		UPDATE post SET  sellflag=sellflag+1 WHERE postidx=#{param1}
+	</update>
+	
+	<select id="buyListDao" resultType="com.hsl.sns.dto.PostDto"> <!-- 예약중 리스트 -->
+		SELECT * FROM post WHERE buyuser=#{param1}
+	</select>
+	
+	<select id="transactionListDao" resultType="com.hsl.sns.dto.PostDto"> <!-- 거래완료 리스트 -->
+		SELECT * FROM post WHERE (buyuser =#{param1} OR id =#{param1}) AND (buyflag=1 AND sellflag=1)
+	</select>
+	
+	<select id="buyCountDao" resultType="int">  <!--예약중 카운트 -->
+		SELECT count(*) FROM post WHERE buyuser=#{param1}
+	</select> 
+	
+	<select id="transactionCountDao" resultType="int"> <!--거래완료 카운트 -->
+		SELECT count(*) FROM post WHERE (buyuser =#{param1} OR id =#{param1}) AND (buyflag=1 AND sellflag=1)
+	</select>
+
 </mapper>
 	

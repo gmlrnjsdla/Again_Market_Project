@@ -29,17 +29,17 @@
    
     <span class="input-group">
       <div class="input-group-text">아이디</div>
-       <label class="form-control" for="autoSizingInputGroup">${pinfo.postDto.title}</label>
+       <label class="form-control" for="autoSizingInputGroup">${pinfo.id}</label>
     <div class="input-group-text">닉네임</div>
-       <label class="form-control" for="autoSizingInputGroup">${pinfo.postDto.type}</label>
+       <label class="form-control" for="autoSizingInputGroup">${pinfo.nick}</label>
     </span>
      <span class="input-group">
       <div class="input-group-text">전화번호</div>
-       <label class="form-control" for="autoSizingInputGroup">${pinfo.postDto.price}</label>
+       <label class="form-control" for="autoSizingInputGroup">${pinfo.phone}</label>
     </span>
      <div class="input-group">
       <div class="input-group-text">이메일</div>
-       <label class="form-control" for="autoSizingInputGroup">${pinfo.postDto.tradeplace}</label>
+       <label class="form-control" for="autoSizingInputGroup">${pinfo.mail}</label>
     </div>
     <!-- 판매자 거래확정 확인 -->
 	
@@ -91,11 +91,11 @@
        <label class="form-control" for="autoSizingInputGroup">${minfo.phone}</label>
     </span>
       <div class="input-group">
-      <div class="input-group-text">이메일</div>
+      <div class="input-group-text">이메일</div>   
        <label class="form-control" for="autoSizingInputGroup">${minfo.mail}</label>
       </div>
     <br><br>
-    <span><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;">구매 신청</button></span>
+    <span><a href="buy_completed?postidx=${pinfo.postDto.postidx}&buyuser=${minfo.id}"><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;">구매 신청</button></a></span>
     <span><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: right;margin-right: 80px;">구매 취소</button></span>
   
 

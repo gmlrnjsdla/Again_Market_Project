@@ -55,13 +55,13 @@
 					  <label class="btn btn-outline-secondary" for="btnradio1" style="font-size: 12px;">판매중(${post})</label>
 					
 					  <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="script:window.location='buy_List?id=<%=id%>'">
-					  <label class="btn btn-outline-secondary" for="btnradio2" style="font-size: 12px;">구매중 (${follow})</label>
+					  <label class="btn btn-outline-secondary" for="btnradio2" style="font-size: 12px;">예약중 (${buy})</label>
 					
 					  <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" onclick="script:window.location='choice_List?id=<%=id%>'">
 					  <label class="btn btn-outline-secondary" for="btnradio3" style="font-size: 12px;">찜 (${follower})</label>
 					  
 					  <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" checked onclick="script:window.location='transaction_List?id=<%=id%>'">
-					  <label class="btn btn-outline-secondary" for="btnradio4" style="font-size: 12px;">거래완료()</label>
+					  <label class="btn btn-outline-secondary" for="btnradio4" style="font-size: 12px;">거래완료(${trc})</label>
 					</div>
 
 		  		</td>
@@ -79,20 +79,20 @@
  	<div class="row" style="margin:5px; --bs-gap: .25rem 1rem;">
  		
  	
-		<div class="col-md-4" style="padding-bottom:  20px;"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div class="content_List_font01">세탁기 판매합니다</div><div class="content_List_font02">판매자: 닉네임</div></div>
-		<div class="col-md-4" style="padding-bottom:  20px;"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div class="content_List_font01">세탁기 판매합니다</div><div class="content_List_font02">판매자: 닉네임</div></div>
-		<div class="col-md-4" style="padding-bottom:  20px;"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div class="content_List_font01">세탁기 판매합니다</div><div class="content_List_font02">판매자: 닉네임</div></div>
-		<div class="col-md-4" style="padding-bottom:  20px;"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div class="content_List_font01">세탁기 판매합니다</div><div class="content_List_font02">판매자: 닉네임</div></div>
-		<div class="col-md-4" style="padding-bottom:  20px;"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div class="content_List_font01">세탁기 판매합니다</div><div class="content_List_font02">판매자: 닉네임</div></div>
-		<div class="col-md-4" style="padding-bottom:  20px;"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div class="content_List_font01">세탁기 판매합니다</div><div class="content_List_font02">판매자: 닉네임</div></div>
-		<div class="col-md-4" style="padding-bottom:  20px;"><a href="content_view"><img src="${pageContext.request.contextPath }/resources/img/content.jpg" width="100" height="150" class="card-img-top" alt="...">
-		</a><div class="content_List_font01">세탁기 판매합니다</div><div class="content_List_font02">판매자: 닉네임</div></div>
+		<div class="row" style="margin:5px; --bs-gap: .25rem 1rem;">
+ 		<c:forEach items="${tList }" var="tList">
+			<div class="col-md-4">
+				<a href="content_view?postidx=${tList.postidx}" style="text-decoration: none; color:black;">
+					<c:forEach items="${uList }" var="uList">
+						<c:if test="${uList.postDto.postidx == tList.postidx }">
+							<img src="/resources/uploadfiles/${uList.fileName}" width="100" height="150" class="card-img-top" alt="...">
+						</c:if>
+					</c:forEach>
+				<div style="font-size: 12px;">${tList.id}</div>
+				<div style="font-weight: bold; font-size: 15px; text-align: center;">${tList.title }</div>
+				</a>
+			</div>
+		</c:forEach>
 		
 		
 		

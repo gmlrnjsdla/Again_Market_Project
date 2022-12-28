@@ -17,7 +17,7 @@
 	<form action="loginOk" name="login_frm" method="post">
 	<div class="login_no1">
 			<img id="logo" src="${pageContext.request.contextPath}/resources/img/logo.png"
-			 width="350" height="180" align="center" border="0">
+			 width="320" height="160" align="center" border="0" style="margin:35px 0 20px 0;">
 	
 	    <div class="mb-2">
 	      <input type="text" id="#" class="btn_login_no1" placeholder="아이디" name="id">

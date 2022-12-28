@@ -14,12 +14,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hsl.sns.dao.Chat;
 import com.hsl.sns.dao.IDao;
 import com.hsl.sns.dto.FollowDto;
 import com.hsl.sns.dto.MemberDto;
 import com.hsl.sns.dto.PostDto;
+
 
 @Controller
 public class MemberController {
@@ -180,8 +183,77 @@ public class MemberController {
 		return "redirect:login";
 	}
 	
+	@RequestMapping(value = "/findId")
+	public String findId() {
+	
+		return "/findId";
+	}
+	@RequestMapping(value = "/findIdOk")
+	public String findIdOk(HttpServletRequest request, Model model,HttpServletResponse response) {
+		
+		String name = request.getParameter("name");
+		String mail = request.getParameter("mail");
+		String phone = request.getParameter("phone");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		MemberDto findIdDto = dao.findIdDao(name, mail, phone);
+		
+		if(findIdDto == null) { //1이면 로그인 OK
+			PrintWriter out;
+			try {
+				response.setContentType("text/html;charset=utf-8");
+				out = response.getWriter();
+				out.println("<script>alert('아이디를 찾을 수 없습니다. 다시확인해주세요!');history.go(-1);</script>");
+				out.flush();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return "/findId";
+		}else {
+		
+		model.addAttribute("findId", findIdDto);
+		
+		return "/findIdOk";
+		}
+	}
 	
 	
+	@RequestMapping(value = "/findPw")
+	public String findPw() {
 	
-	
+		return "/findPw";
+	}
+	@RequestMapping(value = "/findPwOk")
+	public String findPwOk(HttpServletRequest request, Model model,HttpServletResponse response) {
+		
+		String id = request.getParameter("id");
+		String name = request.getParameter("name");
+		String mail = request.getParameter("mail");
+		String phone = request.getParameter("phone");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		MemberDto findPwDto = dao.findPwDao(name, mail, phone, id);
+		
+		if(findPwDto == null) { //1이면 로그인 OK
+			PrintWriter out;
+			try {
+				response.setContentType("text/html;charset=utf-8");
+				out = response.getWriter();
+				out.println("<script>alert('비밀번호를 찾을 수 없습니다. 다시확인해주세요!');history.go(-1);</script>");
+				out.flush();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return "/findPw";
+		}else {
+		
+		model.addAttribute("findPw", findPwDto);
+		System.out.print(findPwDto);
+		return "/findPwOk";
+		}
+	}
 }

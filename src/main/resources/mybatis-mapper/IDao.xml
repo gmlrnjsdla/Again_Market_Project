@@ -26,6 +26,17 @@
 		DELETE FROM user_sns WHERE id=#{param1}
 	</delete>
 	
+	<select id="findIdDao" resultType="com.hsl.sns.dto.MemberDto">
+		SELECT id FROM user_sns WHERE name=#{param1} AND  mail=#{param2} AND phone=#{param3}
+	</select>
+	<select id="findPwDao" resultType="com.hsl.sns.dto.MemberDto">
+		SELECT pwd FROM user_sns WHERE name=#{param1} AND  mail=#{param2} AND phone=#{param3} AND id=#{param4}
+	</select>
+	
+	
+	
+	
+	
 </mapper>
 	
 	

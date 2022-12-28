@@ -14,6 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hsl.sns.dao.Chat;
 import com.hsl.sns.dao.IDao;
@@ -98,7 +101,6 @@ public class HomeController {
 		
 		//====================== 구매신청 ======================//
 		
-		
 		//====================== 구매신청 ======================//
 		
 		//====================== 날짜 차이 ======================//
@@ -168,6 +170,7 @@ public class HomeController {
 		
 		return "index";
 	}
+	
 	
 	
 	

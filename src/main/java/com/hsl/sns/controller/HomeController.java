@@ -99,9 +99,7 @@ public class HomeController {
 		model.addAttribute("countList", counts);
 		//====================== 게시글 찜하기 수 끝 ======================//
 		
-		//====================== 구매신청 ======================//
 		
-		//====================== 구매신청 ======================//
 		
 		//====================== 날짜 차이 ======================//
 		List<PostDto> dateList = dao.dateDao();
@@ -164,6 +162,11 @@ public class HomeController {
 			
 			model.addAttribute("countList", counts);
 			//====================== 게시글 찜하기 수 끝 ======================//
+			
+			//====================== 날짜 차이 ======================//
+			List<PostDto> dateList = dao.dateDao();
+			model.addAttribute("dList", dateList);
+			//====================== 날짜 차이 끝 ======================//
 		}
 		
 		

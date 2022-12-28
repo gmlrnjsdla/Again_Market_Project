@@ -19,7 +19,7 @@
 	<form action="joinOk" method="post" name="join_frm">
 	<div class="login_no1">
 			<img id="logo" src="${pageContext.request.contextPath}/resources/img/logo.png"
-			 width="350" height="180" align="center" border="0">
+			 width="320" height="160" align="center" border="0" style="margin:35px 0 20px 0;">
 		<div class="wqb_write">
 			친구들의 사진과 동영상을 보려면<br>
 			가입하세요.

@@ -36,10 +36,10 @@
   			<input class="btn" type="button" value="회원가입" onclick="script:window.location='join'">
 		</div>
 		<div>
-			<input class="btn_searchId" type="button" value="아이디 찾기"/>
+			<input class="btn_searchId" type="button" value="아이디 찾기" onclick="script:window.location='findId'">
 		</div>
 		<div>
-			<input class="btn_searchPw" type="button" value="비밀번호 찾기"/>
+			<input class="btn_searchPw" type="button" value="비밀번호 찾기" onclick="script:window.location='findPw'"/>
 		</div>
 	</form>
 		

@@ -1,9 +1,12 @@
 package com.hsl.sns.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
@@ -115,7 +118,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "search")
-	public String search(Model model, HttpSession session, HttpServletRequest request) {
+	public String search(Model model, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
 		sidebar(session,model);
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
@@ -123,7 +126,36 @@ public class HomeController {
 		String type = request.getParameter("type");
 		
 		List<PostDto> postList = dao.postSearchDao(tradeplace, type);
-		model.addAttribute("postList", postList);
+		if(postList.size() == 0) {
+			PrintWriter out;
+			try {
+				response.setContentType("text/html;charset=utf-8");
+				out = response.getWriter();
+				out.println("<script>alert('검색된 결과가 없습니다!');history.go(-1);</script>");
+				out.flush();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else {
+			model.addAttribute("postList", postList);
+			List<PostingUrlDto> postUrlList = dao.postUrlListDao();	
+			model.addAttribute("postUrlList", postUrlList);
+			
+			//====================== 게시글 찜하기 수 ======================//
+			List<Integer> counts = new ArrayList<>(); 
+			for(int i=0; i<postList.size(); i++) {
+				PostDto dto = postList.get(i);
+				int postidx = dto.getPostidx();
+				int count = dao.followCountDao(postidx);
+				counts.add(count);
+			}
+			
+			model.addAttribute("countList", counts);
+			//====================== 게시글 찜하기 수 끝 ======================//
+		}
+		
+		
 		
 		return "index";
 	}

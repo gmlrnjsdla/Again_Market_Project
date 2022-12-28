@@ -121,8 +121,8 @@
 	
 	<!-- 검색 -->
 	<select id="postSearchDao" resultType="com.hsl.sns.dto.PostDto">
-		SELECT * FROM post WHERE tradeplace LIKE '%' || #{param1} || '%' 
-		OR type LIKE '%' || #{param2} || '%' ORDER BY postidx DESC
+		SELECT p.*,u.nick FROM post p JOIN user_sns u ON p.id = u.id WHERE tradeplace LIKE '%' || #{param1} || '%' 
+		AND type LIKE '%' || #{param2} || '%' ORDER BY postidx DESC
 	</select>
 	
 	<!-- 댓글관련 -->

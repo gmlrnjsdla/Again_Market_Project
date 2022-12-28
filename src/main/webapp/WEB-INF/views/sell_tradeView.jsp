@@ -29,17 +29,17 @@
    
     <span class="input-group">
       <div class="input-group-text">아이디</div>
-       	<label class="form-control" for="autoSizingInputGroup">${pinfo.id}</label>
+       	<label class="form-control" for="autoSizingInputGroup">${sinfo.id}</label>
       <div class="input-group-text">닉네임</div>
-       	<label class="form-control" for="autoSizingInputGroup">${pinfo.nick}</label>
+       	<label class="form-control" for="autoSizingInputGroup">${sinfo.nick}</label>
     </span>
     <span class="input-group">
       <div class="input-group-text">전화번호</div>
-       <label class="form-control" for="autoSizingInputGroup">${pinfo.phone}</label>
+       <label class="form-control" for="autoSizingInputGroup">${sinfo.phone}</label>
     </span>
       <div class="input-group">
       <div class="input-group-text">이메일</div>
-       <label class="form-control" for="autoSizingInputGroup">${pinfo.mail}</label>
+       <label class="form-control" for="autoSizingInputGroup">${sinfo.mail}</label>
       </div>
      
      <!-- 구매자 거래확정 확인 -->
@@ -99,8 +99,8 @@
     </div>
     <br><br>
 <br><br>
-    <span><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;">거래 확정</button></span>
-    <span><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: right;margin-right: 80px;">거래 취소</button></span>
+    <span><a href="sell_completed?postidx=${pinfo.postDto.postidx}"><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;">판매 확정</button></span>
+    <span><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: right;margin-right: 80px;">판매 취소</button></span>
 
 
 </div>

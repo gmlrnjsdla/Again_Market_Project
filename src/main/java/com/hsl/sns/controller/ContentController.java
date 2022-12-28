@@ -75,13 +75,22 @@ public class ContentController {
 		model.addAttribute("id", dto.getId()); 
 		
 	
-		//팔로워 수
+		//찜 수
 		int follower = dao.followerCountDao(id);
 		model.addAttribute("follower", follower);
 		
-		//게시글 수
+		//판매글 수
 		int post = dao.postCountDao(id);
 		model.addAttribute("post", post);
+		
+		//예약글 수
+		int buy = dao.buyCountDao(id);
+		model.addAttribute("buy", buy);
+		
+		//거래완료글 수
+		int trc = dao.transactionCountDao(id);
+		model.addAttribute("trc", trc);
+		
 		
 		List<PostDto> postList = dao.myPostListDao(id); // 해당 프로필의 판매중인 게시글 정보 가져오기
 		model.addAttribute("pList", postList); 
@@ -105,14 +114,30 @@ public class ContentController {
 		model.addAttribute("minfo", dto);
 		model.addAttribute("id", dto.getId()); 
 		
-		
-		//팔로워 수
+	
+		//찜 수
 		int follower = dao.followerCountDao(id);
 		model.addAttribute("follower", follower);
 		
-		//게시글 수
+		//판매글 수
 		int post = dao.postCountDao(id);
 		model.addAttribute("post", post);
+		
+		//예약글 수
+		int buy = dao.buyCountDao(id);
+		model.addAttribute("buy", buy);
+		
+		//거래완료글 수
+		int trc = dao.transactionCountDao(id);
+		model.addAttribute("trc", trc);
+		
+
+		
+		List<PostDto> buyList = dao.buyListDao(id); // 해당 프로필의 예약중인 게시글 정보 가져오기
+		model.addAttribute("bList", buyList); 
+		
+		List<PostingUrlDto> postUrlList= dao.myPostUrlListDao(); // 해당 프로필의 게시물 사진 하나만 가져오기
+		model.addAttribute("uList", postUrlList);
 		
 		return "buy_List";
 	}
@@ -142,6 +167,17 @@ public class ContentController {
 		model.addAttribute("post", post); //판매중인 개수
 		
 		
+				
+		//예약글 수
+		int buy = dao.buyCountDao(id);
+		model.addAttribute("buy", buy);
+		
+		//거래완료글 수
+		int trc = dao.transactionCountDao(id);
+		model.addAttribute("trc", trc);
+		
+		
+		
 		List<PostingUrlDto> postUrlList= dao.myPostUrlListDao(); // 해당 프로필의 게시물 사진 하나만 가져오기
 		model.addAttribute("uList", postUrlList);
 		
@@ -161,14 +197,30 @@ public class ContentController {
 		model.addAttribute("minfo", dto);
 		model.addAttribute("id", dto.getId()); 
 		
-		
-		//팔로워 수
+	
+		//찜 수
 		int follower = dao.followerCountDao(id);
 		model.addAttribute("follower", follower);
 		
-		//게시글 수
+		//판매글 수
 		int post = dao.postCountDao(id);
 		model.addAttribute("post", post);
+		
+		//예약글 수
+		int buy = dao.buyCountDao(id);
+		model.addAttribute("buy", buy);
+		
+		//거래완료글 수
+		int trc = dao.transactionCountDao(id);
+		model.addAttribute("trc", trc);
+		
+
+		
+		List<PostDto> transactionList = dao.transactionListDao(id); // 해당 프로필의 예약중인 게시글 정보 가져오기
+		model.addAttribute("tList", transactionList); 
+		
+		List<PostingUrlDto> postUrlList= dao.myPostUrlListDao(); // 해당 프로필의 게시물 사진 하나만 가져오기
+		model.addAttribute("uList", postUrlList);;
 		
 		return "transaction_List";
 	}
@@ -294,6 +346,8 @@ public class ContentController {
 		String sid = (String) session.getAttribute("sessionId");
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
+		MemberDto sdto=dao.selltradeDao(postidx);
+		model.addAttribute("sinfo", sdto);
 		MemberDto dto = dao.postInfomationDao(postidx);
 		model.addAttribute("pinfo", dto);
 		System.out.println(sid);
@@ -304,10 +358,32 @@ public class ContentController {
 		return "sell_tradeView";
 	}
 	
-	@RequestMapping(value = "completed")
-	public String completed() {
+	@RequestMapping(value = "buy_completed")
+	public String buy_completed(HttpServletRequest request, HttpSession session, Model model) {
 		
-		return "completed";
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		
+		int postidx = Integer.parseInt(request.getParameter("postidx"));
+		String buyuser = request.getParameter("buyuser");
+		
+		
+		dao.buycompleteDao(postidx, buyuser);
+		
+
+		return "buy_completed";
+	}
+	
+	@RequestMapping(value = "sell_completed")
+	public String sell_completed(HttpServletRequest request, HttpSession session, Model model) {
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		int postidx = Integer.parseInt(request.getParameter("postidx"));
+		
+		dao.sellcompleteDao(postidx);
+		
+		
+		return "sell_completed";
 	}
 	
 	@RequestMapping(value = "commentOk")

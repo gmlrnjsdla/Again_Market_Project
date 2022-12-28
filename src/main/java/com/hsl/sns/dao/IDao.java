@@ -55,4 +55,17 @@ public interface IDao {
 	public List<CommentDto> commentListDao(int postidx);//댓글전체리스트
 	public PostDto commentViewDao(int postidx);//해당댓글
 	
+	//트레이드관련
+	public void buycompleteDao(int postidx,String buyuser);
+	public MemberDto selltradeDao(int postidx);
+	public void sellcompleteDao(int postidx);
+	
+	
+	//예약관련
+	public List<PostDto> buyListDao(String buyuser); //예약중인 게시물 목록
+	public int buyCountDao(String buyuser); //예약중인 게시물 갯수
+	
+	//거래완료 관련
+	public List<PostDto> transactionListDao(String id); //거래완료 게시물 목록
+	public int transactionCountDao(String id); //거래완료 게시물 갯수
 }

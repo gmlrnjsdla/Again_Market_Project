@@ -72,4 +72,11 @@ public interface IDao {
 	//거래완료 관련
 	public List<PostDto> transactionListDao(String id); //거래완료 게시물 목록
 	public int transactionCountDao(String id); //거래완료 게시물 갯수
+	
+	//게시물 수정
+	public List<PostingUrlDto> getPosturlModifyDao(int postidx);
+	public void modifyPostDao(String title, String type, String price, String tradeplace, String content, int postidx);
+	
+	//게시물 삭제
+	public void deletePostDao(int postidx);
 }

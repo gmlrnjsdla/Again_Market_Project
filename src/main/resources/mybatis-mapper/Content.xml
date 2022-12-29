@@ -177,5 +177,18 @@
 		SELECT count(*) FROM post WHERE (buyuser =#{param1} OR id =#{param1}) AND (buyflag=1 AND sellflag=1)
 	</select>
 
+	<!-- modify 해당 게시글 사진가져오기 -->
+	<select id="getPosturlModifyDao" resultType="com.hsl.sns.dto.PostingUrlDto">
+		SELECT * FROM posturl WHERE postidx = ${param1}
+	</select>
+	
+	<update id="modifyPostDao" >
+		UPDATE post SET title=#{param1}, type=#{param2}, price=#{param3}, tradeplace=#{param4}, content=#{param5} WHERE postidx = ${param6}
+	</update>
+	
+	<delete id="deletePostDao">
+		DELETE FROM post WHERE postidx=${param1}
+	</delete>
+
 </mapper>
 	

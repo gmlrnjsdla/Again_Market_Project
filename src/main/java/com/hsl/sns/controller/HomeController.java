@@ -126,6 +126,24 @@ public class HomeController {
 		return "redirect:/index";
 	}
 	
+	//content_view 에서 눌렀을때
+	@RequestMapping(value = "follow1")
+	public String follow1(HttpServletRequest request) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		String followid = request.getParameter("followid");
+		int followcontent = Integer.parseInt(request.getParameter("followcontent")); 
+		
+		int count = dao.followCheckDao(followid,followcontent);
+		if(count != 0) {
+			return String.format("redirect:/content_view?postidx=%s", followcontent);
+		}else {
+			dao.followDao(followcontent, followid);
+		}
+		
+		return String.format("redirect:/content_view?postidx=%s", followcontent);
+	}
+	
 	@RequestMapping(value = "search")
 	public String search(Model model, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
 		sidebar(session,model);

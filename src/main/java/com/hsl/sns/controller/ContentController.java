@@ -310,11 +310,18 @@ public class ContentController {
 		List<PostingUrlDto> postUrlList = dao.postUrlListDao();	
 		model.addAttribute("postUrlList", postUrlList);
 		
+		//찜하기 수
 		int count = dao.followCountDao(postidx);
 		model.addAttribute("likeCount", count);
 		
+		//댓글
 		List<CommentDto> commentDtos = dao.commentListDao(postidx);
 		model.addAttribute("commentList", commentDtos);
+		
+		//====================== 날짜 차이 ======================//
+		List<PostDto> dateList = dao.dateDao();
+		model.addAttribute("dList", dateList);
+		//====================== 날짜 차이 끝 ======================//
 		
 		return "content_view";
 	}
@@ -360,7 +367,7 @@ public class ContentController {
 	
 	@RequestMapping(value = "buy_completed")
 	public String buy_completed(HttpServletRequest request, HttpSession session, Model model) {
-		
+		sidebar(session,model);
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
 		
@@ -376,6 +383,7 @@ public class ContentController {
 	
 	@RequestMapping(value = "sell_completed")
 	public String sell_completed(HttpServletRequest request, HttpSession session, Model model) {
+		sidebar(session,model);
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
 		int postidx = Integer.parseInt(request.getParameter("postidx"));
@@ -423,6 +431,56 @@ public class ContentController {
 		
 		return String.format("redirect:/content_view?postidx=%s", postidx);
 	}
+	
+	@RequestMapping(value = "content_modify")
+	public String content_modify(HttpServletRequest request, HttpSession session, Model model) {
+		sidebar(session,model);
+		IDao dao = sqlSession.getMapper(IDao.class);
+		int postidx = Integer.parseInt(request.getParameter("postidx")); 
+		
+		//해당 게시글 내용 가져오기
+		PostDto dto = dao.postDao(postidx);  
+		model.addAttribute("post", dto);
+		
+		//해당 게시글 사진 가져오기
+		List<PostingUrlDto> imgList = dao.getPosturlModifyDao(postidx);
+		model.addAttribute("iList", imgList);
+		
+		
+		
+		return "content_modify";
+	}
+	
+	
+	
+@RequestMapping(value = "content_modifyOk")
+public String content_modifyOk(HttpServletRequest request, HttpSession session, Model model, HttpServletResponse response) {
+	sidebar(session,model);
+	IDao dao = sqlSession.getMapper(IDao.class);
+	 
+	int postidx = Integer.parseInt(request.getParameter("postidx")); 
+	String title = request.getParameter("title");
+	String type = request.getParameter("type");
+	String price = request.getParameter("price");
+	String tradeplace = request.getParameter("tradeplace");
+	String content = request.getParameter("content");
+	
+	dao.modifyPostDao(title, type, price, tradeplace, content, postidx);
+	
+	return String.format("redirect:/content_view?postidx=%s", postidx);
+}
+	
+@RequestMapping(value = "delete_content")
+public String delete_content(HttpServletRequest request,Model model, HttpSession session) {
+	
+	sidebar(session,model);
+	IDao dao = sqlSession.getMapper(IDao.class);
+	int postidx = Integer.parseInt(request.getParameter("postidx")); 
+	
+	dao.deletePostDao(postidx);
+	
+	return "redirect:index";
+}
 	
 	
 }

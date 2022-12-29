@@ -37,8 +37,8 @@
 	  %>
   		<img class="setting" src="${pageContext.request.contextPath }/resources/img/Settings.svg"  type="button" data-bs-toggle="dropdown" aria-expanded="false">
   		<ul class="dropdown-menu">
-		    <li><a class="dropdown-item" href="#">수정</a></li>
-		    <li><a class="dropdown-item" href="#">삭제</a></li>
+		    <li><a class="dropdown-item" href="content_modify?postidx=${post.postidx}">수정</a></li>
+		    <li><a class="dropdown-item" href="delete_content?postidx=${post.postidx}" onclick="return confirm('정말 삭제하시겠습니까?')">삭제</a></li>
 	  	</ul>
 	  <%
 	  	}
@@ -66,7 +66,7 @@
 	<!--좋아요 버튼 -->   
 	<div class="subject_font01">
    		<span class="like_button01">
-   		찜하기<a href="#">
+   		찜하기<a href="follow1?followid=<%=sid%>&followcontent=${post.postidx}">
    				<button type="button" class="btn  position-relative">
 	    			<img src="${pageContext.request.contextPath }/resources/img/hearts.png" width="20" height="20" alt="...">
 	     			<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -80,8 +80,12 @@
    ${post.title}
    	</div>
    <div class="content_font_index01">
-	  	${post.type} <br>
-	  	${post.createdate}<br>
+	  	${post.type} .
+	  	<c:forEach items="${dList}" var="dList">
+		   <c:if test="${dList.postidx == post.postidx }">
+		   	${dList.createdate}
+		   </c:if>
+   		</c:forEach>일 전<br>
 	    ${post.price}원
 	
 	</div>

@@ -156,7 +156,7 @@
       <ul class="dropdown-menu text-small shadow">
         <li><a class="dropdown-item" href="#">설정</a></li>
         <li><a class="dropdown-item" href="#">신고</a></li>
-        <li><a class="dropdown-item" href="/memberDelete">회원탈퇴</a></li>
+        <li><a class="dropdown-item" href="/memberDelete" onclick="return confirm('정말 탈퇴하시겠습니까?')">회원탈퇴</a></li>
         <li><a class="dropdown-item" href="#">내 활동</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="/logout">로그아웃</a></li>

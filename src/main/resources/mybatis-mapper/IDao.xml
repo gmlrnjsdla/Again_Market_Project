@@ -19,7 +19,7 @@
 		SELECT * FROM user_sns WHERE id NOT IN (#{param1})
 	</select>
 	<update id="memberModifyDao">
-		UPDATE user_sns SET name=#{param2}, mail=#{param3}, nick=#{param4}, phone=#{param5}, greet=#{param6} WHERE id=#{param1}
+		UPDATE user_sns SET name=#{param2}, mail=#{param3}, nick=#{param4}, phone=#{param5}, greet=#{param6},profile=#{param7},profilename=#{param8},profileurl=#{param9},fileextension=#{param10} WHERE id=#{param1}
 	</update>
 	
 	<delete id="memberDeleteDao">

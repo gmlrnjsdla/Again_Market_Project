@@ -9,3 +9,10 @@
 	font-weight: bold;
 }
 
+.input-file-button{
+  padding: 6px 25px;
+  background-color:rgb(55, 140, 225);
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}

@@ -1,5 +1,6 @@
 package com.hsl.sns.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -8,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +18,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.hsl.sns.dao.Chat;
 import com.hsl.sns.dao.IDao;
@@ -152,7 +157,7 @@ public class MemberController {
 		return "memberModify";
 	}
 	@RequestMapping(value = "/memberModifyOk")
-	public String memberModifyOk(HttpServletRequest request,Model model, HttpSession session) {
+	public String memberModifyOk(HttpServletRequest request,Model model, HttpSession session,@RequestPart MultipartFile file) throws IllegalStateException, IOException {
 		
 		sidebar(session,model);
 		IDao dao = sqlSession.getMapper(IDao.class);
@@ -164,8 +169,30 @@ public class MemberController {
 		String phone =  request.getParameter("phone");
 		String greet =  request.getParameter("greet");
 		
-		dao.memberModifyDao(id, name, mail, nick, phone, greet);
 		
+//		//파일첨부
+//		String profile = file.getOriginalFilename(); //첨부된 파일의 원래이름
+//		String fileExtension = FilenameUtils.getExtension(profile).toLowerCase();
+//		File destinationFile; 
+//		String destinationFileName; 
+//		String profileUrl = "C:/springboot_workspace/rubatoProject001-20221117/src/main/resources/static/uploadfiles/";
+//		
+//		do {
+//		destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "."+ fileExtension;
+//		destinationFile = new File(profileUrl+destinationFileName);
+//		} while(destinationFile.exists());
+//		
+//		destinationFile.getParentFile().mkdir();
+//		file.transferTo(destinationFile); 
+//		
+//		
+//		
+//		dao.memberModifyDao(id, name, mail, nick, phone, greet, profile, destinationFileName, profileUrl, fileExtension);
+//		System.out.println(profile);
+//		System.out.println(destinationFileName);
+//		System.out.println(profileUrl);
+//		System.out.println(fileExtension);
+//		
 		return String.format("redirect:/sell_List?id=%s", id);
 	}
 

@@ -9,7 +9,7 @@
 			<div class="chat_people">
 				<div class="chat_img" >
 					<a href="other_profile.do?othernick=${tmp.othernick }">
-						<img src="${pageContext.request.contextPath}/resources/img/person.png" alt="" width="23" height="23" class="rounded-circle me-2">
+						<img src="/resources/uploadfiles/${tmp.profileName }" alt="" width="23" height="23" class="rounded-circle me-2">
 					</a>
 				</div>
 				<div class="chat_ib">

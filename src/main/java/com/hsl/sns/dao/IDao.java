@@ -13,13 +13,15 @@ import com.hsl.sns.dto.PostingUrlDto;
 
 public interface IDao {
 	
-	public void joinMemberDao(String id, String pwd, String name, String birth, String mail, String phone, String nick, String profile, String greet);
+	public void joinMemberDao(String id, String pwd, String name, String birth, String mail, String phone, String nick, String greet);
 	public MemberDto memberInfoDao(String id);
 	public List<MemberDto> memberListDao(String id);
-	public void memberModifyDao(String id, String name, String mail, String nick, String phone, String greet,String profile,String profileName,String profileUrl,String fileExtension);
+	public void memberModifyDao(String id, String name, String mail, String nick, String phone, String greet,String profileName,String profileUrl,String fileExtension);
 	public void memberDeleteDao(String id);
 	public MemberDto findIdDao(String name, String mail, String phone);//아이디찾기
 	public MemberDto findPwDao(String name, String mail, String phone, String id);//비번찾기
+	
+	
 	
 	//contentWrite 관련
 	public void contentWriteContDao(String title, String type, int price, String tradeplace, String content, String id); //post write content insert

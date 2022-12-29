@@ -21,7 +21,7 @@ public class ChatDto {
 	private String othernick;
 	
 	// 현재 사용자의 메세지 상대 profile을 담는다.
-	private String profile;
+	private String profileName;
 	
 	// 현재 사용자 nick
 	private String nick;

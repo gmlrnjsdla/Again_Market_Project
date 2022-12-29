@@ -18,6 +18,7 @@
 		<result property="buyuser" column="buyuser"/>
 		<result property="buyflag" column="buyflag"/>
 		<result property="sellflag" column="sellflag"/>
+		<result property="profileName" column="profileName"/>
 		
 	</resultMap>
 	
@@ -44,8 +45,10 @@
 		<result property="phone" column="phone"/>
 		<result property="nick" column="nick"/>
 		<result property="rdate" column="rdate"/>
-		<result property="profile" column="profile"/>
-		<result property="greet" column="greet"/>	
+		<result property="greet" column="greet"/>
+		<result property="profileName" column="profileName"/>
+		<result property="profileUrl" column="profileUrl"/>
+		<result property="fileExtension" column="fileExtension"/>	
 
 		<collection property="postDto" resultMap="PostDto"></collection>
 	</resultMap>
@@ -81,7 +84,7 @@
 
 	<!-- index -->
 	<select id="postListDao" resultType="com.hsl.sns.dto.PostDto">
-		SELECT p.*,u.nick FROM post p JOIN user_sns u ON p.id = u.id ORDER BY p.postidx DESC
+		SELECT p.*,u.nick, u.profilename FROM post p JOIN user_sns u ON p.id = u.id ORDER BY p.postidx DESC
 	</select>
 	<select id="postUrlListDao" resultType="com.hsl.sns.dto.PostingUrlDto">
 		SELECT r.*, p.*FROM posturl r, post p

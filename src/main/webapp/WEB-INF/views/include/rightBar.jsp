@@ -27,7 +27,7 @@
 
 <!-- 본인 닉네임 -->
 <div class="card-body"> 
-   	<img src="${pageContext.request.contextPath }/resources/img/person.png"  width="30" height="30" alt="..." ${minfo.nick}>
+   	<img class ="rounded-circle me-2" src="/resources/uploadfiles/${minfo.profileName}"  width="30" height="30" alt="..." ${minfo.nick}>
    		<span style="font-size:16px; font-weight:bold;"><%=snick %></span>
 		<hr>
 <!-- 본인 닉네임끝 -->		
@@ -137,7 +137,7 @@
 	<hr><span style="font-size:16px; font-weight:bold; text-align: center;">회원님을 위한 추천</span><br><br>
 		
   	<c:forEach items="${memberList}" var="mList">
-  		<img src="${pageContext.request.contextPath }/resources/img/${mList.profile }" width="30" height="30" alt="...">
+  		<img src="${pageContext.request.contextPath }/resources/img/${mList.profileName }" width="30" height="30" alt="...">
    		<span style="font-size:16px; font-weight:bold;">${mList.nick}</span>
    		<a class="follow" href="follow?followeeid=${mList.id}&followerid=<%=ssid %>">팔로우 </a>
    		<br>

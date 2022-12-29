@@ -73,7 +73,7 @@ public class ContentController {
 		
 		model.addAttribute("minfo", dto);
 		model.addAttribute("id", dto.getId()); 
-		
+	
 	
 		//찜 수
 		int follower = dao.followerCountDao(id);
@@ -94,7 +94,7 @@ public class ContentController {
 		
 		List<PostDto> postList = dao.myPostListDao(id); // 해당 프로필의 판매중인 게시글 정보 가져오기
 		model.addAttribute("pList", postList); 
-		
+		System.out.println(postList);
 		List<PostingUrlDto> postUrlList= dao.myPostUrlListDao(); // 해당 프로필의 게시물 사진 하나만 가져오기
 		model.addAttribute("uList", postUrlList);
 		
@@ -301,6 +301,11 @@ public class ContentController {
 		model.addAttribute("sid",sid);
 		IDao dao = sqlSession.getMapper(IDao.class);
 		int postidx = Integer.parseInt(request.getParameter("postidx")); 
+		
+		
+		//프로필사진
+		MemberDto minfo = dao.memberInfoDao(sid);
+		model.addAttribute("minfo", minfo);
 		
 		//게시글 정보
 		PostDto dto = dao.postDao(postidx);

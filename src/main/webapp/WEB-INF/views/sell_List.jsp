@@ -70,35 +70,50 @@
 	   
   </div>
   	<hr style="margin:30px;">
-  
+  <!-- 판매중 리스트 -->
   	<div class="overflow-auto" style="height:600px">
-  		
-   	<!-- 판매중 리스트 -->	
-   		
-   		
- 	<div class="row" style="margin:5px; --bs-gap: .25rem 1rem;">
- 		
- 		
-		<c:forEach items="${pList }" var="pList">
-			<div class="col-md-4">
-				<a href="content_view?postidx=${pList.postidx}" style="text-decoration: none; color:black;">
-					<c:forEach items="${uList }" var="uList">
-						<c:if test="${uList.postDto.postidx == pList.postidx }">
-							<img src="/resources/uploadfiles/${uList.fileName}" width="100" height="150" class="card-img-top" alt="...">
-						</c:if>
-					</c:forEach>
-				<div style="font-size: 12px;">${pList.id}</div>
-				<div style="font-weight: bold; font-size: 15px; text-align: center;">${pList.title }</div>
-				</a>
-			</div>
-		</c:forEach>
-
-		
-		
+  	<div class="row row-cols-3 row-cols-md-3 g-4">	
+   	<c:forEach items="${pList}" var="pList">	
 	
-			
-	</div>
+	  <div class="col">
+	    <div class="card h-100">
+	     <a href="content_view?postidx=${pList.postidx}" style="text-decoration: none; color:black;"> 
+	      <c:forEach items="${uList }" var="uList">
+	      	<c:if test="${uList.postDto.postidx == pList.postidx }">
+				<img src="/resources/uploadfiles/${uList.fileName}" width="100" height="150" class="card-img-top" alt="...">
+			</c:if>
+	      </c:forEach>
+		      <div class="card-body" style="height: 150px;">
+		        <span style="font-size: 12px; margin: top">${pList.id}</span>
+		        <!-- 구매신청 뱃지 -->
+				<c:if test="${pList.buyflag > 0 }">
+				<span class="col-2 ">
+				<span class="badge bg-danger">거래요청</span>
+				</span>
+		  		</c:if>
+				<!-- 구매신청 뱃지 -->
+				<hr style="margin:">
+		        
+		        <p class="card-text">${pList.title }</p>
+		      </div>
+		      
+		      <div class="card-footer">
+        		<small class="text-muted">Last updated 3 mins ago</small>
+      		  </div>
+        </a>
+      </div>
+    </div>
+  </c:forEach>
   </div>
+  
+  </div>
+  	
+
+	<!-- 판매중 리스트 끝 -->	
+
+
+  </div>
+  
 	</div>
 </div>
 <%@ include file="include/footer.jsp" %>

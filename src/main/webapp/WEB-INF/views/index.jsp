@@ -78,10 +78,29 @@
    ${pList.title}
    
    <!--판매중/판매완료 표시 -->
-   	<button type="button" class="btn btn-primary" disabled 
-   		style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">판매중</button>
-	<button type="button" class="btn btn-secondary" disabled
-		style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">판매완료</button>
+ 
+   
+   <c:choose>
+	   <c:when test="${pList.buyflag == 0 and pList.sellflag == 0}">
+		   	<button type="button" class="btn btn-primary" disabled 
+		   		style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">판매중</button>
+		</c:when>
+		
+		<c:when test="${pList.buyflag != 0 and pList.sellflag != 0}">
+			<button type="button" class="btn btn-secondary" disabled
+				style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">거래완료</button>
+		</c:when>
+		
+		<c:when test="${pList.buyflag != 0 and pList.sellflag == 0}">
+			<button type="button" class="btn btn-success" disabled
+			style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">예약중</button>
+		</c:when> 
+		
+		<c:otherwise>
+
+		</c:otherwise>
+		
+	</c:choose>
    <!--판매중/판매완료 표시 끝 -->
    </div>
    <div class="content_font_index01">
@@ -111,7 +130,7 @@
 <br>
 <!--구매신청 버튼 --> 
 <c:choose>
-	<c:when test="${pList.id ne sid }">
+	<c:when test="${pList.id != sid and pList.buyflag == 0 }">
 		<a href="buy_tradeView?postidx=${pList.postidx }" >
 	  		<button type="button" class="btn btn-outline-danger"
 	        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 630px; ">
@@ -119,13 +138,19 @@
 			</button>
 		</a>
 	</c:when>
-	<c:otherwise>
+
+	<c:when test="${pList.id == sid and pList.buyflag == 1 }">
+	
 		<a href="sell_tradeView?postidx=${pList.postidx }" >
 	  		<button type="button" class="btn btn-outline-danger"
 	        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 630px; ">
 	  			판매확정
 			</button>
 		</a>
+	</c:when>
+	
+	<c:otherwise>
+	
 	</c:otherwise>
 </c:choose>
   

@@ -78,6 +78,38 @@
 
    <!--내용표시 -->
    ${post.title}
+   
+   <!--판매중/판매완료 표시 -->
+ 
+   
+   <c:choose>
+	   <c:when test="${post.buyflag == 0 and post.sellflag == 0}">
+		   	<button type="button" class="btn btn-primary" disabled 
+		   		style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">판매중</button>
+		</c:when>
+		
+		<c:when test="${post.buyflag != 0 and post.sellflag != 0}">
+			<button type="button" class="btn btn-secondary" disabled
+				style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">거래완료</button>
+		</c:when>
+		
+		<c:when test="${post.buyflag != 0 and post.sellflag == 0}">
+			<button type="button" class="btn btn-success" disabled
+			style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">예약중</button>
+		</c:when> 
+		
+		<c:otherwise>
+
+		</c:otherwise>
+		
+	</c:choose>
+   <!--판매중/판매완료 표시 끝 -->
+   
+   
+   
+   
+   
+   
    	</div>
    <div class="content_font_index01">
 	  	${post.type} .
@@ -98,32 +130,33 @@
   	</div>
   
 
-<!--구매신청 버튼 --> 
+<!--구매확인/판매확인 버튼 --> 
 
-<%
-  	if(id.equals(sid)){
-%>
-		<a href="sell_tradeView?postidx=${post.postidx}">
+   <c:choose>
+	   <c:when test="${post.id == sid and post.buyflag != 0 and post.sellflag == 0}">
+		   	<a href="sell_tradeView?postidx=${post.postidx}">
 		  	<button type="button" class="btn btn-outline-danger"
 		        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 380px; ">
 		  		판매확인
-			</button>
-		</a>
-<%  		
-  	}else{
-%>
-		<a href="buy_tradeView?postidx=${post.postidx}" >
+			</button></a>
+		</c:when>
+		
+		<c:when test="${post.id!= sid and post.buyflag == 0 and post.sellflag == 0}">
+			<a href="buy_tradeView?postidx=${post.postidx}" >
 		  	<button type="button" class="btn btn-outline-danger"
 		        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 380px; ">
 			  	구매확인
-			</button>
-		</a>
-<%
-  	}
-%>
-	
-	
-<!--구매신청 버튼 끝 -->   
+			</button></a>
+		</c:when>
+
+		<c:otherwise>
+
+		</c:otherwise>
+		
+	</c:choose>
+
+<!--구매확인/판매확인 버튼 끝 -->
+  
 </div>
 </div>
 </div>

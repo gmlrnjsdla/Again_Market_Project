@@ -297,6 +297,8 @@ public class ContentController {
 	public String content_view(HttpSession session, Model model, HttpServletRequest request) {
 		
 		sidebar(session,model);
+		String sid = (String)session.getAttribute("sessionId");
+		model.addAttribute("sid",sid);
 		IDao dao = sqlSession.getMapper(IDao.class);
 		int postidx = Integer.parseInt(request.getParameter("postidx")); 
 		

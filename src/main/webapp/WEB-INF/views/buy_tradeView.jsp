@@ -87,7 +87,6 @@
 
 <span class="list_index02">판매자정보</span>
 <hr class="garo1">
-<span class="col-auto">
    
     <span class="input-group">
       <div class="input-group-text">아이디</div>
@@ -120,7 +119,6 @@
 
    <span class="list_index02">거래정보</span>
 <hr class="garo1">
-<span class="col-auto">
    
     <span class="input-group">
       <div class="input-group-text">제목</div>
@@ -140,7 +138,6 @@
    
  <span class="list_index02">구매자정보</span>
 <hr class="garo1">
-<span class="col-auto">
    
     <span class="input-group">
       <div class="input-group-text">아이디</div>

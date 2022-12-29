@@ -110,7 +110,7 @@
 	
 	<!-- content_view 정보 띄우기 -->
 	<select id="postDao" resultType="com.hsl.sns.dto.PostDto">
-		SELECT p.*, u.nick FROM post p join user_sns u ON p.id = u.id WHERE postidx=${param1}
+		SELECT p.*, u.nick, u.profilename FROM post p join user_sns u ON p.id = u.id WHERE postidx=${param1}
 	</select>
 	
 	<select id="dateDao" resultType="com.hsl.sns.dto.PostDto">
@@ -154,7 +154,7 @@
 	
 	
 	<select id="myPostListDao" resultType="com.hsl.sns.dto.PostDto"> <!-- 판매중 리스트 -->
-		SELECT * FROM post WHERE id=#{param1} AND (sellflag=0)
+		SELECT p.*,u.nick FROM post p JOIN user_sns u ON p.id=u.id WHERE p.id=#{param1} AND (sellflag=0)
 	</select>
 	
 	<select id="postCountDao" resultType="int"> <!-- 판매중 카운트 -->
@@ -162,7 +162,7 @@
 	</select>
 	
 	<select id="buyListDao" resultType="com.hsl.sns.dto.PostDto"> <!-- 예약중 리스트 -->
-		SELECT * FROM post WHERE buyuser=#{param1} AND (buyflag !=0 AND sellflag=0)
+		SELECT p.*,u.nick FROM post p JOIN user_sns u ON p.id=u.id WHERE p.buyuser=#{param1} AND (p.buyflag !=0 AND p.sellflag=0)
 	</select>
 	
 	<select id="buyCountDao" resultType="int">  <!--예약중 카운트 -->
@@ -171,11 +171,13 @@
 	
 	
 	<select id="likeContentListDao" parameterType="com.hsl.sns.dto.FollowDto" resultMap="FollowDto"> <!-- 찜한 게시물 목록  -->
-		SELECT * FROM follow f LEFT JOIN post p ON f.followcontent = p.postidx WHERE followid=#{param1}
+		SELECT * FROM follow f LEFT JOIN 
+		(SELECT post.*,user_sns.nick FROM post JOIN user_sns ON post.id = user_sns.id) p 
+		ON f.followcontent = p.postidx WHERE followid=#{param1}
 	</select>
 	
 	<select id="transactionListDao" resultType="com.hsl.sns.dto.PostDto"> <!-- 거래완료 리스트 -->
-		SELECT * FROM post WHERE (buyuser =#{param1} OR id =#{param1}) AND (buyflag !=0 AND sellflag!=0)
+		SELECT p.*,u.nick FROM post p JOIN user_sns u ON p.id = u.id WHERE (p.buyuser =#{param1} OR p.id =#{param1}) AND (p.buyflag !=0 AND p.sellflag!=0)
 	</select>
 	
 	<select id="transactionCountDao" resultType="int"> <!--거래완료 카운트 -->

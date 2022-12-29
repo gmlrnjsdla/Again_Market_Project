@@ -28,7 +28,7 @@ td.footerbox02 {
 	text-align: center;
 }
 
-table{
+table.footer{
 	position : fixed;
 	bottom : 0;
 	z-index: 2;

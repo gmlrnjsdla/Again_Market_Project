@@ -22,7 +22,7 @@
 <div  class="card" style="width: 600px; height:800px; border:1px solid #dddddd; border-radius:5px; background-color:#FBFBFB ">
   	
   	<div class="card-body" style="height: 100px;">
-  	<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">${post.nick}
+  	<img class ="rounded-circle me-2"  src="${pageContext.request.contextPath }/resources/uploadfiles/${post.profileName}" width="50" height="50" alt="..."><span style='font-weight: bold'>${post.nick}</span>
 
 	
 	

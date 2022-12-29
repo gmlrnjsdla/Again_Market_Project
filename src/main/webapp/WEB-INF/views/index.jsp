@@ -35,7 +35,7 @@
     <c:forEach items="${postUrlList }" var="pUrlList" >
 		<c:if test="${pList.postidx == pUrlList.postidx}">
 		    <div >
-			<img src="/resources/uploadfiles/${pUrlList.fileName}" style="width:600px;height:400px;" >
+			<img src="/resources/uploadfiles/${pUrlList.fileName}" style="width:570px;" >
 		    </div>
        	</c:if>
 	</c:forEach>
@@ -51,7 +51,7 @@
 
 
 <!--게시자 정보 -->
-<img class ="rounded-circle me-2"  src="/resources/uploadfiles/${pList.profileName}" width="50" height="50" alt="...">${pList.nick}
+<img class ="rounded-circle me-2"  src="/resources/uploadfiles/${pList.profileName}" width="40" height="40" alt="..." style="margin-top:13px;">${pList.nick}
 
 <!--메세지 보내기 --> 
 <a href="send?nick=${pList.nick}" style="margin-left:250px;">메시지

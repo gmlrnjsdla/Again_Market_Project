@@ -86,8 +86,8 @@
 				<img src="/resources/uploadfiles/${uList.fileName}" width="100" height="150" class="card-img-top" alt="...">
 			</c:if>
 	      </c:forEach>
-		      <div class="card-body" style="height: 150px;">
-		        <span style="font-size: 12px; margin: top">${pList.nick}</span>
+		      <div class="card-body" style="height: 150px;padding:10px">
+		        <span style="font-size: 12px; top: 1px;">&nbsp;${pList.nick}</span>
 		        <!-- 구매신청 뱃지 -->
 				<c:if test="${pList.buyflag > 0 }">
 				<span class="col-2 ">
@@ -95,9 +95,9 @@
 				</span>
 		  		</c:if>
 				<!-- 구매신청 뱃지 끝-->
-				<hr style="margin:">
+				<hr style="margin:2px; ">
 		        
-		        <p class="card-text">${pList.title }</p>
+		        <p class="card-text">&nbsp;${pList.title }</p>
 		      </div>
 		      <div class="card-footer" style="height: 30px; padding: 0px; padding-left: 20px;">
 		      <small class="content_List_font03" >

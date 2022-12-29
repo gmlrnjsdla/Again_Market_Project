@@ -10,7 +10,7 @@
 <body>
 
 <center>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<table class="footer" width="100%" border="0" cellspacing="0" cellpadding="0">
 		
 		<tr class="footerline02">
 			<td class="footerbox01">Copyright ⓒ 000. All Rights Reserved</td>

@@ -307,8 +307,8 @@ public class ContentController {
 																				 
 				File destinationFile; 
 				String destinationFileName; 
-				String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
-	//			String fileUrl = "C:/Users/user.JY-20200602UADW/git/SNS_Project/src/main/resources/static/uploadfiles/";
+//				String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
+				String fileUrl = "C:/Users/user.JY-20200602UADW/git/SNS_Project/src/main/resources/static/uploadfiles/";
 				
 				do {
 				destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "."+ fileExtension;
@@ -336,6 +336,11 @@ public class ContentController {
 		int postidx = Integer.parseInt(request.getParameter("postidx")); 
 		String sid = (String)session.getAttribute("sessionId");
 		model.addAttribute("sid", sid);
+		
+		//====================== 날짜 차이 ======================//
+		List<PostDto> dateList = dao.dateDao();
+		model.addAttribute("dList", dateList);
+		//====================== 날짜 차이 끝 ======================//
 		
 		//프로필사진
 		MemberDto minfo = dao.memberInfoDao(sid);

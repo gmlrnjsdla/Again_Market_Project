@@ -73,6 +73,12 @@ public class HomeController {
 	public String join() {
 		return "join";
 	}
+	@RequestMapping(value = "/test")
+	public String test() {
+		return "test";
+	}
+	
+	
 	
 	
 	@RequestMapping(value = "/index")

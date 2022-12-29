@@ -7,8 +7,8 @@
 <mapper namespace="com.hsl.sns.dao.IDao">
 	
 	<insert id="joinMemberDao">
-		INSERT INTO user_sns(id, pwd, name, birth, mail, phone, nick, profile, greet)  
-		VALUES(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9})
+		INSERT INTO user_sns(id, pwd, name, birth, mail, phone, nick, greet)  
+		VALUES(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8})
 	</insert>
 	
 	<select id="memberInfoDao" resultType="com.hsl.sns.dto.MemberDto">
@@ -20,7 +20,7 @@
 	</select>
 	
 	<update id="memberModifyDao">
-		UPDATE user_sns SET name=#{param2}, mail=#{param3}, nick=#{param4}, phone=#{param5}, greet=#{param6},profile=#{param7},profilename=#{param8},profileurl=#{param9},fileextension=#{param10} WHERE id=#{param1}
+		UPDATE user_sns SET name=#{param2}, mail=#{param3}, nick=#{param4}, phone=#{param5}, greet=#{param6},profilename=#{param7},profileurl=#{param8},fileextension=#{param9} WHERE id=#{param1}
 	</update>
 	
 	<delete id="memberDeleteDao">

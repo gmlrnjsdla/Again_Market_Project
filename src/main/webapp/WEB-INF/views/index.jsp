@@ -51,7 +51,7 @@
 
 
 <!--게시자 정보 -->
-<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">${pList.nick}
+<img class ="rounded-circle me-2"  src="/resources/uploadfiles/${pList.profileName}" width="50" height="50" alt="...">${pList.nick}
 
 <!--메세지 보내기 --> 
 <a href="send?nick=${pList.nick}" style="margin-left:250px;">메시지

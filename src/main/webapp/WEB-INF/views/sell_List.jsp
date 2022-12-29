@@ -20,7 +20,8 @@
  		<table border="0" cellpadding= "0" cellspacing="0" width="600" height="50" style="margin-bottom:0px; position:relative;">
 		  	<tr colspan="3">
 		  		<td width="40%" rowspan="4" align="center">
-		  			<img class ="rounded-circle me-2" src="${pageContext.request.contextPath }/resources/img/${minfo.profile}" alt="..." width="120" height="120" >
+		  			<img class ="rounded-circle me-2" src="/resources/uploadfiles/${minfo.profileName} " alt="..." width="120" height="120" >
+		  		
 		  		</td>
 		  		<td height="20%" colspan="3">
 		  			<div id = "profile01">${minfo.nick}
@@ -86,7 +87,7 @@
 			</c:if>
 	      </c:forEach>
 		      <div class="card-body" style="height: 150px;">
-		        <span style="font-size: 12px; margin: top">${pList.id}</span>
+		        <span style="font-size: 12px; margin: top">${pList.nick}</span>
 		        <!-- 구매신청 뱃지 -->
 				<c:if test="${pList.buyflag > 0 }">
 				<span class="col-2 ">

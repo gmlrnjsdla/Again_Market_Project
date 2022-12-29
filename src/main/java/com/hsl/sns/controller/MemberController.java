@@ -3,6 +3,7 @@ package com.hsl.sns.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +28,8 @@ import com.hsl.sns.dao.IDao;
 import com.hsl.sns.dto.FollowDto;
 import com.hsl.sns.dto.MemberDto;
 import com.hsl.sns.dto.PostDto;
+
+
 
 
 @Controller
@@ -131,10 +134,9 @@ public class MemberController {
 		String mail = request.getParameter("mail");
 		String phone = request.getParameter("phone");
 		String nick = request.getParameter("nick");
-//		String profile = request.getParameter("profile");
 		String greet = request.getParameter("greet");
+		dao.joinMemberDao(id, pwd, name, birth, mail, phone, nick, greet);
 		
-		dao.joinMemberDao(id, pwd, name, birth, mail, phone, nick, "person.png", greet);
 		
 		model.addAttribute("name", name);
 		
@@ -157,7 +159,7 @@ public class MemberController {
 		return "memberModify";
 	}
 	@RequestMapping(value = "/memberModifyOk")
-	public String memberModifyOk(HttpServletRequest request,Model model, HttpSession session,@RequestPart MultipartFile file) throws IllegalStateException, IOException {
+	public String memberModifyOk(HttpServletRequest request,Model model, HttpSession session,@RequestPart MultipartFile files) throws IllegalStateException, IOException {
 		
 		sidebar(session,model);
 		IDao dao = sqlSession.getMapper(IDao.class);
@@ -170,29 +172,31 @@ public class MemberController {
 		String greet =  request.getParameter("greet");
 		
 		
-//		//파일첨부
-//		String profile = file.getOriginalFilename(); //첨부된 파일의 원래이름
-//		String fileExtension = FilenameUtils.getExtension(profile).toLowerCase();
-//		File destinationFile; 
-//		String destinationFileName; 
-//		String profileUrl = "C:/springboot_workspace/rubatoProject001-20221117/src/main/resources/static/uploadfiles/";
-//		
-//		do {
-//		destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "."+ fileExtension;
-//		destinationFile = new File(profileUrl+destinationFileName);
-//		} while(destinationFile.exists());
-//		
-//		destinationFile.getParentFile().mkdir();
-//		file.transferTo(destinationFile); 
-//		
-//		
-//		
-//		dao.memberModifyDao(id, name, mail, nick, phone, greet, profile, destinationFileName, profileUrl, fileExtension);
-//		System.out.println(profile);
-//		System.out.println(destinationFileName);
-//		System.out.println(profileUrl);
-//		System.out.println(fileExtension);
-//		
+		//파일첨부
+		files.getOriginalFilename(); //첨부된 파일의 원래이름
+		String fileExtension = FilenameUtils.getExtension(files.getOriginalFilename()).toLowerCase();//첨부된 파일의 확장자뽑아서 저장
+																		//확장자 추출 후 소문자로 강제 변경.t oLowerCase()
+		File destinationFile; //java.io 패키지 클래스 임포트
+		String destinationFileName; //실제 서버에 저장된 파일의 변경된 이름이 저장될 변수 선언
+		String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
+		// 첨부된 파일이 저장될 서버의 실제 폴더 경로 url  주소 /로 바까주고 마지막에 / 꼭 추가!
+		
+		
+		do {
+		destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "."+ fileExtension;
+		//파일변수명(렌덤 숫자와영문대소문자 32개)뽑기 - 랜덤32자+ . + 확장자
+		// 알파벳대소문자와 숫자를 포함한 랜덤 32자 문자열 생성 후 . 을 구분자로 원본 파일의 확장자를 연결->실제 서버에 저장할 파일의 이름
+	
+		destinationFile = new File(fileUrl+destinationFileName);
+		} while(destinationFile.exists());
+		//혹시 같은 이름의 파일이름이 존재하는지 확인
+		
+		destinationFile.getParentFile().mkdir();
+		files.transferTo(destinationFile); // 업로드된 파일이 지정한 폴더로 이동완료!!
+		//add thorws declaration	
+		
+		dao.memberModifyDao(id, name, mail, nick, phone, greet, destinationFileName, fileUrl, fileExtension);
+		
 		return String.format("redirect:/sell_List?id=%s", id);
 	}
 

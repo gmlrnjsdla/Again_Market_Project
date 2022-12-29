@@ -33,7 +33,7 @@ public class ChatDao {
 			// 안읽은 메세지 갯수를 mto에 set한다.
 			mto.setUnread(unread);
 			// 메세지 상대의 프로필사진을 mto에 set한다.
-			mto.setProfile(profile); 
+			mto.setProfileName(profile); 
 			// 메세지 상대 nick을 세팅한다. other_nick
 			
 			if (nick.equals(mto.getSendnick())) {

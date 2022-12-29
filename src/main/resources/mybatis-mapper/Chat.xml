@@ -22,7 +22,7 @@
 
 <!-- 메세지 list에서 상대방 profile 가져오기 -->
 <select id="get_other_profile" parameterType="com.hsl.sns.dto.ChatDto" resultType="String">
-    SELECT profile FROM user_sns
+    SELECT profileName FROM user_sns
     <choose>
         <when test="sendnick == nick">
             WHERE nick = #{recvnick}
@@ -41,7 +41,7 @@
 
 <!-- 메세지 내용 가져오기 -->
 <select id="room_content_list" parameterType="com.hsl.sns.dto.ChatDto" resultType="com.hsl.sns.dto.ChatDto">
-    SELECT m.no, m.room, m.sendnick, m.recvnick, m.sendtime, m.readtime, m.content, m.readchk, u.profile
+    SELECT m.no, m.room, m.sendnick, m.recvnick, m.sendtime, m.readtime, m.content, m.readchk, u.profileName
     FROM message m LEFT OUTER JOIN user_sns u
     ON m.sendnick = u.nick
     <choose>

@@ -17,11 +17,10 @@ public class MemberDto {
 	private String phone;
 	private String nick;
 	private String rdate;
-	private String profile;//프로필사진원래이름
 	private String greet;
-	private String profilename;//프로필사진이름
-	private String profileurl;//프로필사진URL
-	
+	private String profileName;//프로필사진이름
+	private String profileUrl;//프로필사진URL
+	private String fileExtension;
 	
 	private PostDto postDto;
 	

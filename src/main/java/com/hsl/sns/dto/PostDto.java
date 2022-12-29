@@ -20,7 +20,7 @@ public class PostDto {
 	private String buyuser;
 	private int buyflag;
 	private int sellflag;
-	
+	private String profileName;
 	
 	private String nick;
 	

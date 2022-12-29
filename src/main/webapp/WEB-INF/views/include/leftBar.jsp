@@ -66,7 +66,7 @@
 	       
 	        <div class="dropdouwn">
 		      <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-     		    <img src="${pageContext.request.contextPath}/resources/img/${mList.profile}" alt="" width="23" height="23" class="rounded-circle me-2">
+     		    <img src="/resources/uploadfiles/${mList.profileName}" alt="" width="23" height="23" class="rounded-circle me-2">
 		        <span style="font-size:20px; font-weight:bold;">${mList.name}</span>
 		      </a>
 		      <ul class="dropdown-menu text-small shadow">

@@ -19,7 +19,7 @@
 	
 
 <div class="content_write_form01">
-<div  class="card" style="width: 400px; height:800px; border:1px solid #dddddd; border-radius:5px; background-color:#FBFBFB ">
+<div  class="card" style="width: 600px; height:800px; border:1px solid #dddddd; border-radius:5px; background-color:#FBFBFB ">
   	
   	<div class="card-body" style="height: 100px;">
   	<img src="${pageContext.request.contextPath }/resources/img/profile01.jpg" width="50" height="50" alt="...">${post.nick}
@@ -48,13 +48,13 @@
 
 	<hr>
 	</div>
- 	<div class="overflow-auto" >
+ 	<div class="overflow-auto" style="height: 450px;">
    
  	<!-- 컨텐츠 사진출력 -->
  	<div class="content_img" >
  	<c:forEach items="${postUrlList}" var="pList">
  		<c:if test="${pList.postidx == post.postidx }">
-			<img src="/resources/uploadfiles/${pList.fileName}" width="365" height="250"  alt="..." >
+			<img src="/resources/uploadfiles/${pList.fileName}" width="580" height="320"  alt="..." >
 		</c:if>
 	</c:forEach>
 	
@@ -62,7 +62,7 @@
 
 	</div>
 <hr>
-	<div class="overflow-auto" >
+	<div class="overflow-auto" style="height: 450px;">
 	<!--좋아요 버튼 -->   
 	<div class="subject_font01">
    		<span class="like_button01">
@@ -136,7 +136,7 @@
 	   <c:when test="${post.id == sid and post.buyflag != 0 and post.sellflag == 0}">
 		   	<a href="sell_tradeView?postidx=${post.postidx}">
 		  	<button type="button" class="btn btn-outline-danger"
-		        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 380px; ">
+		        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 598px; ">
 		  		판매확인
 			</button></a>
 		</c:when>
@@ -150,7 +150,7 @@
 		</c:when>
 
 		<c:otherwise>
-
+		
 		</c:otherwise>
 		
 	</c:choose>

@@ -35,7 +35,7 @@
     <c:forEach items="${postUrlList }" var="pUrlList" >
 		<c:if test="${pList.postidx == pUrlList.postidx}">
 		    <div >
-			<img src="/resources/uploadfiles/${pUrlList.fileName}" style="width:500px;" >
+			<img src="/resources/uploadfiles/${pUrlList.fileName}" style="width:600px;height:400px;" >
 		    </div>
        	</c:if>
 	</c:forEach>
@@ -58,7 +58,7 @@
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16"><path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/></svg>
 </a>
 
-<!--좋아요 버튼 -->   
+<!--찜하기 버튼 -->   
    <span class="like_button">
    찜하기<a href="follow?followid=<%=sid%>&followcontent=${pList.postidx}">
    <button type="button" class="btn  position-relative">
@@ -73,7 +73,7 @@
    
 	</div> 
 
-   <!--내용표시 -->
+   <!--제목표시 -->
    <div class="subject_font">
    ${pList.title}
    
@@ -133,17 +133,17 @@
 	<c:when test="${pList.id != sid and pList.buyflag == 0 }">
 		<a href="buy_tradeView?postidx=${pList.postidx }" >
 	  		<button type="button" class="btn btn-outline-danger"
-	        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 630px; ">
+	        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 628px; ">
 	  			구매신청
 			</button>
 		</a>
 	</c:when>
 
-	<c:when test="${pList.id == sid and pList.buyflag == 1 }">
+	<c:when test="${pList.id == sid and pList.buyflag != 0 and pList.sellflag == 0}">
 	
 		<a href="sell_tradeView?postidx=${pList.postidx }" >
 	  		<button type="button" class="btn btn-outline-danger"
-	        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 630px; ">
+	        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 628px; ">
 	  			판매확정
 			</button>
 		</a>

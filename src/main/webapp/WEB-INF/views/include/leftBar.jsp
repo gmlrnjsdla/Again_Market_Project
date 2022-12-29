@@ -86,10 +86,20 @@
         <a href="/sell_List?id=<%=sid %>" class="nav-link link-dark">
           <img src="${pageContext.request.contextPath}/resources/img/person.png" alt="" width="23" height="23" class="rounded-circle me-2">
           <span style="font-size:20px; font-weight:bold;">프로필</span>
+          
+         <!--##################################### 구매요청 뱃지 ##################################### -->  
+          <c:if test="${buyrequestCount > 0 }">
+			<span class="col-2 ">
+				<span class="badge bg-danger">구매요청(${buyrequestCount })</span>
+			</span>
+		  </c:if>
+        <!--##################################### 구매요청 뱃지 끝##################################### -->  
         </a>
       </li>
       <br>
-      
+
+   		
+   
       
       
       

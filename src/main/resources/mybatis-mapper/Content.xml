@@ -179,6 +179,11 @@
 		SELECT count(*) FROM post WHERE (buyuser =#{param1} OR id =#{param1}) AND (buyflag!=0 AND sellflag!=0)
 	</select>
 	
+	<select id="buyrequestCountDao" resultType="int">  <!--예약중 카운트 -->
+		SELECT count(*) FROM post WHERE id=#{param1} AND (buyflag !=0 AND sellflag=0)
+	</select> 
+	
+	
 
 	<!-- modify 해당 게시글 사진가져오기 -->
 	<select id="getPosturlModifyDao" resultType="com.hsl.sns.dto.PostingUrlDto">

@@ -14,9 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hsl.sns.dao.Chat;
 import com.hsl.sns.dao.IDao;
@@ -39,13 +36,18 @@ public class HomeController {
 		String sid = (String)session.getAttribute("sessionId");
 		String snick = (String)session.getAttribute("nick");
 		IDao dao = sqlSession.getMapper(IDao.class);
-		MemberDto dto = dao.memberInfoDao(sid);
-		List<MemberDto> dtos = dao.memberListDao(sid);
-		Chat cdao = sqlSession.getMapper(Chat.class);
+		
+		MemberDto dto = dao.memberInfoDao(sid); //회원 정보
+		model.addAttribute("minfo", dto);
+		
+		List<MemberDto> dtos = dao.memberListDao(sid); //검색 리스트
+		model.addAttribute("memberList", dtos);
+		
+		Chat cdao = sqlSession.getMapper(Chat.class); //메시지 유무 뱃지 확인용
 		int count = cdao.messageExist(snick);
 		model.addAttribute("count", count);
-		model.addAttribute("memberList", dtos);
-		model.addAttribute("minfo", dto);
+		
+		
 		//==============사이드바 정보가져오기==============
 		
 		//====================== right bar ======================//
@@ -71,6 +73,7 @@ public class HomeController {
 	public String join() {
 		return "join";
 	}
+	
 	
 	@RequestMapping(value = "/index")
 	public String index(Model model, HttpSession session, HttpServletRequest request) {

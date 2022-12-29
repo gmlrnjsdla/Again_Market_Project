@@ -35,14 +35,21 @@ public class ChatController {
 		//==============사이드바 정보가져오기==============
 		String sid = (String)session.getAttribute("sessionId");
 		String snick = (String)session.getAttribute("nick");
+		
 		IDao dao = sqlSession.getMapper(IDao.class);
-		MemberDto dto = dao.memberInfoDao(sid);
-		List<MemberDto> dtos = dao.memberListDao(sid);
-		Chat cdao = sqlSession.getMapper(Chat.class);
+		
+		MemberDto dto = dao.memberInfoDao(sid); //회원 정보
+		model.addAttribute("minfo", dto);
+		
+		List<MemberDto> dtos = dao.memberListDao(sid); //검색 리스트
+		model.addAttribute("memberList", dtos);
+		
+		
+		Chat cdao = sqlSession.getMapper(Chat.class); //메시지 유무 뱃지 확인용
 		int count = cdao.messageExist(snick);
 		model.addAttribute("count", count);
-		model.addAttribute("memberList", dtos);
-		model.addAttribute("minfo", dto);
+		
+		
 		//==============사이드바 정보가져오기==============
 		
 		//====================== right bar ======================//

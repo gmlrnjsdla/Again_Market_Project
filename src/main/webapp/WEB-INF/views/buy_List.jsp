@@ -80,7 +80,7 @@
    		
  	<div class="row" style="margin:5px; --bs-gap: .25rem 1rem;">
  		<c:forEach items="${bList }" var="bList">
-			<div class="col-md-4">
+			<div class="col-md-4" style=" margin-bottom:20px;">
 				<a href="content_view?postidx=${bList.postidx}" style="text-decoration: none; color:black;">
 					<c:forEach items="${uList }" var="uList">
 						<c:if test="${uList.postDto.postidx == bList.postidx }">
@@ -88,7 +88,7 @@
 						</c:if>
 					</c:forEach>
 				<div style="font-size: 12px;">${bList.id}</div>
-				<div style="font-weight: bold; font-size: 15px; text-align: center;">${bList.title }</div>
+				<div style="font-weight: bold; font-size: 15px; text-align: left;">${bList.title }</div>
 				</a>
 			</div>
 		</c:forEach>

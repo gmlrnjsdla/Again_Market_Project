@@ -71,33 +71,50 @@
 	   </table>
   </div>
   	<hr style="margin:30px;">
-  
-  	<div class="overflow-auto" style="height:600px">
-  		
-   	<!-- 판매중 리스트 -->	
-   		
-   		
- 	<div class="row" style="margin:5px; --bs-gap: .25rem 1rem;">
- 		
- 		<c:forEach items="${fList }" var="fList">
-			<div class="col-md-4" style=" margin-bottom:20px;">
-				<a href="content_view?postidx=${fList.postDto.postidx}" style="text-decoration: none; color:black;">
-					<c:forEach items="${uList }" var="uList">
-						<c:if test="${uList.postDto.postidx == fList.postDto.postidx }">
-							<img src="/resources/uploadfiles/${uList.fileName}" width="100" height="150" class="card-img-top" alt="...">
-						</c:if>
-					</c:forEach>
-				<div style="font-size: 12px;">${fList.postDto.id}</div>
-				<div style="font-weight: bold; font-size: 15px; text-align: left;">${fList.postDto.title }</div>
-				</a>
-			</div>
-		</c:forEach>
-		
 
-		
-		
-	</div>
+<!-- 판매중 리스트 -->
+  	<div class="overflow-auto" style="height:600px">
+  	<div class="row row-cols-3 row-cols-md-3 g-4" style="padding-left: 20px;padding-right: 10px;">	
+   	<c:forEach items="${fList}" var="fList">	
+	
+	  <div class="col">
+	    <div class="card h-100">
+	     <a href="content_view?postidx=${fList.postDto.postidx}" style="text-decoration: none; color:black;"> 
+	      <c:forEach items="${uList }" var="uList">
+	      	<c:if test="${uList.postDto.postidx == fList.postDto.postidx }">
+				<img src="/resources/uploadfiles/${uList.fileName}" width="100" height="150" class="card-img-top" alt="...">
+			</c:if>
+	      </c:forEach>
+		      <div class="card-body" style="height: 150px;">
+		        <span style="font-size: 12px; margin: top">${fList.postDto.id}</span>
+
+		        <p class="card-text">${fList.postDto.title }</p>
+		      </div>
+		      <div class="card-footer" style="height: 30px; padding: 0px; padding-left: 20px;">
+		      <small class="content_List_font03" >
+		      <c:forEach items="${dList}" var="dList">
+		      
+	   			<c:if test="${dList.postidx == fList.postDto.postidx }">
+	   				${dList.createdate}
+	   			</c:if>
+      		  
+      		  </c:forEach>일 전
+      		  
+      		  </small>
+      		  </div>
+        </a>
+      </div>
+    </div>
+  </c:forEach>
   </div>
+  
+  </div>
+  	
+
+	<!-- 판매중 리스트 끝 --> 
+  
+  
+  
 	</div>
 </div>
 <%@ include file="include/footer.jsp" %>

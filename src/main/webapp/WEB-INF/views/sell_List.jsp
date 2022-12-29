@@ -70,9 +70,11 @@
 	   
   </div>
   	<hr style="margin:30px;">
+  
+  
   <!-- 판매중 리스트 -->
   	<div class="overflow-auto" style="height:600px">
-  	<div class="row row-cols-3 row-cols-md-3 g-4">	
+  	<div class="row row-cols-3 row-cols-md-3 g-4" style="padding-left: 20px;padding-right: 10px;">	
    	<c:forEach items="${pList}" var="pList">	
 	
 	  <div class="col">
@@ -91,14 +93,22 @@
 				<span class="badge bg-danger">거래요청</span>
 				</span>
 		  		</c:if>
-				<!-- 구매신청 뱃지 -->
+				<!-- 구매신청 뱃지 끝-->
 				<hr style="margin:">
 		        
 		        <p class="card-text">${pList.title }</p>
 		      </div>
+		      <div class="card-footer" style="height: 30px; padding: 0px; padding-left: 20px;">
+		      <small class="content_List_font03" >
+		      <c:forEach items="${dList}" var="dList">
 		      
-		      <div class="card-footer">
-        		<small class="text-muted">Last updated 3 mins ago</small>
+	   			<c:if test="${dList.postidx == pList.postidx }">
+	   				${dList.createdate}
+	   			</c:if>
+      		  
+      		  </c:forEach>일 전
+      		  
+      		  </small>
       		  </div>
         </a>
       </div>

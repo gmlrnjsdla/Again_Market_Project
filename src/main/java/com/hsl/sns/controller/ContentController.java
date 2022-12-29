@@ -66,6 +66,8 @@ public class ContentController {
 	@RequestMapping(value = "/sell_List")
 	public String sell_List(HttpServletRequest request, HttpSession session, Model model) {
 		
+		
+		
 		sidebar(session,model);
 		IDao dao = sqlSession.getMapper(IDao.class);
 		String id = request.getParameter("id");
@@ -73,6 +75,8 @@ public class ContentController {
 		
 		model.addAttribute("minfo", dto);
 		model.addAttribute("id", dto.getId()); 
+		
+
 		
 	
 		//찜 수
@@ -98,6 +102,10 @@ public class ContentController {
 		List<PostingUrlDto> postUrlList= dao.myPostUrlListDao(); // 해당 프로필의 게시물 사진 하나만 가져오기
 		model.addAttribute("uList", postUrlList);
 		
+		//====================== 날짜 차이 ======================//
+		List<PostDto> dateList = dao.dateDao();
+		model.addAttribute("dList", dateList);
+		//====================== 날짜 차이 끝 ======================//
 		
 		return "sell_List";
 	}
@@ -113,6 +121,11 @@ public class ContentController {
 		
 		model.addAttribute("minfo", dto);
 		model.addAttribute("id", dto.getId()); 
+		
+		//=============================== 사이드바 구매요청 뱃지 ===============================
+		String sid = (String)session.getAttribute("sessionId");
+		int buyrequestCount = dao.buyrequestCountDao(sid);
+		model.addAttribute("buyrequestCount", buyrequestCount);
 		
 	
 		//찜 수
@@ -139,6 +152,13 @@ public class ContentController {
 		List<PostingUrlDto> postUrlList= dao.myPostUrlListDao(); // 해당 프로필의 게시물 사진 하나만 가져오기
 		model.addAttribute("uList", postUrlList);
 		
+		
+		//====================== 날짜 차이 ======================//
+		List<PostDto> dateList = dao.dateDao();
+		model.addAttribute("dList", dateList);
+		//====================== 날짜 차이 끝 ======================//
+		
+		
 		return "buy_List";
 	}
 	
@@ -153,7 +173,10 @@ public class ContentController {
 		
 		model.addAttribute("minfo", dto);
 		model.addAttribute("id", dto.getId()); 
-		
+		//=============================== 사이드바 구매요청 뱃지 ===============================
+		String sid = (String)session.getAttribute("sessionId");
+		int buyrequestCount = dao.buyrequestCountDao(sid);
+		model.addAttribute("buyrequestCount", buyrequestCount);
 		
 		//=============================== 찜 ===============================
 		int follower = dao.followerCountDao(id);
@@ -180,7 +203,11 @@ public class ContentController {
 		
 		List<PostingUrlDto> postUrlList= dao.myPostUrlListDao(); // 해당 프로필의 게시물 사진 하나만 가져오기
 		model.addAttribute("uList", postUrlList);
-		
+
+		//====================== 날짜 차이 ======================//
+		List<PostDto> dateList = dao.dateDao();
+		model.addAttribute("dList", dateList);
+		//====================== 날짜 차이 끝 ======================//
 		
 		return "choice_List";
 	}
@@ -196,6 +223,11 @@ public class ContentController {
 		
 		model.addAttribute("minfo", dto);
 		model.addAttribute("id", dto.getId()); 
+		
+		//=============================== 사이드바 구매요청 뱃지 ===============================
+		String sid = (String)session.getAttribute("sessionId");
+		int buyrequestCount = dao.buyrequestCountDao(sid);
+		model.addAttribute("buyrequestCount", buyrequestCount);		
 		
 	
 		//찜 수
@@ -221,6 +253,12 @@ public class ContentController {
 		
 		List<PostingUrlDto> postUrlList= dao.myPostUrlListDao(); // 해당 프로필의 게시물 사진 하나만 가져오기
 		model.addAttribute("uList", postUrlList);;
+
+		//====================== 날짜 차이 ======================//
+		List<PostDto> dateList = dao.dateDao();
+		model.addAttribute("dList", dateList);
+		//====================== 날짜 차이 끝 ======================//
+		
 		
 		return "transaction_List";
 	}

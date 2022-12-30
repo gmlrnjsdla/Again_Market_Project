@@ -371,11 +371,14 @@ public class ContentController {
 		List<CommentDto> commentDtos = dao.commentListDao(postidx);
 		model.addAttribute("commentList", commentDtos);
 		
+		//메세지
 		
 		
 		
 		return "content_view";
 	}
+	
+
 	
 	@RequestMapping(value = "buy_tradeView")
 	public String buy_tradeView(HttpServletRequest request, HttpSession session, Model model) {

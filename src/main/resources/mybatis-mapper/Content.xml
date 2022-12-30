@@ -19,6 +19,7 @@
 		<result property="buyflag" column="buyflag"/>
 		<result property="sellflag" column="sellflag"/>
 		<result property="profileName" column="profileName"/>
+		<result property="hopedate" column="hopedate"/>
 		
 	</resultMap>
 	
@@ -141,7 +142,7 @@
 	
 
 	<update id="buycompleteDao"> <!-- 구매완료 -->
-		UPDATE post SET buyuser=#{param2}, buyflag=buyflag+1 WHERE postidx=#{param1} 
+		UPDATE post SET buyuser=#{param2}, hopedate=#{param3}, buyflag=buyflag+1 WHERE postidx=#{param1} 
 	</update>
 	
 	<select id="selltradeDao" parameterType="com.hsl.sns.dto.MemberDto" resultMap="MemberDto"> <!-- sell trade내 구매자 정보 -->

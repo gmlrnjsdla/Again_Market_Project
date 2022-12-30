@@ -61,7 +61,7 @@ public interface IDao {
 	public PostDto commentViewDao(int postidx);//해당댓글
 	
 	//트레이드관련
-	public void buycompleteDao(int postidx,String buyuser);
+	public void buycompleteDao(int postidx,String buyuser,String selectedDate);
 	public MemberDto selltradeDao(int postidx);
 	public void sellcompleteDao(int postidx);
 	

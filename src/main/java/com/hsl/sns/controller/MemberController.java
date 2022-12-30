@@ -178,8 +178,8 @@ public class MemberController {
 																		//확장자 추출 후 소문자로 강제 변경.t oLowerCase()
 		File destinationFile; //java.io 패키지 클래스 임포트
 		String destinationFileName; //실제 서버에 저장된 파일의 변경된 이름이 저장될 변수 선언
-//		String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
-		String fileUrl = "C:/Users/user.JY-20200602UADW/git/SNS_Project/src/main/resources/static/uploadfiles/";
+		String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
+//		String fileUrl = "C:/Users/user.JY-20200602UADW/git/SNS_Project/src/main/resources/static/uploadfiles/";
 		// 첨부된 파일이 저장될 서버의 실제 폴더 경로 url  주소 /로 바까주고 마지막에 / 꼭 추가!
 		
 		

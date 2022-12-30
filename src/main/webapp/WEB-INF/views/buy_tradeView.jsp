@@ -156,9 +156,9 @@
       <div class="input-group">
       <div class="input-group-text">거래희망날짜</div>   
        <label class="form-control" for="autoSizingInputGroup">
-       		<input type="hidden" name="postidx=${pinfo.postDto.postidx }">
-       		<input type="hidden" name="nick=${minfo.nick }">
-       		<input type="hidden" name="id=${minfo.id }">
+       		<input type="hidden" name="postidx" value="${pinfo.postDto.postidx }">
+       		<input type="hidden" name="nick" value="${pinfo.nick}">
+       		<input type="hidden" name="buyuser" value="${minfo.id }">
        		<input type="text" id="pickDate" name="selectedDate">
        </label>
       </div>

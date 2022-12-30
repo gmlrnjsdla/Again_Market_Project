@@ -27,7 +27,9 @@
 </svg>
 <br><br><br><br>
 <h3> <%=sid %> 님의 구매신청이 <br><br>정상적으로 완료되었습니다.</h3>
-<br><br><br><br><br><br><br><br>
+<br><br>
+<h4>예약날짜 : ${date }</h4>
+<br><br><br><br><br><br>
 
 <button type="button" class="btn btn-outline-secondary" style=" width: 310px;" onclick="script:window.location='message'">판매자 연결</button>
 <br><br>

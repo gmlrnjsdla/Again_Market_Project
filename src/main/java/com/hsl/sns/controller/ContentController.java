@@ -307,8 +307,8 @@ public class ContentController {
 																				 
 				File destinationFile; 
 				String destinationFileName; 
-//				String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
-				String fileUrl = "C:/Users/user.JY-20200602UADW/git/SNS_Project/src/main/resources/static/uploadfiles/";
+				String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
+//				String fileUrl = "C:/Users/user.JY-20200602UADW/git/SNS_Project/src/main/resources/static/uploadfiles/";
 				
 				do {
 				destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "."+ fileExtension;
@@ -414,9 +414,10 @@ public class ContentController {
 		
 		int postidx = Integer.parseInt(request.getParameter("postidx"));
 		String buyuser = request.getParameter("buyuser");
+		String selectedDate = request.getParameter("selectedDate");
 		
-		
-		dao.buycompleteDao(postidx, buyuser);
+		model.addAttribute("date", selectedDate);
+		dao.buycompleteDao(postidx, buyuser,selectedDate);
 		
 
 		return "buy_completed";

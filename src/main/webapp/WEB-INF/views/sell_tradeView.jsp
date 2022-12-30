@@ -22,7 +22,7 @@
 <div class="content" style="width: 630px;">
 <div class="card" style="width: 630px;">
 <div class="card-body" style="width: 630px;">
-
+<br>
 <span class="list_index02">구매자정보</span>
 <hr class="garo1">
 <span class="col-auto">
@@ -41,8 +41,14 @@
       <div class="input-group-text">이메일</div>
        <label class="form-control" for="autoSizingInputGroup">${sinfo.mail}</label>
       </div>
-     
+      <div class="input-group">
+      <div class="input-group-text">거래희망날짜</div>
+       <label class="form-control" for="autoSizingInputGroup">${pinfo.postDto.hopedate.substring(0,10)}</label>
+      </div>
+      <br><br>
+      
      <!-- 구매자 거래확정 확인 -->
+     <!--
      <div class="input-group-text">판매자 확인</div>
        <label class="form-control" for="autoSizingInputGroup">	
      <span class="trade_font01">
@@ -53,6 +59,7 @@
      </span>
      </label>	
      <br>
+     -->
      <!-- 구매자 거래확정 확인 끝 -->
      
      
@@ -97,6 +104,7 @@
       <div class="input-group-text">이메일</div>
        <label class="form-control" for="autoSizingInputGroup">${minfo.mail}</label>
     </div>
+    
     <br><br>
 <br><br>
     <span><a href="sell_completed?postidx=${pinfo.postDto.postidx}"><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;">판매 확정</button></span>

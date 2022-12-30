@@ -28,7 +28,7 @@ public interface IDao {
 	public List<PostDto> postInfoDao(String id); //파일업로드시 postidx 찾는 DAO
 	public int postCountDao(String id); //총게시글 DAO
 	
-	
+	public List<PostDto> scheduler(String id);
 	
 	//index 관련
 	

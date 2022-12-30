@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -78,9 +79,30 @@ public class HomeController {
 	public String join() {
 		return "join";
 	}
-	@RequestMapping(value = "/test")
-	public String test() {
-		return "test";
+	@RequestMapping(value = "/scheduler")
+	public String test(Model model, HttpSession session, HttpServletRequest request) {
+		
+		sidebar(session,model);
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		String id = (String)session.getAttribute("sessionId");
+		List<PostDto> dateList = dao.scheduler(id);
+		model.addAttribute("dateList", dateList);
+		
+		List jsonList = new ArrayList<JSONObject>();
+		
+		for(int i=0;i<dateList.size(); i++) {
+			PostDto dto = dateList.get(i);
+			
+			dto.setStart(dto.getHopedate().substring(0,10));
+			dto.setTitle(dto.getNick()+"/거래");
+	        JSONObject jsonObject = new JSONObject(dto);
+	         
+	         jsonList.add(jsonObject);
+	      }
+	      model.addAttribute("result", jsonList);
+		
+		return "scheduler";
 	}
 	
 	
@@ -205,6 +227,12 @@ public class HomeController {
 		
 		return "index";
 	}
+	
+	
+	
+	
+	
+	
 	
 	
 	

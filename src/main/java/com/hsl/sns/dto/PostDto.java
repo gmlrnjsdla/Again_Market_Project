@@ -26,6 +26,8 @@ public class PostDto {
 	private String nick;
 	
 	
+	private String start;
+	
 	
 	
 	

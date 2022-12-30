@@ -80,7 +80,9 @@
 	<select id="postInfoDao" resultType="com.hsl.sns.dto.PostDto">
 		SELECT * FROM post WHERE id=#{param1} ORDER BY postidx DESC
 	</select>
-	
+	<select id="scheduler" resultType="com.hsl.sns.dto.PostDto">
+		SELECT p.*,u.nick FROM post p JOIN user_sns u ON p.id = u.id WHERE buyuser=#{param1} AND (p.buyflag !=0 AND p.sellflag!=0)
+	</select>
 	
 
 	<!-- index -->

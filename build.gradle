@@ -40,6 +40,8 @@ dependencies {
 	implementation 'org.apache.commons:commons-lang3:3.0'
 	implementation 'commons-io:commons-io:2.5'
 	
+	//join 라이브러리 
+	implementation group: 'org.json', name: 'json', version: '20090211'
 	
 	
 }

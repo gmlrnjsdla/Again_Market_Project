@@ -58,8 +58,12 @@ public class ContentController {
 		List<FollowDto> followList = dao.likeContentListDao(sid);
 		model.addAttribute("fList", followList); //찜목록
 		
+		List<PostDto> buyList = dao.buyListDao(sid); // 예약목록
+		model.addAttribute("bList", buyList);
+		
 		List<PostDto> mypostList = dao.myPostListDao(sid);
 		model.addAttribute("pList", mypostList); //판매목록
+		
 	}
 	
 	
@@ -95,7 +99,7 @@ public class ContentController {
 		
 		List<PostDto> postList = dao.myPostListDao(id); // 해당 프로필의 판매중인 게시글 정보 가져오기
 		model.addAttribute("pList", postList); 
-		System.out.println(postList);
+		
 		List<PostingUrlDto> postUrlList= dao.myPostUrlListDao(); // 해당 프로필의 게시물 사진 하나만 가져오기
 		model.addAttribute("uList", postUrlList);
 		
@@ -307,6 +311,7 @@ public class ContentController {
 																				 
 				File destinationFile; 
 				String destinationFileName; 
+				
 				String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
 //				String fileUrl = "C:/Users/user.JY-20200602UADW/git/SNS_Project/src/main/resources/static/uploadfiles/";
 				
@@ -396,9 +401,10 @@ public class ContentController {
 		IDao dao = sqlSession.getMapper(IDao.class);
 		MemberDto sdto=dao.selltradeDao(postidx);
 		model.addAttribute("sinfo", sdto);
+		
 		MemberDto dto = dao.postInfomationDao(postidx);
 		model.addAttribute("pinfo", dto);
-		System.out.println(sid);
+		
 		MemberDto mdto = dao.memberInfoDao(sid);
 		System.out.println(mdto.getNick());
 		model.addAttribute("minfo", mdto);
@@ -433,9 +439,12 @@ public class ContentController {
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
 		int postidx = Integer.parseInt(request.getParameter("postidx"));
+		String selectedDate = request.getParameter("selecteddate");
+		String nick = request.getParameter("nick");
 		
 		dao.sellcompleteDao(postidx);
-		
+		model.addAttribute("date", selectedDate);
+		model.addAttribute("nick", nick);
 		
 		return "sell_completed";
 	}

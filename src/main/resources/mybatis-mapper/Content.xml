@@ -153,7 +153,6 @@
 		UPDATE post SET  sellflag=sellflag+1 WHERE postidx=#{param1}
 	</update>
 	
-	
 	<select id="myPostListDao" resultType="com.hsl.sns.dto.PostDto"> <!-- 판매중 리스트 -->
 		SELECT p.*,u.nick FROM post p JOIN user_sns u ON p.id=u.id WHERE p.id=#{param1} AND (sellflag=0)
 	</select>

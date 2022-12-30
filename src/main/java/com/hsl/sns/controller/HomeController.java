@@ -60,6 +60,9 @@ public class HomeController {
 		List<FollowDto> followList = dao.likeContentListDao(sid);
 		model.addAttribute("fList", followList); //찜목록
 		
+		List<PostDto> buyList = dao.buyListDao(sid); // 예약목록
+		model.addAttribute("bList", buyList);
+		
 		List<PostDto> mypostList = dao.myPostListDao(sid);
 		model.addAttribute("pList", mypostList); //판매목록
 	}
@@ -205,8 +208,7 @@ public class HomeController {
 		
 		return "index";
 	}
-	
-	
+
 	
 	
 }

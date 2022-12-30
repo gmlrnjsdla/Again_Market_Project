@@ -61,6 +61,7 @@
 <!--찜하기 버튼 -->   
    <span class="like_button">
    찜하기<a href="follow?followid=<%=sid%>&followcontent=${pList.postidx}">
+
    <button type="button" class="btn  position-relative">
     <img src="${pageContext.request.contextPath }/resources/img/hearts.png" width="20" height="20" alt="...">
      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">

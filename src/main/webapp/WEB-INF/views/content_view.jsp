@@ -63,10 +63,13 @@
 	</div>
 <hr>
 	<div class="overflow-auto" style="height: 450px;">
-	<!--좋아요 버튼 -->   
-	<div class="subject_font01">
+
+  	<div class="subject_font01">
+	<!--찜하기 버튼 --> 		
    		<span class="like_button01">
+
    		찜하기<a href="follow1?followid=<%=sid%>&followcontent=${post.postidx}">
+
    				<button type="button" class="btn  position-relative">
 	    			<img src="${pageContext.request.contextPath }/resources/img/hearts.png" width="20" height="20" alt="...">
 	     			<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -75,9 +78,12 @@
    				</button>
    			</a>
    		</span>
-
-   <!--내용표시 -->
-   ${post.title}
+		
+	<!--찜하기 버튼 끝 -->	
+	
+   <!--제목표시 -->
+   
+  &nbsp;&nbsp; ${post.title}
    
    <!--판매중/판매완료 표시 -->
  
@@ -104,13 +110,7 @@
 		
 	</c:choose>
    <!--판매중/판매완료 표시 끝 -->
-   
-   
-   
-   
-   
-   
-   	</div>
+
    <div class="content_font_index01">
 	  	${post.type} .
 	  	<c:forEach items="${dList}" var="dList">
@@ -128,7 +128,7 @@
   	<div class="content_font_index" style="height:100px;">
   		${post.content}
   	</div>
-  
+</div> 
 
 <!--구매확인/판매확인 버튼 --> 
 
@@ -144,8 +144,8 @@
 		<c:when test="${post.id!= sid and post.buyflag == 0 and post.sellflag == 0}">
 			<a href="buy_tradeView?postidx=${post.postidx}" >
 		  	<button type="button" class="btn btn-outline-danger"
-		        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 380px; ">
-			  	구매확인
+		        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 598px; ">
+			  	구매신청
 			</button></a>
 		</c:when>
 

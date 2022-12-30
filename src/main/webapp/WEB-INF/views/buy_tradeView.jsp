@@ -154,8 +154,11 @@
        <label class="form-control" for="autoSizingInputGroup">${minfo.mail}</label>
       </div>
       <div class="input-group">
-      <div class="input-group-text">날짜</div>   
+      <div class="input-group-text">거래희망날짜</div>   
        <label class="form-control" for="autoSizingInputGroup">
+       		<input type="hidden" name="postidx=${pinfo.postDto.postidx }">
+       		<input type="hidden" name="nick=${minfo.nick }">
+       		<input type="hidden" name="id=${minfo.id }">
        		<input type="text" id="pickDate" name="selectedDate">
        </label>
       </div>

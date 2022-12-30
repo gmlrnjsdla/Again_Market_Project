@@ -411,12 +411,16 @@ public class ContentController {
 		sidebar(session,model);
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
-		
 		int postidx = Integer.parseInt(request.getParameter("postidx"));
 		String buyuser = request.getParameter("buyuser");
+		String nick = request.getParameter("nick");
+		
 		
 		
 		dao.buycompleteDao(postidx, buyuser);
+		model.addAttribute("nick", nick);
+		
+		
 		
 
 		return "buy_completed";

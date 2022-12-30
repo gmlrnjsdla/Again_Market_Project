@@ -156,22 +156,22 @@
       <div class="input-group">
       <div class="input-group-text">거래희망날짜</div>   
        <label class="form-control" for="autoSizingInputGroup">
-       		<input type="hidden" name="postidx" value="${pinfo.postDto.postidx }">
-       		<input type="hidden" name="nick" value="${pinfo.nick}">
-       		<input type="hidden" name="buyuser" value="${minfo.id }">
+       		<input type="hidden" name="postidx" value=${pinfo.postDto.postidx }>
+       		<input type="hidden" name="nick" value=${pinfo.nick }>
+       		<input type="hidden" name="buyuser" value=${minfo.id }>
        		<input type="text" id="pickDate" name="selectedDate">
        </label>
       </div>
     <br><br>
     <span><input type="submit" class="btn btn-outline-primary" value = "구매 신청"style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;"></span>
     <span><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: right;margin-right: 80px;">구매 취소</button></span>
-  </form>
+  
 
 
 </div>
 </div>
 </div>
-
+</form>
 <br>
 <br>
 <br>

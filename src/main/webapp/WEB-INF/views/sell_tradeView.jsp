@@ -17,7 +17,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<form action="sell_completed">
 
 <div class="content" style="width: 630px;">
 <div class="card" style="width: 630px;">
@@ -104,17 +104,19 @@
       <div class="input-group-text">이메일</div>
        <label class="form-control" for="autoSizingInputGroup">${minfo.mail}</label>
     </div>
-    
+    		<input type="hidden" name="postidx" value="${pinfo.postDto.postidx }">
+       		<input type="hidden" name="nick" value="${sinfo.nick }">
+       		<input type="hidden" name="selecteddate" value="${pinfo.postDto.hopedate.substring(0,10)}">
     <br><br>
 <br><br>
-    <span><a href="sell_completed?postidx=${pinfo.postDto.postidx}"><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;">판매 확정</button></span>
+    <span><input type="submit" class="btn btn-outline-primary" value="판매 확정" style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;"></span>
     <span><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: right;margin-right: 80px;" onclick="script:window.location='index'">판매 취소</button></span>
 
 
 </div>
 </div>
 </div>
-
+</form>
 <br>
 <br>
 <br>

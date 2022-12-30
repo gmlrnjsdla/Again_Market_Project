@@ -57,6 +57,7 @@
   		<path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2Zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12Z"/>
   		<path d="M8 3.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
 	</svg>
+	
 
 
 <!-- 찜한 목록 아이콘 태그 끝 -->
@@ -67,7 +68,12 @@
 			<div class="list_index01">
 			  <c:forEach items="${fList }" var="fList">
 				  <div class="list_index">
-			   	  <a href="content_view?postidx=${fList.postDto.postidx}" style="text-decoration: none;">${fList.postDto.title}</a>
+				  
+			   	 	 <a href="content_view?postidx=${fList.postDto.postidx}" style="text-decoration: none;"><i class="bi bi-caret-right"></i>
+			   	  		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
+  							<path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+						</svg>
+						${fList.postDto.title}</a>
 			      </div>
 		      </c:forEach>
 		  	</div>
@@ -88,11 +94,16 @@
 			<div class="list_index01">
 			  <c:forEach items="${bList }" var="bList">
 				  <div class="list_index">
-			   	  <a href="content_view?postidx=${bList.postidx}" style="text-decoration: none;">${bList.title}</a>
+			   	 	 <a href="content_view?postidx=${bList.postidx}" style="text-decoration: none; ">
+			   	 		 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
+  							<path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+				  		 </svg>
+			   	 		 ${bList.title}</a>
 			      </div>
 		      </c:forEach>
 		  	</div>
     	</div>
+		      
 <!--  구매목록 끝 -->		
 <br>
 
@@ -106,16 +117,19 @@
 	<span class="list_index02"><i class="bi bi-cart"></i>판매목록</span>
 	<hr class="garo"> 
 		<div class="card" style="width: 100%; height:15%; overflow: auto;">
-		    
-				<div class="list_index01">
-				  <c:forEach items="${pList }" var="pList">
-					  <div class="list_index">
-				   	  <a href="content_view?postidx=${pList.postidx}" style="text-decoration: none; ">${pList.title}</a>
-				      </div>
-			      </c:forEach>
-			      
-			  	</div>
-		    	</div>
+			<div class="list_index01">
+			  <c:forEach items="${pList }" var="pList">
+				  <div class="list_index">
+			   	  	<a href="content_view?postidx=${pList.postidx}" style="text-decoration: none; ">
+			   		  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
+  						<path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+					  </svg>
+			   	  	  ${pList.title}</a>
+			      </div>
+		      </c:forEach>
+		      
+		  	</div>
+		</div>
 <!--  판매목록 끝 -->				
 		
 		</div>

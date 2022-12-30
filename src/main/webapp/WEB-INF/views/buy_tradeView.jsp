@@ -79,7 +79,7 @@
 <body>
 
 
-
+<form action="buy_completed">
 
 <div class="content" style="width: 630px;">
 <div class="card" style="width: 630px;">
@@ -163,9 +163,9 @@
        </label>
       </div>
     <br><br>
-    <span><a href="buy_completed?postidx=${pinfo.postDto.postidx}&buyuser=${minfo.id}"><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;">구매 신청</button></a></span>
+    <span><input type="submit" class="btn btn-outline-primary" value = "구매 신청"style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;"></span>
     <span><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: right;margin-right: 80px;">구매 취소</button></span>
-  
+  </form>
 
 
 </div>

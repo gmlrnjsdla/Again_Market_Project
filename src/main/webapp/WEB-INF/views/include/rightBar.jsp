@@ -82,25 +82,17 @@
 <!-- 구매 목록 아이콘 태그 끝 -->
 
 <!--  구매목록 시작 -->
-	<span class="list_index02"><i class="bi bi-bag"></i>구매목록</span>
+	<span class="list_index02"><i class="bi bi-chat-right-heart"></i>예약목록</span>
 	<hr class="garo"> 
 		<div class="card" style="width: 100%; height:15%; overflow: auto;">
-		    
-				<div class="list_index01">
+			<div class="list_index01">
+			  <c:forEach items="${bList }" var="bList">
 				  <div class="list_index">
-			   	  <a href="#" style="text-decoration: none;">티비팝니다</a>
+			   	  <a href="content_view?postidx=${bList.postidx}" style="text-decoration: none;">${bList.title}</a>
 			      </div>
-			      <div class="list_index">
-			   	  <a href="#" style="text-decoration: none;">티비팝니다</a>
-			      </div><div class="list_index">
-			   	  <a href="#" style="text-decoration: none;">티비팝니다</a>
-			      </div><div class="list_index">
-			   	  <a href="#" style="text-decoration: none;">티비팝니다</a>
-			      </div><div class="list_index">
-			   	  <a href="#" style="text-decoration: none;">티비팝니다</a>
-			      </div>
-			  	</div>
-		    	</div>
+		      </c:forEach>
+		  	</div>
+    	</div>
 <!--  구매목록 끝 -->		
 <br>
 

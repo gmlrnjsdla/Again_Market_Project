@@ -68,7 +68,7 @@
 	<!--찜하기 버튼 --> 		
    		<span class="like_button01">
 
-   		찜하기<a href="follow1?followid=<%=sid%>&followcontent=${post.postidx}">
+	   		찜하기<a href="follow1?followid=<%=sid%>&followcontent=${post.postidx}">
 
    				<button type="button" class="btn  position-relative">
 	    			<img src="${pageContext.request.contextPath }/resources/img/hearts.png" width="20" height="20" alt="...">
@@ -84,6 +84,11 @@
    <!--제목표시 -->
    
   &nbsp;&nbsp; ${post.title}
+  <!--메세지 보내기 --> 
+<a href="send?nick=${pList.nick}" style="margin-left:250px;">메시지
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16"><path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/></svg>
+</a> 
+   
    
    <!--판매중/판매완료 표시 -->
  
@@ -148,7 +153,17 @@
 			  	구매신청
 			</button></a>
 		</c:when>
-
+		
+		<c:when test="${post.buyuser == sid and post.buyflag != 0 and post.sellflag == 0}">
+		<a href="buy_cancel?postidx=${post.postidx}" >
+		<button type="button" class="btn btn-outline-primary"
+	        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 598px; ">
+	  			구매취소
+		</button>
+		</a>
+		</c:when>
+		
+		
 		<c:otherwise>
 		
 		</c:otherwise>

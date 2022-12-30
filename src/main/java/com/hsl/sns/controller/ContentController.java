@@ -58,8 +58,15 @@ public class ContentController {
 		List<FollowDto> followList = dao.likeContentListDao(sid);
 		model.addAttribute("fList", followList); //찜목록
 		
+		
+		List<PostDto> buyList = dao.buyListDao(sid); // 해당 프로필의 예약중인 게시글 정보 가져오기
+		model.addAttribute("bList", buyList);
+		
+		
 		List<PostDto> mypostList = dao.myPostListDao(sid);
 		model.addAttribute("pList", mypostList); //판매목록
+		
+		
 	}
 	
 	
@@ -359,13 +366,19 @@ public class ContentController {
 		//찜하기 수
 		int count = dao.followCountDao(postidx);
 		model.addAttribute("likeCount", count);
-		
+
 		//댓글
 		List<CommentDto> commentDtos = dao.commentListDao(postidx);
 		model.addAttribute("commentList", commentDtos);
 		
+		//메세지
+		
+		
+		
 		return "content_view";
 	}
+	
+
 	
 	@RequestMapping(value = "buy_tradeView")
 	public String buy_tradeView(HttpServletRequest request, HttpSession session, Model model) {
@@ -383,6 +396,18 @@ public class ContentController {
 		
 		
 		return "buy_tradeView";
+	}
+	
+	@RequestMapping(value = "buy_cancel")
+	public String buy_cancel(HttpServletRequest request, HttpSession session, Model model) {
+		sidebar(session,model);
+		IDao dao = sqlSession.getMapper(IDao.class);
+		int postidx = Integer.parseInt(request.getParameter("postidx"));
+
+		dao.buyCancleDao(postidx);
+		
+		
+		return "buy_cancel";
 	}
 	
 	

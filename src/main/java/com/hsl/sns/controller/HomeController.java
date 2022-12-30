@@ -155,6 +155,8 @@ public class HomeController {
 		
 		int count = dao.followCheckDao(followid,followcontent);
 		if(count != 0) {
+			
+			dao.followDeleteDao(followid, followcontent);
 			return "redirect:/index";
 		}else {
 			dao.followDao(followcontent, followid);
@@ -172,6 +174,7 @@ public class HomeController {
 		
 		int count = dao.followCheckDao(followid,followcontent);
 		if(count != 0) {
+			dao.followDeleteDao(followid, followcontent);
 			return String.format("redirect:/content_view?postidx=%s", followcontent);
 		}else {
 			dao.followDao(followcontent, followid);

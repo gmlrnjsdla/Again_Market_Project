@@ -47,6 +47,8 @@ public interface IDao {
 	public int followerCountDao(String followid);					// 해당 아이디의 찜한 게시글 수
     public List<FollowDto> likeContentListDao(String id);			// 해당 아이디의 찜한 게시글 목록
     
+    public void followDeleteDao(String followid,int followcontent);
+    
     //프로필 게시물 목록
     public List<PostDto> myPostListDao(String id);	// 내 판매중인 게시물
     public List<PostingUrlDto> myPostUrlListDao();	// 게시글당 사진 한장만 가져오기
@@ -76,6 +78,10 @@ public interface IDao {
 	
 	//구매요청 관련
 	public int buyrequestCountDao(String sid); //거래완료 게시물 갯수
+	
+	//구매삭제 관련
+	public int buyCancleDao(int postidx);
+	
 	
 	//게시물 수정
 	public List<PostingUrlDto> getPosturlModifyDao(int postidx);

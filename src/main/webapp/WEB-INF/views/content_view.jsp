@@ -68,7 +68,7 @@
 	<!--찜하기 버튼 --> 		
    		<span class="like_button01">
 
-   		찜하기<a href="follow1?followid=<%=sid%>&followcontent=${post.postidx}">
+	   		찜하기<a href="follow1?followid=<%=sid%>&followcontent=${post.postidx}">
 
    				<button type="button" class="btn  position-relative">
 	    			<img src="${pageContext.request.contextPath }/resources/img/hearts.png" width="20" height="20" alt="...">
@@ -148,7 +148,17 @@
 			  	구매신청
 			</button></a>
 		</c:when>
-
+		
+		<c:when test="${post.buyuser == sid and post.buyflag != 0 and post.sellflag == 0}">
+		<a href="buy_cancel?postidx=${post.postidx}" >
+		<button type="button" class="btn btn-outline-primary"
+	        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 598px; ">
+	  			구매취소
+		</button>
+		</a>
+		</c:when>
+		
+		
 		<c:otherwise>
 		
 		</c:otherwise>

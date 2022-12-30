@@ -19,7 +19,10 @@
 	</select>
 	
 	<select id="followerCountDao" resultType="int">
-		SELECT count(*) FROM follow WHERE followid=#{param1}
+		SELECT count(*) FROM follow f JOIN post p ON f.followcontent= p.postidx  WHERE f.followid=#{param1} AND p.id NOT IN #{param1} AND sellflag =0
 	</select>
 	
+	<delete id="followDeleteDao">
+		DELETE FROM follow WHERE followid=#{param1} AND followcontent=${param2}
+	</delete>
 </mapper>

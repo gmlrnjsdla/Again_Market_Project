@@ -102,20 +102,7 @@
       <div class="input-group-text">이메일</div>
        <label class="form-control" for="autoSizingInputGroup">${pinfo.mail}</label>
     </div>
-    <!-- 판매자 거래확정 확인 -->
-	
-	<div class="input-group-text">판매자 확인</div>
-       <label class="form-control" for="autoSizingInputGroup">	
-     <span class="trade_font01">
-     <img class ="rounded-circle me-2" src="${pageContext.request.contextPath }/resources/img/ok.png" alt="..." width="30" height="30" > 판매자 확인 완료
-     </span>
-     <span class="trade_font02">
-     <img class ="rounded-circle me-2" src="${pageContext.request.contextPath }/resources/img/waiting.png" alt="..." width="30" height="30" > 판매자 확인 미완료
-     </span>
-     </label>	
-     <br>
-     
-     <!-- 판매자 거래확정 확인 끝 -->
+  	<br><br>
 
    <span class="list_index02">거래정보</span>
 <hr class="garo1">
@@ -164,7 +151,7 @@
       </div>
     <br><br>
     <span><input type="submit" class="btn btn-outline-primary" value = "구매 신청"style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;"></span>
-    <span><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: right;margin-right: 80px;">구매 취소</button></span>
+    <span><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: right;margin-right: 80px;" onclick="script:window.location='index'">구매 신청 취소</button></span>
   
 
 

@@ -131,7 +131,7 @@
 <br>
 <!--구매신청 버튼 --> 
 <c:choose>
-	<c:when test="${pList.id != sid and pList.buyflag == 0 }">
+	<c:when test="${pList.id != sid and pList.buyflag == 0 and pList.sellflag == 0}">
 		<a href="buy_tradeView?postidx=${pList.postidx }" >
 	  		<button type="button" class="btn btn-outline-danger"
 	        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 628px; ">
@@ -143,16 +143,25 @@
 	<c:when test="${pList.id == sid and pList.buyflag != 0 and pList.sellflag == 0}">
 	
 		<a href="sell_tradeView?postidx=${pList.postidx }" >
-	  		<button type="button" class="btn btn-outline-danger"
+	  		<button type="button" class="btn btn-outline-success"
 	        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 628px; ">
 	  			판매확정
 			</button>
 		</a>
 	</c:when>
+
+	<c:when test="${pList.buyuser == sid and pList.buyflag != 0 and pList.sellflag == 0}">
+		<a href="buy_cancel?postidx=${pList.postidx}" >
+		<button type="button" class="btn btn-outline-primary"
+	        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 628px; ">
+	  			구매취소
+		</button>
+		</a>
+	</c:when>
 	
 	<c:otherwise>
-	
 	</c:otherwise>
+	
 </c:choose>
   
   

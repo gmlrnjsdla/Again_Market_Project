@@ -108,7 +108,7 @@
     <br><br>
 <br><br>
     <span><a href="sell_completed?postidx=${pinfo.postDto.postidx}"><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;">판매 확정</button></span>
-    <span><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: right;margin-right: 80px;">판매 취소</button></span>
+    <span><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: right;margin-right: 80px;" onclick="script:window.location='index'">판매 취소</button></span>
 
 
 </div>

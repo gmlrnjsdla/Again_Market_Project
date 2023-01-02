@@ -564,6 +564,6 @@ public String delete_content(HttpServletRequest request,Model model, HttpSession
 	
 	return "redirect:index";
 }
-	
+
 	
 }

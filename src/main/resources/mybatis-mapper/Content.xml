@@ -182,7 +182,7 @@
 	<select id="likeContentListDao" parameterType="com.hsl.sns.dto.FollowDto" resultMap="FollowDto"> <!-- 찜한 게시물 목록  -->
 		SELECT * FROM follow f LEFT JOIN 
 		(SELECT post.*,user_sns.nick FROM post JOIN user_sns ON post.id = user_sns.id) p 
-		ON f.followcontent = p.postidx WHERE followid=#{param1} AND p.id NOT IN #{param1} AND sellflag =0 order  by postidx desc
+		ON f.followcontent = p.postidx WHERE followid=#{param1} AND p.id NOT IN #{param1} AND (buyflag =0 AND sellflag =0) order  by postidx desc
 	</select>
 	
 	<select id="transactionListDao" resultType="com.hsl.sns.dto.PostDto"> <!-- 거래완료 리스트 -->

@@ -19,7 +19,7 @@
 	</select>
 	
 	<select id="followerCountDao" resultType="int">
-		SELECT count(*) FROM follow f JOIN post p ON f.followcontent= p.postidx  WHERE f.followid=#{param1} AND p.id NOT IN #{param1} AND sellflag =0
+		SELECT count(*) FROM follow f JOIN post p ON f.followcontent= p.postidx  WHERE f.followid=#{param1} AND p.id NOT IN #{param1} AND (buyflag =0 AND sellflag =0)
 	</select>
 	
 	<delete id="followDeleteDao">

@@ -25,9 +25,8 @@ public class PostDto {
 	private String hopedate;
 	private String nick;
 	
-	
+	//스케줄러 날짜
 	private String start;
-	
 	
 	
 	

@@ -5,8 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<%@ include file="include/leftBar.jsp" %>
-<%@ include file="include/rightBar.jsp" %>
+
 
 
 
@@ -55,7 +54,8 @@
 <title>#### 예약신청 ####</title>
 </head>
 <body>
-
+<%@ include file="include/leftBar.jsp" %>
+<%@ include file="include/rightBar.jsp" %>
 
 <form action="buy_completed">
 

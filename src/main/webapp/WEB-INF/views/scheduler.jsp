@@ -6,7 +6,8 @@
 <head>
 <meta charset="UTF-8">
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.0.2/index.global.min.js"></script>
-
+<script src='fullcalendar/core/index.global.js'></script>
+<script src='fullcalendar/core/locales-all.global.js'></script>
 
 <style>
 
@@ -22,7 +23,11 @@
       margin: 40px auto;
     }
     
+  	.fc-day-today {
+    background: #c8f5f7 !important;
+    border: none !important;
   
+} 
 
   </style>
   
@@ -32,6 +37,7 @@
         var calendarEl = document.getElementById('calendar');
         console.log(${result});
         var calendar = new FullCalendar.Calendar(calendarEl, {
+       	  
           initialView: 'dayGridMonth',
           timeZone: 'UTC',
        	  events:${result},
@@ -40,7 +46,11 @@
             minute: '2-digit',
             meridiem: 'narrow',
             hour12: false
-        }
+          },
+          eventClick:function(info) {
+            alert(info.event.id);
+          }
+          
         });
         calendar.render();
       });

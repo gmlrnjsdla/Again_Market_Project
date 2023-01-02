@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -83,7 +84,7 @@ public class HomeController {
 		return "join";
 	}
 	@RequestMapping(value = "/scheduler")
-	public String test(Model model, HttpSession session, HttpServletRequest request) {
+	public String test(Model model, HttpSession session, HttpServletRequest request) throws JSONException {
 		
 		sidebar(session,model);
 		
@@ -91,27 +92,40 @@ public class HomeController {
 		String sid = (String)session.getAttribute("sessionId");
 		List<PostDto> dateList = dao.scheduler(sid);
 		List<PostDto> dateList1 = dao.schedulerSell(sid);
-		
 		List jsonList = new ArrayList<JSONObject>();
 		
-		for(int i=0;i<dateList.size(); i++) {
-			PostDto dto = dateList.get(i);
-			dto.setStart(dto.getHopedate());
-			dto.setTitle("구매");
-	        JSONObject jsonObject = new JSONObject(dto);
-	         
-	         jsonList.add(jsonObject);
-	      }
-		for(int i=0;i<dateList1.size(); i++) {
-			PostDto dto = dateList1.get(i);
-			dto.setStart(dto.getHopedate());
-			dto.setTitle("판매");
-	        JSONObject jsonObject1 = new JSONObject(dto);
-	         
-	         jsonList.add(jsonObject1);
-	      }
-	      model.addAttribute("result", jsonList);
-	      
+		if(dateList != null && dateList1 != null) {
+		
+			for(int i=0;i<dateList.size(); i++) {
+				PostDto dto = dateList.get(i);
+				
+				
+		        JSONObject jsonObject = new JSONObject(dto);
+		        jsonObject.put("color", "red");
+		        jsonObject.put("id", dto.getNick()+"님과의 거래가 있습니다!\n"+"게시물 제목 : "+dto.getTitle()+"\n예약시간 : "+dto.getHopedate()+"\n확인을 누르면 해당 게시글로 이동합니다.");
+		        jsonObject.put("start", dto.getHopedate());
+		        jsonObject.put("title", "구매");
+		        jsonObject.put("url", "content_view?postidx="+dto.getPostidx());
+		        
+		         
+		        jsonList.add(jsonObject);
+		      }
+			for(int i=0;i<dateList1.size(); i++) {
+				PostDto dto = dateList1.get(i);
+				
+				MemberDto mdto = dao.memberInfoDao(dto.getBuyuser());
+				
+		        JSONObject jsonObject1 = new JSONObject(dto);
+		        jsonObject1.put("color", "yellow");
+		        jsonObject1.put("id", mdto.getNick()+"님과의 거래가 있습니다!\n"+"게시물 제목 : "+dto.getTitle()+"\n예약시간 : "+dto.getHopedate()+"\n확인을 누르면 해당 게시글로 이동합니다.");
+		        jsonObject1.put("start", dto.getHopedate());
+		        jsonObject1.put("title", "판매");
+		        jsonObject1.put("url", "content_view?postidx="+dto.getPostidx());
+		        
+		        jsonList.add(jsonObject1);
+		      }
+		      model.addAttribute("result", jsonList);
+		}
 		
 		return "scheduler";
 	}

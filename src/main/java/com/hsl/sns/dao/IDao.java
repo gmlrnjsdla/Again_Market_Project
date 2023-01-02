@@ -90,4 +90,11 @@ public interface IDao {
 	
 	//게시물 삭제
 	public void deletePostDao(int postidx);
+	
+	//댓글 좋아요
+	public int commentLikeDao(int commentidx, String id); //좋아요 버튼 클릭시
+	public int CommentLikeCheckDao(String id,int commentidx);	// 좋아요 여러번 방지
+	public int CommentLikeCountDao(int commentidx);	// 해당 댓글의 좋아 수
+	
+	
 }

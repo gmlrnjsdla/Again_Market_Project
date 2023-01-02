@@ -19,6 +19,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -29,6 +30,7 @@ import com.hsl.sns.dao.Chat;
 import com.hsl.sns.dao.IDao;
 import com.hsl.sns.dto.FollowDto;
 import com.hsl.sns.dto.CommentDto;
+import com.hsl.sns.dto.CommentLikeDto;
 import com.hsl.sns.dto.MemberDto;
 import com.hsl.sns.dto.PostDto;
 import com.hsl.sns.dto.PostingUrlDto;
@@ -565,5 +567,4 @@ public String delete_content(HttpServletRequest request,Model model, HttpSession
 	return "redirect:index";
 }
 
-	
 }

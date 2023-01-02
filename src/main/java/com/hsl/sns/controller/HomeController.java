@@ -261,7 +261,27 @@ public class HomeController {
 		return "help";
 	}
 	
-	
+	@RequestMapping(value = "commentlike")
+	public String commentlike(HttpServletRequest request, HttpSession session) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		String sid = (String) session.getAttribute("sessionId");
+		int postidx=Integer.parseInt(request.getParameter("postidx"));
+		int commentlike = Integer.parseInt(request.getParameter("cidx")); 
+		
+		int count = dao.CommentLikeCheckDao(sid, commentlike);
+		if(count != 0) {
+		
+			return String.format("redirect:/content_view?postidx=%s", postidx);	
+		
+		}else {
+			
+			dao.commentLikeDao(commentlike, sid);
+			
+		}
+		
+		return String.format("redirect:/content_view?postidx=%s", postidx);
+	}
 	
 	
 	

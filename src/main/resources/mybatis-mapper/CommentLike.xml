@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.hsl.sns.dao.IDao">
+
+	<insert id="commentLikeDao">
+		INSERT INTO commentlike(commentlikeidx, commentidx, id) VALUES(commentlike_seq.nextval,${param1},#{param2})
+	</insert>
+	<select id="CommentLikeCheckDao" resultType="int">
+		SELECT count(*) FROM commentlike WHERE id=#{param1} AND commentidx=${param2}
+	</select>
+	<select id="CommentLikeCountDao" resultType="int">
+		SELECT COUNT(*) FROM commentlike WHERE commentidx=${param1}
+	</select>
+</mapper>

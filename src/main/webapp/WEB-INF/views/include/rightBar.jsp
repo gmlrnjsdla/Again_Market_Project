@@ -64,7 +64,8 @@
 
 	<span class="list_index02"><i class="bi bi-chat-right-heart"></i>찜한목록</span>
 	<hr class="garo"> 
-		<div class="card" style="width: 100%; height:15%; overflow: auto;">
+		<div class="card" style="width: 100%; height:125px; overflow: auto;">
+			
 			<div class="list_index01">
 			  <c:forEach items="${fList }" var="fList">
 				  <div class="list_index">
@@ -76,6 +77,7 @@
 						${fList.postDto.title}</a>
 			      </div>
 		      </c:forEach>
+		  	
 		  	</div>
     	</div>
 <!--  내가찜한목록 끝 -->
@@ -90,7 +92,7 @@
 <!--  구매목록 시작 -->
 	<span class="list_index02"><i class="bi bi-chat-right-heart"></i>예약목록</span>
 	<hr class="garo"> 
-		<div class="card" style="width: 100%; height:15%; overflow: auto;">
+		<div class="card" style="width: 100%; height:125px; overflow: auto;">
 			<div class="list_index01">
 			  <c:forEach items="${bList }" var="bList">
 				  <div class="list_index">
@@ -116,7 +118,7 @@
 <!--  판매목록 시작 -->
 	<span class="list_index02"><i class="bi bi-cart"></i>판매목록</span>
 	<hr class="garo"> 
-		<div class="card" style="width: 100%; height:15%; overflow: auto;">
+		<div class="card" style="width: 100%; height:125px; overflow: auto;">
 			<div class="list_index01">
 			  <c:forEach items="${pList }" var="pList">
 				  <div class="list_index">

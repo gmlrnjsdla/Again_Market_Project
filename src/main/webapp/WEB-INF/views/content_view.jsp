@@ -122,7 +122,7 @@
    
 	<!--메세지 보내기 -->
 	<c:choose>
-	   <c:when test="${post.id != sid}">
+	   <c:when test="${post.buyuser == sid and post.buyflag != 0 and post.sellflag == 0}">
 	
 	<span class="" >
 	<a href="/send?nick=${post.nick}">

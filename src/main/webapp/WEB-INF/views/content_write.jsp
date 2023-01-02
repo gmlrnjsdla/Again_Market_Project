@@ -129,7 +129,7 @@
 	    </div>
 	    
 	    <div class="mb-3">
-	      <input type="text" id="#" class="form-control" placeholder="내용" name="content" style="height: 440px; align-content: top; " >
+	      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="내용" name="content" style="height: 440px;"></textarea>
 	    </div>
 
 	  	<input class="btn btn-outline-secondary" type="button" value="입력" onclick="writeCheck()" style="float:right; width: 310px; ">

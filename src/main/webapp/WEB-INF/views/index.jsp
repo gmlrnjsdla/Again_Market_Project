@@ -52,6 +52,9 @@
 
 
 <!--게시자 정보 -->
+	<c:choose>
+	   <c:when test="${pList.id != sid and  pList.sellflag == 0}">
+	    
       <a href="#" class="text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
         <span style="font-size:20px; font-weight:bold;">
         	<img class ="rounded-circle me-2"  src="/resources/uploadfiles/${pList.profileName}" width="50" height="50" alt="...">
@@ -59,11 +62,39 @@
         
         </span>
       </a>
-      <ul class="dropdown-menu">
-       	<a href="sell_List?id=${pList.id}" class="dropdown-item" style="font-size:16px; text-decoration:none; padding-left: 35px; font-weight:bold;">
-       	프로필가기</a>
 
-      </ul>
+      <span class="dropdown-menu">
+       	<a href="sell_List?id=${pList.id}" class="dropdown-item" style="font-size:16px; text-decoration:none; padding-left: 20px; font-weight:bold;">
+       	<img src="${pageContext.request.contextPath}/resources/img/person.png" alt="" width="23" height="23" class="rounded-circle me-2">
+       	프로필가기</a>
+ 
+       <a href="/send?nick=${pList.nick}" class="dropdown-item" style="font-size:16px; text-decoration:none; padding-left: 20px; font-weight:bold;">
+	         
+       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16"><path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/></svg>
+       	메세지 보내기</a>
+
+      </span>
+	  </c:when>
+	
+	<c:otherwise>
+	
+	  <a href="#" class="text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <span style="font-size:20px; font-weight:bold;">
+        	<img class ="rounded-circle me-2"  src="/resources/uploadfiles/${pList.profileName}" width="50" height="50" alt="...">
+        	${pList.nick}	
+        
+        </span>
+      </a>
+	<span class="dropdown-menu">
+       	<a href="sell_List?id=${pList.id}" class="dropdown-item" style="font-size:16px; text-decoration:none; padding-left: 20px; font-weight:bold;">
+       	<img src="${pageContext.request.contextPath}/resources/img/person.png" alt="" width="23" height="23" class="rounded-circle me-2">
+       	프로필가기</a>
+	</span>
+	</c:otherwise>
+</c:choose>
+
+
+
 
 <!--찜하기 버튼 -->   
    <span class="like_button">
@@ -71,7 +102,7 @@
 
    <button type="button" class="btn  position-relative">
     <img src="${pageContext.request.contextPath }/resources/img/hearts.png" width="20" height="20" alt="...">
-     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" >
      	${countList.get(status.index)}
    </span>
    </button>

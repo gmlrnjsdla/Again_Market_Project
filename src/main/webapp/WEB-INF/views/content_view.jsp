@@ -148,7 +148,7 @@
 		   	${dList.createdate}
 		   </c:if>
    		</c:forEach>일 전<br>
-	<fmt:formatNumber value="${post.price}" pattern="#,###,###"/>원
+	<fmt:formatNumber value="${post.price}" pattern="#,###,###,###"/>원
 	
 	</div>
 	<div class="content_font_index02">

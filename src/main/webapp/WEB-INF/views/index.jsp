@@ -108,7 +108,7 @@
 	   </c:if>
    </c:forEach>일 전<br>
   
-   <fmt:formatNumber value="${pList.price}" pattern="#,###,###"/>원
+   <fmt:formatNumber value="${pList.price}" pattern="#,###,###,###"/>원
 
   
   

@@ -209,6 +209,9 @@ public class HomeController {
 		return "index";
 	}
 
-	
+	@RequestMapping(value = "/help")
+	public String help() {
+		return "help";
+	}
 	
 }

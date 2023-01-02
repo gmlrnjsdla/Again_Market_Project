@@ -3,7 +3,7 @@ package com.hsl.sns.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +13,10 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.ibatis.session.SqlSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.fasterxml.jackson.annotation.JacksonInject.Value;
+
 import com.hsl.sns.dao.Chat;
 import com.hsl.sns.dao.IDao;
 import com.hsl.sns.dto.FollowDto;
@@ -38,6 +41,11 @@ public class ContentController {
 	private static final String String = null;
 	@Autowired
 	private SqlSession sqlSession;
+	
+	
+	//파일업로드 상대경로
+	@Autowired
+	ResourceLoader resourceLoader;
 	
 	private void sidebar(HttpSession session, Model model) {
 		//==============사이드바 정보가져오기==============
@@ -274,11 +282,6 @@ public class ContentController {
 	}
 	
 	
-	
-	
-	
-	
-	
 	@PostMapping(value = "/writeOk")
 	public String writeOk(HttpSession session, Model model, HttpServletRequest request,
 			 @RequestPart MultipartFile[] files) throws IllegalStateException, IOException {
@@ -312,8 +315,15 @@ public class ContentController {
 				File destinationFile; 
 				String destinationFileName; 
 				
-				String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
+				//파일업로드 상대경로
+				Resource resource = resourceLoader.getResource("classpath:");
+			    String fileUrl = ((String)resource.getURI().getPath());
+			    fileUrl = fileUrl + "static/uploadfiles/";
+			     
+			     System.out.println("1---"+fileUrl);
+				
 //				String fileUrl = "C:/Users/user.JY-20200602UADW/git/SNS_Project/src/main/resources/static/uploadfiles/";
+				
 				
 				do {
 				destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "."+ fileExtension;

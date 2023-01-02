@@ -52,7 +52,18 @@
 
 
 <!--게시자 정보 -->
-<img class ="rounded-circle me-2"  src="/resources/uploadfiles/${pList.profileName}" width="40" height="40" alt="..." style="margin-top:13px;">${pList.nick}
+<div class="dropdouwn">
+		      <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+		        <span style="font-size:20px; font-weight:bold;">
+		        	<img class ="rounded-circle me-2"  src="/resources/uploadfiles/${pList.profileName}" width="40" height="40" alt="..." style="margin-top:13px;">${pList.nick}
+		        </span>
+		      </a>
+		      <ul class="dropdown-menu text-small shadow">
+		        <li><a class="dropdown-item" href="sell_List?id=${pList.id}">프로필 가기</a></li>
+
+		      </ul>
+</div>
+
 
 <!--찜하기 버튼 -->   
    <span class="like_button">

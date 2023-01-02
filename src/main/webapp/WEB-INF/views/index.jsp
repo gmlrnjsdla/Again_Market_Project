@@ -53,8 +53,6 @@
 <!--게시자 정보 -->
 <img class ="rounded-circle me-2"  src="/resources/uploadfiles/${pList.profileName}" width="40" height="40" alt="..." style="margin-top:13px;">${pList.nick}
 
-
-
 <!--찜하기 버튼 -->   
    <span class="like_button">
    찜하기<a href="follow?followid=<%=sid%>&followcontent=${pList.postidx}">

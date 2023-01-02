@@ -15,7 +15,7 @@
 
 
 
-<title>### MESSAGE ###</title>
+<title>#### MESSAGE ####</title>
 </head>
 <body>
 <%@ include file="../include/leftBar.jsp" %>

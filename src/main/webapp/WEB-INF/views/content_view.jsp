@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/content_view/content_view.css">
 
 
-<title>Insert title here</title>
+<title>#### 게시글 보기 ####</title>
 </head>
 <body>
 <%@ include file="include/leftBar.jsp" %>
@@ -54,7 +54,7 @@
  	<div class="content_img" >
  	<c:forEach items="${postUrlList}" var="pList">
  		<c:if test="${pList.postidx == post.postidx }">
-			<img src="/resources/uploadfiles/${pList.fileName}" width="580" height="320"  alt="..." >
+			<img src="/resources/uploadfiles/${pList.fileName}" width="580"  alt="..." >
 		</c:if>
 	</c:forEach>
 	
@@ -97,12 +97,12 @@
 		
 		<c:when test="${post.buyflag != 0 and post.sellflag != 0}">
 			<button type="button" class="btn btn-secondary" disabled
-				style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">거래완료</button>
+				style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">예약완료</button>
 		</c:when>
 		
 		<c:when test="${post.buyflag != 0 and post.sellflag == 0}">
 			<button type="button" class="btn btn-success" disabled
-			style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">예약중</button>
+			style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">예약 확인중</button>
 		</c:when> 
 		
 		<c:otherwise>
@@ -138,7 +138,7 @@
 		   	<a href="sell_tradeView?postidx=${post.postidx}">
 		  	<button type="button" class="btn btn-outline-danger"
 		        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 598px; ">
-		  		판매확인
+		  		예약확인
 			</button></a>
 		</c:when>
 		
@@ -146,7 +146,7 @@
 			<a href="buy_tradeView?postidx=${post.postidx}" >
 		  	<button type="button" class="btn btn-outline-danger"
 		        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 598px; ">
-			  	구매신청
+			  	예약신청
 			</button></a>
 		</c:when>
 		
@@ -154,7 +154,7 @@
 		<a href="buy_cancel?postidx=${post.postidx}" >
 		<button type="button" class="btn btn-outline-primary"
 	        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 598px; ">
-	  			구매취소
+	  			예약취소
 		</button>
 		</a>
 		</c:when>
@@ -190,13 +190,15 @@
 					<c:set var="name" value="<%= id %>" />
 						<c:choose>
 							<c:when test="${name ne commentList.id}">
-					    		<div class="content_font01" style="font-size: 18px; font-weight:bold; color:green;"> ${commentList.id }
+					    		<div class="content_font01" style="font-size: 18px; font-weight:bold; color:green;"> ${commentList.nick } :
 									<span class="content_font02" style="font-size: 15px; font-weight:bold;">${commentList.content }</span>
+									<span class="content_font02" style="font-size: 15px; font-weight:bold; float:right;">${commentList.createdate.substring(0,10) }</span>
 								</div>
 							</c:when>
 							<c:otherwise>
-					    		<div class="content_font01" style="font-size: 18px; font-weight:bold; color:bule;"> ${commentList.id }
+					    		<div class="content_font01" style="font-size: 18px; font-weight:bold; color:bule;"> 글쓴이:
 									<span class="content_font02" style="font-size: 15px; font-weight:bold;">${commentList.content }</span>
+									<span class="content_font02" style="font-size: 15px; font-weight:bold; float:right;">${commentList.createdate.substring(0,10) }</span>
 								</div>
 							</c:otherwise>
 						</c:choose>

@@ -22,7 +22,7 @@
       margin: 40px auto;
     }
     
-    
+  
 
   </style>
   
@@ -35,6 +35,12 @@
           initialView: 'dayGridMonth',
           timeZone: 'UTC',
        	  events:${result},
+       	  eventTimeFormat: {
+            hour: '2-digit',
+            minute: '2-digit',
+            meridiem: 'narrow',
+            hour12: false
+        }
         });
         calendar.render();
       });

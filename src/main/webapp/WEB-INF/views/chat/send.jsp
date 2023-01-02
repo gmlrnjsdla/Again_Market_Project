@@ -23,7 +23,7 @@
 </style>
 
 
-<title>Insert title here</title>
+<title>#### MESSAGE ####</title>
 </head>
 <body>
 <%@ include file="../include/leftBar.jsp" %>

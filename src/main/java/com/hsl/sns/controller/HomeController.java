@@ -88,22 +88,30 @@ public class HomeController {
 		sidebar(session,model);
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
-		String id = (String)session.getAttribute("sessionId");
-		List<PostDto> dateList = dao.scheduler(id);
-		model.addAttribute("dateList", dateList);
+		String sid = (String)session.getAttribute("sessionId");
+		List<PostDto> dateList = dao.scheduler(sid);
+		List<PostDto> dateList1 = dao.schedulerSell(sid);
 		
 		List jsonList = new ArrayList<JSONObject>();
 		
 		for(int i=0;i<dateList.size(); i++) {
 			PostDto dto = dateList.get(i);
-			
-			dto.setStart(dto.getHopedate().substring(0,10));
-			dto.setTitle(dto.getNick()+"/거래");
+			dto.setStart(dto.getHopedate());
+			dto.setTitle("구매");
 	        JSONObject jsonObject = new JSONObject(dto);
 	         
 	         jsonList.add(jsonObject);
 	      }
+		for(int i=0;i<dateList1.size(); i++) {
+			PostDto dto = dateList1.get(i);
+			dto.setStart(dto.getHopedate());
+			dto.setTitle("판매");
+	        JSONObject jsonObject1 = new JSONObject(dto);
+	         
+	         jsonList.add(jsonObject1);
+	      }
 	      model.addAttribute("result", jsonList);
+	      
 		
 		return "scheduler";
 	}

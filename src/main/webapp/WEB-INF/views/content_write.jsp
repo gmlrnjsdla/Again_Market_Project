@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/content_write/content_write.css">
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/content_write/write.js"></script>
 
-<title>Insert title here</title>
+<title>#### 물품등록 ####</title>
 </head>
 <body>
 <%@ include file="include/leftBar.jsp" %>

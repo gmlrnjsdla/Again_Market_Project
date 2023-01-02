@@ -15,7 +15,7 @@ public class CommentDto {
 	private String content; //댓글내용
 	private int parentcommentidx; //상위댓글 idx;
 	private String createdate; //만든시간
-	private String updatedate; //수정시간
 	
+	private String nick;
 	
 }

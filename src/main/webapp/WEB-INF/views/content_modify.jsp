@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/content_write/content_write.css">
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/content_modify/content_modify.js"></script>
 
-<title>Insert title here</title>
+<title>#### 게시글 수정 ####</title>
 </head>
 <body>
 <%@ include file="include/leftBar.jsp" %>

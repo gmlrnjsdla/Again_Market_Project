@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/member/memberModify.css">
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/member_modify/modify.js"></script>
 
-<title>Insert title here</title>
+<title>#### 회원정보수정 ####</title>
 </head>
 <body>
 <%@ include file="include/leftBar.jsp" %>

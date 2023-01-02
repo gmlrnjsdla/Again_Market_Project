@@ -8,6 +8,8 @@
 <%@ include file="include/leftBar.jsp" %>
 <%@ include file="include/rightBar.jsp" %>
 
+
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
@@ -19,6 +21,8 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/rightBar/rightBar.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/tradeView/tradeView.css">
 
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/timePicker/jquery.datetimepicker.min.css">
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/timePicker/jquery.datetimepicker.full.min.js"></script>
 
 
 <script type="text/javascript">
@@ -27,44 +31,18 @@
       <!--      달력 추가 js 시작       -->
     $(document).ready(function () {
             $.datepicker.setDefaults($.datepicker.regional['ko']); 
-            $( "#pickDate" ).datepicker({
-                 changeMonth: true, 
-                 changeYear: true,
-                 nextText: '다음 달',
-                 prevText: '이전 달', 
-                 dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
-                 dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], 
-                 monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-                 monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+            $( "#pickDate" ).datetimepicker({
+                 
                  dateFormat: "yy-mm-dd",
-                 minDate: 0,
-                 maxDate: "+10Y",                       // 선택할수있는 최소날짜, ( 0 : 오늘 이후 날짜 선택 불가)
-                 onClose: function( rday ) {    
-                      //시작일(startDate) datepicker가 닫힐때
-                      //종료일(endDate)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
-                     $("#endDate").datepicker( "option", "minDate", rday );
+                 
+                 onClose: function() {    
+                     
                  }    
  
             });
-            $( "#endDate" ).datepicker({
-                 changeMonth: true, 
-                 changeYear: true,
-                 nextText: '다음 달',
-                 prevText: '이전 달', 
-                 dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
-                 dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], 
-                 monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-                 monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-                 dateFormat: "yy-mm-dd",
-                 
-                 maxDate: "+2Y",                       // 선택할수있는 최대날짜, ( 0 : 오늘 이후 날짜 선택 불가)
-                 onClose: function( rday ) {    
-                     // 종료일(endDate) datepicker가 닫힐때
-                     // 시작일(startDate)의 선택할수있는 최대 날짜(maxDate)를 선택한 시작일로 지정
-                     $("#startDate").datepicker( "option", "maxDate", rday );
-                 }    
- 
-            });    
+            
+            
+               
     });
     
    
@@ -74,7 +52,7 @@
 
 
 
-<title>Insert title here</title>
+<title>#### 예약신청 ####</title>
 </head>
 <body>
 
@@ -146,12 +124,13 @@
        		<input type="hidden" name="postidx" value="${pinfo.postDto.postidx }">
        		<input type="hidden" name="nick" value="${pinfo.nick }">
        		<input type="hidden" name="buyuser" value="${minfo.id }">
-       		<input type="text" id="pickDate" name="selectedDate">
+       		<input type="text" id="pickDate" autocomplete="off" name="selectedDate">
        </label>
+       
       </div>
     <br><br>
-    <span><input type="submit" class="btn btn-outline-primary" value = "구매 신청"style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;"></span>
-    <span><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: right;margin-right: 80px;" onclick="script:window.location='index'">구매 신청 취소</button></span>
+    <span><input type="submit" class="btn btn-outline-primary" value = "예약 신청"style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;"></span>
+    <span><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: right;margin-right: 80px;" onclick="script:window.location='index'">예약 신청 취소</button></span>
   
 
 

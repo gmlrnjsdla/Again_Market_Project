@@ -12,7 +12,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/index/index.css?after">
 
-<title>Insert title here</title>
+<title>#### MAIN ####</title>
 </head>
 <body>
 
@@ -86,12 +86,12 @@
 		
 		<c:when test="${pList.buyflag != 0 and pList.sellflag != 0}">
 			<button type="button" class="btn btn-secondary" disabled
-				style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">거래완료</button>
+				style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">예약완료</button>
 		</c:when>
 		
 		<c:when test="${pList.buyflag != 0 and pList.sellflag == 0}">
 			<button type="button" class="btn btn-success" disabled
-			style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">예약중</button>
+			style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">예약 확인중</button>
 		</c:when> 
 		
 		<c:otherwise>
@@ -132,7 +132,7 @@
 		<a href="buy_tradeView?postidx=${pList.postidx }" >
 	  		<button type="button" class="btn btn-outline-danger"
 	        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 628px; ">
-	  			구매신청
+	  			예약신청
 			</button>
 		</a>
 	</c:when>
@@ -142,7 +142,7 @@
 		<a href="sell_tradeView?postidx=${pList.postidx }" >
 	  		<button type="button" class="btn btn-outline-success"
 	        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 628px; ">
-	  			판매확정
+	  			예약확정
 			</button>
 		</a>
 	</c:when>
@@ -151,7 +151,7 @@
 		<a href="buy_cancel?postidx=${pList.postidx}" >
 		<button type="button" class="btn btn-outline-primary"
 	        style="--bs-btn-padding-y: 3px; --bs-btn-padding-x: 3px; --bs-btn-font-size: 15px; width: 628px; ">
-	  			구매취소
+	  			예약취소
 		</button>
 		</a>
 	</c:when>

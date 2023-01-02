@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/content_List/content_List.css">
-<title>Insert title here</title>
+<title>#### 찜 목록 ####</title>
 </head>
 <body>
 <%@ include file="include/leftBar.jsp" %>
@@ -56,13 +56,13 @@
 					  <label class="btn btn-outline-secondary" for="btnradio1" style="font-size: 12px;">판매중(${post})</label>
 					
 					  <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="script:window.location='buy_List?id=<%=id%>'">
-					  <label class="btn btn-outline-secondary" for="btnradio2" style="font-size: 12px;">예약중 (${buy})</label>
+					  <label class="btn btn-outline-secondary" for="btnradio2" style="font-size: 12px;">예약확인중 (${buy})</label>
 					
 					  <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked onclick="script:window.location='choice_List?id=<%=id%>'">
 					  <label class="btn btn-outline-secondary" for="btnradio3" style="font-size: 12px;">찜 (${follower})</label>
 					  
 					  <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" onclick="script:window.location='transaction_List?id=<%=id%>'">
-					  <label class="btn btn-outline-secondary" for="btnradio4" style="font-size: 12px;">거래완료(${trc})</label>
+					  <label class="btn btn-outline-secondary" for="btnradio4" style="font-size: 12px;">예약완료(${trc})</label>
 					</div>
  
 		  		</td>

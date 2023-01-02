@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/rightBar/rightBar.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/tradeView/tradeView.css">
 
-<title>Insert title here</title>
+<title>#### 예약확인 ####</title>
 </head>
 <body>
 <form action="sell_completed">
@@ -43,7 +43,7 @@
       </div>
       <div class="input-group">
       <div class="input-group-text">거래희망날짜</div>
-       <label class="form-control" for="autoSizingInputGroup">${pinfo.postDto.hopedate.substring(0,10)}</label>
+       <label class="form-control" for="autoSizingInputGroup">${pinfo.postDto.hopedate}</label>
       </div>
       <br><br>
       
@@ -106,11 +106,11 @@
     </div>
     		<input type="hidden" name="postidx" value="${pinfo.postDto.postidx }">
        		<input type="hidden" name="nick" value="${sinfo.nick }">
-       		<input type="hidden" name="selecteddate" value="${pinfo.postDto.hopedate.substring(0,10)}">
+       		<input type="hidden" name="selecteddate" value="${pinfo.postDto.hopedate}">
     <br><br>
 <br><br>
-    <span><input type="submit" class="btn btn-outline-primary" value="판매 확정" style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;"></span>
-    <span><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: right;margin-right: 80px;" onclick="script:window.location='index'">판매 취소</button></span>
+    <span><input type="submit" class="btn btn-outline-primary" value="예약 확정" style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;"></span>
+    <span><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: right;margin-right: 80px;" onclick="script:window.location='index'">취소</button></span>
 
 
 </div>

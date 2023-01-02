@@ -222,14 +222,32 @@
 					    		<div class="content_font01" style="font-size: 18px; font-weight:bold; color:green;"> ${commentList.nick } :
 									<span class="content_font02" style="font-size: 15px; font-weight:bold;">${commentList.content }</span>
 									<span class="content_font02" style="font-size: 15px; font-weight:bold; float:right;">${commentList.createdate.substring(0,10) }</span>
+									
 								</div>
 							</c:when>
 							<c:otherwise>
-					    		<div class="content_font01" style="font-size: 18px; font-weight:bold; color:bule;"> 글쓴이:
-									<span class="content_font02" style="font-size: 15px; font-weight:bold;">${commentList.content }</span>
-									<span class="content_font02" style="font-size: 15px; font-weight:bold; float:right;">${commentList.createdate.substring(0,10) }</span>
-								</div>
+						
+					    		
+					    			
+					    			<div class="" style="background-color:#dddddd;height:25px;margin-top: 0px;" >
+					    			<span class="content_font01" style="font-size: 15px; font-weight:bold; color:bule;margin:0; "> 글쓴이:
+									   <a href="commentlike?cidx=${commentList.commentidx}&postidx=${post.postidx}">
+									    <img src="${pageContext.request.contextPath }/resources/img/hearts.png" width="15" height="15" alt="..." style="margin: 0;">
+									     <span class="badge text-bg-secondary" style="font-size: 7px;" >
+									     	5
+									   </span>
+									  
+									   <span class="content_font02" style="font-size: 15px; font-weight:bold; float:right;">${commentList.createdate.substring(0,10) }</span>
+					
+									   </a>
+									 </span>  
+									</div>
+								
+					    			
+									<div class="content_font02" style="font-size: 15px; font-weight:bold;">${commentList.content }</div>
+										
 							</c:otherwise>
+							
 						</c:choose>
 				</c:forEach>
 			</table>	
@@ -245,7 +263,9 @@
 	</div>
   </div>
 </div>	
+
 <!-- 댓글 끝 -->
+
 <%@ include file="include/footer.jsp" %>
 
 </body>

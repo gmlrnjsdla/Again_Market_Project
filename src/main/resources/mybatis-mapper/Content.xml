@@ -216,5 +216,10 @@
 		UPDATE post set buyuser= null ,buyflag=0, hopedate= null where postidx=#{param1}
 	</update>
 	
+	
+	<!--  댓글 좋아요 -->
+	<select id="CommentLikeOkDao" resultType="int">
+		SELECT count(*) FROM commentlike where commentidx = #{param1} and id = #{param2}
+	</select>
 </mapper>
 	

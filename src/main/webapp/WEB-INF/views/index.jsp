@@ -44,7 +44,7 @@
   </center>
   
 </div>
-
+<br>
 
 
 <!--이미지 끝	-->	
@@ -52,18 +52,18 @@
 
 
 <!--게시자 정보 -->
-<div class="dropdouwn">
-		      <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-		        <span style="font-size:20px; font-weight:bold;">
-		        	<img class ="rounded-circle me-2"  src="/resources/uploadfiles/${pList.profileName}" width="40" height="40" alt="..." style="margin-top:13px;">${pList.nick}
-		        </span>
-		      </a>
-		      <ul class="dropdown-menu text-small shadow">
-		        <li><a class="dropdown-item" href="sell_List?id=${pList.id}">프로필 가기</a></li>
+      <a href="#" class="text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <span style="font-size:20px; font-weight:bold;">
+        	<img class ="rounded-circle me-2"  src="/resources/uploadfiles/${pList.profileName}" width="50" height="50" alt="...">
+        	${pList.nick}	
+        
+        </span>
+      </a>
+      <ul class="dropdown-menu">
+       	<a href="sell_List?id=${pList.id}" class="dropdown-item" style="font-size:16px; text-decoration:none; padding-left: 35px; font-weight:bold;">
+       	프로필가기</a>
 
-		      </ul>
-</div>
-
+      </ul>
 
 <!--찜하기 버튼 -->   
    <span class="like_button">

@@ -20,8 +20,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.hsl.sns.dao.Chat;
 import com.hsl.sns.dao.IDao;
 import com.hsl.sns.dto.CommentDto;
+import com.hsl.sns.dto.Criteria;
 import com.hsl.sns.dto.FollowDto;
 import com.hsl.sns.dto.MemberDto;
+import com.hsl.sns.dto.PageDto;
 import com.hsl.sns.dto.PointDto;
 import com.hsl.sns.dto.PostDto;
 import com.hsl.sns.dto.PostingUrlDto;
@@ -416,15 +418,43 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "pointList")
-	public String pointList(HttpServletRequest request, HttpSession session, Model model) {
+	public String pointList(HttpServletRequest request, HttpSession session, Model model, Criteria cri) {
 		sidebar(session,model);
 		IDao dao = sqlSession.getMapper(IDao.class);
 		String sid = (String) session.getAttribute("sessionId");
 		MemberDto mdto = dao.memberInfoDao(sid);
 		model.addAttribute("minfo", mdto);
 		
-		List<PointDto> pointList = dao.pointListDao(sid);
+		
+		
+		
+		int totalRecord = dao.pointListAllCount(sid);
+		int pageNumInt = 1;
+		if(request.getParameter("pageNum") == null) {
+			pageNumInt = 1;
+		}else {
+			pageNumInt = Integer.parseInt(request.getParameter("pageNum"));
+		}
+		cri.setPageNum(pageNumInt);
+		
+		cri.setStartNum(cri.getPageNum()-1 * cri.getAmount());  // 해당 페이지의 시작번호를 설정.
+		PageDto dto = new PageDto(cri,totalRecord);
+		int amount = cri.getAmount();
+		int pageNum = cri.getPageNum();
+		model.addAttribute("pageMaker", dto);
+		model.addAttribute("pageNum", pageNumInt);
+		
+		List<PointDto> pointList = dao.pointListDao(sid,amount,pageNum);
 		model.addAttribute("pointList", pointList);
+		
+		int boardCount = pointList.size();
+		model.addAttribute("boardCount", boardCount);
+		
+		
+		
+		
+		
+		
 
 		return "pointList";
 	}

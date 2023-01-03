@@ -57,9 +57,16 @@
 	</insert>	
 	
 	<select id="pointListDao" resultType="com.hsl.sns.dto.PointDto">
-		SELECT * FROM pointtbl WHERE id=#{param1} ORDER BY pointidx DESC
+		SELECT * FROM 
+			(SELECT A.*,Floor((ROWNUM-1)/${param2}+1)PAGE,ROWNUM
+			FROM
+			(SELECT * FROM pointtbl WHERE id=#{param1} ORDER BY pointidx DESC)A)
+		WHERE PAGE=#{param3}
 	</select>	
 	
+	<select id="pointListAllCount" resultType="int">
+		SELECT count(*) FROM pointtbl WHERE id=#{param1} 
+	</select>
 	
 	
 </mapper>

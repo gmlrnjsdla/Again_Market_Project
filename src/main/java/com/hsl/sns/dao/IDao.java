@@ -3,6 +3,7 @@ package com.hsl.sns.dao;
 import java.util.List;
 
 import com.hsl.sns.dto.CommentDto;
+import com.hsl.sns.dto.Criteria;
 import com.hsl.sns.dto.FollowDto;
 import com.hsl.sns.dto.MemberDto;
 import com.hsl.sns.dto.PointDto;
@@ -101,7 +102,8 @@ public interface IDao {
 	public void pointDao(int point, String id);
 	public void pointPlusDao(String id, int point, int currentpoint, String explain);
 	public void pointMinusDao(String id, int point, int currentpoint, String explain);
-	public List<PointDto> pointListDao(String id);
+	public List<PointDto> pointListDao(String id,int amount, int pageNum);
+	public int pointListAllCount(String id);
 	
 	
 }

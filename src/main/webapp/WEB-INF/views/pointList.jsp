@@ -88,7 +88,37 @@
 	  			</tr>
   			</c:forEach>
   		</table>
-  
+            
+            <nav aria-label="Page navigation example" style="margin-left:300px;margin-top: 50px;">
+			  <ul class="pagination">
+			    <li class="page-item">
+			    	<c:if test="${pageMaker.prev}">
+			      		<a class="page-link" href="pointList?pageNum=${pageMaker.startPage - 5}" aria-label="Previous">
+			        
+			        <span aria-hidden="true">&laquo;</span>
+			        </c:if>
+			      </a>
+			    </li>
+				    <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="num">
+						<c:choose>
+							<c:when test="${num == pageNum }">
+								<li class="page-item active"><a class="page-link" href="pointList?pageNum=${num}">${num}</a></li>
+							</c:when>
+							<c:otherwise>
+								<li class="page-item"><a class="page-link" href="pointList?pageNum=${num}">${num}</a></li>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+			    <li class="page-item">
+			    <c:if test="${pageMaker.next}">
+			      <a class="page-link" href="pointList?pageNum=${pageMaker.startPage + 5}" aria-label="Next">
+			      
+			        <span aria-hidden="true">&raquo;</span>
+			        </c:if>
+			      </a>
+			    </li>
+			  </ul>
+			</nav>
   	</div>
   </center>
 

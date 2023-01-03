@@ -397,7 +397,7 @@ public class ContentController {
 			counts.add(likeCount);
 		}
 		
-		model.addAttribute("likeCount", counts);
+		model.addAttribute("commentlikeCount", counts);
 		
 		
 		

@@ -78,7 +78,7 @@
    				<button type="button" class="btn  position-relative">
 	    			<img src="${pageContext.request.contextPath }/resources/img/hearts.png" width="20" height="20" alt="...">
 	     			<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-	     			${likeCount }
+	     			${likeCount}
 	   				</span>
    				</button>
    			</a>
@@ -234,7 +234,7 @@
 									   <a href="commentlike?cidx=${commentList.commentidx}&postidx=${post.postidx}">
 									    <img src="${pageContext.request.contextPath }/resources/img/hearts.png" width="15" height="15" alt="..." style="margin: 0;">
 									     <span class="badge text-bg-secondary" style="font-size: 7px;" >
-									     	${likeCount.get(status.index)}
+									     	${commentlikeCount.get(status.index)}
 									   </span>
 									  
 									   <span class="content_font02" style="font-size: 15px; font-weight:bold; float:right;">${commentList.createdate.substring(0,10) }</span>

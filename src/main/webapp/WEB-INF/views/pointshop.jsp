@@ -11,28 +11,34 @@
 </head>
 <body>
 <%@ include file="include/leftBar.jsp" %>
-<%@ include file="include/rightBar.jsp" %>
 
 <div class="pointshop_List" style="padding-top:50px;padding-left:550px;position: relative;z-index: 1;">
 
+
 <div class="card" style="width: 800px; height:750px; border:1px solid #dddddd; border-radius:15px;">
-  <div class="card-body" style="height:80px; ">
- 	<!-- 컨텐츠 헤더 -->
- 		<table border="0" cellpadding= "0" cellspacing="0" width="800" height="50" style="margin-bottom:0px; position:relative;">
-		  	<tr colspan="2">
-		  		<td width="20%" rowspan="4" align="center">
+  <div class="card-body" style="height:100px; ">
+ 	<!-- 컨텐츠 헤더 -->  
+ 		
+ 		<table border="0" cellpadding= "0" cellspacing="0" width="760"  style="margin-bottom:0px; position:relative;">
+
+		  	<tr>
+				<td width="50%"  align="center" rowspan="2">
+				<img src="${pageContext.request.contextPath}/resources/img/pointmarket.png" alt="" width="250" height="100" class="rounded-circle me-2">
+		  		</td>
+		  		
+		  		<td width="15%"  align="center" rowspan="2">
 		  			<img class ="rounded-circle me-2" src="/resources/uploadfiles/${minfo.profileName} " alt="..." width="70" height="70" >
 		  		
 		  		</td>
-		  		<td height="20%" colspan="3">
-		  			<div id = "profile01">${minfo.nick}
-
-			   				
-								
+		  		
+		  		<td height="20%">
+		  			<div id = "shop_profile01">${minfo.nick}
+			
 					</div>
 		   		</td>
 		   		
 		  	</tr>
+		  	
 		  	<tr>
 		  		<td>
 			  		<a href="pointList">
@@ -41,11 +47,24 @@
 				  		 보유포인트 : ${minfo.point}p
 						</button>
 					</a>
+					
+					<c:choose>
+	   				<c:when test="${sid == admin}">
+					
+					<button type="button" class="btn btn-outline-primary" onclick="script:window.location='pointshop_write'"
+			          style="--bs-btn-padding-y: .4rem; --bs-btn-padding-x: .9rem; --bs-btn-font-size: .95rem; margin-top: 5px;">
+			  		 상품올리기
+					</button>
+					
+					
+					</c:when>
+					</c:choose>
+					
 				</td>	
 		  	</tr>
 	   </table>
-	   
-	   
+	
+	
   </div>
   	<hr style="margin:30px;">
   
@@ -87,7 +106,7 @@
   </div>
   
 	</div>
-</div>
+
 <%@ include file="include/footer.jsp" %>
 </body>
 </html>

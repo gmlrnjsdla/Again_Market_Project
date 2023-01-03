@@ -105,5 +105,7 @@ public interface IDao {
 	public List<PointDto> pointListDao(String id,int amount, int pageNum);
 	public int pointListAllCount(String id);
 	
-	
+	//pointshop입력
+	public void shopWriteDao(String title, String content, int spoint, String filename, String fileurl, String fileextension); //pointshop write content insert
+	//public List<ShopPostDto> shopListDao();
 }

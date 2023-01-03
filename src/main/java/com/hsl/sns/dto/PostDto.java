@@ -27,9 +27,8 @@ public class PostDto {
 	
 	//스케줄러 날짜
 	private String start;
-	
-	
-	
-	
-	
+
 }
+
+
+

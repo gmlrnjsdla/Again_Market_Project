@@ -1,5 +1,6 @@
 package com.hsl.sns.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -9,13 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.hsl.sns.dao.Chat;
 import com.hsl.sns.dao.IDao;
@@ -33,6 +41,11 @@ public class HomeController {
 
 	@Autowired
 	private SqlSession sqlSession;
+	
+	//파일업로드 상대경로
+	@Autowired
+	ResourceLoader resourceLoader;
+	
 	
 	private void sidebar(HttpSession session, Model model) {
 		//==============사이드바 정보가져오기==============
@@ -295,35 +308,13 @@ public class HomeController {
 		
 		model.addAttribute("minfo", dto);
 		model.addAttribute("id", dto.getId()); 
-	
-		//찜 수
-		int follower = dao.followerCountDao(id);
-		model.addAttribute("follower", follower);
-		
-		//판매글 수
-		int post = dao.postCountDao(id);
-		model.addAttribute("post", post);
-		
-		//예약글 수
-		int buy = dao.buyCountDao(id);
-		model.addAttribute("buy", buy);
-		
-		//거래완료글 수
-		int trc = dao.transactionCountDao(id);
-		model.addAttribute("trc", trc);
-		
-		
+
 		List<PostDto> postList = dao.myPostListDao(id); // 해당 프로필의 판매중인 게시글 정보 가져오기
 		model.addAttribute("pList", postList); 
 		
 		List<PostingUrlDto> postUrlList= dao.myPostUrlListDao(); // 해당 프로필의 게시물 사진 하나만 가져오기
 		model.addAttribute("uList", postUrlList);
-		
-		//====================== 날짜 차이 ======================//
-		List<PostDto> dateList = dao.dateDao();
-		model.addAttribute("dList", dateList);
-		//====================== 날짜 차이 끝 ======================//
-		
+			
 		return "pointshop";
 	}
 	
@@ -406,6 +397,55 @@ public class HomeController {
 		
 
 		return "pointshop_completed";
+	}
+	
+	@RequestMapping(value = "pointshop_write")
+	public String pointshop_write(HttpSession session, Model model) {
+
+		return "pointshop_write";
+	}
+	
+	
+	@PostMapping(value = "/pointshop_writeOk")
+	public String pointshop_writeOk(Model model, HttpServletRequest request, 
+		@RequestPart MultipartFile files) throws IllegalStateException, IOException {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		// write
+		
+		//제품등록
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		int spoint = Integer.parseInt(request.getParameter("spoint"));
+		
+		
+		
+		//파일첨부
+		files.getOriginalFilename(); //첨부된 파일의 원래이름
+		String fileExtension = FilenameUtils.getExtension(files.getOriginalFilename()).toLowerCase();//첨부된 파일의 확장자뽑아서 저장
+																		//확장자 추출 후 소문자로 강제 변경.t oLowerCase()
+		File destinationFile; //java.io 패키지 클래스 임포트
+		String destinationFileName; //실제 서버에 저장된 파일의 변경된 이름이 저장될 변수 선언
+		String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
+		
+		
+		do {
+		destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "."+ fileExtension;
+		//파일변수명(렌덤 숫자와영문대소문자 32개)뽑기 - 랜덤32자+ . + 확장자
+		// 알파벳대소문자와 숫자를 포함한 랜덤 32자 문자열 생성 후 . 을 구분자로 원본 파일의 확장자를 연결->실제 서버에 저장할 파일의 이름
+	
+		destinationFile = new File(fileUrl+destinationFileName);
+		} while(destinationFile.exists());
+		//혹시 같은 이름의 파일이름이 존재하는지 확인
+		
+		destinationFile.getParentFile().mkdir();
+		files.transferTo(destinationFile); // 업로드된 파일이 지정한 폴더로 이동완료!!
+		
+		
+		dao.shopWriteDao(title, content, spoint, destinationFileName, fileUrl, fileExtension);
+
+		
+		return String.format("redirect:/pointshop?id=admin");
 	}
 	
 	

@@ -50,7 +50,15 @@
 		INSERT INTO pointtbl(pointidx,id,minuspoint) VALUES(point_seq.nextval,#{param1},${param2})
 	</insert>		
 	
+	<!-- 포인트 샵 -->
+	<insert id="shopWriteDao">
+		INSERT INTO pointshop_post (shopidx, title, content, spoint, filename,fileurl, fileextension) 
+			VALUES (pointshop_post_seq.nextval, #{param1}, #{param2},#{param3},#{param4},#{param5},#{param6})
+	</insert>
 	
+	<select id="shopListDao" resultType="com.hsl.sns.dto.ShopPostDto">
+		SELECT * FROM pointshop_post ORDER BY shopidx DESC
+	</select>
 	
 </mapper>
 	

@@ -1,0 +1,111 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<%@ include file="include/leftBar.jsp" %>
+<%@ include file="include/rightBar.jsp" %>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
+<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/index/index.css?after">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/rightBar/rightBar.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/tradeView/tradeView.css">
+
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/timePicker/jquery.datetimepicker.min.css">
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/timePicker/jquery.datetimepicker.full.min.js"></script>
+
+
+<script type="text/javascript">
+
+
+      <!--      달력 추가 js 시작       -->
+    $(document).ready(function () {
+            $.datepicker.setDefaults($.datepicker.regional['ko']); 
+            $( "#pickDate" ).datetimepicker({
+                 
+                 dateFormat: "yy-mm-dd",
+                 
+                 onClose: function() {    
+                     
+                 }    
+ 
+            });
+            
+            
+               
+    });
+    
+   
+    <!--      달력 추가 js 끝       -->
+
+</script>
+
+
+
+<title>#### 포인트 구매신청 ####</title>
+</head>
+<body>
+
+
+<form action="pointshop_completed">
+
+<div class="content" style="width: 630px;">
+<div class="card" style="width: 630px;">
+<div class="card-body" style="width: 630px;">
+
+<span class="list_index02">구매자정보</span>
+<hr class="garo1">
+   
+    <span class="input-group">
+      <div class="input-group-text">아이디</div>
+       <label class="form-control" for="autoSizingInputGroup">${pinfo.id}</label>
+    <div class="input-group-text">닉네임</div>
+       <label class="form-control" for="autoSizingInputGroup">${pinfo.nick}</label>
+    </span>
+    <br>
+    
+     <div class="input-group">
+      <div class="input-group-text">전화번호</div>
+       <label class="form-control" for="autoSizingInputGroup">${pinfo.phone}</label>
+    </div>
+    <br>
+    
+     <div class="input-group">
+      <div class="input-group-text">이메일</div>
+       <label class="form-control" for="autoSizingInputGroup">${pinfo.mail}</label>
+    </div>
+    <br>
+    
+    <div class="input-group">
+      <div class="input-group-text">배송 주소</div>
+       <input type="text" class="form-control" for="autoSizingInputGroup" placeholder="배송주소입력" name="address">
+    </div>
+
+    <br><br>
+    <span><input type="submit" class="btn btn-outline-primary" value = "구매확인"style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;"></span>
+    <a href="/pointshop?id=<%=sid %>" class="nav-link link-dark">
+    <span><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: right;margin-right: 80px;" onclick="script:window.location='index'">구매 취소</button></span>
+  	</a>
+
+
+</div>
+</div>
+</div>
+</form>
+<br>
+<br>
+<br>
+
+<%@ include file="include/footer.jsp" %>
+</body>
+</html>

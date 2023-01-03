@@ -21,7 +21,7 @@ public class MemberDto {
 	private String profileName;//프로필사진이름
 	private String profileUrl;//프로필사진URL
 	private String fileExtension;
-	private String point;
+	private int point;
 	
 	private PostDto postDto;
 	

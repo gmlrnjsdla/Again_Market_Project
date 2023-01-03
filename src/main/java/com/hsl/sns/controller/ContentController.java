@@ -341,9 +341,14 @@ public class ContentController {
 			}
 		}
 			
-		int point = 1000;
+		MemberDto mdto = dao.memberInfoDao(sid);
+		int currentPoint = mdto.getPoint();
+		
+		int point = 200;
+		String explain = "게시글 작성 200p";
+		
 		dao.pointDao(point, sid);		//point 증가
-		dao.pointPlusDao(sid, point);	//pointtbl에 증가된 값 저장
+		dao.pointPlusDao(sid, point,currentPoint,explain);	//pointtbl에 증가된 값 저장
 		
 		
 		return "redirect:index";
@@ -497,16 +502,24 @@ public class ContentController {
 		model.addAttribute("date", selectedDate);
 		model.addAttribute("nick", nick);
 		
+		//구매회원
+		MemberDto buyuserMdto = dao.memberInfoDao(buyuser);
+		int bcurrentPoint = buyuserMdto.getPoint();
+		
+		//판매회원
+		MemberDto mdto = dao.memberInfoDao(sid);
+		int currentPoint = mdto.getPoint();
 		
 		//예약 완료시 구매자, 판매자 모두에게 포인트 지급
-		int point = 1500;
+		int point = 500;
+		String explain = "예약완료 축하금 500p";
 		//구매회원 포인트 증가
 		dao.pointDao(point, buyuser);
-		dao.pointPlusDao(buyuser, point);
+		dao.pointPlusDao(buyuser, point, bcurrentPoint, explain);
 		
 		//판매회원 포인트 증가
 		dao.pointDao(point, sid);
-		dao.pointPlusDao(sid, point);
+		dao.pointPlusDao(sid, point, currentPoint, explain);
 		
 		return "sell_completed";
 	}
@@ -543,10 +556,15 @@ public class ContentController {
 				model.addAttribute("post", postDto);
 				model.addAttribute("commentList", commentDtos);
 				
-				int point = 30;
+				
+				MemberDto mdto = dao.memberInfoDao(sid);
+				int currentPoint = mdto.getPoint();
+				
+				int point = 5;
+				String explain = "댓글 작성 5p";
 				//댓글 쓰면 포인트 증가
 				dao.pointDao(point, sid);
-				dao.pointPlusDao(sid, point);
+				dao.pointPlusDao(sid, point, currentPoint, explain);
 			}
 		
 		return String.format("redirect:/content_view?postidx=%s", postidx);

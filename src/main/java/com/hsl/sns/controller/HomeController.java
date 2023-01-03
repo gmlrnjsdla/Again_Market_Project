@@ -22,6 +22,7 @@ import com.hsl.sns.dao.IDao;
 import com.hsl.sns.dto.CommentDto;
 import com.hsl.sns.dto.FollowDto;
 import com.hsl.sns.dto.MemberDto;
+import com.hsl.sns.dto.PointDto;
 import com.hsl.sns.dto.PostDto;
 import com.hsl.sns.dto.PostingUrlDto;
 
@@ -261,6 +262,10 @@ public class HomeController {
 	public String help() {
 		return "help";
 	}
+	@RequestMapping(value = "/test")
+	public String test() {
+		return "test";
+	}
 	
 	@RequestMapping(value = "commentlike")
 	public String commentlike(HttpServletRequest request, HttpSession session) {
@@ -284,6 +289,8 @@ public class HomeController {
 		
 		return String.format("redirect:/content_view?postidx=%s", postidx);
 	}
+	
+	
 	
 	@RequestMapping(value = "/pointshop")
 	public String pointshop(HttpServletRequest request, HttpSession session, Model model) {
@@ -406,6 +413,20 @@ public class HomeController {
 		
 
 		return "pointshop_completed";
+	}
+	
+	@RequestMapping(value = "pointList")
+	public String pointList(HttpServletRequest request, HttpSession session, Model model) {
+		sidebar(session,model);
+		IDao dao = sqlSession.getMapper(IDao.class);
+		String sid = (String) session.getAttribute("sessionId");
+		MemberDto mdto = dao.memberInfoDao(sid);
+		model.addAttribute("minfo", mdto);
+		
+		List<PointDto> pointList = dao.pointListDao(sid);
+		model.addAttribute("pointList", pointList);
+
+		return "pointList";
 	}
 	
 	

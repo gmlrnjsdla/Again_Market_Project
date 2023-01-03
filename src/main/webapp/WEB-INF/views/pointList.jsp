@@ -7,6 +7,23 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/content_List/content_List.css">
+
+
+<style type="text/css">
+	
+	
+	.point1{
+		padding:5px 30px 5px 30px;
+	}
+	.point2{
+		border-top: 1px solid #cccccc;
+	}
+	.point3{
+		border-top: 1px solid #cccccc;
+		border-bottom: 1px solid #cccccc;
+	}
+</style>
+
 <title>#### pointshop ####</title>
 </head>
 <body>
@@ -51,35 +68,29 @@
   
   
   <!-- 판매중 리스트 -->
-  	<div class="overflow-auto" style="height:600px">
-  	<div class="row row-cols-3 row-cols-md-3 g-4" style="padding-left: 20px;padding-right: 10px;">	
-   	<c:forEach items="${pList}" var="pList">	
-	
-	  <div class="col">
-	    <div class="card h-100">
-	     <a href="pointshop_view?postidx=${pList.postidx}" style="text-decoration: none; color:black;"> 
-	      <c:forEach items="${uList }" var="uList">
-	      	<c:if test="${uList.postDto.postidx == pList.postidx }">
-				<img src="/resources/uploadfiles/${uList.fileName}" width="100" height="200" class="card-img-top" alt="...">
-			</c:if>
-	      </c:forEach>
-		      <div class="card-body" style="height: 100px;padding:10px">
-				<div>
-					<button type="button" class="btn btn-danger" style="height: 30px; padding: 4px; font-size:14px; margin-left: 10px; ">
-					<fmt:formatNumber value="-10000" pattern="#,###,###,###"/>p</button>
-				
-				</div>
-		        <p class="shop_text01">${pList.title }</p>
-		      </div>
-
-        </a>
-      </div>
-    </div>
-  </c:forEach>
-  </div>
+  <center>
+  	<div style="height:600px">
+  		<table class="pointTable" >
+  			<tr class="point3" style="text-align: center;">
+  				<th class="point1">번호</th>
+  				<th class="point1">포인트 추가</th>
+  				<th class="point1">포인트 차감</th>
+  				<th class="point1">설 명</th>
+  				<th class="point1">당시 잔액</th>
+  			</tr>
+  			<c:forEach items="${pointList }" var="pointList" varStatus="status">
+	  			<tr class="point2" style="text-align: center;">
+	  				<td class="point1">${status.count}</td>
+	  				<td class="point1" style="color:#32a852">+${pointList.pluspoint }p</td>
+	  				<td class="point1" style="color:red;">-${pointList.minuspoint }p</td>
+	  				<td class="point1">${pointList.explain }</td>
+	  				<td class="point1">${pointList.currentpoint }p</td>
+	  			</tr>
+  			</c:forEach>
+  		</table>
   
-  </div>
-  	
+  	</div>
+  </center>
 
 	<!-- 판매중 리스트 끝 -->	
 

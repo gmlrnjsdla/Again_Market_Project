@@ -15,9 +15,15 @@
 		SELECT * FROM user_sns WHERE id=#{param1}
 	</select>
 	
+	<select id="memberInfoDaoNick" resultType="com.hsl.sns.dto.MemberDto">
+		SELECT * FROM user_sns WHERE nick=#{param1}
+	</select>
+	
 	<select id="memberListDao" resultType="com.hsl.sns.dto.MemberDto">
 		SELECT * FROM user_sns WHERE id NOT IN (#{param1})
 	</select>
+	
+	
 	
 	<update id="memberModifyDao">
 		UPDATE user_sns SET name=#{param2}, mail=#{param3}, nick=#{param4}, phone=#{param5}, greet=#{param6},profilename=#{param7},profileurl=#{param8},fileextension=#{param9} WHERE id=#{param1}
@@ -43,12 +49,16 @@
 	</update>
 	
 	<insert id="pointPlusDao">
-		INSERT INTO pointtbl(pointidx,id,pluspoint) VALUES(point_seq.nextval,#{param1},${param2})
+		INSERT INTO pointtbl(pointidx,id,pluspoint,currentpoint,explain) VALUES(point_seq.nextval,#{param1},${param2},${param3},#{param4})
 	</insert>
 	
 	<insert id="pointminusDao">
-		INSERT INTO pointtbl(pointidx,id,minuspoint) VALUES(point_seq.nextval,#{param1},${param2})
-	</insert>		
+		INSERT INTO pointtbl(pointidx,id,minuspoint,currentpoint,explain) VALUES(point_seq.nextval,#{param1},${param2},${param3},#{param4})
+	</insert>	
+	
+	<select id="pointListDao" resultType="com.hsl.sns.dto.PointDto">
+		SELECT * FROM pointtbl WHERE id=#{param1} ORDER BY pointidx DESC
+	</select>	
 	
 	
 	

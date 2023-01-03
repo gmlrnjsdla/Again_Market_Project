@@ -126,7 +126,7 @@ public class MemberController {
 	
 	
 	@RequestMapping(value = "/joinOk", method = RequestMethod.POST)
-	public String joinOk(HttpServletRequest request, Model model) {
+	public String joinOk(HttpServletRequest request, Model model, HttpServletResponse response) {
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
@@ -138,10 +138,38 @@ public class MemberController {
 		String phone = request.getParameter("phone");
 		String nick = request.getParameter("nick");
 		String greet = request.getParameter("greet");
-		dao.joinMemberDao(id, pwd, name, birth, mail, phone, nick, greet);
+		
+		MemberDto mdto = dao.memberInfoDao(id);
+		MemberDto ndto = dao.memberInfoDaoNick(nick);
+		if(mdto != null ) {
+			PrintWriter out;
+			try {
+				response.setContentType("text/html;charset=utf-8");
+				out = response.getWriter();
+				out.println("<script>alert('이미 가입된 아이디입니다!');history.go(-1);</script>");
+				out.flush();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else if(ndto != null) {
+			PrintWriter out;
+			try {
+				response.setContentType("text/html;charset=utf-8");
+				out = response.getWriter();
+				out.println("<script>alert('이미 존재하는 닉네임입니다!');history.go(-1);</script>");
+				out.flush();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else {
+			dao.joinMemberDao(id, pwd, name, birth, mail, phone, nick, greet);
+			model.addAttribute("name", name);
+		}
 		
 		
-		model.addAttribute("name", name);
 		
 		return "joinOk";
 	}

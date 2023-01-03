@@ -9,13 +9,13 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/content_write/content_write.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/content_view/content_view.css">
-
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/index/index.css?after">
 
 <title>Insert title here</title>
 </head>
 <body>
 <%@ include file="include/leftBar.jsp" %>
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/index/index.css?after">
+
 
 	
 

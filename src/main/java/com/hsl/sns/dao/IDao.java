@@ -2,9 +2,10 @@ package com.hsl.sns.dao;
 
 import java.util.List;
 
-import com.hsl.sns.dto.FollowDto;
 import com.hsl.sns.dto.CommentDto;
+import com.hsl.sns.dto.FollowDto;
 import com.hsl.sns.dto.MemberDto;
+import com.hsl.sns.dto.PointDto;
 import com.hsl.sns.dto.PostDto;
 import com.hsl.sns.dto.PostingUrlDto;
 
@@ -19,7 +20,7 @@ public interface IDao {
 	public void memberDeleteDao(String id);
 	public MemberDto findIdDao(String name, String mail, String phone);//아이디찾기
 	public MemberDto findPwDao(String name, String mail, String phone, String id);//비번찾기
-	
+	public MemberDto memberInfoDaoNick(String nick);
 	
 	
 	//contentWrite 관련
@@ -98,8 +99,9 @@ public interface IDao {
 	
 	//point
 	public void pointDao(int point, String id);
-	public void pointPlusDao(String id, int point);
-	public void pointMinusDao(String id, int point);
+	public void pointPlusDao(String id, int point, int currentpoint, String explain);
+	public void pointMinusDao(String id, int point, int currentpoint, String explain);
+	public List<PointDto> pointListDao(String id);
 	
 	
 }

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hsl.sns.dao.Chat;
 import com.hsl.sns.dao.IDao;
+import com.hsl.sns.dto.CommentDto;
 import com.hsl.sns.dto.FollowDto;
 import com.hsl.sns.dto.MemberDto;
 import com.hsl.sns.dto.PostDto;
@@ -248,8 +249,128 @@ public class HomeController {
 	}
 	
 	
+	@RequestMapping(value = "/pointshop")
+	public String pointshop(HttpServletRequest request, HttpSession session, Model model) {
+		
+		sidebar(session,model);
+		IDao dao = sqlSession.getMapper(IDao.class);
+		String id = request.getParameter("id");
+		MemberDto dto = dao.memberInfoDao(id);
+		
+		model.addAttribute("minfo", dto);
+		model.addAttribute("id", dto.getId()); 
 	
+		//찜 수
+		int follower = dao.followerCountDao(id);
+		model.addAttribute("follower", follower);
+		
+		//판매글 수
+		int post = dao.postCountDao(id);
+		model.addAttribute("post", post);
+		
+		//예약글 수
+		int buy = dao.buyCountDao(id);
+		model.addAttribute("buy", buy);
+		
+		//거래완료글 수
+		int trc = dao.transactionCountDao(id);
+		model.addAttribute("trc", trc);
+		
+		
+		List<PostDto> postList = dao.myPostListDao(id); // 해당 프로필의 판매중인 게시글 정보 가져오기
+		model.addAttribute("pList", postList); 
+		
+		List<PostingUrlDto> postUrlList= dao.myPostUrlListDao(); // 해당 프로필의 게시물 사진 하나만 가져오기
+		model.addAttribute("uList", postUrlList);
+		
+		//====================== 날짜 차이 ======================//
+		List<PostDto> dateList = dao.dateDao();
+		model.addAttribute("dList", dateList);
+		//====================== 날짜 차이 끝 ======================//
+		
+		return "pointshop";
+	}
 	
+	@RequestMapping(value = "/pointshop_view")
+	public String pointshop_view(HttpSession session, Model model, HttpServletRequest request) {
+		
+		sidebar(session,model);
+		IDao dao = sqlSession.getMapper(IDao.class);
+		int postidx = Integer.parseInt(request.getParameter("postidx")); 
+		String sid = (String)session.getAttribute("sessionId");
+		model.addAttribute("sid", sid);
+		
+		//====================== 날짜 차이 ======================//
+		List<PostDto> dateList = dao.dateDao();
+		model.addAttribute("dList", dateList);
+		//====================== 날짜 차이 끝 ======================//
+		
+		//프로필사진
+		MemberDto minfo = dao.memberInfoDao(sid);
+		model.addAttribute("minfo", minfo);
+		
+		//게시글 정보
+		PostDto dto = dao.postDao(postidx);
+		model.addAttribute("post", dto);
+		String id = dto.getId();
+		model.addAttribute("id", id); 	// sessionId와 비교를 위해
+		
+		//이미지 가져오기
+		List<PostingUrlDto> postUrlList = dao.postUrlListDao();	
+		model.addAttribute("postUrlList", postUrlList);
+		
+		//찜하기 수
+		int count = dao.followCountDao(postidx);
+		model.addAttribute("likeCount", count);
+
+		//댓글
+		List<CommentDto> commentDtos = dao.commentListDao(postidx);
+		model.addAttribute("commentList", commentDtos);
+		
+		//메세지
+		
+		
+		
+		return "pointshop_view";
+	}	
+	@RequestMapping(value = "pointshop_tradeView")
+	public String pointshop_tradeView(HttpServletRequest request, HttpSession session, Model model) {
+		sidebar(session,model);
+		
+		int postidx = Integer.parseInt(request.getParameter("postidx"));
+		String sid = (String) session.getAttribute("sessionId");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		MemberDto dto = dao.postInfomationDao(postidx);
+		model.addAttribute("pinfo", dto);
+		MemberDto mdto = dao.memberInfoDao(sid);
+		
+		model.addAttribute("minfo", mdto);
+		
+		
+		return "pointshop_tradeView";
+	}
+	
+	@RequestMapping(value = "pointshop_completed")
+	public String pointshop_completed(HttpServletRequest request, HttpSession session, Model model) {
+		sidebar(session,model);
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		int postidx = Integer.parseInt(request.getParameter("postidx"));
+		String buyuser = request.getParameter("buyuser");
+		String selectedDate = request.getParameter("selectedDate");
+		String nick = request.getParameter("nick");
+		
+		
+		model.addAttribute("date", selectedDate);
+		dao.buycompleteDao(postidx, buyuser,selectedDate);
+		
+		model.addAttribute("nick", nick);
+		
+		
+
+		return "pointshop_completed";
+	}
 	
 	
 	

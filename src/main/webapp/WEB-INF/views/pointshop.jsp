@@ -13,7 +13,7 @@
 <%@ include file="include/leftBar.jsp" %>
 <%@ include file="include/rightBar.jsp" %>
 
-<div class="pointshop_List" style="padding-top:50px;padding-left:550px;">
+<div class="pointshop_List" style="padding-top:50px;padding-left:550px;position: relative;z-index: 5;">
 
 <div class="card" style="width: 800px; height:750px; border:1px solid #dddddd; border-radius:15px;">
   <div class="card-body" style="height:80px; ">

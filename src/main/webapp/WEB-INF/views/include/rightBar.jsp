@@ -27,8 +27,9 @@
 
 <!-- 본인 닉네임 -->
 <div class="card-body"> 
-   	<img class ="rounded-circle me-2" src="/resources/uploadfiles/${minfo.profileName}"  width="30" height="30" alt="..." ${minfo.nick}>
+   	<img class ="rounded-circle me-2" src="/resources/uploadfiles/${minfo.profileName}"  width="30" height="30" alt="..." >
    		<span style="font-size:16px; font-weight:bold;"><%=snick %></span>
+   		<span style="font-size:14px; font-weight:bold; color:#969696; margin-left:30px;">point : ${minfo.point }p</span>
 		<hr>
 <!-- 본인 닉네임끝 -->		
 		

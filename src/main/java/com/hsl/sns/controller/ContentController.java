@@ -3,7 +3,7 @@ package com.hsl.sns.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -341,6 +341,11 @@ public class ContentController {
 			}
 		}
 			
+		int point = 1000;
+		dao.pointDao(point, sid);		//point 증가
+		dao.pointPlusDao(sid, point);	//pointtbl에 증가된 값 저장
+		
+		
 		return "redirect:index";
 	}
 	
@@ -381,7 +386,18 @@ public class ContentController {
 		List<CommentDto> commentDtos = dao.commentListDao(postidx);
 		model.addAttribute("commentList", commentDtos);
 		
-		//메세지
+		//댓글 개수
+		List<CommentDto> cdtos = dao.commentListDao(postidx);
+		List<Integer> counts = new ArrayList<>();
+		for(int i=0; i<cdtos.size(); i++) {
+			CommentDto cdto = cdtos.get(i);
+			int commentidx = cdto.getCommentidx();
+			int likeCount = dao.CommentLikeCountDao(commentidx);
+			
+			counts.add(likeCount);
+		}
+		
+		model.addAttribute("likeCount", counts);
 		
 		
 		
@@ -447,6 +463,7 @@ public class ContentController {
 		sidebar(session,model);
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
+		
 		int postidx = Integer.parseInt(request.getParameter("postidx"));
 		String buyuser = request.getParameter("buyuser");
 		String selectedDate = request.getParameter("selectedDate");
@@ -459,6 +476,8 @@ public class ContentController {
 		model.addAttribute("nick", nick);
 		
 		
+		
+		
 
 		return "buy_completed";
 	}
@@ -467,6 +486,8 @@ public class ContentController {
 	public String sell_completed(HttpServletRequest request, HttpSession session, Model model) {
 		sidebar(session,model);
 		IDao dao = sqlSession.getMapper(IDao.class);
+		String sid = (String)session.getAttribute("sessionId");
+		String buyuser = request.getParameter("buyuser");
 		
 		int postidx = Integer.parseInt(request.getParameter("postidx"));
 		String selectedDate = request.getParameter("selecteddate");
@@ -475,6 +496,17 @@ public class ContentController {
 		dao.sellcompleteDao(postidx);
 		model.addAttribute("date", selectedDate);
 		model.addAttribute("nick", nick);
+		
+		
+		//예약 완료시 구매자, 판매자 모두에게 포인트 지급
+		int point = 1500;
+		//구매회원 포인트 증가
+		dao.pointDao(point, buyuser);
+		dao.pointPlusDao(buyuser, point);
+		
+		//판매회원 포인트 증가
+		dao.pointDao(point, sid);
+		dao.pointPlusDao(sid, point);
 		
 		return "sell_completed";
 	}
@@ -511,7 +543,10 @@ public class ContentController {
 				model.addAttribute("post", postDto);
 				model.addAttribute("commentList", commentDtos);
 				
-			
+				int point = 30;
+				//댓글 쓰면 포인트 증가
+				dao.pointDao(point, sid);
+				dao.pointPlusDao(sid, point);
 			}
 		
 		return String.format("redirect:/content_view?postidx=%s", postidx);

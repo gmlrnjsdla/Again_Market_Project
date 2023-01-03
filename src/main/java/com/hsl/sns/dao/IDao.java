@@ -96,5 +96,10 @@ public interface IDao {
 	public int CommentLikeCheckDao(String id,int commentidx);	// 좋아요 여러번 방지
 	public int CommentLikeCountDao(int commentidx);	// 해당 댓글의 좋아 수
 	
+	//point
+	public void pointDao(int point, String id);
+	public void pointPlusDao(String id, int point);
+	public void pointMinusDao(String id, int point);
+	
 	
 }

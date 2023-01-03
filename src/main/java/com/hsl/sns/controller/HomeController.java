@@ -267,16 +267,17 @@ public class HomeController {
 		IDao dao = sqlSession.getMapper(IDao.class);
 		String sid = (String) session.getAttribute("sessionId");
 		int postidx=Integer.parseInt(request.getParameter("postidx"));
-		int commentlike = Integer.parseInt(request.getParameter("cidx")); 
+		int commentidx = Integer.parseInt(request.getParameter("cidx")); 
 		
-		int count = dao.CommentLikeCheckDao(sid, commentlike);
-		if(count != 0) {
+		int checkCount = dao.CommentLikeCheckDao(sid, commentidx);
+		
+		if(checkCount != 0) {
 		
 			return String.format("redirect:/content_view?postidx=%s", postidx);	
 		
 		}else {
 			
-			dao.commentLikeDao(commentlike, sid);
+			dao.commentLikeDao(commentidx, sid);
 			
 		}
 		

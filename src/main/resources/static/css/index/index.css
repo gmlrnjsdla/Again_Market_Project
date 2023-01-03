@@ -68,4 +68,7 @@ a:hover { color: #000000; text-decoration: underline; }
 a{
 	text-decoration: none;
 }
-	
+
+a.dropdown-toggle:hover{
+	color: #000000; text-decoration: underline;
+}

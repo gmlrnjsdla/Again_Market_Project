@@ -108,6 +108,7 @@
     		<input type="hidden" name="postidx" value="${pinfo.postDto.postidx }">
        		<input type="hidden" name="nick" value="${sinfo.nick }">
        		<input type="hidden" name="selecteddate" value="${pinfo.postDto.hopedate}">
+       		<input type="hidden" name="buyuser" value="${sinfo.id}">
     <br><br>
 <br><br>
     <span><input type="submit" class="btn btn-outline-primary" value="예약 확정" style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;"></span>

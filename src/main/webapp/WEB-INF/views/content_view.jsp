@@ -105,12 +105,12 @@
 		
 		<c:when test="${post.buyflag != 0 and post.sellflag != 0}">
 			<button type="button" class="btn btn-secondary" disabled
-				style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">거래완료</button>
+				style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">예약완료</button>
 		</c:when>
 		
 		<c:when test="${post.buyflag != 0 and post.sellflag == 0}">
 			<button type="button" class="btn btn-success" disabled
-			style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">예약중</button>
+			style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">예약확인중</button>
 		</c:when> 
 		
 		<c:otherwise>
@@ -234,7 +234,7 @@
 									   <a href="commentlike?cidx=${commentList.commentidx}&postidx=${post.postidx}">
 									    <img src="${pageContext.request.contextPath }/resources/img/hearts.png" width="15" height="15" alt="..." style="margin: 0;">
 									     <span class="badge text-bg-secondary" style="font-size: 7px;" >
-									     	5
+									     	${likeCount.get(status.index)}
 									   </span>
 									  
 									   <span class="content_font02" style="font-size: 15px; font-weight:bold; float:right;">${commentList.createdate.substring(0,10) }</span>

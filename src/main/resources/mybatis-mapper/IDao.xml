@@ -30,11 +30,25 @@
 	<select id="findIdDao" resultType="com.hsl.sns.dto.MemberDto">
 		SELECT id FROM user_sns WHERE name=#{param1} AND  mail=#{param2} AND phone=#{param3}
 	</select>
+	
 	<select id="findPwDao" resultType="com.hsl.sns.dto.MemberDto">
 		SELECT pwd FROM user_sns WHERE name=#{param1} AND  mail=#{param2} AND phone=#{param3} AND id=#{param4}
 	</select>
 	
 	
+	
+	<!-- 포인트 -->
+	<update id="pointDao">
+		UPDATE user_sns SET point=point+${param1} WHERE id=#{param2}
+	</update>
+	
+	<insert id="pointPlusDao">
+		INSERT INTO pointtbl(pointidx,id,pluspoint) VALUES(point_seq.nextval,#{param1},${param2})
+	</insert>
+	
+	<insert id="pointminusDao">
+		INSERT INTO pointtbl(pointidx,id,minuspoint) VALUES(point_seq.nextval,#{param1},${param2})
+	</insert>		
 	
 	
 	

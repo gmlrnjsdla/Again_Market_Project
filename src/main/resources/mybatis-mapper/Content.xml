@@ -49,7 +49,8 @@
 		<result property="greet" column="greet"/>
 		<result property="profileName" column="profileName"/>
 		<result property="profileUrl" column="profileUrl"/>
-		<result property="fileExtension" column="fileExtension"/>	
+		<result property="fileExtension" column="fileExtension"/>
+		<result property="point" column="point"/>	
 
 		<collection property="postDto" resultMap="PostDto"></collection>
 	</resultMap>
@@ -219,7 +220,7 @@
 	
 	<!--  댓글 좋아요 -->
 	<select id="CommentLikeOkDao" resultType="int">
-		SELECT count(*) FROM commentlike where commentidx = #{param1} and id = #{param2}
+		SELECT count(*) FROM commentlike where commentidx = #{param1}
 	</select>
 </mapper>
 	

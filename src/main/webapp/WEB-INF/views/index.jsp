@@ -55,7 +55,7 @@
 	<c:choose>
 	   <c:when test="${pList.id != sid and  pList.sellflag == 0}">
 	    
-      <a href="#" class="text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
         <span style="font-size:20px; font-weight:bold;">
         	<img class ="rounded-circle me-2"  src="/resources/uploadfiles/${pList.profileName}" width="50" height="50" alt="...">
         	${pList.nick}	

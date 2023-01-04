@@ -12,35 +12,36 @@
 <body>
 <%@ include file="include/leftBar.jsp" %>
 
-<div class="pointshop_List" style="padding-top:50px;padding-left:550px;position: relative;z-index: 1;">
+
+<div class="pointshop_List" style="padding-top:50px;padding-left:650px;position: relative;z-index: 1;">
 
 
-<div class="card" style="width: 800px; height:750px; border:1px solid #dddddd; border-radius:15px;">
-  <div class="card-body" style="height:100px; ">
+<div class="" style="width: 800px; height:750px;">
+  <div class="card-body" style="height:70px; ">
  	<!-- 컨텐츠 헤더 -->  
  		
  		<table border="0" cellpadding= "0" cellspacing="0" width="760"  style="margin-bottom:0px; position:relative;">
 
 		  	<tr>
 				<td width="50%"  align="center" rowspan="2">
-				<img src="${pageContext.request.contextPath}/resources/img/pointmarket.png" alt="" width="250" height="100" class="rounded-circle me-2">
+				<img src="${pageContext.request.contextPath}/resources/img/pointmarket.png" alt="" width="200" class="rounded-circle me-2">
 		  		</td>
 		  		
-		  		<td width="15%"  align="center" rowspan="2">
+		  		<td width="15%"  align="center" rowspan="2" >
 		  			<img class ="rounded-circle me-2" src="/resources/uploadfiles/${minfo.profileName} " alt="..." width="70" height="70" >
 		  		
 		  		</td>
 		  		
-		  		<td height="20%">
-		  			<div id = "shop_profile01">${minfo.nick}
-			
+		  		<td height="20%" style="padding-top:20px;">
+		  			<div id = "shop_profile01">
+						${minfo.nick}
 					</div>
 		   		</td>
 		   		
 		  	</tr>
 		  	
 		  	<tr>
-		  		<td>
+		  		<td style="padding-bottom:40px;">
 			  		<a href="pointList">
 				   		<button type="button" class="btn btn-outline-secondary" 
 				          style="--bs-btn-padding-y: .4rem; --bs-btn-padding-x: .9rem; --bs-btn-font-size: .95rem;">

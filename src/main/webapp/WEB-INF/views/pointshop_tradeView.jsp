@@ -76,7 +76,7 @@
     <span><input type="button" onclick="addressCheck()" class="btn btn-outline-primary" value = "구매확인"style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;"></span>
     
     <a href="/pointshop?id=<%=sid %>" class="nav-link link-dark">
-    <span><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: right;margin-right: 80px;" >구매 취소</button></span>
+    <span><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: right;margin-right: 80px;" onclick="script:window.location='index'">구매 취소</button></span>
   	</a>
 
 

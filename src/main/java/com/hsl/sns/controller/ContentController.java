@@ -603,6 +603,7 @@ public String content_modifyOk(HttpServletRequest request, HttpSession session, 
 	String tradeplace = request.getParameter("tradeplace");
 	String content = request.getParameter("content");
 	
+	
 	dao.modifyPostDao(title, type, price, tradeplace, content, postidx);
 	
 	return String.format("redirect:/content_view?postidx=%s", postidx);
@@ -614,10 +615,12 @@ public String delete_content(HttpServletRequest request,Model model, HttpSession
 	sidebar(session,model);
 	IDao dao = sqlSession.getMapper(IDao.class);
 	int postidx = Integer.parseInt(request.getParameter("postidx")); 
+	String sid = (String) session.getAttribute("sessionId");
+	
 	
 	dao.deletePostDao(postidx);
 	
-	return "redirect:index";
+	return String.format("redirect:/sell_List?id=%s", sid);
 }
 
 }

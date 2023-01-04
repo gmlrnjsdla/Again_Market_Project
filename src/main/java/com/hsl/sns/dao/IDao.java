@@ -9,6 +9,7 @@ import com.hsl.sns.dto.MemberDto;
 import com.hsl.sns.dto.PointDto;
 import com.hsl.sns.dto.PostDto;
 import com.hsl.sns.dto.PostingUrlDto;
+import com.hsl.sns.dto.ShopPostDto;
 
 
 
@@ -107,5 +108,5 @@ public interface IDao {
 	
 	//pointshop입력
 	public void shopWriteDao(String title, String content, int spoint, String filename, String fileurl, String fileextension); //pointshop write content insert
-	//public List<ShopPostDto> shopListDao();
+	public List<ShopPostDto> shopListDao();
 }

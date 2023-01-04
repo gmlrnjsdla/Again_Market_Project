@@ -35,6 +35,7 @@ import com.hsl.sns.dto.PageDto;
 import com.hsl.sns.dto.PointDto;
 import com.hsl.sns.dto.PostDto;
 import com.hsl.sns.dto.PostingUrlDto;
+import com.hsl.sns.dto.ShopPostDto;
 
 
 
@@ -321,8 +322,8 @@ public class HomeController {
 		List<PostDto> postList = dao.myPostListDao(id); // 해당 프로필의 판매중인 게시글 정보 가져오기
 		model.addAttribute("pList", postList); 
 		
-		List<PostingUrlDto> postUrlList= dao.myPostUrlListDao(); // 해당 프로필의 게시물 사진 하나만 가져오기
-		model.addAttribute("uList", postUrlList);
+		List<ShopPostDto> shopList = dao.shopListDao();
+		model.addAttribute("sList",shopList);
 			
 		return "pointshop";
 	}
@@ -458,11 +459,15 @@ public class HomeController {
 	
 	
 	@PostMapping(value = "/pointshop_writeOk")
-	public String pointshop_writeOk(Model model, HttpServletRequest request, 
+	public String pointshop_writeOk(HttpSession session, Model model, HttpServletRequest request, 
 		@RequestPart MultipartFile files) throws IllegalStateException, IOException {
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
 		// write
+		String sid = (String) session.getAttribute("sessionId");
+		MemberDto mdto = dao.memberInfoDao(sid);
+		model.addAttribute("minfo", mdto);
+		model.addAttribute("sid",sid);
 		
 		//제품등록
 		String title = request.getParameter("title");
@@ -496,7 +501,7 @@ public class HomeController {
 		dao.shopWriteDao(title, content, spoint, destinationFileName, fileUrl, fileExtension);
 
 		
-		return String.format("redirect:/pointshop?id=admin");
+		return String.format("redirect:/pointshop?id=%s",sid);
 	}
 	
 	

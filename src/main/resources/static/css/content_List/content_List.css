@@ -71,6 +71,16 @@ div#profile01{
 	font-family: Arial;
 	text-align: left;
 	padding: 10px;
+	font-weight: bold;
+}
+
+.shop_text02{
+	
+	font-size: 14px;
+	color: #646460;
+	font-family: Arial;
+	text-align: left;
+	padding: 10px;
 	font-weight: normal;
 }
 div#shop_profile01{

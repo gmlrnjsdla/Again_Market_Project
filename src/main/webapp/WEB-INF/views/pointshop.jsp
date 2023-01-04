@@ -48,17 +48,14 @@
 						</button>
 					</a>
 					
-					<c:choose>
-	   				<c:when test="${sid == admin}">
-					
+
+	   				<c:if test="${sid eq admin}">
 					<button type="button" class="btn btn-outline-primary" onclick="script:window.location='pointshop_write'"
 			          style="--bs-btn-padding-y: .4rem; --bs-btn-padding-x: .9rem; --bs-btn-font-size: .95rem; margin-top: 5px;">
 			  		 상품올리기
 					</button>
+					</c:if>
 					
-					
-					</c:when>
-					</c:choose>
 					
 				</td>	
 		  	</tr>
@@ -66,32 +63,34 @@
 	
 	
   </div>
+  <br>
   	<hr style="margin:30px;">
   
   
   <!-- 판매중 리스트 -->
   	<div class="overflow-auto" style="height:600px">
-  	<div class="row row-cols-3 row-cols-md-3 g-4" style="padding-left: 20px;padding-right: 10px;">	
-   	<c:forEach items="${pList}" var="pList">	
+  	<div class="row row-cols-3 row-cols-md-3 g-4" style="padding-left: 20px;padding-right: 20px;">	
+   	<c:forEach items="${sList}" var="sList">	
 	
-	  <div class="col">
-	    <div class="card h-100">
-	     <a href="pointshop_view?postidx=${pList.postidx}" style="text-decoration: none; color:black;"> 
-	      <c:forEach items="${uList }" var="uList">
-	      	<c:if test="${uList.postDto.postidx == pList.postidx }">
-				<img src="/resources/uploadfiles/${uList.fileName}" width="100" height="200" class="card-img-top" alt="...">
-			</c:if>
-	      </c:forEach>
-		      <div class="card-body" style="height: 100px;padding:10px">
-				<div>
-					<button type="button" class="btn btn-danger" style="height: 30px; padding: 4px; font-size:14px; margin-left: 10px; ">
-					<fmt:formatNumber value="-10000" pattern="#,###,###,###"/>p</button>
-				
-				</div>
-		        <p class="shop_text01">${pList.title }</p>
-		      </div>
+	  <div class="col" >
+	    <div class="card">
+				<img src="/resources/uploadfiles/${sList.fileName}" width="100" height="230" class="card-img-top" alt="...">
 
-        </a>
+		      
+		      <div class="card-body" style="height: 120px;padding:10px;">
+				<div>
+				<span class="shop_text01">${sList.title }</span>
+					<button type="button" class="btn btn-danger" style="height: 25px; padding: 2px; font-size:12px; margin-left: 10px; ">
+					<fmt:formatNumber value="${sList.spoint}" pattern="#,###,###,###"/>p</button>
+				</div>
+		        <div class="shop_text02">${sList.content }</div>
+		        <div>
+			        <button type="button" class="btn btn-outline-primary"
+	        			style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+	 					구매하기
+					</button>
+		        </div>
+		      </div>
       </div>
     </div>
   </c:forEach>

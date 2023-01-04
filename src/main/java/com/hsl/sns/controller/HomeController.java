@@ -366,14 +366,34 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "pointshop_completed")
-	public String pointshop_completed(HttpServletRequest request, HttpSession session, Model model) {
+	public String pointshop_completed(HttpServletResponse response,HttpServletRequest request, HttpSession session, Model model) {
 		sidebar(session,model);
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
-		
+		String sid = (String)session.getAttribute("sessionId");
 		String address = request.getParameter("address");
 		model.addAttribute("address", address);
 		
+		MemberDto mdto = dao.memberInfoDao(sid);
+		int currentPoint = mdto.getPoint();
+		
+		int point = Integer.parseInt(request.getParameter("point")); 
+		if(point > currentPoint) {
+			PrintWriter out;
+			try {
+				response.setContentType("text/html;charset=utf-8");
+				out = response.getWriter();
+				out.println("<script>alert('잔액이 부족합니다!!');history.go(-1);</script>");
+				out.flush();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else {
+			String explain = "상품 구매 "+point+"p";
+			dao.pointMinus(point, sid);
+			dao.pointMinusDao(sid, point, currentPoint, explain);
+		}
 
 		return "pointshop_completed";
 	}

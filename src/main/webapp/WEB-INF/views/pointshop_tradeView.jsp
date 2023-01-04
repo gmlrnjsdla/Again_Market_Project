@@ -72,6 +72,8 @@
        <input type="text" class="form-control" for="autoSizingInputGroup" placeholder="배송주소입력" name="address">
     </div>
 
+	<input type="hidden" name="point" value="${sDto.spoint}">
+
     <br><br>
     <span><input type="button" onclick="addressCheck()" class="btn btn-outline-primary" value = "구매확인"style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;"></span>
     

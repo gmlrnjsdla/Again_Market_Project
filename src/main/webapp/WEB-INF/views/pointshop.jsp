@@ -17,7 +17,7 @@
 
 
 <div class="" style="width: 800px; height:750px;">
-  <div class="card-body" style="height:70px; ">
+  <div class="card-body" style="height:85px; ">
  	<!-- 컨텐츠 헤더 -->  
  		
  		<table border="0" cellpadding= "0" cellspacing="0" width="760"  style="margin-bottom:0px; position:relative;">

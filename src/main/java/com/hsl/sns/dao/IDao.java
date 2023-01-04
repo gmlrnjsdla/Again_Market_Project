@@ -100,7 +100,8 @@ public interface IDao {
 	public int CommentLikeCountDao(int commentidx);	// 해당 댓글의 좋아 수
 	
 	//point
-	public void pointDao(int point, String id);
+	public void pointPlus(int point, String id);
+	public void pointMinus(int point, String id);
 	public void pointPlusDao(String id, int point, int currentpoint, String explain);
 	public void pointMinusDao(String id, int point, int currentpoint, String explain);
 	public List<PointDto> pointListDao(String id,int amount, int pageNum);

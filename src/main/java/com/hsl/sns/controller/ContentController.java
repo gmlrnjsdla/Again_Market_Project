@@ -347,7 +347,7 @@ public class ContentController {
 		int point = 200;
 		String explain = "게시글 작성 200p";
 		
-		dao.pointDao(point, sid);		//point 증가
+		dao.pointPlus(point, sid);		//point 증가
 		dao.pointPlusDao(sid, point,currentPoint,explain);	//pointtbl에 증가된 값 저장
 		
 		
@@ -514,11 +514,11 @@ public class ContentController {
 		int point = 500;
 		String explain = "예약완료 축하금 500p";
 		//구매회원 포인트 증가
-		dao.pointDao(point, buyuser);
+		dao.pointPlus(point, buyuser);
 		dao.pointPlusDao(buyuser, point, bcurrentPoint, explain);
 		
 		//판매회원 포인트 증가
-		dao.pointDao(point, sid);
+		dao.pointPlus(point, sid);
 		dao.pointPlusDao(sid, point, currentPoint, explain);
 		
 		return "sell_completed";
@@ -563,7 +563,7 @@ public class ContentController {
 				int point = 5;
 				String explain = "댓글 작성 5p";
 				//댓글 쓰면 포인트 증가
-				dao.pointDao(point, sid);
+				dao.pointPlus(point, sid);
 				dao.pointPlusDao(sid, point, currentPoint, explain);
 			}
 		

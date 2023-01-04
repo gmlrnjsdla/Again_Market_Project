@@ -44,15 +44,19 @@
 	
 	
 	<!-- 포인트 -->
-	<update id="pointDao">
+	<update id="pointPlus">
 		UPDATE user_sns SET point=point+${param1} WHERE id=#{param2}
+	</update>
+	
+	<update id="pointMinus">
+		UPDATE user_sns SET point=point-${param1} WHERE id=#{param2}
 	</update>
 	
 	<insert id="pointPlusDao">
 		INSERT INTO pointtbl(pointidx,id,pluspoint,currentpoint,explain) VALUES(point_seq.nextval,#{param1},${param2},${param3},#{param4})
 	</insert>
 	
-	<insert id="pointminusDao">
+	<insert id="pointMinusDao">
 		INSERT INTO pointtbl(pointidx,id,minuspoint,currentpoint,explain) VALUES(point_seq.nextval,#{param1},${param2},${param3},#{param4})
 	</insert>	
 	

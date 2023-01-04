@@ -18,7 +18,8 @@ public interface IDao {
 	public void joinMemberDao(String id, String pwd, String name, String birth, String mail, String phone, String nick, String greet);
 	public MemberDto memberInfoDao(String id);
 	public List<MemberDto> memberListDao(String id);
-	public void memberModifyDao(String id, String name, String mail, String nick, String phone, String greet,String profileName,String profileUrl,String fileExtension);
+	public void memberModifyDao(String id, String name, String mail, String nick, String phone, String greet);
+	public void profileModifyDao(String id, String profilename, String profileurl, String fileextension);
 	public void memberDeleteDao(String id);
 	public MemberDto findIdDao(String name, String mail, String phone);//아이디찾기
 	public MemberDto findPwDao(String name, String mail, String phone, String id);//비번찾기

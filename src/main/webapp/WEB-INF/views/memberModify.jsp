@@ -8,13 +8,14 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/index/index.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/member/memberModify.css">
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/member_modify/modify.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/member_modify/profilemodify.js"></script>
 
 <title>#### 회원정보수정 ####</title>
 </head>
 <body>
 <%@ include file="include/leftBar.jsp" %>
 	
-<form action="memberModifyOk" name="modify_frm" method="post" enctype="multipart/form-data">	
+<form action="profileModifyOk" name="profile_frm" method="post" enctype="multipart/form-data">	
 	<div class="recommend" style="margin-bottom:100px;">
 	<div class="card" style="width: 700px; height:820px; border:1px solid #dddddd; border-radius:5px;">
 		<br>
@@ -43,9 +44,10 @@
 				<span id="image_preview">
 				
 				<label class="input-file-button" for="btnAtt" accept="image/*" onchange="setThumbnail(event);" 
-						style="height:30px; margin-top:10px;;padding:2px 5px 0 5px;font-size: 15px; font-weight: normal;"> 프로필 사진변경</label>
+						style="height:30px; margin-top:10px;background-color:gray ;padding:2px 5px 0 5px;font-size: 15px; font-weight: normal;"> 사진 첨부</label>
 				<input type="file" id="btnAtt" name="files" accept=".gif, .jpg, .png" style="display:none;"/>
-				
+				<input type="button" class="btn btn-primary" value="프로필 변경" onclick="profileCheck()">
+				</form>
 			  	<script>
 				( /* att_zone : 이미지들이 들어갈 위치 id, btn : file tag id */
 			  		imageView = function imageView(att_zone, btn){
@@ -132,7 +134,7 @@
 	  	</div>
 		
 
-		
+<form action="memberModifyOk" name="modify_frm" method="post">		
 	  	
 	  	<!-- 이름 -->
 	  

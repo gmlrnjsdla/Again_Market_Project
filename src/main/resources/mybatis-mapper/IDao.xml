@@ -20,13 +20,17 @@
 	</select>
 	
 	<select id="memberListDao" resultType="com.hsl.sns.dto.MemberDto">
-		SELECT * FROM user_sns WHERE id NOT IN (#{param1})
+		SELECT * FROM user_sns WHERE id NOT IN (#{param1}) AND id NOT IN ('admin')
 	</select>
 	
 	
 	
 	<update id="memberModifyDao">
-		UPDATE user_sns SET name=#{param2}, mail=#{param3}, nick=#{param4}, phone=#{param5}, greet=#{param6},profilename=#{param7},profileurl=#{param8},fileextension=#{param9} WHERE id=#{param1}
+		UPDATE user_sns SET name=#{param2}, mail=#{param3}, nick=#{param4}, phone=#{param5}, greet=#{param6} WHERE id=#{param1}
+	</update>
+	
+	<update id="profileModifyDao">
+		UPDATE user_sns SET profilename=#{param2}, profileurl=#{param3}, fileextension=#{param4} WHERE id=#{param1}
 	</update>
 	
 	<delete id="memberDeleteDao">

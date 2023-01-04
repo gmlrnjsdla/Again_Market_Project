@@ -219,20 +219,13 @@ public class MemberController {
 		
 		return "memberModify";
 	}
-	@RequestMapping(value = "/memberModifyOk")
-	public String memberModifyOk(HttpServletRequest request,Model model, HttpSession session,@RequestPart MultipartFile files) throws IllegalStateException, IOException {
+	
+	@RequestMapping(value = "/profileModifyOk")
+	public String profileModifyOk(HttpServletRequest request,Model model, HttpSession session,@RequestPart MultipartFile files) throws IllegalStateException, IOException {
+	
 		
-		sidebar(session,model);
 		IDao dao = sqlSession.getMapper(IDao.class);
-		
-		String id =  request.getParameter("id");
-		String name =  request.getParameter("name");
-		String mail =  request.getParameter("mail");
-		String nick =  request.getParameter("nick");
-		String phone =  request.getParameter("phone");
-		String greet =  request.getParameter("greet");
-		
-		
+		String sid = (String) session.getAttribute("sessionId");
 		//파일첨부
 		files.getOriginalFilename(); //첨부된 파일의 원래이름
 		String fileExtension = FilenameUtils.getExtension(files.getOriginalFilename()).toLowerCase();//첨부된 파일의 확장자뽑아서 저장
@@ -246,8 +239,8 @@ public class MemberController {
         fileUrl = fileUrl+"/src/main/resources/static/uploadfiles/";
 		System.out.println(fileUrl);
 		
-//		String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
-//		String fileUrl = "C:/Users/user.JY-20200602UADW/git/SNS_Project/src/main/resources/static/uploadfiles/";
+//				String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
+//				String fileUrl = "C:/Users/user.JY-20200602UADW/git/SNS_Project/src/main/resources/static/uploadfiles/";
 		// 첨부된 파일이 저장될 서버의 실제 폴더 경로 url  주소 /로 바까주고 마지막에 / 꼭 추가!
 		
 		
@@ -263,10 +256,29 @@ public class MemberController {
 		destinationFile.getParentFile().mkdir();
 		files.transferTo(destinationFile); // 업로드된 파일이 지정한 폴더로 이동완료!!
 		//add thorws declaration	
+				
+		dao.profileModifyDao(sid, destinationFileName, fileUrl, fileExtension);
 		
-		dao.memberModifyDao(id, name, mail, nick, phone, greet, destinationFileName, fileUrl, fileExtension);
+		return "redirect:memberModify";
+	}
+	
+	@RequestMapping(value = "/memberModifyOk")
+	public String memberModifyOk(HttpServletRequest request,Model model, HttpSession session) throws IllegalStateException, IOException {
 		
-		return String.format("redirect:/sell_List?id=%s", id);
+		sidebar(session,model);
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		String sid = (String) session.getAttribute("sessionId");
+		String name =  request.getParameter("name");
+		String mail =  request.getParameter("mail");
+		String nick =  request.getParameter("nick");
+		String phone =  request.getParameter("phone");
+		String greet =  request.getParameter("greet");
+		
+		
+		dao.memberModifyDao(sid, name, mail, nick, phone, greet);
+		
+		return String.format("redirect:/sell_List?id=%s", sid);
 	}
 
 	@RequestMapping(value = "/memberDelete")

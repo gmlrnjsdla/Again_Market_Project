@@ -133,31 +133,6 @@ public class MemberController {
 	
 	@RequestMapping(value = "/joinOk", method = RequestMethod.POST)
 	public String joinOk(HttpServletRequest request, Model model, HttpServletResponse response) {
-//	public ResponseEntity<?> joinOk(@Validated BindingResult bindingResult,final MemberDto memberDto, HttpServletRequest request, Model model, HttpServletResponse response) {
-//		
-//		
-//		if (bindingResult.hasErrors()) {
-//            List<String> errors = bindingResult.getAllErrors().stream().map(e -> e.getDefaultMessage()).collect(Collectors.toList());
-//            // 200 response with 404 status code
-//            return ResponseEntity.ok(new ErrorResponse("404", "Validation failure", errors));
-//            // or 404 request
-//            //  return ResponseEntity.badRequest().body(new ErrorResponse("404", "Validation failure", errors));
-//        }
-//        try {
-//        	final User user = userService.searchUser(MemberDto.toEntity().getId());
-//        }catch (Exception e){
-//        	return ResponseEntity.ok(
-//        			 new UserResponseDto(userService.createUser(userCreateRequestDto.toEntity()))
-//            );
-//        }
-//        // user already exist
-//        return ResponseEntity.ok(
-//                new UserResponseDto(userService.searchUser(userCreateRequestDto.toEntity().getId()))
-//        );
-//		
-//		
-//		
-		
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
 		String id = request.getParameter("id");

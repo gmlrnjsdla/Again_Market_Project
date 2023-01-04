@@ -57,6 +57,11 @@
 					          style="--bs-btn-padding-y: .4rem; --bs-btn-padding-x: .9rem; --bs-btn-font-size: .95rem; margin-top: 5px;">
 					  		 상품올리기
 							</button>
+							&nbsp;
+							<button type="button" class="btn btn-outline-primary" onclick="script:window.location='admin_pointshop'"
+					          style="--bs-btn-padding-y: .4rem; --bs-btn-padding-x: .9rem; --bs-btn-font-size: .95rem; margin-top: 5px;">
+					  		 구매리스트
+							</button>
  					<%
 	   					}
 	   				%>

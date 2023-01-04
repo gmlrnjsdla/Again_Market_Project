@@ -18,8 +18,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,7 +28,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.hsl.sns.dao.Chat;
 import com.hsl.sns.dao.IDao;
-import com.hsl.sns.dto.CommentDto;
+
 import com.hsl.sns.dto.Criteria;
 import com.hsl.sns.dto.FollowDto;
 import com.hsl.sns.dto.MemberDto;
@@ -37,6 +36,7 @@ import com.hsl.sns.dto.PageDto;
 import com.hsl.sns.dto.PointDto;
 import com.hsl.sns.dto.PostDto;
 import com.hsl.sns.dto.PostingUrlDto;
+import com.hsl.sns.dto.ProductDto;
 import com.hsl.sns.dto.ShopPostDto;
 
 
@@ -47,11 +47,6 @@ public class HomeController {
 
 	@Autowired
 	private SqlSession sqlSession;
-	
-	//파일업로드 상대경로
-	@Autowired
-	ResourceLoader resourceLoader;
-	
 	
 	private void loginCheck(HttpSession session, HttpServletResponse response) {
 		String sid = (String)session.getAttribute("sessionId");
@@ -365,6 +360,10 @@ public class HomeController {
 		return "pointshop_tradeView";
 	}
 	
+	
+	
+	
+	
 	@RequestMapping(value = "pointshop_completed")
 	public String pointshop_completed(HttpServletRequest request, HttpSession session, Model model) {
 		sidebar(session,model);
@@ -374,9 +373,22 @@ public class HomeController {
 		String address = request.getParameter("address");
 		model.addAttribute("address", address);
 		
+		String sid = (String) session.getAttribute("sessionId");
+		String title = request.getParameter("title");
+		
+		
+		MemberDto mdto =  dao.memberInfoDao(sid);
+		String id= mdto.getId();
+		String phone = mdto.getPhone();
+		
+		dao.pointProductDao(title, id, address, phone);
 
 		return "pointshop_completed";
 	}
+	
+	
+	
+	
 	
 	@RequestMapping(value = "pointList")
 	public String pointList(HttpServletRequest request, HttpSession session, Model model, Criteria cri) {
@@ -482,6 +494,37 @@ public class HomeController {
 		return String.format("redirect:/pointshop?id=%s",sid);
 	}
 	
-	
+
+	@RequestMapping(value = "/admin_pointshop")
+	public String admin_pointshop(HttpServletRequest request, HttpSession session, Model model,Criteria cri) {
+		
+		String sid = (String)session.getAttribute("sessionId");
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+			if(sid.equals("admin")) {
+				int totalRecord = dao.productCountDao();
+				int pageNumInt = 1;
+				if(request.getParameter("pageNum") == null) {
+					pageNumInt = 1;
+				}else {
+					pageNumInt = Integer.parseInt(request.getParameter("pageNum"));
+				}
+				cri.setPageNum(pageNumInt);
+				
+				cri.setStartNum(cri.getPageNum()-1 * cri.getAmount());  // 해당 페이지의 시작번호를 설정.
+				PageDto dto = new PageDto(cri,totalRecord);
+				int amount = cri.getAmount();
+				int pageNum = cri.getPageNum();
+				model.addAttribute("pageMaker", dto);
+				model.addAttribute("pageNum", pageNumInt);
+				
+				List<ProductDto> productList = dao.productListDao(amount, pageNum);
+				model.addAttribute("productList", productList);
+		}else {
+			return String.format("redirect:/index?id=%s",sid);
+		}
+		
+		return "admin_pointshop";
+	}
 	
 }

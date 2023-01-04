@@ -76,7 +76,7 @@
   
   <!-- 판매중 리스트 -->
   	<div class="overflow-auto" style="height:600px">
-  	<div class="row row-cols-3 row-cols-md-3 g-4" style="padding-left: 30px;padding-right: 20px; width:810px; ">	
+  	<div class="row row-cols-3 row-cols-md-3 g-4" style="padding-left: 30px;padding-right: 0px; width:790px;">	
    	<c:forEach items="${sList}" var="sList">	
 	
 	  <div class="col" >

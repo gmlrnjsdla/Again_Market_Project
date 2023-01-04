@@ -477,7 +477,7 @@ public class HomeController {
 		String content = request.getParameter("content");
 		int spoint = Integer.parseInt(request.getParameter("spoint"));
 		
-		
+		 
 		
 		//파일첨부
 		files.getOriginalFilename(); //첨부된 파일의 원래이름

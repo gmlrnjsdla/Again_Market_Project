@@ -44,7 +44,7 @@
 			  		<a href="pointList">
 				   		<button type="button" class="btn btn-outline-secondary" 
 				          style="--bs-btn-padding-y: .4rem; --bs-btn-padding-x: .9rem; --bs-btn-font-size: .95rem;">
-				  		 보유포인트 : ${minfo.point}p
+				  		 보유포인트 : <fmt:formatNumber value="${minfo.point}" pattern="#,###,###,###"/>p
 						</button>
 					</a>
 					

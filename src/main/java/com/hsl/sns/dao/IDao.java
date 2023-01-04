@@ -9,6 +9,7 @@ import com.hsl.sns.dto.MemberDto;
 import com.hsl.sns.dto.PointDto;
 import com.hsl.sns.dto.PostDto;
 import com.hsl.sns.dto.PostingUrlDto;
+import com.hsl.sns.dto.ProductDto;
 import com.hsl.sns.dto.ShopPostDto;
 
 
@@ -116,4 +117,8 @@ public interface IDao {
 	public ShopPostDto shopTrade(int shopidx);
 	public void shopModifyDao(int shopidx,String title, String content, int spoint);
 	public void shopDeleteDao(int shopidx);
+	
+	public void pointProductDao(String title, String id, String productAddress, String phone);
+	public List<ProductDto> productListDao(int amount, int pageNum);
+	public int productCountDao();
 }

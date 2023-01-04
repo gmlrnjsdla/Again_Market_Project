@@ -17,7 +17,7 @@
 
 
 <div class="" style="width: 800px; height:750px;">
-  <div class="card-body" style="height:85px; ">
+  <div class="card-body" style="height:110px; ">
  	<!-- 컨텐츠 헤더 -->  
  		
  		<table border="0" cellpadding= "0" cellspacing="0" width="760"  style="margin-bottom:0px; position:relative;">
@@ -58,6 +58,11 @@
 					          style="--bs-btn-padding-y: .4rem; --bs-btn-padding-x: .9rem; --bs-btn-font-size: .95rem; margin-top: 5px;">
 					  		 상품올리기
 							</button>
+							&nbsp;
+							<button type="button" class="btn btn-outline-primary" onclick="script:window.location='admin_pointshop'"
+					          style="--bs-btn-padding-y: .4rem; --bs-btn-padding-x: .9rem; --bs-btn-font-size: .95rem; margin-top: 5px;">
+					  		 구매리스트
+							</button>
  					<%
 	   					}  
 	   				%>
@@ -76,8 +81,7 @@
   
   
   <!-- 판매중 리스트 -->
-  	<div class="overflow-auto" style="height:600px">
-  	<div class="row row-cols-3 row-cols-md-3 g-4" style="padding-left: 30px;padding-right: 0px; width:790px;">	
+  	<div class="row row-cols-3 row-cols-md-3 g-4" style="padding-left: 30px;padding-right: 0px; width:790px; padding-bottom:100px;">	
    	<c:forEach items="${sList}" var="sList">	
 	
 	  <div class="col" >
@@ -121,14 +125,13 @@
   </c:forEach>
   </div>
   
-  </div>
   	
 
 	<!-- 판매중 리스트 끝 -->	
 
 
   </div>
-  
+ </div> 
 
 <%@ include file="include/footer.jsp" %>
 </body>

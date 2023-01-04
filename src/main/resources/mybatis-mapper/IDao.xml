@@ -6,6 +6,7 @@
 	
 <mapper namespace="com.hsl.sns.dao.IDao">
 	
+
 	<insert id="joinMemberDao">
 		INSERT INTO user_sns(id, pwd, name, birth, mail, phone, nick, greet)  
 		VALUES(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8})
@@ -95,6 +96,24 @@
 	<delete id="shopDeleteDao">
 		DELETE FROM pointshop_post WHERE shopidx=${param1}
 	</delete>
+	
+	<!-- 관리자 포인트샵 -->
+	
+	<insert id="pointProductDao">
+		INSERT INTO pointproduct (productidx, title, id, productaddress, phone) 
+			VALUES (product_seq.nextval, #{param1}, #{param2},#{param3},#{param4})
+	</insert>
+	<select id="productListDao" resultType="com.hsl.sns.dto.ProductDto">
+		SELECT * FROM 
+			(SELECT A.*,Floor((ROWNUM-1)/${param1}+1)PAGE,ROWNUM
+			FROM
+			(SELECT * FROM pointproduct ORDER BY productidx DESC)A)
+		WHERE PAGE=#{param2}
+		
+	</select>
+	<select id="productCountDao" resultType="int">
+		SELECT COUNT(*) FROM pointproduct 
+	</select>
 </mapper>
 	
 	

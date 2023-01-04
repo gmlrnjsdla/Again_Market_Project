@@ -49,6 +49,7 @@
     
     <span class="input-group">
       <div class="input-group-text">상품명</div>
+      <input type="hidden" value="${sDto.title}" name="title">
        <label class="form-control" for="autoSizingInputGroup">${sDto.title}</label>
     <div class="input-group-text">차감포인트</div>
        <label class="form-control" for="autoSizingInputGroup">-${sDto.spoint}</label>
@@ -66,6 +67,7 @@
        <label class="form-control" for="autoSizingInputGroup">${minfo.mail}</label>
     </div>
     <br>
+    
     
     <div class="input-group">
       <div class="input-group-text">배송 주소</div>

@@ -3,6 +3,8 @@ package com.hsl.sns.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,11 +17,11 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.ibatis.session.SqlSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
+
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -30,7 +32,7 @@ import com.hsl.sns.dao.Chat;
 import com.hsl.sns.dao.IDao;
 import com.hsl.sns.dto.FollowDto;
 import com.hsl.sns.dto.CommentDto;
-import com.hsl.sns.dto.CommentLikeDto;
+
 import com.hsl.sns.dto.MemberDto;
 import com.hsl.sns.dto.PostDto;
 import com.hsl.sns.dto.PostingUrlDto;
@@ -317,16 +319,14 @@ public class ContentController {
 				File destinationFile; 
 				String destinationFileName; 
 				
-				//파일업로드 상대경로
-				Resource resource = resourceLoader.getResource("classpath:");
-			    String fileUrl = ((String)resource.getURI().getPath());
-			    fileUrl = fileUrl + "static/uploadfiles/";
-			     
-			     System.out.println("1---"+fileUrl);
-				
-//				String fileUrl = "C:/Users/user.JY-20200602UADW/git/SNS_Project/src/main/resources/static/uploadfiles/";
+				//업로드 파일 상대경로 지정
+				Path path = Paths.get("");
+		        String fileUrl = path.toAbsolutePath().toString();
+		        fileUrl = fileUrl+"/src/main/resources/static/uploadfiles/";
 				
 				
+				
+			
 				do {
 				destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "."+ fileExtension;
 				

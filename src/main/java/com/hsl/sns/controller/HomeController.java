@@ -3,6 +3,8 @@ package com.hsl.sns.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -477,7 +479,16 @@ public class HomeController {
 																		//확장자 추출 후 소문자로 강제 변경.t oLowerCase()
 		File destinationFile; //java.io 패키지 클래스 임포트
 		String destinationFileName; //실제 서버에 저장된 파일의 변경된 이름이 저장될 변수 선언
-		String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
+		
+		
+		//업로드 파일 상대경로 지정
+		Path path = Paths.get("");
+        String fileUrl = path.toAbsolutePath().toString();
+        fileUrl = fileUrl+"/src/main/resources/static/uploadfiles/";
+		
+		
+			
+//		String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
 		
 		
 		do {

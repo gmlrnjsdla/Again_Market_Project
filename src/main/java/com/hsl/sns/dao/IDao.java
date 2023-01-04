@@ -114,5 +114,6 @@ public interface IDao {
 	public void shopWriteDao(String title, String content, int spoint, String filename, String fileurl, String fileextension); //pointshop write content insert
 	public List<ShopPostDto> shopListDao();
 	public ShopPostDto shopTrade(int shopidx);
-	
+	public void shopModifyDao(int shopidx,String title, String content, int spoint);
+	public void shopDeleteDao(int shopidx);
 }

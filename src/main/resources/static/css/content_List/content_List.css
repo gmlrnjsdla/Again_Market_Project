@@ -90,3 +90,9 @@ div#shop_profile01{
 	text-align: left;
 	padding-bottom: 0px;
 }
+
+.shop_setting{
+	width: 25px;	
+    float: right;
+    padding-top:8px;
+}

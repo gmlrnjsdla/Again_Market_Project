@@ -89,6 +89,12 @@
 	<select id="shopTrade" resultType="com.hsl.sns.dto.ShopPostDto">
 		SELECT * FROM pointshop_post WHERE shopidx=#{param1}
 	</select>
+	<update id="shopModifyDao">
+		UPDATE pointshop_post SET title=#{param2}, content=#{param3}, spoint=${param4} WHERE shopidx=${param1}
+	</update>
+	<delete id="shopDeleteDao">
+		DELETE FROM pointshop_post WHERE shopidx=${param1}
+	</delete>
 </mapper>
 	
 	

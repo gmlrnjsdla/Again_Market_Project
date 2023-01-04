@@ -109,4 +109,5 @@ public interface IDao {
 	//pointshop입력
 	public void shopWriteDao(String title, String content, int spoint, String filename, String fileurl, String fileextension); //pointshop write content insert
 	public List<ShopPostDto> shopListDao();
+	public ShopPostDto shopTrade(int shopidx);
 }

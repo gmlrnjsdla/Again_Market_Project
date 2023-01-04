@@ -53,6 +53,22 @@ public class HomeController {
 	ResourceLoader resourceLoader;
 	
 	
+	private void loginCheck(HttpSession session, HttpServletResponse response) {
+		String sid = (String)session.getAttribute("sessionId");
+		if(sid == null) {
+			PrintWriter out;
+			try {
+				response.setContentType("text/html;charset=utf-8");
+				out = response.getWriter();
+				out.println("<script>alert('검색된 결과가 없습니다!');history.go(-1);</script>");
+				out.flush();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	private void sidebar(HttpSession session, Model model) {
 		//==============사이드바 정보가져오기==============
 		String sid = (String)session.getAttribute("sessionId");
@@ -136,7 +152,7 @@ public class HomeController {
 				MemberDto mdto = dao.memberInfoDao(dto.getBuyuser());
 				
 		        JSONObject jsonObject1 = new JSONObject(dto);
-		        jsonObject1.put("color", "yellow");
+		        jsonObject1.put("color", "#32a852");
 		        jsonObject1.put("id", mdto.getNick()+"님과의 거래가 있습니다!\n"+"게시물 제목 : "+dto.getTitle()+"\n예약시간 : "+dto.getHopedate()+"\n확인을 누르면 해당 게시글로 이동합니다.");
 		        jsonObject1.put("start", dto.getHopedate());
 		        jsonObject1.put("title", "판매");

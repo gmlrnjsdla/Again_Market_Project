@@ -22,6 +22,7 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/timePicker/jquery.datetimepicker.min.css">
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/timePicker/jquery.datetimepicker.full.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/date/date.js"></script>
 
 
 <script type="text/javascript">
@@ -57,7 +58,7 @@
 <%@ include file="include/leftBar.jsp" %>
 <%@ include file="include/rightBar.jsp" %>
 
-<form action="buy_completed">
+<form action="buy_completed" name="date_frm">
 
 <div class="content" style="width: 630px;">
 <div class="card" style="width: 630px;">
@@ -129,7 +130,7 @@
        
       </div>
     <br><br>
-    <span><input type="submit" class="btn btn-outline-primary" value = "예약 신청"style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;"></span>
+    <span><input type="button" onclick="dateCheck()" class="btn btn-outline-primary" value = "예약 신청"style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;"></span>
     <span><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: right;margin-right: 80px;" onclick="script:window.location='index'">예약 신청 취소</button></span>
   
 

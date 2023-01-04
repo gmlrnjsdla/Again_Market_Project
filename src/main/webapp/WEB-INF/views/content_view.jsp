@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/content_write/content_write.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/content_view/content_view.css">
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/comment/comment.js"></script>
 
 
 <title>Insert title here</title>
@@ -253,11 +254,11 @@
 			</table>	
 		</div>
 		</div>
-	<form action="commentOk">
+	<form action="commentOk" name="comment_frm">
 		<input type="hidden" name="postidx" value="${post.postidx}">
   			<div class="input-group mb-3">
  		 		<input type="text" name="content" class="form-control" placeholder="댓글을 입력해 주세요" aria-label="댓글을 입력해 주세요" aria-describedby="button-addon2">
-  		 		<button class="btn btn-outline-secondary" type="submit" id="button-addon2">댓글입력</button>
+  		 		<button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="commentCheck()">댓글입력</button>
 		</div>
 	</form>
 	</div>

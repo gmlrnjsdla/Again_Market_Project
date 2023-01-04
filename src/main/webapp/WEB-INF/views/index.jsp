@@ -53,7 +53,7 @@
 
 <!--게시자 정보 -->
 	<c:choose>
-	   <c:when test="${pList.id != sid and  pList.sellflag == 0}">
+	   <c:when test="${pList.id != sid}">
 	    
       <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
         <span style="font-size:20px; font-weight:bold;">

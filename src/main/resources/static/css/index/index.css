@@ -70,7 +70,7 @@ a{
 }
 
 a.dropdown-toggle:hover{
-	color: #000000; text-decoration: underline;
+	color: #000000; text-decoration: none;
 }
 
 

@@ -121,7 +121,7 @@
 	    </div>
 		
 		<div class="mb-3">
-	      <input type="text" id="#" class="form-control" placeholder="가격" name="price">
+	      <input type="number" step="1000" id="#" class="form-control" placeholder="가격" name="price">
 	    </div>
 	    
 	    <div class="mb-3">

@@ -53,7 +53,7 @@
 					<button type="button" class="btn btn-outline-primary" onclick="script:window.location='pointshop_write'"
 			          style="--bs-btn-padding-y: .4rem; --bs-btn-padding-x: .9rem; --bs-btn-font-size: .95rem; margin-top: 5px;">
 			  		 상품올리기
-					</button>
+					</button> 
 					</c:if>
 					
 					

@@ -78,7 +78,9 @@
 	<select id="shopListDao" resultType="com.hsl.sns.dto.ShopPostDto">
 		SELECT * FROM pointshop_post ORDER BY shopidx DESC
 	</select>
-	
+	<select id="shopTrade" resultType="com.hsl.sns.dto.ShopPostDto">
+		SELECT * FROM pointshop_post WHERE shopidx=#{param1}
+	</select>
 </mapper>
 	
 	

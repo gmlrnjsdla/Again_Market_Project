@@ -23,41 +23,14 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/timePicker/jquery.datetimepicker.min.css">
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/timePicker/jquery.datetimepicker.full.min.js"></script>
-
-
-<script type="text/javascript">
-
-
-      <!--      달력 추가 js 시작       -->
-    $(document).ready(function () {
-            $.datepicker.setDefaults($.datepicker.regional['ko']); 
-            $( "#pickDate" ).datetimepicker({
-                 
-                 dateFormat: "yy-mm-dd",
-                 
-                 onClose: function() {    
-                     
-                 }    
- 
-            });
-            
-            
-               
-    });
-    
-   
-    <!--      달력 추가 js 끝       -->
-
-</script>
-
-
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/address/address.js"></script>
 
 <title>#### 포인트 구매신청 ####</title>
 </head>
 <body>
 
 
-<form action="pointshop_completed">
+<form name="address_frm" action="pointshop_completed">
 
 <div class="content" style="width: 630px;">
 <div class="card" style="width: 630px;">
@@ -68,21 +41,29 @@
    
     <span class="input-group">
       <div class="input-group-text">아이디</div>
-       <label class="form-control" for="autoSizingInputGroup">${pinfo.id}</label>
+       <label class="form-control" for="autoSizingInputGroup">${minfo.id}</label>
     <div class="input-group-text">닉네임</div>
-       <label class="form-control" for="autoSizingInputGroup">${pinfo.nick}</label>
+       <label class="form-control" for="autoSizingInputGroup">${minfo.nick}</label>
     </span>
     <br>
     
+    <span class="input-group">
+      <div class="input-group-text">상품명</div>
+       <label class="form-control" for="autoSizingInputGroup">${sDto.title}</label>
+    <div class="input-group-text">차감포인트</div>
+       <label class="form-control" for="autoSizingInputGroup">-${sDto.spoint}</label>
+    </span>
+    <br>
+   
      <div class="input-group">
       <div class="input-group-text">전화번호</div>
-       <label class="form-control" for="autoSizingInputGroup">${pinfo.phone}</label>
+       <label class="form-control" for="autoSizingInputGroup">${minfo.phone}</label>
     </div>
     <br>
     
      <div class="input-group">
       <div class="input-group-text">이메일</div>
-       <label class="form-control" for="autoSizingInputGroup">${pinfo.mail}</label>
+       <label class="form-control" for="autoSizingInputGroup">${minfo.mail}</label>
     </div>
     <br>
     
@@ -92,9 +73,10 @@
     </div>
 
     <br><br>
-    <span><input type="submit" class="btn btn-outline-primary" value = "구매확인"style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;"></span>
+    <span><input type="button" onclick="addressCheck()" class="btn btn-outline-primary" value = "구매확인"style=" width: 30%; font-size: 15px; height: 40px;float: left;margin-left: 80px;"></span>
+    
     <a href="/pointshop?id=<%=sid %>" class="nav-link link-dark">
-    <span><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: right;margin-right: 80px;" onclick="script:window.location='index'">구매 취소</button></span>
+    <span><button type="button" class="btn btn-outline-primary" style=" width: 30%; font-size: 15px; height: 40px;float: right;margin-right: 80px;" >구매 취소</button></span>
   	</a>
 
 

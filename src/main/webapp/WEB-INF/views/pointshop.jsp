@@ -85,10 +85,12 @@
 				</div>
 		        <div class="shop_text02">${sList.content }</div>
 		        <div>
+		        <a href="pointshop_tradeView?id=${sid}&shopidx=${sList.shopidx}">
 			        <button type="button" class="btn btn-outline-primary"
 	        			style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
 	 					구매하기
 					</button>
+				</a>	
 		        </div>
 		      </div>
       </div>

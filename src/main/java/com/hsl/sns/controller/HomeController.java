@@ -317,7 +317,8 @@ public class HomeController {
 		IDao dao = sqlSession.getMapper(IDao.class);
 		String id = request.getParameter("id");
 		MemberDto dto = dao.memberInfoDao(id);
-		
+		String sid = (String) session.getAttribute("sessionId");
+		model.addAttribute("sid",sid);
 		model.addAttribute("minfo", dto);
 		model.addAttribute("id", dto.getId()); 
 
@@ -330,62 +331,20 @@ public class HomeController {
 		return "pointshop";
 	}
 	
-	@RequestMapping(value = "/pointshop_view")
-	public String pointshop_view(HttpSession session, Model model, HttpServletRequest request) {
-		
-		sidebar(session,model);
-		IDao dao = sqlSession.getMapper(IDao.class);
-		int postidx = Integer.parseInt(request.getParameter("postidx")); 
-		String sid = (String)session.getAttribute("sessionId");
-		model.addAttribute("sid", sid);
-		
-		//====================== 날짜 차이 ======================//
-		List<PostDto> dateList = dao.dateDao();
-		model.addAttribute("dList", dateList);
-		//====================== 날짜 차이 끝 ======================//
-		
-		//프로필사진
-		MemberDto minfo = dao.memberInfoDao(sid);
-		model.addAttribute("minfo", minfo);
-		
-		//게시글 정보
-		PostDto dto = dao.postDao(postidx);
-		model.addAttribute("post", dto);
-		String id = dto.getId();
-		model.addAttribute("id", id); 	// sessionId와 비교를 위해
-		
-		//이미지 가져오기
-		List<PostingUrlDto> postUrlList = dao.postUrlListDao();	
-		model.addAttribute("postUrlList", postUrlList);
-		
-		//찜하기 수
-		int count = dao.followCountDao(postidx);
-		model.addAttribute("likeCount", count);
-
-		//댓글
-		List<CommentDto> commentDtos = dao.commentListDao(postidx);
-		model.addAttribute("commentList", commentDtos);
-		
-		//메세지
-		
-		
-		
-		return "pointshop_view";
-	}	
 	@RequestMapping(value = "pointshop_tradeView")
 	public String pointshop_tradeView(HttpServletRequest request, HttpSession session, Model model) {
 		sidebar(session,model);
 		
-		int postidx = Integer.parseInt(request.getParameter("postidx"));
 		String sid = (String) session.getAttribute("sessionId");
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
-		MemberDto dto = dao.postInfomationDao(postidx);
-		model.addAttribute("pinfo", dto);
+		
 		MemberDto mdto = dao.memberInfoDao(sid);
 		
 		model.addAttribute("minfo", mdto);
-		
+		int shopidx=Integer.parseInt(request.getParameter("shopidx"));
+		ShopPostDto sDto = dao.shopTrade(shopidx);
+		model.addAttribute("sDto", sDto);
 		
 		return "pointshop_tradeView";
 	}
@@ -393,19 +352,11 @@ public class HomeController {
 	@RequestMapping(value = "pointshop_completed")
 	public String pointshop_completed(HttpServletRequest request, HttpSession session, Model model) {
 		sidebar(session,model);
+		
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
-		int postidx = Integer.parseInt(request.getParameter("postidx"));
-		String buyuser = request.getParameter("buyuser");
-		String selectedDate = request.getParameter("selectedDate");
-		String nick = request.getParameter("nick");
-		
-		
-		model.addAttribute("date", selectedDate);
-		dao.buycompleteDao(postidx, buyuser,selectedDate);
-		
-		model.addAttribute("nick", nick);
-		
+		String address = request.getParameter("address");
+		model.addAttribute("address", address);
 		
 
 		return "pointshop_completed";

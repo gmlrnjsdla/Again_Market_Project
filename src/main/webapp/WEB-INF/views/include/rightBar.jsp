@@ -91,7 +91,7 @@
 <!-- 구매 목록 아이콘 태그 끝 -->
 
 <!--  구매목록 시작 -->
-	<span class="list_index02"><i class="bi bi-chat-right-heart"></i>예약목록</span>
+	<span class="list_index02"><i class="bi bi-chat-right-heart"></i>예약확인중</span>
 	<hr class="garo"> 
 		<div class="card" style="width: 100%; height:125px; overflow: auto;">
 			<div class="list_index01">
@@ -117,7 +117,7 @@
 <!--  판매 목록 아이콘 태그 끝 -->
 
 <!--  판매목록 시작 -->
-	<span class="list_index02"><i class="bi bi-cart"></i>판매목록</span>
+	<span class="list_index02"><i class="bi bi-cart"></i>판매중</span>
 	<hr class="garo"> 
 		<div class="card" style="width: 100%; height:125px; overflow: auto;">
 			<div class="list_index01">

@@ -91,6 +91,7 @@ public class HomeController {
 		int buyrequestCount = dao.buyrequestCountDao(sid);
 		model.addAttribute("buyrequestCount", buyrequestCount);
 		
+		
 		//==============사이드바 정보가져오기==============
 		
 		//====================== right bar ======================//

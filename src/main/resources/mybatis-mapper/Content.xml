@@ -199,6 +199,7 @@
 	</select> 
 	
 	
+	
 
 	<!-- modify 해당 게시글 사진가져오기 -->
 	<select id="getPosturlModifyDao" resultType="com.hsl.sns.dto.PostingUrlDto">

@@ -81,7 +81,9 @@ public interface IDao {
 	public int transactionCountDao(String id); //거래완료 게시물 갯수
 	
 	//구매요청 관련
-	public int buyrequestCountDao(String sid); //거래완료 게시물 갯수
+	public int buyrequestCountDao(String sid); //예약요청 게시물 갯수
+	public int sellrequestCountDao(String sid); //예약완료 게시물 갯수
+	
 	
 	//구매삭제 관련
 	public int buyCancleDao(int postidx);
@@ -111,4 +113,5 @@ public interface IDao {
 	public void shopWriteDao(String title, String content, int spoint, String filename, String fileurl, String fileextension); //pointshop write content insert
 	public List<ShopPostDto> shopListDao();
 	public ShopPostDto shopTrade(int shopidx);
+	
 }

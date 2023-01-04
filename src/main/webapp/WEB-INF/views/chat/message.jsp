@@ -20,10 +20,10 @@
 <body>
 <%@ include file="../include/leftBar.jsp" %>
 
-
-<div class="msg-container">
+<br>
+<div class="msg-container" >
 		<div class="messaging">
-	      <div class="inbox_msg">
+	      <div class="inbox_msg" >
 	      	<!-- 메세지 목록 영역 -->
 	        <div class="inbox_people">
 	          <div class="headind_srch">

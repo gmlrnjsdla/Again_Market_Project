@@ -29,10 +29,10 @@
 
 
 	<div class="sidebar">
-	<div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 270px; height:750px; border:1px solid #dddddd; border-radius:15px;">
+	<div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 270px; height:800px; border:1px solid #dddddd; border-radius:15px;">
 	
     <a href="index"><span class="title"><img src="${pageContext.request.contextPath}/resources/img/logo.png" 
-    	width="200" height="100" align="center" style="margin:10px 0 5px 0;"></span></a>
+    	width="200"  align="center" style="margin:10px 0 5px 0;"></span></a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
     	
@@ -98,7 +98,7 @@
 				<span class="badge bg-danger">구매요청(${buyrequestCount })</span>
 			</span>
 		  </c:if>
-        <!--##################################### 구매요청 뱃지 끝##################################### -->  
+        <!--##################################### 구매요청 뱃지 끝##################################### --> 
         </a>
       </li>
       <br>

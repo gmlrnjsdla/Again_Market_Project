@@ -71,11 +71,11 @@
 	
   </div>
   <br>
-  	<hr style="margin:30px;">
+  <span style="color:#bbbbbb; font-size: 12px;margin-left:140px;">※ 게시글 등록, 댓글 달기, 거래 예약 완료 등을 통해 포인트를 모아 물건을 구매해보세요. </span>
+  	<hr style="margin:10px 0 30px 0  ;">
   
   
   <!-- 판매중 리스트 -->
-  	<div class="overflow-auto" style="height:600px">
   	<div class="row row-cols-3 row-cols-md-3 g-4" style="padding-left: 30px;padding-right: 20px; width:810px; ">	
    	<c:forEach items="${sList}" var="sList">	
 	
@@ -113,7 +113,6 @@
 
   </div>
   
-	</div>
 
 <%@ include file="include/footer.jsp" %>
 </body>

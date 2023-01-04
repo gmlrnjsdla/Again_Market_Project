@@ -16,8 +16,11 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,6 +30,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.hsl.sns.dao.Chat;
 import com.hsl.sns.dao.IDao;
+import com.hsl.sns.dto.ErrorResponse;
 import com.hsl.sns.dto.FollowDto;
 import com.hsl.sns.dto.MemberDto;
 import com.hsl.sns.dto.PostDto;
@@ -129,6 +133,30 @@ public class MemberController {
 	
 	@RequestMapping(value = "/joinOk", method = RequestMethod.POST)
 	public String joinOk(HttpServletRequest request, Model model, HttpServletResponse response) {
+//	public ResponseEntity<?> joinOk(@Validated BindingResult bindingResult,final MemberDto memberDto, HttpServletRequest request, Model model, HttpServletResponse response) {
+//		
+//		
+//		if (bindingResult.hasErrors()) {
+//            List<String> errors = bindingResult.getAllErrors().stream().map(e -> e.getDefaultMessage()).collect(Collectors.toList());
+//            // 200 response with 404 status code
+//            return ResponseEntity.ok(new ErrorResponse("404", "Validation failure", errors));
+//            // or 404 request
+//            //  return ResponseEntity.badRequest().body(new ErrorResponse("404", "Validation failure", errors));
+//        }
+//        try {
+//        	final User user = userService.searchUser(MemberDto.toEntity().getId());
+//        }catch (Exception e){
+//        	return ResponseEntity.ok(
+//        			 new UserResponseDto(userService.createUser(userCreateRequestDto.toEntity()))
+//            );
+//        }
+//        // user already exist
+//        return ResponseEntity.ok(
+//                new UserResponseDto(userService.searchUser(userCreateRequestDto.toEntity().getId()))
+//        );
+//		
+//		
+//		
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
 		

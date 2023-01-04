@@ -114,7 +114,7 @@
 
    <!--제목표시 -->
    <div class="subject_font">
-   ${pList.title}
+   <a class="title1" href="content_view?postidx=${pList.postidx}">${pList.title}</a>
    
    <!--판매중/판매완료 표시 -->
  

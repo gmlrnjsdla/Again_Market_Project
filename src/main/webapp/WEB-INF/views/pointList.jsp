@@ -80,7 +80,7 @@
   			</tr>
   			<c:forEach items="${pointList }" var="pointList" varStatus="status">
 	  			<tr class="point2" style="text-align: center;">
-	  				<td class="point1">${status.count}</td>
+	  				<td class="point1">${pageMaker.total - (pageNum-1)*10 - status.index}</td>
 	  				<td class="point1" style="color:#32a852">+${pointList.pluspoint }p</td>
 	  				<td class="point1" style="color:red;">-${pointList.minuspoint }p</td>
 	  				<td class="point1">${pointList.explain }</td>
@@ -89,12 +89,12 @@
   			</c:forEach>
   		</table>
             
-            <nav aria-label="Page navigation example" style="margin-left:300px;margin-top: 50px;">
-			  <ul class="pagination">
+            <!-- 페이징 -->
+            <nav aria-label="Page navigation example" style="margin-top: 30px;">
+			  <ul class="pagination" style="justify-content : center;">
 			    <li class="page-item">
 			    	<c:if test="${pageMaker.prev}">
 			      		<a class="page-link" href="pointList?pageNum=${pageMaker.startPage - 5}" aria-label="Previous">
-			        
 			        <span aria-hidden="true">&laquo;</span>
 			        </c:if>
 			      </a>
@@ -112,13 +112,13 @@
 			    <li class="page-item">
 			    <c:if test="${pageMaker.next}">
 			      <a class="page-link" href="pointList?pageNum=${pageMaker.startPage + 5}" aria-label="Next">
-			      
 			        <span aria-hidden="true">&raquo;</span>
 			        </c:if>
 			      </a>
 			    </li>
 			  </ul>
 			</nav>
+			<!-- 페이징 -->
   	</div>
   </center>
 
@@ -128,7 +128,6 @@
   </div>
   
 	</div>
-</div>
 <%@ include file="include/footer.jsp" %>
 </body>
 </html>

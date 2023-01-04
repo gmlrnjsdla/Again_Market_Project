@@ -502,6 +502,49 @@ public class HomeController {
 		return String.format("redirect:/pointshop?id=%s",sid);
 	}
 	
+	@RequestMapping(value = "pointshop_modify")
+	public String pointshop_modify( HttpServletRequest request,HttpSession session, Model model) {
+		sidebar(session,model);
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		int shopidx=Integer.parseInt(request.getParameter("shopidx"));
+		ShopPostDto sDto = dao.shopTrade(shopidx);
+		model.addAttribute("sDto", sDto);
+	
+		return "pointshop_modify";
+	}
+	
+	@RequestMapping(value = "pointshop_modifyOk")
+	public String pointshop_modifyOk( HttpServletRequest request,HttpSession session, Model model) {
+		sidebar(session,model);
+		IDao dao = sqlSession.getMapper(IDao.class);
+		String sid = (String) session.getAttribute("sessionId");
+		model.addAttribute("sid",sid);
+		
+		
+		int shopidx=Integer.parseInt(request.getParameter("shopidx"));
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		int spoint = Integer.parseInt(request.getParameter("spoint"));
+		
+		dao.shopModifyDao( shopidx, title, content, spoint);
+		
+		return String.format("redirect:/pointshop?id=%s",sid);
+	}	
+	@RequestMapping(value = "pointshop_delete")
+	public String pointshop_delete( HttpServletRequest request,HttpSession session, Model model) {
+	
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		String sid = (String) session.getAttribute("sessionId");
+	
+		int shopidx=Integer.parseInt(request.getParameter("shopidx"));
+		
+		dao.shopDeleteDao(shopidx);
+		
+
+		return String.format("redirect:/pointshop?id=%s",sid);
+	}	
 	
 	
 }

@@ -59,7 +59,7 @@
 					  		 상품올리기
 							</button>
  					<%
-	   					}
+	   					}  
 	   				%>
 					 
 					
@@ -87,17 +87,32 @@
 		      <div class="card-body" style="height: 120px;padding:10px;">
 				<div>
 				<span class="shop_text01">${sList.title }</span>
-					<button type="button" class="btn btn-danger" style="height: 25px; padding: 2px; font-size:12px; margin-left: 10px; ">
-					<fmt:formatNumber value="${sList.spoint}" pattern="#,###,###,###"/>p</button>
+					
 				</div>
 		        <div class="shop_text02">${sList.content }</div>
 		        <div>
+		        	<button type="button" class="btn btn-danger" style="height: 25px; padding: 2px; font-size:12px; margin-left: 10px; ">
+					<fmt:formatNumber value="${sList.spoint}" pattern="#,###,###,###"/>p</button>
 		        <a href="pointshop_tradeView?id=${sid}&shopidx=${sList.shopidx}">
 			        <button type="button" class="btn btn-outline-primary"
 	        			style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
 	 					구매하기
 					</button>
-				</a>	
+				</a>
+				
+				<%
+   					if(sid.equals("admin")){
+				%>
+			 		<img class="shop_setting" src="${pageContext.request.contextPath }/resources/img/Settings.svg"  type="button" data-bs-toggle="dropdown" aria-expanded="false">
+			 		<ul class="dropdown-menu">
+				    <li><a class="dropdown-item" href="pointshop_modify?shopidx=${sList.shopidx}">수정</a></li>
+				    <li><a class="dropdown-item" href="pointshop_delete?shopidx=${sList.shopidx}" onclick="return confirm('정말 삭제하시겠습니까?')">삭제</a></li>
+			  		</ul>					
+					
+				<%
+  					}  
+  				%>									
+					
 		        </div>
 		      </div>
       </div>

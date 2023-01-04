@@ -55,7 +55,7 @@
  	<div class="content_img" >
  	<c:forEach items="${postUrlList}" var="pList">
  		<c:if test="${pList.postidx == post.postidx }">
-			<img src="/resources/uploadfiles/${pList.fileName}" width="580" height="320"  alt="..." >
+			<img src="/resources/uploadfiles/${pList.fileName}" width="580"   alt="..." >
 		</c:if>
 	</c:forEach>
 	

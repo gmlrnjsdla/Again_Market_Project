@@ -458,11 +458,13 @@ public class HomeController {
 	
 	
 	@PostMapping(value = "/pointshop_writeOk")
-	public String pointshop_writeOk(Model model, HttpServletRequest request, 
+	public String pointshop_writeOk(Model model, HttpServletRequest request, HttpSession session,
 		@RequestPart MultipartFile files) throws IllegalStateException, IOException {
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
 		// write
+		
+		String sid = (String)session.getAttribute("sessionId");
 		
 		//제품등록
 		String title = request.getParameter("title");
@@ -495,8 +497,7 @@ public class HomeController {
 		
 		dao.shopWriteDao(title, content, spoint, destinationFileName, fileUrl, fileExtension);
 
-		
-		return String.format("redirect:/pointshop?id=admin");
+		return String.format("redirect:/pointshop?id=%s",sid);
 	}
 	
 	

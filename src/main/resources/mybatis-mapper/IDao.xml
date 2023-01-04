@@ -67,6 +67,8 @@
 	<select id="pointListAllCount" resultType="int">
 		SELECT count(*) FROM pointtbl WHERE id=#{param1} 
 	</select>
+	
+	
 	<!-- 포인트 샵 -->
 	<insert id="shopWriteDao">
 		INSERT INTO pointshop_post (shopidx, title, content, spoint, filename,fileurl, fileextension) 

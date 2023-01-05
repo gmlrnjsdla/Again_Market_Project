@@ -11,6 +11,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -289,7 +290,8 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/help")
-	public String help() {
+	public String help(HttpSession session, Model model) {
+		sidebar(session,model);
 		return "help";
 	}
 	@RequestMapping(value = "/test")
@@ -582,6 +584,7 @@ public class HomeController {
 				
 				List<ProductDto> productList = dao.productListDao(amount, pageNum);
 				model.addAttribute("productList", productList);
+				
 		}else {
 			return String.format("redirect:/index?id=%s",sid);
 		}

@@ -13,7 +13,7 @@
 	
 	
 	.point1{
-		padding:5px 30px 5px 30px;
+		padding:5px 15px 5px 15px;
 	}
 	.point2{
 		border-top: 1px solid #cccccc;
@@ -30,9 +30,9 @@
 <%@ include file="include/leftBar.jsp" %>
 <%@ include file="include/rightBar.jsp" %>
 
-<div class="pointshop_List" style="padding-top:50px;padding-left:550px;position: relative;z-index: 1;">
+<div class="pointshop_List" style="padding-top:50px;padding-left:510px;position: relative;z-index: 1;">
 
-<div class="card" style="width: 800px; height:750px; border:1px solid #dddddd; border-radius:15px;">
+<div class="card" style="width: 855px; height:750px; border:1px solid #dddddd; border-radius:15px;">
   <div class="card-body" style="height:80px; ">
  	<!-- 컨텐츠 헤더 -->
  		<table border="0" cellpadding= "0" cellspacing="0" width="800" height="50" style="margin-bottom:0px; position:relative;">
@@ -61,17 +61,19 @@
   	<div style="height:600px">
   		<table class="pointTable" >
   			<tr class="point3" style="text-align: center;">
-  				<th class="point1">제품명 </th>
-  				<th class="point1">아이디 </th>
-  				<th class="point1">연락처</th>
+  				<th class="point1" style="font-size:14px; padding: 0;">제품명 </th>
+  				<th class="point1" style="font-size:14px; padding-right: 10px;">아이디 </th>
+  				<th class="point1" style="font-size:14px;">연락처</th>
   				<th class="point1">주소</th>
+  				<th class="point1" style="font-size:14px; padding-left: 10px;">주문시간</th>
   			</tr>
   			<c:forEach items="${productList }" var="productList" varStatus="status">
-	  			<tr class="point2" style="text-align: center;">
-	  				<td class="point1">${productList.title}</td>
-	  				<td class="point1" >${productList.id }</td>
-	  				<td class="point1" >${productList.phone }</td>
-	  				<td class="point1">${productList.productaddress }</td>
+	  			<tr class="point2" style="text-align: center; font-size: 14px;">
+	  				<td class="point1" style="text-align: center; font-size: 14px; font-weight:bold; ">${productList.title}</td>
+	  				<td class="point1" style="text-align: center; font-size: 15px; font-weight:bold; ">${productList.id }</td>
+	  				<td class="point1" style="text-align: center; font-size: 12px;">${productList.phone }</td>
+	  				<td class="point1" style="text-align: center; font-size: 15px; font-weight:bold; ">${productList.productaddress }</td>
+	  				<td class="point1" style="text-align: center; font-size: 12px;">${productList.orderdate.substring(0,10)}</td>
 	  			</tr>
   			</c:forEach>
   		</table>

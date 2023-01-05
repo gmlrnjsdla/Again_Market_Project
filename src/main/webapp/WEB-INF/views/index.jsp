@@ -55,7 +55,7 @@
 	<c:choose>
 	   <c:when test="${pList.id != sid}">
 	    
-      <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      <a href="#" class="text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
         <span style="font-size:20px; font-weight:bold;">
         	<img class ="rounded-circle me-2"  src="/resources/uploadfiles/${pList.profileName}" width="50" height="50" alt="...">
         	${pList.nick}	
@@ -114,7 +114,7 @@
 
    <!--제목표시 -->
    <div class="subject_font">
-   <a class="title1" href="content_view?postidx=${pList.postidx}">${pList.title}</a>
+   <a class="text-decoration-none title1" href="content_view?postidx=${pList.postidx}">${pList.title}</a>
    
    <!--판매중/판매완료 표시 -->
  

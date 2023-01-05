@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/member/memberModify.css">
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/member_modify/modify.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/member_modify/profilemodify.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/autoHyphen/autoHyphen.js"></script>
 
 <title>#### 회원정보수정 ####</title>
 </head>
@@ -195,7 +196,7 @@
 		<div class="row mb-3">
   			<label for="colFormLabel" class="col-sm-2 col-form-label">전화번호</label>
  		<div class="col-sm-10">
-    		<input type="text" class="form-control" id="colFormLabel" name="phone" value="${memberDto.phone }" style="width:480px;">
+    		<input type="text" class="form-control" id="colFormLabel" oninput="autoHyphen(this)" maxlength="13" name="phone" value="${memberDto.phone }" style="width:480px;">
   		</div>
 		</div>
 	  	<!--  전화번호끝 -->

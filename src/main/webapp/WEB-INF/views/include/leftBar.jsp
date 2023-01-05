@@ -170,7 +170,7 @@
       </a>
       <ul class="dropdown-menu text-small shadow">
         <li><a class="dropdown-item" href="memberModify">정보 수정</a></li>
-        <li><a class="dropdown-item" href="#">신고</a></li>
+        <li><a class="dropdown-item" href="help">서비스가이드</a></li>
         <li><a class="dropdown-item" href="/memberDelete" onclick="return confirm('정말 탈퇴하시겠습니까?')">회원탈퇴</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="/logout">로그아웃</a></li>

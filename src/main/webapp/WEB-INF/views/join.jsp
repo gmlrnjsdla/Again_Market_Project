@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/member/join.css">
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/join/join.js"></script>
-
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/autoHyphen/autoHyphen.js"></script>
 </head>
 <body>
 <center>
@@ -47,7 +47,7 @@
 	      <input type="email" id="#" class="btn_login_no1" placeholder="이메일" name="mail">
 	    </div>
 	    <div class="mb-3">
-	      <input type="text" id="#" class="btn_login_no1" placeholder="휴대폰" name="phone">
+	      <input type="text" id="#" class="btn_login_no1" oninput="autoHyphen(this)" maxlength="13" placeholder="휴대폰" name="phone">
 	    </div>
 	    <div class="mb-3">
 	      <input type="text" id="#" class="btn_login_no1" placeholder="닉네임" name="nick">

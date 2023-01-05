@@ -13,10 +13,10 @@
 <table class="footer" width="100%" border="0" cellspacing="0" cellpadding="0">
 		
 		<tr class="footerline02">
-			<td class="footerbox01">Copyright ⓒ 000. All Rights Reserved</td>
+			<td class="footerbox01">Copyright ⓒ 2023.HSLCOMPANY All Rights Reserved</td>
 		</tr>
 		<tr class="footerline02">
-			<td class="footerbox02">This homepage is built with Spring Framework. Made by000. E-Mail:luckyred@gmail.com</td>
+			<td class="footerbox02">This homepage is built with Spring Boot Framework. Made by HSLCOMPANY</td>
 		</tr>
 	</table>
 </center>

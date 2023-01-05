@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/member/join.css">
-
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/autoHyphen/autoHyphen.js"></script>
 
 </head>
 
@@ -45,7 +45,7 @@
 	      <input type="email" id="mail" class="btn_login_no1" placeholder="이메일" name="mail">
 	    </div>
 	    <div class="mb-3">
-	      <input type="text" id="phone" class="btn_login_no1" placeholder="휴대폰" name="phone">
+	      <input type="text" id="phone" class="btn_login_no1" oninput="autoHyphen(this)" maxlength="13"  placeholder="휴대폰" name="phone">
 	    </div>
 	   	<br>
 	    <div class="d-grid gap-2">

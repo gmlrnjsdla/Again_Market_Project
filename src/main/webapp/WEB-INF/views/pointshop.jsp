@@ -89,7 +89,7 @@
 				<img src="/resources/uploadfiles/${sList.fileName}" width="100" height="230" class="card-img-top" alt="...">
 
 		      
-		      <div class="card-body" style="height: 120px;padding:10px;">
+		      <div class="card-body" style=";padding:10px;">
 				<div>
 				<span class="shop_text01">${sList.title }</span>
 					

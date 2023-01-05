@@ -32,8 +32,8 @@
 
 <form name="address_frm" action="pointshop_completed">
 
-<div class="content" style="width: 630px;">
-<div class="card" style="width: 630px;">
+<div class="content" style="width: 630px; ">
+<div class="card" style="width: 630px;margin-top:130px;">
 <div class="card-body" style="width: 630px;">
 
 <span class="list_index02">구매자정보</span>

@@ -85,7 +85,7 @@ public class MemberController {
 			String nick = dto.getNick();
 			if(pwd.equals(dbpw)) {
 				HttpSession session = request.getSession();
-				session.setMaxInactiveInterval(10000);
+				session.setMaxInactiveInterval(100000);
 				session.setAttribute("sessionId", id);
 				session.setAttribute("nick", nick);
 				model.addAttribute("name", dto.getName());
@@ -172,6 +172,15 @@ public class MemberController {
 		else {
 			dao.joinMemberDao(id, pwd, name, birth, mail, phone, nick, greet);
 			model.addAttribute("name", name);
+			
+			MemberDto dto = dao.memberInfoDao(id);
+			int currentPoint = dto.getPoint();
+			
+			int point = 200;
+			String explain = "회원가입 축하 +200p";
+			
+			dao.pointPlus(point, id);		//point 증가
+			dao.pointPlusDao(id, point,currentPoint,explain);	//pointtbl에 증가된 값 저장
 		}
 		
 		
@@ -196,7 +205,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/profileModifyOk")
-	public String profileModifyOk(HttpServletRequest request,Model model, HttpSession session,@RequestPart MultipartFile files) throws IllegalStateException, IOException {
+	public String profileModifyOk(HttpServletResponse response,HttpServletRequest request,Model model, HttpSession session,@RequestPart MultipartFile files) throws IllegalStateException, IOException {
 	
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
@@ -232,7 +241,19 @@ public class MemberController {
 		files.transferTo(destinationFile); // 업로드된 파일이 지정한 폴더로 이동완료!!
 		//add thorws declaration	
 				
-		dao.profileModifyDao(sid, destinationFileName, fileUrl, fileExtension);
+		int flag = dao.profileModifyDao(sid, destinationFileName, fileUrl, fileExtension);
+		if(flag == 1) {
+			PrintWriter out;
+			try {
+				response.setContentType("text/html;charset=utf-8");
+				out = response.getWriter();
+				out.println("<script>alert('프로필 사진 변경 성공!');history.go(-1);</script>");
+				out.flush();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
 		return "redirect:memberModify";
 	}
@@ -250,8 +271,11 @@ public class MemberController {
 		String phone =  request.getParameter("phone");
 		String greet =  request.getParameter("greet");
 		
-		
+		String snick = (String)session.getAttribute("nick");
 		dao.memberModifyDao(sid, name, mail, nick, phone, greet);
+		dao.messageModifyDao(snick,nick);
+		dao.messageModifyDao1(snick,nick);
+		session.setAttribute("nick", nick);
 		
 		return String.format("redirect:/sell_List?id=%s", sid);
 	}
@@ -260,10 +284,12 @@ public class MemberController {
 	public String memberDelete(HttpServletRequest request,Model model, HttpSession session) {
 		sidebar(session,model);
 		String sid = (String) session.getAttribute("sessionId");
-
+		String snick = (String) session.getAttribute("nick");
+		
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
 		dao.memberDeleteDao(sid);
+		dao.messageDeleteDao(snick);
 		
 		session.invalidate();
 		

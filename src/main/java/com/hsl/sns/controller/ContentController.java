@@ -345,7 +345,7 @@ public class ContentController {
 		int currentPoint = mdto.getPoint();
 		
 		int point = 200;
-		String explain = "게시글 작성 200p";
+		String explain = "게시글 작성 +200p";
 		
 		dao.pointPlus(point, sid);		//point 증가
 		dao.pointPlusDao(sid, point,currentPoint,explain);	//pointtbl에 증가된 값 저장
@@ -512,7 +512,7 @@ public class ContentController {
 		
 		//예약 완료시 구매자, 판매자 모두에게 포인트 지급
 		int point = 500;
-		String explain = "예약완료 축하금 500p";
+		String explain = "예약완료 축하금 +500p";
 		//구매회원 포인트 증가
 		dao.pointPlus(point, buyuser);
 		dao.pointPlusDao(buyuser, point, bcurrentPoint, explain);
@@ -561,7 +561,7 @@ public class ContentController {
 				int currentPoint = mdto.getPoint();
 				
 				int point = 5;
-				String explain = "댓글 작성 5p";
+				String explain = "댓글 작성 +5p";
 				//댓글 쓰면 포인트 증가
 				dao.pointPlus(point, sid);
 				dao.pointPlusDao(sid, point, currentPoint, explain);
@@ -617,9 +617,19 @@ public String delete_content(HttpServletRequest request,Model model, HttpSession
 	int postidx = Integer.parseInt(request.getParameter("postidx")); 
 	String sid = (String) session.getAttribute("sessionId");
 	
+	MemberDto dto = dao.postInfomationDao(postidx);
+	if(dto.getPostDto().getSellflag() == 0) {
+		
+		MemberDto mdto = dao.memberInfoDao(sid);
+		int currentPoint = mdto.getPoint();
+		
+		int point=200;
+		String explain="예약확정 전 글삭제 -200p";
+		dao.pointMinus(point, sid);
+		dao.pointMinusDao(sid, point, currentPoint, explain);
+	}
 	
 	dao.deletePostDao(postidx);
-	
 	return String.format("redirect:/sell_List?id=%s", sid);
 }
 

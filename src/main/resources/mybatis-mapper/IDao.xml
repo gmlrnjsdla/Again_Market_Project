@@ -30,12 +30,24 @@
 		UPDATE user_sns SET name=#{param2}, mail=#{param3}, nick=#{param4}, phone=#{param5}, greet=#{param6} WHERE id=#{param1}
 	</update>
 	
+	<update id="messageModifyDao">
+		UPDATE message SET sendnick=#{param2} WHERE sendnick=#{param1}
+	</update>
+	
+	<update id="messageModifyDao1">
+		UPDATE message SET recvnick=#{param2} WHERE recvnick=#{param1}
+	</update>
+	
 	<update id="profileModifyDao">
 		UPDATE user_sns SET profilename=#{param2}, profileurl=#{param3}, fileextension=#{param4} WHERE id=#{param1}
 	</update>
 	
 	<delete id="memberDeleteDao">
 		DELETE FROM user_sns WHERE id=#{param1}
+	</delete>
+	
+	<delete id="messageDeleteDao">
+		DELETE FROM message WHERE sendnick=#{param1} OR recvnick=#{param1}
 	</delete>
 	
 	<select id="findIdDao" resultType="com.hsl.sns.dto.MemberDto">

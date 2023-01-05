@@ -14,8 +14,10 @@
 <body>
 <%@ include file="include/leftBar.jsp" %>
 
+
 <form action="writeOk" method="post" enctype="multipart/form-data" name="write_frm">
 <div class="content_write_form01">
+
 <div class="card" style="width: 400px; height:750px; border:1px solid #dddddd; border-radius:5px; background-color:#FBFBFB ">
   <div class="card-body" > 
  	<!-- 컨텐츠 사진입력 -->
@@ -110,16 +112,27 @@
 <!-- 컨텐츠 내용입력 -->
 
 <div class="content_write_form02">
+<span style="font-size: 12px; color:#bbbbbb">※게시글 작성시 200p 지급!(예약확정 전 글을 삭제하면 회수됩니다.)</span>
 <div class="card" style="width: 350px; height:750px; border:1px solid #dddddd; border-radius:5px;">
   <div class="card-body"> 
 		<div class="mb-3">
 	      <input type="text" id="#" class="form-control" placeholder="제목" name="title">
 	    </div>
 	    
-	    <div class="mb-3">
-	      <input type="text" id="#" class="form-control" placeholder="물품종류 (ex:냉장고)" name="type">
-	    </div>
-		
+		    <div class="input-group mb-3" >
+		  <label for="type" class="input-group-text" style="height:30px;">물품종류 </label> 
+			<select id="type" name="type" size="1" class="btn btn-outline-secondary" style="height:30px;padding:0px;font-size: 14px;">
+				<option value="">선택하세요.</option>
+				<option value="생활가전">생활가전</option>
+				<option value="스포츠/레저">스포츠/레저</option>
+				<option value="의류">의류</option>
+				<option value="디지털기기">디지털기기</option>
+				<option value="취미/게임/음반">취미/게임/음반</option>
+				<option value="도서">도서</option>
+				<option value="티켓/교환권">티켓/교환권</option>
+				<option value="기타 중고물품">기타 중고물품<option>
+			</select>
+		</div>
 		<div class="mb-3">
 	      <input type="number" step="1000" id="#" class="form-control" placeholder="가격" name="price">
 	    </div>

@@ -12,7 +12,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/comment/comment.js"></script>
 
 
-<title>Insert title here</title>
+<title>#### 게시물 ####</title>
 </head>
 <body>
 <%@ include file="include/leftBar.jsp" %>
@@ -221,7 +221,7 @@
 						<c:choose>
 							<c:when test="${name ne commentList.id}">
 					    		<div class="" style="background-color:#dddddd;height:25px;margin-top: 0px;" >
-					    			<span class="content_font01" style="font-size: 15px; font-weight:bold; color:#32a852;margin:0; "> ${commentList.id }
+					    			<span class="content_font01" style="font-size: 15px; font-weight:bold; color:#32a852;margin:0; "> ${commentList.nick }
 									   <a href="commentlike?cidx=${commentList.commentidx}&postidx=${post.postidx}">
 									    <img src="${pageContext.request.contextPath }/resources/img/hearts.png" width="15" height="15" alt="..." style="margin: 0;">
 									     <span class="badge text-bg-secondary" style="font-size: 7px;" >

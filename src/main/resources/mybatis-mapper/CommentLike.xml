@@ -15,4 +15,6 @@
 	<select id="CommentLikeCountDao" resultType="int">
 		SELECT COUNT(*) FROM commentlike WHERE commentidx=${param1}
 	</select>
+	
+	
 </mapper>

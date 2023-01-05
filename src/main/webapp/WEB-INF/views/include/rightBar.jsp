@@ -28,21 +28,32 @@
 <!-- 본인 닉네임 -->
 <div class="card-body"> 
    	<img class ="rounded-circle me-2" src="/resources/uploadfiles/${minfo.profileName}"  width="30" height="30" alt="..." >
-   		<span style="font-size:16px; font-weight:bold;"><%=snick %></span>
+   		<span style="font-size:16px; font-weight:bold;"><%=snick %></span><br>
    		<span style="font-size:14px; font-weight:bold; color:#969696; margin-left:15px;">point :<fmt:formatNumber value="${minfo.point }" pattern="#,###,###,###"/>p</span>
 		<hr>
 <!-- 본인 닉네임끝 -->		
 		
 <!--  구매관련 정보조회 시작 -->
 <form action="search">
+		<div class="input-group mb-3" >
+		  <label for="type" class="input-group-text" style="height:25px;">물품종류 </label> 
+			<select id="type" name="type" size="1" class="btn btn-outline-secondary" style="height:25px;padding:0px;font-size: 14px;">
+				<option value="">선택하세요.</option>
+				<option value="생활가전">생활가전</option>
+				<option value="스포츠/레저">스포츠/레저</option>
+				<option value="의류">의류</option>
+				<option value="디지털기기">디지털기기</option>
+				<option value="취미/게임/음반">취미/게임/음반</option>
+				<option value="도서">도서</option>
+				<option value="티켓/교환권">티켓/교환권</option>
+				<option value="기타 중고물품">기타 중고물품<option>
+			</select>
+		</div>
 		<div class="input-group mb-3">
 		  <span class="input-group-text" id="basic-addon1" style="font-size: 15px; height: 20px;">지역</span>
 		  <input type="text" name="tradeplace" class="form-control" placeholder="ex)구월동" aria-label="Username" aria-describedby="basic-addon1" style="height: 20px; font-size: 15px;">
 		</div>
-		<div class="input-group mb-3">
-		  <span class="input-group-text" id="basic-addon1" style="font-size: 15px; height: 20px;">제품</span>
-		  <input type="text" name="type" class="form-control" placeholder="ex)구월동" aria-label="Username" aria-describedby="basic-addon1" style="height: 20px; font-size: 15px;">
-		</div>
+		
 		
 		<div><button type="submit" class="btn btn-outline-primary"
         style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .55rem; --bs-btn-font-size: .75rem; width: 100%; font-size: 15px; height: 25px;">검색</button></div>

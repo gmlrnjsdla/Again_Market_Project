@@ -91,7 +91,12 @@ public class ContentController {
 		
 		model.addAttribute("minfo", dto);
 		model.addAttribute("id", dto.getId()); 
-	
+		
+		//=============================== 사이드바 구매요청 뱃지 ===============================
+		String sid = (String)session.getAttribute("sessionId");
+		int buyrequestCount = dao.buyrequestCountDao(sid);
+		model.addAttribute("buyrequestCount", buyrequestCount);
+				
 		//찜 수
 		int follower = dao.followerCountDao(id);
 		model.addAttribute("follower", follower);

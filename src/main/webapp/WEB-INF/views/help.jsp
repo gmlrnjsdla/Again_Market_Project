@@ -9,8 +9,9 @@
 <title>help</title>
 <style>
 p{
-font-size: 20px;
+font-size: 14px;
 width: 480px;
+color:#6a6a6b
 }
 </style>
 

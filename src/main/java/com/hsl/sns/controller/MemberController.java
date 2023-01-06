@@ -219,9 +219,9 @@ public class MemberController {
 	
 		//업로드 파일 상대경로 지정
 		Path path = Paths.get("");
-        String fileUrl = path.toAbsolutePath().toString();
-        fileUrl = fileUrl+"/src/main/resources/static/uploadfiles/";
-		System.out.println(fileUrl);
+//        String fileUrl = path.toAbsolutePath().toString();
+//        fileUrl = fileUrl+"/src/main/resources/static/uploadfiles/";
+		String fileUrl = "/var/lib/tomcat9/webapps/AgainMarket/WEB-INF/classes/static/uploadfiles/";
 		
 //				String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";
 //				String fileUrl = "C:/Users/user.JY-20200602UADW/git/SNS_Project/src/main/resources/static/uploadfiles/";

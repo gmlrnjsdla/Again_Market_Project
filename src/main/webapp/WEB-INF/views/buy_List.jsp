@@ -20,7 +20,7 @@
  		<table border="0" cellpadding= "0" cellspacing="0" width="600" height="110" style="margin-bottom:0px; position:relative;">
 		  	<tr colspan="3">
 		  		<td width="40%" rowspan="4" align="center">
-		  			<img class ="rounded-circle me-2" src="/resources/uploadfiles/${minfo.profileName}" alt="..." width="120" height="120" >
+		  			<img class ="rounded-circle me-2" src="${pageContext.request.contextPath }/resources/uploadfiles/${minfo.profileName}" alt="..." width="120" height="120" >
 		  		</td>
 		  		<td height="20%" colspan="3">
 		  			<div id = "profile01">${minfo.nick}
@@ -83,7 +83,7 @@
 	     <a href="content_view?postidx=${bList.postidx}" style="text-decoration: none; color:black;"> 
 	      <c:forEach items="${uList }" var="uList">
 	      	<c:if test="${uList.postDto.postidx == bList.postidx }">
-				<img src="/resources/uploadfiles/${uList.fileName}" width="100" height="150" class="card-img-top" alt="...">
+				<img src="${pageContext.request.contextPath }/resources/uploadfiles/${uList.fileName}" width="100" height="150" class="card-img-top" alt="...">
 			</c:if>
 	      </c:forEach>
 		      <div class="card-body" style="height: 150px;padding:10px;">

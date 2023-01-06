@@ -30,7 +30,7 @@
 
 
 <div class="card" style="margin-top:200px; margin-bottom:300px; margin-left:680px; width: 520px; height:300px; border:1px solid #dddddd; border-radius:5px;">
-<form action="/message_send" name="send_frm">
+<form action="message_send" name="send_frm">
   <div class="row mb-3">
   	<input type="hidden" name="room" value=0>
     <label for="inputEmail3" class="col-sm-2 col-form-label">닉네임</label>

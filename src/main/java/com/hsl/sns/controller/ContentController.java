@@ -282,7 +282,7 @@ public class ContentController {
 	}
 	
 	
-	@RequestMapping(value = "content_write")
+	@RequestMapping(value = "/content_write")
 	public String content_write(HttpSession session, Model model) {
 		
 		sidebar(session,model);	
@@ -326,9 +326,9 @@ public class ContentController {
 				
 				//업로드 파일 상대경로 지정
 				Path path = Paths.get("");
-		        String fileUrl = path.toAbsolutePath().toString();
-		        fileUrl = fileUrl+"/src/main/resources/static/uploadfiles/";
-				
+//		        String fileUrl = path.toAbsolutePath().toString();
+//		        fileUrl = fileUrl+"/src/main/resources/static/uploadfiles/";
+				String fileUrl = "/var/lib/tomcat9/webapps/AgainMarket/WEB-INF/classes/static/uploadfiles/";
 				
 				
 			
@@ -416,7 +416,7 @@ public class ContentController {
 	
 
 	
-	@RequestMapping(value = "buy_tradeView")
+	@RequestMapping(value = "/buy_tradeView")
 	public String buy_tradeView(HttpServletRequest request, HttpSession session, Model model) {
 		sidebar(session,model);
 		
@@ -434,7 +434,7 @@ public class ContentController {
 		return "buy_tradeView";
 	}
 	
-	@RequestMapping(value = "buy_cancel")
+	@RequestMapping(value = "/buy_cancel")
 	public String buy_cancel(HttpServletRequest request, HttpSession session, Model model) {
 		sidebar(session,model);
 		IDao dao = sqlSession.getMapper(IDao.class);
@@ -447,7 +447,7 @@ public class ContentController {
 	}
 	
 	
-	@RequestMapping(value = "sell_tradeView")
+	@RequestMapping(value = "/sell_tradeView")
 	public String sell_tradeView(HttpServletRequest request, HttpSession session, Model model) {
 		sidebar(session,model);
 		
@@ -468,7 +468,7 @@ public class ContentController {
 		return "sell_tradeView";
 	}
 	
-	@RequestMapping(value = "buy_completed")
+	@RequestMapping(value = "/buy_completed")
 	public String buy_completed(HttpServletRequest request, HttpSession session, Model model) {
 		sidebar(session,model);
 		IDao dao = sqlSession.getMapper(IDao.class);
@@ -492,7 +492,7 @@ public class ContentController {
 		return "buy_completed";
 	}
 	
-	@RequestMapping(value = "sell_completed")
+	@RequestMapping(value = "/sell_completed")
 	public String sell_completed(HttpServletRequest request, HttpSession session, Model model) {
 		sidebar(session,model);
 		IDao dao = sqlSession.getMapper(IDao.class);
@@ -529,7 +529,7 @@ public class ContentController {
 		return "sell_completed";
 	}
 	
-	@RequestMapping(value = "commentOk")
+	@RequestMapping(value = "/commentOk")
 	public String commentOk(HttpServletRequest request,HttpSession session,Model model, HttpServletResponse response) {
 		sidebar(session,model);
 		
@@ -575,7 +575,7 @@ public class ContentController {
 		return String.format("redirect:/content_view?postidx=%s", postidx);
 	}
 	
-	@RequestMapping(value = "content_modify")
+	@RequestMapping(value = "/content_modify")
 	public String content_modify(HttpServletRequest request, HttpSession session, Model model) {
 		sidebar(session,model);
 		IDao dao = sqlSession.getMapper(IDao.class);
@@ -596,7 +596,7 @@ public class ContentController {
 	
 	
 	
-@RequestMapping(value = "content_modifyOk")
+@RequestMapping(value = "/content_modifyOk")
 public String content_modifyOk(HttpServletRequest request, HttpSession session, Model model, HttpServletResponse response) {
 	sidebar(session,model);
 	IDao dao = sqlSession.getMapper(IDao.class);
@@ -614,7 +614,7 @@ public String content_modifyOk(HttpServletRequest request, HttpSession session, 
 	return String.format("redirect:/content_view?postidx=%s", postidx);
 }
 	
-@RequestMapping(value = "delete_content")
+@RequestMapping(value = "/delete_content")
 public String delete_content(HttpServletRequest request,Model model, HttpSession session) {
 	
 	sidebar(session,model);

@@ -62,7 +62,7 @@
 	</form>
 	</div>
 	<div class="btn_member_jion">
-		계정이 있으신가요?<a href="/login">&nbsp;&nbsp;로그인</a>
+		계정이 있으신가요?<a href="login">&nbsp;&nbsp;로그인</a>
 	</div>
 	<div class="wqb_write">
 		앱을 다운로드하세요.	

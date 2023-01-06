@@ -28,7 +28,7 @@
 		  		</td>
 		  		
 		  		<td width="15%"  align="center" rowspan="2" >
-		  			<img class ="rounded-circle me-2" src="/resources/uploadfiles/${minfo.profileName} " alt="..." width="70" height="70" >
+		  			<img class ="rounded-circle me-2" src="${pageContext.request.contextPath }/resources/uploadfiles/${minfo.profileName} " alt="..." width="70" height="70" >
 		  		
 		  		</td>
 		  		
@@ -86,7 +86,7 @@
 	
 	  <div class="col" >
 	    <div class="card">
-				<img src="/resources/uploadfiles/${sList.fileName}" width="100" height="230" class="card-img-top" alt="...">
+				<img src="${pageContext.request.contextPath }/resources/uploadfiles/${sList.fileName}" width="100" height="230" class="card-img-top" alt="...">
 
 		      
 		      <div class="card-body" style=";padding:10px;">

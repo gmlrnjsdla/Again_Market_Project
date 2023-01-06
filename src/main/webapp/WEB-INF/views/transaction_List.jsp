@@ -81,7 +81,7 @@
 	     <a href="content_view?postidx=${tList.postidx}" style="text-decoration: none; color:black;"> 
 	      <c:forEach items="${uList }" var="uList">
 	      	<c:if test="${uList.postDto.postidx == tList.postidx }">
-				<img src="/resources/uploadfiles/${uList.fileName}" width="100" height="150" class="card-img-top" alt="...">
+				<img src="${pageContext.request.contextPath }/resources/uploadfiles/${uList.fileName}" width="100" height="150" class="card-img-top" alt="...">
 			</c:if>
 	      </c:forEach>
 		      <div class="card-body" style="height: 150px;padding:10px;">

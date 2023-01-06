@@ -28,7 +28,7 @@
  	<div class="content_img" >
  	<c:forEach items="${postUrlList}" var="pList">
  		<c:if test="${pList.postidx == post.postidx }">
-			<img src="/resources/uploadfiles/${pList.fileName}" width="580" height="520"  alt="..." >
+			<img src="${pageContext.request.contextPath }/resources/uploadfiles/${pList.fileName}" width="580" height="520"  alt="..." >
 		</c:if>
 	</c:forEach>
 	

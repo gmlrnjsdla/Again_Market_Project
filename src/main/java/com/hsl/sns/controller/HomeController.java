@@ -204,7 +204,7 @@ public class HomeController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "follow")
+	@RequestMapping(value = "/follow")
 	public String follow(HttpServletRequest request) {
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
@@ -223,7 +223,7 @@ public class HomeController {
 	}
 	
 	//content_view 에서 눌렀을때
-	@RequestMapping(value = "follow1")
+	@RequestMapping(value = "/follow1")
 	public String follow1(HttpServletRequest request) {
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
@@ -241,7 +241,7 @@ public class HomeController {
 		return String.format("redirect:/content_view?postidx=%s", followcontent);
 	}
 	
-	@RequestMapping(value = "search")
+	@RequestMapping(value = "/search")
 	public String search(Model model, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
 		sidebar(session,model);
 		
@@ -488,9 +488,9 @@ public class HomeController {
 		
 		//업로드 파일 상대경로 지정
 		Path path = Paths.get("");
-        String fileUrl = path.toAbsolutePath().toString();
-        fileUrl = fileUrl+"/src/main/resources/static/uploadfiles/";
-		
+//        String fileUrl = path.toAbsolutePath().toString();
+//        fileUrl = fileUrl+"/src/main/resources/static/uploadfiles/";
+        String fileUrl = "/var/lib/tomcat9/webapps/AgainMarket/WEB-INF/classes/static/uploadfiles/";
 		
 			
 //		String fileUrl = "C:/Users/ici/git/SNS_Project/src/main/resources/static/uploadfiles/";

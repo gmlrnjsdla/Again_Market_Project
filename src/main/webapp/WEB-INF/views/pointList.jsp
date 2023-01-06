@@ -38,7 +38,7 @@
  		<table border="0" cellpadding= "0" cellspacing="0" width="800" height="50" style="margin-bottom:0px; position:relative;">
 		  	<tr colspan="2">
 		  		<td width="20%" rowspan="4" align="center">
-		  			<img class ="rounded-circle me-2" src="/resources/uploadfiles/${minfo.profileName} " alt="..." width="70" height="70" >
+		  			<img class ="rounded-circle me-2" src="${pageContext.request.contextPath }/resources/uploadfiles/${minfo.profileName} " alt="..." width="70" height="70" >
 		  		
 		  		</td>
 		  		<td height="20%" colspan="3">

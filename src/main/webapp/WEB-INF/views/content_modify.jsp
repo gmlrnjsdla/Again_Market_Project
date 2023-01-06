@@ -28,7 +28,7 @@
       <c:forEach items="${iList }" var="iList" >
 	    <div >
 	    <br>
-		<img src="/resources/uploadfiles/${iList.fileName}" style="width:200px;" >
+		<img src="${pageContext.request.contextPath }/resources/uploadfiles/${iList.fileName}" style="width:200px;" >
 	    </div>
 	</c:forEach>
       </div>

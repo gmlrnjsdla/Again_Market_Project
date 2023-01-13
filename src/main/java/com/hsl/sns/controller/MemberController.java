@@ -242,12 +242,12 @@ public class MemberController {
 		//add thorws declaration	
 				
 		int flag = dao.profileModifyDao(sid, destinationFileName, fileUrl, fileExtension);
-		if(flag == 1) {
+		if(flag == 0) {
 			PrintWriter out;
 			try {
 				response.setContentType("text/html;charset=utf-8");
 				out = response.getWriter();
-				out.println("<script>alert('프로필 사진 변경 성공!');history.go(-1);</script>");
+				out.println("<script>alert('프로필 사진 실패! 다시 확인해주세요!');hisory.go(-1);</script>");
 				out.flush();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -255,7 +255,7 @@ public class MemberController {
 			}
 		}
 		
-		return "redirect:memberModify";
+		return String.format("redirect:/sell_List?id=%s", sid);
 	}
 	
 	@RequestMapping(value = "/memberModifyOk")

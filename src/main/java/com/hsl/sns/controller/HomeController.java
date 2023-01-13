@@ -395,13 +395,15 @@ public class HomeController {
 			String explain = "상품 구매 "+point+"p";
 			dao.pointMinus(point, sid);
 			dao.pointMinusDao(sid, point, currentPoint, explain);
+			
+			String title = request.getParameter("title");
+			
+			String id= mdto.getId();
+			String phone = mdto.getPhone();
+			
+			dao.pointProductDao(title, id, address, phone);
 		}
-		String title = request.getParameter("title");
 		
-		String id= mdto.getId();
-		String phone = mdto.getPhone();
-		
-		dao.pointProductDao(title, id, address, phone);
 
 		return "pointshop_completed";
 	}

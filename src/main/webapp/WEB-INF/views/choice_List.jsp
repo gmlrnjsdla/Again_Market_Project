@@ -19,7 +19,7 @@
   <div class="card-body" style="height:150px; ">
  	<!-- 컨텐츠 헤더 -->
  		<table border="0" cellpadding= "0" cellspacing="0" width="600" height="110" style="margin-bottom:0px; position:relative;">
-		  	<tr colspan="3">
+		  	<tr>
 		  		<td width="40%" rowspan="4" align="center">
 		  			<img class ="rounded-circle me-2" src="${pageContext.request.contextPath }/resources/uploadfiles/${minfo.profileName}" alt="..." width="120" height="120" >
 		  		</td>
@@ -40,15 +40,28 @@
 	   				<%
 			   			}
 			   		%>
-					</div>
+			   		
+			   		
+					
+					
+			       	</div>
+		   		</td>
+		   		<td height="20%">
+		   			<a href="send?nick=${minfo.nick}" class="dropdown-item" style="font-size:16px; text-decoration:none; padding-left: 0px; font-weight:bold;">
+	         
+			       <button type="button" class="btn btn-outline-secondary" 
+						          style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" onclick="memberModify">
+						  		 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16"><path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/></svg>
+			       	메세지 보내기
+								</button></a>
 		   		</td>
 		  	</tr>
 		  	<tr>
 		  		<td class = "profile03" height="15%" colspan="3">${minfo.greet}</td>
 		  	</tr>
 		  	
-		  	<tr height="10%" rowspan="3">
-		  		<td>
+		  	<tr height="10%" >
+		  		<td colspan="4">
 		  		
 		  		<div class="btn-group" role="group" >
 					  
@@ -64,10 +77,11 @@
 					  <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" onclick="script:window.location='transaction_List?id=<%=id%>'">
 					  <label class="btn btn-outline-secondary" for="btnradio4" style="font-size: 12px;">예약완료(${trc})</label>
 					</div>
- 
+
 		  		</td>
 		  	</tr>
 
+		  	
 	   </table>
   </div>
   	<hr style="margin:30px;">

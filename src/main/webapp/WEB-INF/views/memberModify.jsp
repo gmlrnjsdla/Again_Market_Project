@@ -47,7 +47,7 @@
 				<label class="input-file-button" for="btnAtt" accept="image/*" onchange="setThumbnail(event);" 
 						style="height:30px; margin-top:10px;background-color:gray ;padding:2px 5px 0 5px;font-size: 15px; font-weight: normal;"> 사진 첨부</label>
 				<input type="file" id="btnAtt" name="files" accept=".gif, .jpg, .png" style="display:none;"/>
-				<input type="button" class="btn btn-primary" value="프로필 변경" onclick="profileCheck()">
+				<input type="button" class="btn btn-primary" value="사진 변경" onclick="profileCheck()">
 				</form>
 			  	<script>
 				( /* att_zone : 이미지들이 들어갈 위치 id, btn : file tag id */

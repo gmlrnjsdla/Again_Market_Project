@@ -110,7 +110,7 @@
 
 <!-- 컨텐츠 내용입력 -->
 
-<div class="content_write_form02">
+<div class="content_write_form03">
 <div class="card" style="width: 350px; height:750px; border:1px solid #dddddd; border-radius:5px;">
   <div class="card-body"> 
 		<div class="mb-3">
